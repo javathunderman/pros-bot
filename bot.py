@@ -9,7 +9,7 @@ import vegan
 
 from search import *
 
-with open('../pros_token.txt', 'r') as discord_file:
+with open('./pros_token.txt', 'r') as discord_file:
     DISCORD_TOKEN = discord_file.read().split(";")[0]
 print(DISCORD_TOKEN, ";")
 
@@ -36,8 +36,6 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------\n')
-    await client.send_message(client.get_channel("315552571823489024"),
-                              f"Connected at {strftime('%Y-%m-%d %H:%M:%S', gmtime())}")
 
 
 async def handle_message(message, edited=False):
@@ -47,10 +45,10 @@ async def handle_message(message, edited=False):
     if len(message.content) <= 0:
         return
     content = message.content[1:]
-    if message.content[0] == prefix or client.user in message.mentions or message.channel.is_private:
+    if message.content[0] == prefix or client.user in message.mentions or message.channel.type == "private":
         if client.user in message.mentions:
             content = " ".join(message.content.split(f"<@{client.user.id}>")).strip()
-        if message.channel.is_private:
+        if message.channel.type == "private":
             content = message.content
         result = ""
         ment = message.mentions
@@ -79,7 +77,7 @@ async def handle_message(message, edited=False):
                 if edited:
                     await client.edit_message(lastMessage, embed=em)
                 else:
-                    lastMessage = await client.send_message(o, embed=em)
+                    lastMessage = await o.send(em)
             else:
                 try:
                     tdata = search(c)[0]
@@ -113,7 +111,7 @@ async def handle_message(message, edited=False):
                         if edited:
                             await client.edit_message(lastMessage, embed=em)
                         else:
-                            lastMessage = await client.send_message(o, embed=em)
+                            lastMessage = await o.send(em)
         elif content.startswith("tutorial "):
             c = content[9:].strip()
             url = tutorial + c
@@ -143,14 +141,14 @@ async def handle_message(message, edited=False):
             if edited:
                 await client.edit_message(lastMessage, embed=em)
             else:
-                lastMessage = await client.send_message(o, embed=em)
+                lastMessage = await o.send(em)
         elif content.lower().startswith("epoch") or content.lower().startswith("time")\
                 or content.lower().startswith("unix"):
             em = discord.Embed(title="Current Time", description=epoch(), color=discord.Color(randint(0, 16777215)))
             if edited:
                 await client.edit_message(lastMessage, embed=em)
             else:
-                lastMessage = await client.send_message(o, embed=em)
+                lastMessage = await o.send(em)
         elif content.lower().strip().startswith("help"):
             if o is message.channel:
                 o = message.author
@@ -168,7 +166,7 @@ async def handle_message(message, edited=False):
             if edited:
                 await client.edit_message(lastMessage, embed=em)
             else:
-                lastMessage = await client.send_message(o, embed=em)
+                lastMessage = await o.send(em)
         elif re.match("ping.*", content.lower().strip(" !.,?;'\"")) or re.match("pong.*", content.lower().strip(" !.,?;'\"")):
             title = content.lower().strip(" !.,?;'\"").replace("ing", "fefrfgtrhy78383938228").replace("ong", "ing").replace("fefrfgtrhy78383938228", "ong").title() + "!"
             epoch()
@@ -176,14 +174,14 @@ async def handle_message(message, edited=False):
             if edited:
                 msg = await client.edit_message(lastMessage, embed=discord.Embed(title=title))
             else:
-                msg = await client.send_message(message.channel, embed=discord.Embed(title=title))
+                msg = await o.send(discord.Embed(title=title))
             tdif = str(float(Epoch()) - tlast)
             if edited:
-                await client.edit_message(lastMessage,
+                await lastMessage.edit(content=None,
                                           embed=discord.Embed(title=title, description=tdif,
                                                               color=discord.Color(randint(0, 1677215))))
             else:
-                lastMessage = await client.edit_message(msg, new_content="",
+                lastMessage = await msg.edit(content=None,
                                                         embed=discord.Embed(title=title, description=tdif,
                                                                             color=discord.Color(randint(0, 16777215))))
         elif "creator" in content and "not" not in content:
@@ -193,7 +191,7 @@ async def handle_message(message, edited=False):
             if edited:
                 await client.edit_message(lastMessage, embed=em)
             else:
-                lastMessage = await client.send_message(o, embed=em)
+                lastMessage = await o.send(em)
     elif not edited and str(message.author.id) == "168643881066299392":
         for i in range(message.content.lower().count("vegan")):
             vegan.add()
