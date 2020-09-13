@@ -1,0 +1,173 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "namespaces",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::literals",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "namespace",
+  "location": {
+    "column": 18,
+    "file": "pros/motors.hpp",
+    "line": 828
+  },
+  "name": "pros::literals",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-operator\"\"_mtr",
+      "argsString": "(const unsigned long long int m)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "const pros::Motor pros::literals::operator\"\"_mtr",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::literals::operator\"\"_mtr",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/motors.hpp",
+        "line": 829
+      },
+      "name": "operator\"\"_mtr",
+      "override": false,
+      "params": [
+        {
+          "name": "m",
+          "type": "const unsigned long long int",
+          "typePlain": "const unsigned long long int"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1literals_1af2d5211b971e03e0fa4e072cf8bf91a0",
+      "static": false,
+      "strong": false,
+      "title": "operator\"\"_mtr",
+      "type": "const [pros::Motor](classpros_1_1Motor.md)",
+      "typePlain": "const pros::Motor",
+      "url": "namespacepros_1_1literals.md#function-operator\"\"_mtr",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator\"\"_rmtr",
+      "argsString": "(const unsigned long long int m)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "const pros::Motor pros::literals::operator\"\"_rmtr",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::literals::operator\"\"_rmtr",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/motors.hpp",
+        "line": 830
+      },
+      "name": "operator\"\"_rmtr",
+      "override": false,
+      "params": [
+        {
+          "name": "m",
+          "type": "const unsigned long long int",
+          "typePlain": "const unsigned long long int"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1literals_1ad6eb4fc1b6d77963aa9709725d368468",
+      "static": false,
+      "strong": false,
+      "title": "operator\"\"_rmtr",
+      "type": "const [pros::Motor](classpros_1_1Motor.md)",
+      "typePlain": "const pros::Motor",
+      "url": "namespacepros_1_1literals.md#function-operator\"\"_rmtr",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator\"\"_ser",
+      "argsString": "(const unsigned long long int m)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "const pros::Serial pros::literals::operator\"\"_ser",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::literals::operator\"\"_ser",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 20,
+        "file": "pros/serial.hpp",
+        "line": 225
+      },
+      "name": "operator\"\"_ser",
+      "override": false,
+      "params": [
+        {
+          "name": "m",
+          "type": "const unsigned long long int",
+          "typePlain": "const unsigned long long int"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1literals_1a1a9e53fd8b6ee7c665f6eb048129f7bd",
+      "static": false,
+      "strong": false,
+      "title": "operator\"\"_ser",
+      "type": "const [pros::Serial](classpros_1_1Serial.md)",
+      "typePlain": "const pros::Serial",
+      "url": "namespacepros_1_1literals.md#function-operator\"\"_ser",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "namespacepros_1_1literals",
+  "static": false,
+  "strong": false,
+  "title": "pros::literals",
+  "url": "namespacepros_1_1literals.md",
+  "visibility": "public"
+}

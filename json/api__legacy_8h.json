@@ -1,0 +1,1794 @@
+{
+  "abstract": false,
+  "anchor": "#file-api_legacy.h",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-_namespace",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "_NAMESPACE",
+      "hasDetails": false,
+      "initializer": "pros::",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 27,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 27
+      },
+      "name": "_NAMESPACE",
+      "override": false,
+      "refid": "api__legacy_8h_1aa55329e1782188be14fc5cf934b7d743",
+      "static": false,
+      "strong": false,
+      "title": "_NAMESPACE",
+      "url": "api__legacy_8h.md#define-_namespace",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-_cnamespace",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "_CNAMESPACE",
+      "hasDetails": false,
+      "initializer": "pros::c::",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 28,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 28
+      },
+      "name": "_CNAMESPACE",
+      "override": false,
+      "refid": "api__legacy_8h_1a22cb444e687fbbe1070152436fd360b3",
+      "static": false,
+      "strong": false,
+      "title": "_CNAMESPACE",
+      "url": "api__legacy_8h.md#define-_cnamespace",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-analogcalibrate",
+      "brief": "From [adi.h](adi_8h.md#file-adi.h). ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "analogCalibrate",
+      "hasDetails": false,
+      "initializer": "adi_analog_calibrate(port)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 37,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 37
+      },
+      "name": "analogCalibrate",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a23f9f88f445aff04581939326b2e496e",
+      "static": false,
+      "strong": false,
+      "summary": "From adi.h. ",
+      "title": "analogCalibrate",
+      "url": "api__legacy_8h.md#define-analogcalibrate",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-analogread",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "analogRead",
+      "hasDetails": false,
+      "initializer": "adi_analog_read(port)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 38,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 38
+      },
+      "name": "analogRead",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a90be267f55ad0c953e7d7c4097bfa284",
+      "static": false,
+      "strong": false,
+      "title": "analogRead",
+      "url": "api__legacy_8h.md#define-analogread",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-analogreadcalibrated",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "analogReadCalibrated",
+      "hasDetails": false,
+      "initializer": "adi_analog_read_calibrated(port)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 39,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 39
+      },
+      "name": "analogReadCalibrated",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1aaada39e485420ec062980d6c4c9d3216",
+      "static": false,
+      "strong": false,
+      "title": "analogReadCalibrated",
+      "url": "api__legacy_8h.md#define-analogreadcalibrated",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-analogreadcalibratedhr",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "analogReadCalibratedHR",
+      "hasDetails": false,
+      "initializer": "adi_analog_read_calibrated_HR(port)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 40,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 40
+      },
+      "name": "analogReadCalibratedHR",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a2496750b64c0199205781ca2ead3e177",
+      "static": false,
+      "strong": false,
+      "title": "analogReadCalibratedHR",
+      "url": "api__legacy_8h.md#define-analogreadcalibratedhr",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-digitalread",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "digitalRead",
+      "hasDetails": false,
+      "initializer": "adi_digital_read(port)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 41,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 41
+      },
+      "name": "digitalRead",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a5e1ab0d6298955345db8c331edc80a58",
+      "static": false,
+      "strong": false,
+      "title": "digitalRead",
+      "url": "api__legacy_8h.md#define-digitalread",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-digitalwrite",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "digitalWrite",
+      "hasDetails": false,
+      "initializer": "adi_digital_write(port, value)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 42,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 42
+      },
+      "name": "digitalWrite",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "value",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1adb913cfa785a73cbf719b115b9f9e22a",
+      "static": false,
+      "strong": false,
+      "title": "digitalWrite",
+      "url": "api__legacy_8h.md#define-digitalwrite",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-pinmode",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "pinMode",
+      "hasDetails": false,
+      "initializer": "adi_pin_mode(port, mode)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 43,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 43
+      },
+      "name": "pinMode",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "mode",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1af2e89c35bc3769cbec127a4b5ca7ffcf",
+      "static": false,
+      "strong": false,
+      "title": "pinMode",
+      "url": "api__legacy_8h.md#define-pinmode",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-adimotorset",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "adiMotorSet",
+      "hasDetails": false,
+      "initializer": "adi_motor_set(port, speed)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 44,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 44
+      },
+      "name": "adiMotorSet",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "speed",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1aaf928c569f0e816d18f14de385fb1731",
+      "static": false,
+      "strong": false,
+      "title": "adiMotorSet",
+      "url": "api__legacy_8h.md#define-adimotorset",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-adimotorget",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "adiMotorGet",
+      "hasDetails": false,
+      "initializer": "adi_motor_get(port)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 45,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 45
+      },
+      "name": "adiMotorGet",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1acf08cc9b2d58cb1638a8902dd20e6ee8",
+      "static": false,
+      "strong": false,
+      "title": "adiMotorGet",
+      "url": "api__legacy_8h.md#define-adimotorget",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-adimotorstop",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "adiMotorStop",
+      "hasDetails": false,
+      "initializer": "adi_motor_stop(port)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 46,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 46
+      },
+      "name": "adiMotorStop",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a52cd09f0731dee60718d1320093c14a9",
+      "static": false,
+      "strong": false,
+      "title": "adiMotorStop",
+      "url": "api__legacy_8h.md#define-adimotorstop",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-encoderget",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "encoderGet",
+      "hasDetails": false,
+      "initializer": "adi_encoder_get(enc)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 47,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 47
+      },
+      "name": "encoderGet",
+      "override": false,
+      "params": [
+        {
+          "name": "enc",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1aa85905ad8a4985cd507dbf924ba34e23",
+      "static": false,
+      "strong": false,
+      "title": "encoderGet",
+      "url": "api__legacy_8h.md#define-encoderget",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-encoderinit",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "encoderInit",
+      "hasDetails": false,
+      "initializer": "adi_encoder_init(portTop, portBottom, reverse)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 48,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 48
+      },
+      "name": "encoderInit",
+      "override": false,
+      "params": [
+        {
+          "name": "portTop",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "portBottom",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "reverse",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a2707074375f9b95b1e80fbdd17a2f331",
+      "static": false,
+      "strong": false,
+      "title": "encoderInit",
+      "url": "api__legacy_8h.md#define-encoderinit",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-encodershutdown",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "encoderShutdown",
+      "hasDetails": false,
+      "initializer": "adi_encoder_shutdown(enc)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 49,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 49
+      },
+      "name": "encoderShutdown",
+      "override": false,
+      "params": [
+        {
+          "name": "enc",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1af3f65b5255b8bbb863b80b4a2ccbb442",
+      "static": false,
+      "strong": false,
+      "title": "encoderShutdown",
+      "url": "api__legacy_8h.md#define-encodershutdown",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-ultrasonicget",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "ultrasonicGet",
+      "hasDetails": false,
+      "initializer": "adi_ultrasonic_get(ult)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 50,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 50
+      },
+      "name": "ultrasonicGet",
+      "override": false,
+      "params": [
+        {
+          "name": "ult",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1abe9f5fcab5942a332b9281940ca9e9c1",
+      "static": false,
+      "strong": false,
+      "title": "ultrasonicGet",
+      "url": "api__legacy_8h.md#define-ultrasonicget",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-ultrasonicinit",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "ultrasonicInit",
+      "hasDetails": false,
+      "initializer": "adi_ultrasonic_init(portEcho, portPing)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 51,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 51
+      },
+      "name": "ultrasonicInit",
+      "override": false,
+      "params": [
+        {
+          "name": "portEcho",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "portPing",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a5bc866a8ec3d826f288dcf1258f049a1",
+      "static": false,
+      "strong": false,
+      "title": "ultrasonicInit",
+      "url": "api__legacy_8h.md#define-ultrasonicinit",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-ultrasonicshutdown",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "ultrasonicShutdown",
+      "hasDetails": false,
+      "initializer": "adi_ultrasonic_shutdown(ult)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 52,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 52
+      },
+      "name": "ultrasonicShutdown",
+      "override": false,
+      "params": [
+        {
+          "name": "ult",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a37847f92c4b7362093257c3625ea4904",
+      "static": false,
+      "strong": false,
+      "title": "ultrasonicShutdown",
+      "url": "api__legacy_8h.md#define-ultrasonicshutdown",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-lcdinit",
+      "brief": "From [llemu.h](). ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "lcdInit",
+      "hasDetails": false,
+      "initializer": "lcd_initialize",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 60,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 60
+      },
+      "name": "lcdInit",
+      "override": false,
+      "refid": "api__legacy_8h_1aa49fdcb6b990eaa38d999567bd9fc141",
+      "static": false,
+      "strong": false,
+      "summary": "From llemu.h. ",
+      "title": "lcdInit",
+      "url": "api__legacy_8h.md#define-lcdinit",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-lcdreadbuttons",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "lcdReadButtons",
+      "hasDetails": false,
+      "initializer": "lcd_read_buttons",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 61,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 61
+      },
+      "name": "lcdReadButtons",
+      "override": false,
+      "refid": "api__legacy_8h_1a6c34a23c826b70141c1033e9cbc09e52",
+      "static": false,
+      "strong": false,
+      "title": "lcdReadButtons",
+      "url": "api__legacy_8h.md#define-lcdreadbuttons",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-lcdclear",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "lcdClear",
+      "hasDetails": false,
+      "initializer": "lcd_clear",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 62,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 62
+      },
+      "name": "lcdClear",
+      "override": false,
+      "refid": "api__legacy_8h_1a3298f845ff9d88687ee90bf4b033f7c5",
+      "static": false,
+      "strong": false,
+      "title": "lcdClear",
+      "url": "api__legacy_8h.md#define-lcdclear",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-lcdclearline",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "lcdClearLine",
+      "hasDetails": false,
+      "initializer": "lcd_clear_line",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 63,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 63
+      },
+      "name": "lcdClearLine",
+      "override": false,
+      "refid": "api__legacy_8h_1a72cf6635bf2b7480c0efedd3b0915377",
+      "static": false,
+      "strong": false,
+      "title": "lcdClearLine",
+      "url": "api__legacy_8h.md#define-lcdclearline",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-lcdshutdown",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "lcdShutdown",
+      "hasDetails": false,
+      "initializer": "lcd_shutdown",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 64,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 64
+      },
+      "name": "lcdShutdown",
+      "override": false,
+      "refid": "api__legacy_8h_1aca0639f819f9cc8535f0a450951b59fb",
+      "static": false,
+      "strong": false,
+      "title": "lcdShutdown",
+      "url": "api__legacy_8h.md#define-lcdshutdown",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-lcdprint",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "lcdPrint",
+      "hasDetails": false,
+      "initializer": "lcd_print(line, fmt, __VA_ARGS__)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 65,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 65
+      },
+      "name": "lcdPrint",
+      "override": false,
+      "params": [
+        {
+          "name": "line",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fmt",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "...",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a3847a425a6f6706d240fd7128bee0150",
+      "static": false,
+      "strong": false,
+      "title": "lcdPrint",
+      "url": "api__legacy_8h.md#define-lcdprint",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-lcdsettext",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "lcdSetText",
+      "hasDetails": false,
+      "initializer": "lcd_set_text(line, text)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 66,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 66
+      },
+      "name": "lcdSetText",
+      "override": false,
+      "params": [
+        {
+          "name": "line",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "text",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a6345e5387a23ac61ab21e72eb0e20733",
+      "static": false,
+      "strong": false,
+      "title": "lcdSetText",
+      "url": "api__legacy_8h.md#define-lcdsettext",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-isenabled",
+      "brief": "From [misc.h](). ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "isEnabled",
+      "hasDetails": false,
+      "initializer": "(![competition_is_disabled](misc_8h.md#define-competition_is_disabled)())",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 71,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 71
+      },
+      "name": "isEnabled",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a0a9f6ed134c6dba0f92f2dfad16509b4",
+      "static": false,
+      "strong": false,
+      "summary": "From misc.h. ",
+      "title": "isEnabled",
+      "url": "api__legacy_8h.md#define-isenabled",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-isautonomous",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "isAutonomous",
+      "hasDetails": false,
+      "initializer": "[competition_is_autonomous](misc_8h.md#define-competition_is_autonomous)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 72,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 72
+      },
+      "name": "isAutonomous",
+      "override": false,
+      "refid": "api__legacy_8h_1a9c23d1ce7e3f4c93f45176ae65433023",
+      "static": false,
+      "strong": false,
+      "title": "isAutonomous",
+      "url": "api__legacy_8h.md#define-isautonomous",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-isonline",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "isOnline",
+      "hasDetails": false,
+      "initializer": "[competition_is_connected](misc_8h.md#define-competition_is_connected)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 73,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 73
+      },
+      "name": "isOnline",
+      "override": false,
+      "refid": "api__legacy_8h_1acbd78ea9b79552c65dbb3c3f5efd4142",
+      "static": false,
+      "strong": false,
+      "title": "isOnline",
+      "url": "api__legacy_8h.md#define-isonline",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-isjoystickconnected",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "isJoystickConnected",
+      "hasDetails": false,
+      "initializer": "controller_is_connected(id)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 74,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 74
+      },
+      "name": "isJoystickConnected",
+      "override": false,
+      "params": [
+        {
+          "name": "id",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1aa7a6878abeccf3199b46ce0a56342911",
+      "static": false,
+      "strong": false,
+      "title": "isJoystickConnected",
+      "url": "api__legacy_8h.md#define-isjoystickconnected",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-joystickgetanalog",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "joystickGetAnalog",
+      "hasDetails": false,
+      "initializer": "controller_get_analog(id, channel)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 75,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 75
+      },
+      "name": "joystickGetAnalog",
+      "override": false,
+      "params": [
+        {
+          "name": "id",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "channel",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1ad12aac95f41611c17c25742986d9976f",
+      "static": false,
+      "strong": false,
+      "title": "joystickGetAnalog",
+      "url": "api__legacy_8h.md#define-joystickgetanalog",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskcreate",
+      "brief": "From [rtos.h](). ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskCreate",
+      "hasDetails": false,
+      "initializer": "task_create(taskCode, parameters, priority, stackDepth, \"\")",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 80,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 80
+      },
+      "name": "taskCreate",
+      "override": false,
+      "params": [
+        {
+          "name": "taskCode",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "stackDepth",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "parameters",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "priority",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a56e96a12230390742b84920c0b401256",
+      "static": false,
+      "strong": false,
+      "summary": "From rtos.h. ",
+      "title": "taskCreate",
+      "url": "api__legacy_8h.md#define-taskcreate",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskdelete",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskDelete",
+      "hasDetails": false,
+      "initializer": "task_delete(task)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 82,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 82
+      },
+      "name": "taskDelete",
+      "override": false,
+      "params": [
+        {
+          "name": "task",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a18290433866e42bc99ca6891df1aa397",
+      "static": false,
+      "strong": false,
+      "title": "taskDelete",
+      "url": "api__legacy_8h.md#define-taskdelete",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskdelay",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskDelay",
+      "hasDetails": false,
+      "initializer": "task_delay",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 83,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 83
+      },
+      "name": "taskDelay",
+      "override": false,
+      "refid": "api__legacy_8h_1ae7afbda8f93c5349f77fc970f9d9ff22",
+      "static": false,
+      "strong": false,
+      "title": "taskDelay",
+      "url": "api__legacy_8h.md#define-taskdelay",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskdelayuntil",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskDelayUntil",
+      "hasDetails": false,
+      "initializer": "task_delay_until(previousWakeTime, cycleTime)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 84,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 84
+      },
+      "name": "taskDelayUntil",
+      "override": false,
+      "params": [
+        {
+          "name": "previousWakeTime",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "cycleTime",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1adacbec2414701920327496079877ad8e",
+      "static": false,
+      "strong": false,
+      "title": "taskDelayUntil",
+      "url": "api__legacy_8h.md#define-taskdelayuntil",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskpriorityget",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskPriorityGet",
+      "hasDetails": false,
+      "initializer": "task_get_priority(task)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 85,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 85
+      },
+      "name": "taskPriorityGet",
+      "override": false,
+      "params": [
+        {
+          "name": "task",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1ad66512817f263e6556a28e7aeeb1c86c",
+      "static": false,
+      "strong": false,
+      "title": "taskPriorityGet",
+      "url": "api__legacy_8h.md#define-taskpriorityget",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskpriorityset",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskPrioritySet",
+      "hasDetails": false,
+      "initializer": "task_priority_set(task, newPriority)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 86,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 86
+      },
+      "name": "taskPrioritySet",
+      "override": false,
+      "params": [
+        {
+          "name": "task",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "newPriority",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1aed2bad697b0336b0d7f446567ce2ceb4",
+      "static": false,
+      "strong": false,
+      "title": "taskPrioritySet",
+      "url": "api__legacy_8h.md#define-taskpriorityset",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskgetstate",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskGetState",
+      "hasDetails": false,
+      "initializer": "task_get_state(task)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 87,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 87
+      },
+      "name": "taskGetState",
+      "override": false,
+      "params": [
+        {
+          "name": "task",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a113b35c1afd432addc62b52b69f0be7a",
+      "static": false,
+      "strong": false,
+      "title": "taskGetState",
+      "url": "api__legacy_8h.md#define-taskgetstate",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-tasksuspend",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskSuspend",
+      "hasDetails": false,
+      "initializer": "task_suspend(task)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 88,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 88
+      },
+      "name": "taskSuspend",
+      "override": false,
+      "params": [
+        {
+          "name": "task",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a722c4db970752a105d83c037bf08b286",
+      "static": false,
+      "strong": false,
+      "title": "taskSuspend",
+      "url": "api__legacy_8h.md#define-tasksuspend",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskresume",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskResume",
+      "hasDetails": false,
+      "initializer": "task_resume(task)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 89,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 89
+      },
+      "name": "taskResume",
+      "override": false,
+      "params": [
+        {
+          "name": "task",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a56818ef15f39b75e2f77cad761e53966",
+      "static": false,
+      "strong": false,
+      "title": "taskResume",
+      "url": "api__legacy_8h.md#define-taskresume",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskgetcount",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskGetCount",
+      "hasDetails": false,
+      "initializer": "task_get_count",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 90,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 90
+      },
+      "name": "taskGetCount",
+      "override": false,
+      "refid": "api__legacy_8h_1a71c0984e8c19a3ce6f5912b39e955356",
+      "static": false,
+      "strong": false,
+      "title": "taskGetCount",
+      "url": "api__legacy_8h.md#define-taskgetcount",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-mutexcreate",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "mutexCreate",
+      "hasDetails": false,
+      "initializer": "mutex_create",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 91,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 91
+      },
+      "name": "mutexCreate",
+      "override": false,
+      "refid": "api__legacy_8h_1af6365f588f0af51030b92491254a83d2",
+      "static": false,
+      "strong": false,
+      "title": "mutexCreate",
+      "url": "api__legacy_8h.md#define-mutexcreate",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-mutextake",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "mutexTake",
+      "hasDetails": false,
+      "initializer": "mutex_take(mutex, blockTime)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 92,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 92
+      },
+      "name": "mutexTake",
+      "override": false,
+      "params": [
+        {
+          "name": "mutex",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "blockTime",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1af09a46cb66372fd81f431d914c65457f",
+      "static": false,
+      "strong": false,
+      "title": "mutexTake",
+      "url": "api__legacy_8h.md#define-mutextake",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-mutexgive",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "mutexGive",
+      "hasDetails": false,
+      "initializer": "mutex_give(mutex)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 93,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 93
+      },
+      "name": "mutexGive",
+      "override": false,
+      "params": [
+        {
+          "name": "mutex",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a0a5476ac4cb9f11c74a30bf978dd7c74",
+      "static": false,
+      "strong": false,
+      "title": "mutexGive",
+      "url": "api__legacy_8h.md#define-mutexgive",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-motorset",
+      "brief": "From [motors.h](). ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "motorSet",
+      "hasDetails": false,
+      "initializer": "motor_move(port, speed)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 101,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 101
+      },
+      "name": "motorSet",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "speed",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a59a0d6bd050cd259ad488e68f856ae81",
+      "static": false,
+      "strong": false,
+      "summary": "From motors.h. ",
+      "title": "motorSet",
+      "url": "api__legacy_8h.md#define-motorset",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-motorget",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "motorGet",
+      "hasDetails": false,
+      "initializer": "motor_get_voltage(port)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 102,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 102
+      },
+      "name": "motorGet",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a6818b7f8a192779991f6eb0cb34098a5",
+      "static": false,
+      "strong": false,
+      "title": "motorGet",
+      "url": "api__legacy_8h.md#define-motorget",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-motorstop",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "motorStop",
+      "hasDetails": false,
+      "initializer": "motor_move(port, 0)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 103,
+        "column": 9,
+        "file": "pros/api_legacy.h",
+        "line": 103
+      },
+      "name": "motorStop",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "api__legacy_8h_1a2eda82812d291d642e2d19f8cd116861",
+      "static": false,
+      "strong": false,
+      "title": "motorStop",
+      "url": "api__legacy_8h.md#define-motorstop",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "details": "PROS 2 Legacy API header\n\nContains declarations for functions that are name-compatible with the PROS 2 API. Some functions from the PROS 2 API are not useful or cannot be implemented in PROS 3, but most common functions are available.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots. All rights reserved.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/api_legacy.h",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "\"api.h\"",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/api_legacy.h",
+    "line": 0
+  },
+  "name": "pros/api_legacy.h",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/api_legacy.h\n *\n * PROS 2 Legacy API header\n *\n * Contains declarations for functions that are name-compatible with the PROS 2\n * API. Some functions from the PROS 2 API are not useful or cannot be\n * implemented in PROS 3, but most common functions are available.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n * All rights reserved.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_API_LEGACY_H_\n#define _PROS_API_LEGACY_H_\n\n#include \"api.h\"\n\n#ifdef __cplusplus\n#define _NAMESPACE pros::\n#define _CNAMESPACE pros::c::\n#else\n#define _NAMESPACE\n#define _CNAMESPACE\n#endif\n\n/**\n * From adi.h\n */\n#define analogCalibrate(port) adi_analog_calibrate(port)\n#define analogRead(port) adi_analog_read(port)\n#define analogReadCalibrated(port) adi_analog_read_calibrated(port)\n#define analogReadCalibratedHR(port) adi_analog_read_calibrated_HR(port)\n#define digitalRead(port) adi_digital_read(port)\n#define digitalWrite(port, value) adi_digital_write(port, value)\n#define pinMode(port, mode) adi_pin_mode(port, mode)\n#define adiMotorSet(port, speed) adi_motor_set(port, speed)\n#define adiMotorGet(port) adi_motor_get(port)\n#define adiMotorStop(port) adi_motor_stop(port)\n#define encoderGet(enc) adi_encoder_get(enc)\n#define encoderInit(portTop, portBottom, reverse) adi_encoder_init(portTop, portBottom, reverse)\n#define encoderShutdown(enc) adi_encoder_shutdown(enc)\n#define ultrasonicGet(ult) adi_ultrasonic_get(ult)\n#define ultrasonicInit(portEcho, portPing) adi_ultrasonic_init(portEcho, portPing)\n#define ultrasonicShutdown(ult) adi_ultrasonic_shutdown(ult)\n\ntypedef _CNAMESPACE adi_encoder_t Encoder;\ntypedef _CNAMESPACE adi_ultrasonic_t Ultrasonic;\n\n/**\n * From llemu.h\n */\n#define lcdInit lcd_initialize\n#define lcdReadButtons lcd_read_buttons\n#define lcdClear lcd_clear\n#define lcdClearLine lcd_clear_line\n#define lcdShutdown lcd_shutdown\n#define lcdPrint(line, fmt, ...) lcd_print(line, fmt, __VA_ARGS__)\n#define lcdSetText(line, text) lcd_set_text(line, text)\n\n/**\n * From misc.h\n */\n#define isEnabled() (!competition_is_disabled())\n#define isAutonomous competition_is_autonomous\n#define isOnline competition_is_connected\n#define isJoystickConnected(id) controller_is_connected(id)\n#define joystickGetAnalog(id, channel) controller_get_analog(id, channel)\n\n/**\n * From rtos.h\n */\n#define taskCreate(taskCode, stackDepth, parameters, priority) \\\n    task_create(taskCode, parameters, priority, stackDepth, \"\")\n#define taskDelete(task) task_delete(task)\n#define taskDelay task_delay\n#define taskDelayUntil(previousWakeTime, cycleTime) task_delay_until(previousWakeTime, cycleTime)\n#define taskPriorityGet(task) task_get_priority(task)\n#define taskPrioritySet(task, newPriority) task_priority_set(task, newPriority)\n#define taskGetState(task) task_get_state(task)\n#define taskSuspend(task) task_suspend(task)\n#define taskResume(task) task_resume(task)\n#define taskGetCount task_get_count\n#define mutexCreate mutex_create\n#define mutexTake(mutex, blockTime) mutex_take(mutex, blockTime)\n#define mutexGive(mutex) mutex_give(mutex)\n\ntypedef _NAMESPACE task_t TaskHandle;\ntypedef _NAMESPACE mutex_t Mutex;\n\n/**\n * From motors.h\n */\n#define motorSet(port, speed) motor_move(port, speed)\n#define motorGet(port) motor_get_voltage(port)\n#define motorStop(port) motor_move(port, 0)\n\n#undef _NAMESPACE\n#undef _CNAMESPACE\n\n#endif  // _PROS_API_LEGACY_H_",
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#typedef-encoder",
+      "category": "types",
+      "const": false,
+      "definition": "typedef _CNAMESPACE adi_encoder_t Encoder",
+      "explicit": false,
+      "fullname": "api_legacy.h::Encoder",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 54,
+        "column": 35,
+        "file": "pros/api_legacy.h",
+        "line": 54
+      },
+      "name": "Encoder",
+      "override": false,
+      "refid": "api__legacy_8h_1a8940e381be25612beae112d6a0c38d85",
+      "static": false,
+      "strong": false,
+      "title": "Encoder",
+      "type": "[_CNAMESPACE](api__legacy_8h.md#define-_cnamespace) adi_encoder_t",
+      "typePlain": "_CNAMESPACE adi_encoder_t",
+      "url": "api__legacy_8h.md#typedef-encoder",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#typedef-ultrasonic",
+      "category": "types",
+      "const": false,
+      "definition": "typedef _CNAMESPACE adi_ultrasonic_t Ultrasonic",
+      "explicit": false,
+      "fullname": "api_legacy.h::Ultrasonic",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 55,
+        "column": 38,
+        "file": "pros/api_legacy.h",
+        "line": 55
+      },
+      "name": "Ultrasonic",
+      "override": false,
+      "refid": "api__legacy_8h_1a3956d3b82898bb5fcc945afd5e92befd",
+      "static": false,
+      "strong": false,
+      "title": "Ultrasonic",
+      "type": "[_CNAMESPACE](api__legacy_8h.md#define-_cnamespace) adi_ultrasonic_t",
+      "typePlain": "_CNAMESPACE adi_ultrasonic_t",
+      "url": "api__legacy_8h.md#typedef-ultrasonic",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#typedef-taskhandle",
+      "category": "types",
+      "const": false,
+      "definition": "typedef _NAMESPACE task_t TaskHandle",
+      "explicit": false,
+      "fullname": "api_legacy.h::TaskHandle",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 95,
+        "column": 27,
+        "file": "pros/api_legacy.h",
+        "line": 95
+      },
+      "name": "TaskHandle",
+      "override": false,
+      "refid": "api__legacy_8h_1a0d9e961d287a6422639d181deae3582b",
+      "static": false,
+      "strong": false,
+      "title": "TaskHandle",
+      "type": "[_NAMESPACE](api__legacy_8h.md#define-_namespace)[task_t](kapi_8h.md#define-task_t)",
+      "typePlain": "_NAMESPACEtask_t",
+      "url": "api__legacy_8h.md#typedef-taskhandle",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#typedef-mutex",
+      "category": "types",
+      "const": false,
+      "definition": "typedef _NAMESPACE mutex_t Mutex",
+      "explicit": false,
+      "fullname": "api_legacy.h::Mutex",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/api_legacy.h",
+        "bodyStart": 96,
+        "column": 28,
+        "file": "pros/api_legacy.h",
+        "line": 96
+      },
+      "name": "Mutex",
+      "override": false,
+      "refid": "api__legacy_8h_1a112166962b6604119c700da6ee189e2d",
+      "static": false,
+      "strong": false,
+      "title": "Mutex",
+      "type": "[_NAMESPACE](api__legacy_8h.md#define-_namespace)[mutex_t](kapi_8h.md#define-mutex_t)",
+      "typePlain": "_NAMESPACEmutex_t",
+      "url": "api__legacy_8h.md#typedef-mutex",
+      "visibility": "public"
+    }
+  ],
+  "refid": "api__legacy_8h",
+  "static": false,
+  "strong": false,
+  "title": "pros/api_legacy.h",
+  "url": "api__legacy_8h.md#file-api_legacy.h",
+  "visibility": "public"
+}

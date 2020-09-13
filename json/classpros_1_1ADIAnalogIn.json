@@ -1,0 +1,639 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "ADIPort",
+      "privateAttributes": [
+        {
+          "abstract": false,
+          "anchor": "#variable-_smart_port",
+          "category": "attributes",
+          "const": false,
+          "definition": "std::uint8_t _smart_port",
+          "explicit": false,
+          "fullname": "pros::ADIPort::_smart_port",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "variable",
+          "location": {
+            "bodyFile": "pros/adi.hpp",
+            "bodyStart": 108,
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 108
+          },
+          "name": "_smart_port",
+          "override": false,
+          "refid": "classpros_1_1ADIPort_1a44a445eef95291c2673e57ed31106dd4",
+          "static": false,
+          "strong": false,
+          "title": "_smart_port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t",
+          "url": "classpros_1_1ADIPort.md#variable-_smart_port",
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "anchor": "#variable-_adi_port",
+          "category": "attributes",
+          "const": false,
+          "definition": "std::uint8_t _adi_port",
+          "explicit": false,
+          "fullname": "pros::ADIPort::_adi_port",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "variable",
+          "location": {
+            "bodyFile": "pros/adi.hpp",
+            "bodyStart": 109,
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 109
+          },
+          "name": "_adi_port",
+          "override": false,
+          "refid": "classpros_1_1ADIPort_1a4140268936472c65e97796860c95cc4a",
+          "static": false,
+          "strong": false,
+          "title": "_adi_port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t",
+          "url": "classpros_1_1ADIPort.md#variable-_adi_port",
+          "visibility": "private"
+        }
+      ],
+      "publicFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-adiport",
+          "argsString": "(std::uint8_t adi_port, adi_port_config_e_t type=E_ADI_TYPE_UNDEFINED)",
+          "brief": "Configures an ADI port to act as a given sensor type. ",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "ADIPort",
+          "deleted": false,
+          "details": "This function uses the following values of errno when an error state is reached: ENXIO - Either the ADI port value or the smart port value is not within its valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).",
+          "explicit": true,
+          "fullname": "pros::ADIPort::ADIPort",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 10,
+            "file": "pros/adi.hpp",
+            "line": 50
+          },
+          "name": "ADIPort",
+          "override": false,
+          "paramList": [
+            {
+              "name": "adi_port",
+              "text": "The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure "
+            },
+            {
+              "name": "type",
+              "text": "The configuration type for the port "
+            }
+          ],
+          "params": [
+            {
+              "name": "adi_port",
+              "type": "std::uint8_t",
+              "typePlain": "std::uint8_t"
+            },
+            {
+              "defval": "[E_ADI_TYPE_UNDEFINED](namespacepros.md#enumvalue-e_adi_type_undefined)",
+              "defvalPlain": "E_ADI_TYPE_UNDEFINED",
+              "name": "type",
+              "type": "adi_port_config_e_t",
+              "typePlain": "adi_port_config_e_t"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1a538a789ca89bc61ebf5fb95fa723951f",
+          "static": false,
+          "strong": false,
+          "summary": "Configures an ADI port to act as a given sensor type. ",
+          "title": "ADIPort",
+          "url": "classpros_1_1ADIPort.md#function-adiport",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-adiport",
+          "argsString": "(ext_adi_port_pair_t port_pair, adi_port_config_e_t type=E_ADI_TYPE_UNDEFINED)",
+          "brief": "Configures an ADI port on an adi expander to act as a given sensor type. ",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "ADIPort",
+          "deleted": false,
+          "details": "This function uses the following values of errno when an error state is reached: ENXIO - Either the ADI port value or the smart port value is not within its valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).",
+          "explicit": false,
+          "fullname": "pros::ADIPort::ADIPort",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 1,
+            "file": "pros/adi.hpp",
+            "line": 66
+          },
+          "name": "ADIPort",
+          "override": false,
+          "paramList": [
+            {
+              "name": "port_pair",
+              "text": "The pair of the smart port number (from 1-22) and the ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure "
+            },
+            {
+              "name": "type",
+              "text": "The configuration type for the port "
+            }
+          ],
+          "params": [
+            {
+              "name": "port_pair",
+              "type": "[ext_adi_port_pair_t](namespacepros.md#using-ext_adi_port_pair_t)",
+              "typePlain": "ext_adi_port_pair_t"
+            },
+            {
+              "defval": "[E_ADI_TYPE_UNDEFINED](namespacepros.md#enumvalue-e_adi_type_undefined)",
+              "defvalPlain": "E_ADI_TYPE_UNDEFINED",
+              "name": "type",
+              "type": "adi_port_config_e_t",
+              "typePlain": "adi_port_config_e_t"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1a97ca42fda4089b884e38867a2551d2c2",
+          "static": false,
+          "strong": false,
+          "summary": "Configures an ADI port on an adi expander to act as a given sensor type. ",
+          "title": "ADIPort",
+          "url": "classpros_1_1ADIPort.md#function-adiport",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-get_config",
+          "argsString": "() const",
+          "brief": "Gets the configuration for the given ADI port. ",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "std::int32_t get_config",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "pros::ADIPort::get_config",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 73
+          },
+          "name": "get_config",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1abc268911f1961b5389b71852e946f729",
+          "returns": [
+            "The ADI configuration for the given port "
+          ],
+          "static": false,
+          "strong": false,
+          "summary": "Gets the configuration for the given ADI port. ",
+          "title": "get_config",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t",
+          "url": "classpros_1_1ADIPort.md#function-get_config",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-set_config",
+          "argsString": "(adi_port_config_e_t type) const",
+          "brief": "Configures an ADI port to act as a given sensor type. ",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "std::int32_t set_config",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "pros::ADIPort::set_config",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 91
+          },
+          "name": "set_config",
+          "override": false,
+          "paramList": [
+            {
+              "name": "type",
+              "text": "The configuration type for the port"
+            }
+          ],
+          "params": [
+            {
+              "name": "type",
+              "type": "adi_port_config_e_t",
+              "typePlain": "adi_port_config_e_t"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1ae1418e3d7d46f72ea805789d6e511c50",
+          "returns": [
+            "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+          ],
+          "static": false,
+          "strong": false,
+          "summary": "Configures an ADI port to act as a given sensor type. ",
+          "title": "set_config",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t",
+          "url": "classpros_1_1ADIPort.md#function-set_config",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-set_value",
+          "argsString": "(std::int32_t value) const",
+          "brief": "Sets the value for the given ADI port. ",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "std::int32_t set_value",
+          "deleted": false,
+          "details": "This only works on ports configured as outputs, and the behavior will change depending on the configuration of the port.",
+          "explicit": false,
+          "fullname": "pros::ADIPort::set_value",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 105
+          },
+          "name": "set_value",
+          "override": false,
+          "paramList": [
+            {
+              "name": "value",
+              "text": "The value to set the ADI port to"
+            }
+          ],
+          "params": [
+            {
+              "name": "value",
+              "type": "std::int32_t",
+              "typePlain": "std::int32_t"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1a833ed782b711495035dae08cfce3e62e",
+          "returns": [
+            "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+          ],
+          "static": false,
+          "strong": false,
+          "summary": "Sets the value for the given ADI port. ",
+          "title": "set_value",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t",
+          "url": "classpros_1_1ADIPort.md#function-set_value",
+          "virtual": false,
+          "visibility": "public"
+        }
+      ],
+      "refid": "classpros_1_1ADIPort",
+      "url": "classpros_1_1ADIPort.md",
+      "virtual": "non-virtual",
+      "visibility": "private"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::ADIAnalogIn",
+  "hasAdditionalMembers": true,
+  "hasDetails": false,
+  "includes": "\"adi.hpp\"",
+  "inline": false,
+  "kind": "class",
+  "location": {
+    "bodyEnd": 225,
+    "bodyFile": "pros/adi.hpp",
+    "bodyStart": 112,
+    "column": 34,
+    "file": "pros/adi.hpp",
+    "line": 112
+  },
+  "name": "pros::ADIAnalogIn",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-adianalogin",
+      "argsString": "(std::uint8_t adi_port)",
+      "brief": "Configures an ADI port to act as an Analog Input. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ADIAnalogIn",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - Either the ADI port value or the smart port value is not within its valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).",
+      "explicit": true,
+      "fullname": "pros::ADIAnalogIn::ADIAnalogIn",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/adi.hpp",
+        "line": 128
+      },
+      "name": "ADIAnalogIn",
+      "override": false,
+      "paramList": [
+        {
+          "name": "adi_port",
+          "text": "The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure"
+        }
+      ],
+      "params": [
+        {
+          "name": "adi_port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIAnalogIn_1a399da39531465667a539555d0afa953d",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Configures an ADI port to act as an Analog Input. ",
+      "title": "ADIAnalogIn",
+      "url": "classpros_1_1ADIAnalogIn.md#function-adianalogin",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-adianalogin",
+      "argsString": "(ext_adi_port_pair_t port_pair)",
+      "brief": "Configures an ADI port on an adi expander to act as an Analog Input. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ADIAnalogIn",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - Either the ADI port value or the smart port value is not within its valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).",
+      "explicit": false,
+      "fullname": "pros::ADIAnalogIn::ADIAnalogIn",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 145
+      },
+      "name": "ADIAnalogIn",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port_pair",
+          "text": "The pair of the smart port number (from 1-22) and the ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure"
+        }
+      ],
+      "params": [
+        {
+          "name": "port_pair",
+          "type": "[ext_adi_port_pair_t](namespacepros.md#using-ext_adi_port_pair_t)",
+          "typePlain": "ext_adi_port_pair_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIAnalogIn_1a2a26928e153eb08641528b46c1da1791",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Configures an ADI port on an adi expander to act as an Analog Input. ",
+      "title": "ADIAnalogIn",
+      "url": "classpros_1_1ADIAnalogIn.md#function-adianalogin",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-calibrate",
+      "argsString": "() const",
+      "brief": "Calibrates the analog sensor on the specified port and returns the new calibration value. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t calibrate",
+      "deleted": false,
+      "details": "This method assumes that the true sensor value is not actively changing at this time and computes an average from approximately 500 samples, 1 ms apart, for a 0.5 s period of calibration. The average value thus calculated is returned and stored for later calls to the [pros::ADIAnalogIn::get_value_calibrated()](classpros_1_1ADIAnalogIn.md#function-get_value_calibrated) and [pros::ADIAnalogIn::get_value_calibrated_HR()](classpros_1_1ADIAnalogIn.md#function-get_value_calibrated_hr) functions. These functions will return the difference between this value and the current sensor value when called.\n\nDo not use this function when the sensor value might be unstable (gyro rotation, accelerometer movement).\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port is not configured as an analog input",
+      "explicit": false,
+      "fullname": "pros::ADIAnalogIn::calibrate",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/adi.hpp",
+        "line": 169
+      },
+      "name": "calibrate",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIAnalogIn_1a2eb97b12f7be6fd44db629dcfe9a4fc4",
+      "returns": [
+        "The average sensor value computed by this function "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Calibrates the analog sensor on the specified port and returns the new calibration value. ",
+      "title": "calibrate",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1ADIAnalogIn.md#function-calibrate",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_value_calibrated",
+      "argsString": "() const",
+      "brief": "Gets the 12 bit calibrated value of an analog input port. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t get_value_calibrated",
+      "deleted": false,
+      "details": "The [pros::ADIAnalogIn::calibrate()](classpros_1_1ADIAnalogIn.md#function-calibrate) function must be run first. This function is inappropriate for sensor values intended for integration, as round-off error can accumulate causing drift over time. Use [pros::ADIAnalogIn::get_value_calibrated_HR()](classpros_1_1ADIAnalogIn.md#function-get_value_calibrated_hr) instead.\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port is not configured as an analog input",
+      "explicit": false,
+      "fullname": "pros::ADIAnalogIn::get_value_calibrated",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/adi.hpp",
+        "line": 186
+      },
+      "name": "get_value_calibrated",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIAnalogIn_1a074cb99ddc5bcf9b461c204a5a5fad2c",
+      "returns": [
+        "The difference of the sensor value from its calibrated default from -4095 to 4095 "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the 12 bit calibrated value of an analog input port. ",
+      "title": "get_value_calibrated",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1ADIAnalogIn.md#function-get_value_calibrated",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_value_calibrated_hr",
+      "argsString": "() const",
+      "brief": "Gets the 16 bit calibrated value of an analog input port. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t get_value_calibrated_HR",
+      "deleted": false,
+      "details": "The [pros::ADIAnalogIn::calibrate()](classpros_1_1ADIAnalogIn.md#function-calibrate) function must be run first. This is intended for integrated sensor values such as gyros and accelerometers to reduce drift due to round-off, and should not be used on a sensor such as a line tracker or potentiometer.\n\nThe value returned actually has 16 bits of \"precision\", even though the ADC only reads 12 bits, so that error induced by the average value being between two values when integrated over time is trivial. Think of the value as the true value times 16.\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port is not configured as an analog input",
+      "explicit": false,
+      "fullname": "pros::ADIAnalogIn::get_value_calibrated_HR",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/adi.hpp",
+        "line": 208
+      },
+      "name": "get_value_calibrated_HR",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIAnalogIn_1a2d4a70c5c23555ddf8ea24318d7a8731",
+      "returns": [
+        "The difference of the sensor value from its calibrated default from -16384 to 16384 "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the 16 bit calibrated value of an analog input port. ",
+      "title": "get_value_calibrated_HR",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1ADIAnalogIn.md#function-get_value_calibrated_hr",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_value",
+      "argsString": "() const",
+      "brief": "Gets the 12-bit value of the specified port. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t get_value",
+      "deleted": false,
+      "details": "The value returned is undefined if the analog pin has been switched to a different mode.\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port is not configured as an analog input",
+      "explicit": false,
+      "fullname": "pros::ADIAnalogIn::get_value",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 224
+      },
+      "name": "get_value",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIAnalogIn_1a60987c8e4946650cf9aa40f8e8345f01",
+      "returns": [
+        "The analog sensor value, where a value of 0 reflects an input voltage of nearly 0 V and a value of 4095 reflects an input voltage of nearly 5 V "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the 12-bit value of the specified port. ",
+      "title": "get_value",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1ADIAnalogIn.md#function-get_value",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classpros_1_1ADIAnalogIn",
+  "static": false,
+  "strong": false,
+  "title": "pros::ADIAnalogIn",
+  "url": "classpros_1_1ADIAnalogIn.md",
+  "visibility": "public"
+}

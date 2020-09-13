@@ -1,0 +1,1450 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::Vision",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "\"vision.hpp\"",
+  "inline": false,
+  "kind": "class",
+  "location": {
+    "bodyEnd": 443,
+    "bodyFile": "pros/vision.hpp",
+    "bodyStart": 28,
+    "column": 13,
+    "file": "pros/vision.hpp",
+    "line": 28
+  },
+  "name": "pros::Vision",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-_port",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::uint8_t _port",
+      "explicit": false,
+      "fullname": "pros::Vision::_port",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/vision.hpp",
+        "bodyStart": 442,
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 442
+      },
+      "name": "_port",
+      "override": false,
+      "refid": "classpros_1_1Vision_1a2a4644e4affb8999f17caa38625b3bf5",
+      "static": false,
+      "strong": false,
+      "title": "_port",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "classpros_1_1Vision.md#variable-_port",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-vision",
+      "argsString": "(std::uint8_t port, vision_zero_e_t zero_point=E_VISION_ZERO_TOPLEFT)",
+      "brief": "Create a [Vision](classpros_1_1Vision.md) Sensor object on the given port. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Vision",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::Vision",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/vision.hpp",
+        "line": 43
+      },
+      "name": "Vision",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "zero_point",
+          "text": "One of vision_zero_e_t to set the (0,0) coordinate for the FOV "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "defval": "[E_VISION_ZERO_TOPLEFT](namespacepros.md#enumvalue-e_vision_zero_topleft)",
+          "defvalPlain": "E_VISION_ZERO_TOPLEFT",
+          "name": "zero_point",
+          "type": "vision_zero_e_t",
+          "typePlain": "vision_zero_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1addf9ae6eb4813386116110d06c5beac4",
+      "static": false,
+      "strong": false,
+      "summary": "Create a Vision Sensor object on the given port. ",
+      "title": "Vision",
+      "url": "classpros_1_1Vision.md#function-vision",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clear_led",
+      "argsString": "(void) const",
+      "brief": "Clears the vision sensor LED color, reseting it back to its default behavior, displaying the most prominent object signature color. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t clear_led",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::clear_led",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 56
+      },
+      "name": "clear_led",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a76431ffd2012b88a7a32a629584b594a",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Clears the vision sensor LED color, reseting it back to its default behavior, displaying the most prominent object signature color. ",
+      "title": "clear_led",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-clear_led",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-create_color_code",
+      "argsString": "(const std::uint32_t sig_id1, const std::uint32_t sig_id2, const std::uint32_t sig_id3=0, const std::uint32_t sig_id4=0, const std::uint32_t sig_id5=0) const",
+      "brief": "Creates a color code that represents a combination of the given signature IDs. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "vision_color_code_t create_color_code",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EINVAL - Fewer than two signatures have been provided or one of the signatures is out of its [1-7] range (or 0 when omitted).",
+      "explicit": false,
+      "fullname": "pros::Vision::create_color_code",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 21,
+        "file": "pros/vision.hpp",
+        "line": 110
+      },
+      "name": "create_color_code",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sig_id1",
+          "text": "The first signature id [1-7] to add to the color code "
+        },
+        {
+          "name": "sig_id2",
+          "text": "The second signature id [1-7] to add to the color code "
+        },
+        {
+          "name": "sig_id3",
+          "text": "The third signature id [1-7] to add to the color code "
+        },
+        {
+          "name": "sig_id4",
+          "text": "The fourth signature id [1-7] to add to the color code "
+        },
+        {
+          "name": "sig_id5",
+          "text": "The fifth signature id [1-7] to add to the color code"
+        }
+      ],
+      "params": [
+        {
+          "name": "sig_id1",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "sig_id2",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "defval": "0",
+          "defvalPlain": "0",
+          "name": "sig_id3",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "defval": "0",
+          "defvalPlain": "0",
+          "name": "sig_id4",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "defval": "0",
+          "defvalPlain": "0",
+          "name": "sig_id5",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1aad39648fb027abf526d427fcd39ac850",
+      "returns": [
+        "A vision_color_code_t object containing the color code information. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a color code that represents a combination of the given signature IDs. ",
+      "title": "create_color_code",
+      "type": "[vision_color_code_t](namespacepros.md#typedef-vision_color_code_t)",
+      "typePlain": "vision_color_code_t",
+      "url": "classpros_1_1Vision.md#function-create_color_code",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_by_size",
+      "argsString": "(const std::uint32_t size_id) const",
+      "brief": "Gets the nth largest object according to size_id. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "vision_object_s_t get_by_size",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor EDOM - size_id is greater than the number of available objects. EAGAIN - Reading the vision sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "pros::Vision::get_by_size",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/vision.hpp",
+        "line": 130
+      },
+      "name": "get_by_size",
+      "override": false,
+      "paramList": [
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.)"
+        }
+      ],
+      "params": [
+        {
+          "name": "size_id",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1af4fa926cf28cf99a0818714f5f701187",
+      "returns": [
+        "The vision_object_s_t object corresponding to the given size id, or PROS_ERR if an error occurred. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the nth largest object according to size_id. ",
+      "title": "get_by_size",
+      "type": "[vision_object_s_t](namespacepros.md#variable-vision_object_s_t)",
+      "typePlain": "vision_object_s_t",
+      "url": "classpros_1_1Vision.md#function-get_by_size",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_by_sig",
+      "argsString": "(const std::uint32_t size_id, const std::uint32_t sig_id) const",
+      "brief": "Gets the nth largest object of the given signature according to size_id. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "vision_object_s_t get_by_sig",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor EDOM - size_id is greater than the number of available objects. EINVAL - sig_id is outside the range [1-8] EAGAIN - Reading the vision sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "pros::Vision::get_by_sig",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/vision.hpp",
+        "line": 152
+      },
+      "name": "get_by_sig",
+      "override": false,
+      "paramList": [
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "signature",
+          "text": "The vision_signature_s_t signature for which an object will be returned."
+        }
+      ],
+      "params": [
+        {
+          "name": "size_id",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "sig_id",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1aad2f7f19ea9d69ccbf82af9f5b55f419",
+      "returns": [
+        "The vision_object_s_t object corresponding to the given signature and size_id, or PROS_ERR if an error occurred. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the nth largest object of the given signature according to size_id. ",
+      "title": "get_by_sig",
+      "type": "[vision_object_s_t](namespacepros.md#variable-vision_object_s_t)",
+      "typePlain": "vision_object_s_t",
+      "url": "classpros_1_1Vision.md#function-get_by_sig",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_by_code",
+      "argsString": "(const std::uint32_t size_id, const vision_color_code_t color_code) const",
+      "brief": "Gets the nth largest object of the given color code according to size_id. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "vision_object_s_t get_by_code",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor EAGAIN - Reading the [Vision](classpros_1_1Vision.md) Sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "pros::Vision::get_by_code",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/vision.hpp",
+        "line": 171
+      },
+      "name": "get_by_code",
+      "override": false,
+      "paramList": [
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "color_code",
+          "text": "The vision_color_code_t for which an object will be returned"
+        }
+      ],
+      "params": [
+        {
+          "name": "size_id",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "color_code",
+          "type": "const [vision_color_code_t](namespacepros.md#typedef-vision_color_code_t)",
+          "typePlain": "const vision_color_code_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a0ee6adc0ac7836cc75195a65fd0dbaed",
+      "returns": [
+        "The vision_object_s_t object corresponding to the given color code and size_id, or PROS_ERR if an error occurred. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the nth largest object of the given color code according to size_id. ",
+      "title": "get_by_code",
+      "type": "[vision_object_s_t](namespacepros.md#variable-vision_object_s_t)",
+      "typePlain": "vision_object_s_t",
+      "url": "classpros_1_1Vision.md#function-get_by_code",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_exposure",
+      "argsString": "(void) const",
+      "brief": "Gets the exposure parameter of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t get_exposure",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting](https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting) for more detials.\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::get_exposure",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 185
+      },
+      "name": "get_exposure",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1af21a819740fe50fd73af70c41651cbae",
+      "returns": [
+        "The current exposure parameter from [0,150], PROS_ERR if an error occurred "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the exposure parameter of the Vision Sensor. ",
+      "title": "get_exposure",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-get_exposure",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_object_count",
+      "argsString": "(void) const",
+      "brief": "Gets the number of objects currently detected by the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t get_object_count",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::get_object_count",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 197
+      },
+      "name": "get_object_count",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a450dc055c2448fab6eb551231dde7071",
+      "returns": [
+        "The number of objects detected on the specified vision sensor. Returns PROS_ERR if the port was invalid or an error occurred. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the number of objects currently detected by the Vision Sensor. ",
+      "title": "get_object_count",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-get_object_count",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_signature",
+      "argsString": "(const std::uint8_t signature_id) const",
+      "brief": "Gets the object detection signature with the given id number. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "vision_signature_s_t get_signature",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::get_signature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/vision.hpp",
+        "line": 211
+      },
+      "name": "get_signature",
+      "override": false,
+      "paramList": [
+        {
+          "name": "signature_id",
+          "text": "The signature id to read"
+        }
+      ],
+      "params": [
+        {
+          "name": "signature_id",
+          "type": "const std::uint8_t",
+          "typePlain": "const std::uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1afcbec69e9c0dc3bf13765441f9e9e659",
+      "returns": [
+        "A vision_signature_s_t containing information about the signature. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the object detection signature with the given id number. ",
+      "title": "get_signature",
+      "type": "[vision_signature_s_t](namespacepros.md#variable-vision_signature_s_t)",
+      "typePlain": "vision_signature_s_t",
+      "url": "classpros_1_1Vision.md#function-get_signature",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_white_balance",
+      "argsString": "(void) const",
+      "brief": "Get the white balance parameter of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t get_white_balance",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::get_white_balance",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 222
+      },
+      "name": "get_white_balance",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1abb5ece73e4caaa15a39f5e661c3ec5cd",
+      "returns": [
+        "The current RGB white balance setting of the sensor "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the white balance parameter of the Vision Sensor. ",
+      "title": "get_white_balance",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-get_white_balance",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_port",
+      "argsString": "(void) const",
+      "brief": "Gets the port number of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::uint8_t get_port",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Vision::get_port",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 229
+      },
+      "name": "get_port",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a4c2a58a7c22b5eeca58ccb341a1c92be",
+      "returns": [
+        "The vision sensor's port number. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the port number of the Vision Sensor. ",
+      "title": "get_port",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "classpros_1_1Vision.md#function-get_port",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-read_by_size",
+      "argsString": "(const std::uint32_t size_id, const std::uint32_t object_count, vision_object_s_t *const object_arr) const",
+      "brief": "Reads up to object_count object descriptors into object_arr. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t read_by_size",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor EDOM - size_id is greater than the number of available objects. EAGAIN - Reading the vision sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "pros::Vision::read_by_size",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 254
+      },
+      "name": "read_by_size",
+      "override": false,
+      "paramList": [
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "object_count",
+          "text": "The number of objects to read "
+        },
+        {
+          "name": "object_arr",
+          "text": "A pointer to copy the objects into"
+        }
+      ],
+      "params": [
+        {
+          "name": "size_id",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "object_count",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "object_arr",
+          "type": "[vision_object_s_t](namespacepros.md#variable-vision_object_s_t) *const",
+          "typePlain": "vision_object_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1ab5b546c064555ccc94aa3efdcb62dbfd",
+      "returns": [
+        "The number of object signatures copied. This number will be less than object_count if there are fewer objects detected by the vision sensor. Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects than size_id were found. All objects in object_arr that were not found are given VISION_OBJECT_ERR_SIG as their signature. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads up to object_count object descriptors into object_arr. ",
+      "title": "read_by_size",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-read_by_size",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-read_by_sig",
+      "argsString": "(const std::uint32_t size_id, const std::uint32_t sig_id, const std::uint32_t object_count, vision_object_s_t *const object_arr) const",
+      "brief": "Reads up to object_count object descriptors into object_arr. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t read_by_sig",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor EDOM - size_id is greater than the number of available objects. EINVAL - sig_id is outside the range [1-8] EAGAIN - Reading the vision sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "pros::Vision::read_by_sig",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 284
+      },
+      "name": "read_by_sig",
+      "override": false,
+      "paramList": [
+        {
+          "name": "object_count",
+          "text": "The number of objects to read "
+        },
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "signature",
+          "text": "The vision_signature_s_t signature for which an object will be returned. "
+        },
+        {
+          "name": "object_arr",
+          "text": "A pointer to copy the objects into"
+        }
+      ],
+      "params": [
+        {
+          "name": "size_id",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "sig_id",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "object_count",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "object_arr",
+          "type": "[vision_object_s_t](namespacepros.md#variable-vision_object_s_t) *const",
+          "typePlain": "vision_object_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a054480d0518c7368c4d9206b9cde25e0",
+      "returns": [
+        "The number of object signatures copied. This number will be less than object_count if there are fewer objects detected by the vision sensor. Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects than size_id were found. All objects in object_arr that were not found are given VISION_OBJECT_ERR_SIG as their signature. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads up to object_count object descriptors into object_arr. ",
+      "title": "read_by_sig",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-read_by_sig",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-read_by_code",
+      "argsString": "(const std::uint32_t size_id, const vision_color_code_t color_code, const std::uint32_t object_count, vision_object_s_t *const object_arr) const",
+      "brief": "Reads up to object_count object descriptors into object_arr. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "int32_t read_by_code",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EDOM - size_id is greater than the number of available objects. ENODEV - The port cannot be configured as a vision sensor EAGAIN - Reading the vision sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "pros::Vision::read_by_code",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.hpp",
+        "line": 312
+      },
+      "name": "read_by_code",
+      "override": false,
+      "paramList": [
+        {
+          "name": "object_count",
+          "text": "The number of objects to read "
+        },
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "color_code",
+          "text": "The vision_color_code_t for which objects will be returned "
+        },
+        {
+          "name": "object_arr",
+          "text": "A pointer to copy the objects into"
+        }
+      ],
+      "params": [
+        {
+          "name": "size_id",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "color_code",
+          "type": "const [vision_color_code_t](namespacepros.md#typedef-vision_color_code_t)",
+          "typePlain": "const vision_color_code_t"
+        },
+        {
+          "name": "object_count",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        },
+        {
+          "name": "object_arr",
+          "type": "[vision_object_s_t](namespacepros.md#variable-vision_object_s_t) *const",
+          "typePlain": "vision_object_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a107dcaf6b54f1cb77e67998e5fef148f",
+      "returns": [
+        "The number of object signatures copied. This number will be less than object_count if there are fewer objects detected by the vision sensor. Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects than size_id were found. All objects in object_arr that were not found are given VISION_OBJECT_ERR_SIG as their signature. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads up to object_count object descriptors into object_arr. ",
+      "title": "read_by_code",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "classpros_1_1Vision.md#function-read_by_code",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_auto_white_balance",
+      "argsString": "(const std::uint8_t enable) const",
+      "brief": "Enables/disables auto white-balancing on the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t set_auto_white_balance",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::set_auto_white_balance",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 338
+      },
+      "name": "set_auto_white_balance",
+      "override": false,
+      "paramList": [
+        {
+          "name": "enabled",
+          "text": "Pass 0 to disable, 1 to enable"
+        }
+      ],
+      "params": [
+        {
+          "name": "enable",
+          "type": "const std::uint8_t",
+          "typePlain": "const std::uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a3056945e74c922ee2a8d324fe136fac7",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Enables/disables auto white-balancing on the Vision Sensor. ",
+      "title": "set_auto_white_balance",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-set_auto_white_balance",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_exposure",
+      "argsString": "(const std::uint8_t exposure) const",
+      "brief": "Sets the exposure parameter of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t set_exposure",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting](https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting) for more detials.\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::set_exposure",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 355
+      },
+      "name": "set_exposure",
+      "override": false,
+      "paramList": [
+        {
+          "name": "percent",
+          "text": "The new exposure setting from [0,150]."
+        }
+      ],
+      "params": [
+        {
+          "name": "exposure",
+          "type": "const std::uint8_t",
+          "typePlain": "const std::uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a4c754824ad4dc5fbbe9afc45064b10a9",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the exposure parameter of the Vision Sensor. ",
+      "title": "set_exposure",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-set_exposure",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_led",
+      "argsString": "(const std::int32_t rgb) const",
+      "brief": "Sets the vision sensor LED color, overriding the automatic behavior. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t set_led",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::set_led",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 370
+      },
+      "name": "set_led",
+      "override": false,
+      "paramList": [
+        {
+          "name": "rgb",
+          "text": "An RGB code to set the LED to"
+        }
+      ],
+      "params": [
+        {
+          "name": "rgb",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1ae3fe29fed597773781e7532275a93b22",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the vision sensor LED color, overriding the automatic behavior. ",
+      "title": "set_led",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-set_led",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_signature",
+      "argsString": "(const std::uint8_t signature_id, vision_signature_s_t *const signature_ptr) const",
+      "brief": "Stores the supplied object detection signature onto the vision sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t set_signature",
+      "deleted": false,
+      "details": "NOTE: This saves the signature in volatile memory, and the signature will be lost as soon as the sensor is powered down.\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor EINVAL - sig_id is outside the range [1-8]",
+      "explicit": false,
+      "fullname": "pros::Vision::set_signature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 390
+      },
+      "name": "set_signature",
+      "override": false,
+      "paramList": [
+        {
+          "name": "signature_id",
+          "text": "The signature id to store into "
+        },
+        {
+          "name": "signature_ptr",
+          "text": "A pointer to the signature to save"
+        }
+      ],
+      "params": [
+        {
+          "name": "signature_id",
+          "type": "const std::uint8_t",
+          "typePlain": "const std::uint8_t"
+        },
+        {
+          "name": "signature_ptr",
+          "type": "[vision_signature_s_t](namespacepros.md#variable-vision_signature_s_t) *const",
+          "typePlain": "vision_signature_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a82489e0d344b86b031e45a7a549f6acd",
+      "returns": [
+        "1 if no errors occured, PROS_ERR otherwise "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Stores the supplied object detection signature onto the vision sensor. ",
+      "title": "set_signature",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-set_signature",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_white_balance",
+      "argsString": "(const std::int32_t rgb) const",
+      "brief": "Sets the white balance parameter of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t set_white_balance",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::set_white_balance",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 405
+      },
+      "name": "set_white_balance",
+      "override": false,
+      "paramList": [
+        {
+          "name": "rgb",
+          "text": "The new RGB white balance setting of the sensor"
+        }
+      ],
+      "params": [
+        {
+          "name": "rgb",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1ac3307c30a25eebfba74911220d404a94",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the white balance parameter of the Vision Sensor. ",
+      "title": "set_white_balance",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-set_white_balance",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_zero_point",
+      "argsString": "(vision_zero_e_t zero_point) const",
+      "brief": "Sets the (0,0) coordinate for the Field of View. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t set_zero_point",
+      "deleted": false,
+      "details": "This will affect the coordinates returned for each request for a vision_object_s_t from the sensor, so it is recommended that this function only be used to configure the sensor at the beginning of its use.\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::set_zero_point",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 424
+      },
+      "name": "set_zero_point",
+      "override": false,
+      "paramList": [
+        {
+          "name": "zero_point",
+          "text": "One of vision_zero_e_t to set the (0,0) coordinate for the FOV"
+        }
+      ],
+      "params": [
+        {
+          "name": "zero_point",
+          "type": "vision_zero_e_t",
+          "typePlain": "vision_zero_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1af4949921bb01abcf430d48fa5532b5c8",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the (0,0) coordinate for the Field of View. ",
+      "title": "set_zero_point",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-set_zero_point",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_wifi_mode",
+      "argsString": "(const std::uint8_t enable) const",
+      "brief": "Sets the Wi-Fi mode of the [Vision](classpros_1_1Vision.md) sensor. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::int32_t set_wifi_mode",
+      "deleted": false,
+      "details": "This functions uses the following values of errno when an error state is reached: ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "pros::Vision::set_wifi_mode",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/vision.hpp",
+        "line": 439
+      },
+      "name": "set_wifi_mode",
+      "override": false,
+      "paramList": [
+        {
+          "name": "enable",
+          "text": "Disable Wi-Fi on the [Vision](classpros_1_1Vision.md) sensor if 0, enable otherwise (e.g. 1)"
+        }
+      ],
+      "params": [
+        {
+          "name": "enable",
+          "type": "const std::uint8_t",
+          "typePlain": "const std::uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a9d04ecf017d67e551ca413b0bfd8fcd7",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the Wi-Fi mode of the Vision sensor. ",
+      "title": "set_wifi_mode",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-set_wifi_mode",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-signature_from_utility",
+      "argsString": "(const std::int32_t id, const std::int32_t u_min, const std::int32_t u_max, const std::int32_t u_mean, const std::int32_t v_min, const std::int32_t v_max, const std::int32_t v_mean, const float range, const std::int32_t type)",
+      "brief": "Creates a signature from the vision sensor utility. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static vision_signature_s_t signature_from_utility",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Vision::signature_from_utility",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 29,
+        "file": "pros/vision.hpp",
+        "line": 82
+      },
+      "name": "signature_from_utility",
+      "override": false,
+      "paramList": [
+        {
+          "name": "id",
+          "text": "The signature ID "
+        },
+        {
+          "name": "u_min",
+          "text": "Minimum value on U axis "
+        },
+        {
+          "name": "u_max",
+          "text": "Maximum value on U axis "
+        },
+        {
+          "name": "u_mean",
+          "text": "Mean value on U axis "
+        },
+        {
+          "name": "v_min",
+          "text": "Minimum value on V axis "
+        },
+        {
+          "name": "v_max",
+          "text": "Maximum value on V axis "
+        },
+        {
+          "name": "v_mean",
+          "text": "Mean value on V axis "
+        },
+        {
+          "name": "rgb",
+          "text": "Scale factor "
+        },
+        {
+          "name": "type",
+          "text": "Signature type"
+        }
+      ],
+      "params": [
+        {
+          "name": "id",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        },
+        {
+          "name": "u_min",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        },
+        {
+          "name": "u_max",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        },
+        {
+          "name": "u_mean",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        },
+        {
+          "name": "v_min",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        },
+        {
+          "name": "v_max",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        },
+        {
+          "name": "v_mean",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        },
+        {
+          "name": "range",
+          "type": "const float",
+          "typePlain": "const float"
+        },
+        {
+          "name": "type",
+          "type": "const std::int32_t",
+          "typePlain": "const std::int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1a4f1fc5e12221451d7e244318cfe5bc04",
+      "returns": [
+        "A vision_signature_s_t that can be set using [Vision::set_signature](classpros_1_1Vision.md#function-set_signature)"
+      ],
+      "static": true,
+      "strong": false,
+      "summary": "Creates a signature from the vision sensor utility. ",
+      "title": "signature_from_utility",
+      "type": "[vision_signature_s_t](namespacepros.md#variable-vision_signature_s_t)",
+      "typePlain": "vision_signature_s_t",
+      "url": "classpros_1_1Vision.md#function-signature_from_utility",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-print_signature",
+      "argsString": "(const vision_signature_s_t sig)",
+      "brief": "Prints the contents of the signature as an initializer list to the terminal. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static std::int32_t print_signature",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Vision::print_signature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 21,
+        "file": "pros/vision.hpp",
+        "line": 323
+      },
+      "name": "print_signature",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sig",
+          "text": "The signature for which the contents will be printed"
+        }
+      ],
+      "params": [
+        {
+          "name": "sig",
+          "type": "const [vision_signature_s_t](namespacepros.md#variable-vision_signature_s_t)",
+          "typePlain": "const vision_signature_s_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Vision_1ace530d71a4be7d2c1ab90dc31856f58b",
+      "returns": [
+        "1 if no errors occured, PROS_ERR otherwise "
+      ],
+      "static": true,
+      "strong": false,
+      "summary": "Prints the contents of the signature as an initializer list to the terminal. ",
+      "title": "print_signature",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Vision.md#function-print_signature",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classpros_1_1Vision",
+  "static": false,
+  "strong": false,
+  "title": "pros::Vision",
+  "url": "classpros_1_1Vision.md",
+  "visibility": "public"
+}

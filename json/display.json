@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-display",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "Interacting with the touchscreen on the V5 Brain is made possible through [LVGL](https://littlevgl.com). LVGL is a full-featured C graphics library (it's accessible in C++ projects too under the same API).\n\nThe first step to getting started with LVGL is to include `[pros/apix.h](apix_8h.md#file-apix.h)` in your `[main.h](main_8h.md#file-main.h)` file or other header files. This includes the full LVGL feature set as described in their documentation: [https://littlevgl.com/](https://littlevgl.com/)\n\nYou can follow along with any of the LVGL [tutorials](https://github.com/littlevgl/lv_examples/tree/master/lv_tutorial) or [wiki](https://docs.littlevgl.com/#Objects). There is no need to port or initialize LVGL, you can simply start creating objects.\n\nCustom LVGL code cannot be displayed at the same time as the [LLEMU](./llemu.html). As a result, you must remove the LLEMU code (`[pros::lcd](namespacepros_1_1lcd.md)`) that is present in `main.cpp` by default in a new project. ",
+  "explicit": false,
+  "fullname": "::display",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "display",
+  "override": false,
+  "parent": null,
+  "refid": "display",
+  "static": false,
+  "strong": false,
+  "title": "V5 Brain Display (LVGL)",
+  "url": "display.md#page-display",
+  "visibility": "public"
+}

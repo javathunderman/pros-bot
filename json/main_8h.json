@@ -1,0 +1,292 @@
+{
+  "abstract": false,
+  "anchor": "#file-main.h",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-pros_use_simple_names",
+      "brief": "If defined, some commonly used enums will have preprocessor macros which give a shorter, more convenient naming pattern. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "If this isn't desired, simply comment the following line out.\n\nFor instance, E_CONTROLLER_MASTER has a shorter name: CONTROLLER_MASTER. E_CONTROLLER_MASTER is pedantically correct within the PROS styleguide, but not convienent for most student programmers. ",
+      "explicit": false,
+      "fullname": "PROS_USE_SIMPLE_NAMES",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "main.h",
+        "bodyStart": 27,
+        "column": 9,
+        "file": "main.h",
+        "line": 27
+      },
+      "name": "PROS_USE_SIMPLE_NAMES",
+      "override": false,
+      "refid": "main_8h_1ae5817dbade24ea595c3ce938b34f9994",
+      "static": false,
+      "strong": false,
+      "summary": "If defined, some commonly used enums will have preprocessor macros which give a shorter, more convenient naming pattern. ",
+      "title": "PROS_USE_SIMPLE_NAMES",
+      "url": "main_8h.md#define-pros_use_simple_names",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-pros_use_literals",
+      "brief": "If defined, C++ literals will be available for use. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "All literals are in the [pros::literals](namespacepros_1_1literals.md) namespace.\n\nFor instance, you can do `4_mtr = 50` to set motor 4's target velocity to 50 ",
+      "explicit": false,
+      "fullname": "PROS_USE_LITERALS",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "main.h",
+        "bodyStart": 35,
+        "column": 9,
+        "file": "main.h",
+        "line": 35
+      },
+      "name": "PROS_USE_LITERALS",
+      "override": false,
+      "refid": "main_8h_1ab1b081349029f8bf68a7f2086732e42b",
+      "static": false,
+      "strong": false,
+      "summary": "If defined, C++ literals will be available for use. ",
+      "title": "PROS_USE_LITERALS",
+      "url": "main_8h.md#define-pros_use_literals",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "details": "Contains common definitions and header files used throughout your PROS project.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots. All rights reserved.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "main.h",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "\"api.h\"",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "main.h",
+    "line": 0
+  },
+  "name": "main.h",
+  "override": false,
+  "parent": null,
+  "programlisting": "/**\n * \\file main.h\n *\n * Contains common definitions and header files used throughout your PROS\n * project.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n * All rights reserved.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_MAIN_H_\n#define _PROS_MAIN_H_\n\n/**\n * If defined, some commonly used enums will have preprocessor macros which give\n * a shorter, more convenient naming pattern. If this isn't desired, simply\n * comment the following line out.\n *\n * For instance, E_CONTROLLER_MASTER has a shorter name: CONTROLLER_MASTER.\n * E_CONTROLLER_MASTER is pedantically correct within the PROS styleguide, but\n * not convienent for most student programmers.\n */\n#define PROS_USE_SIMPLE_NAMES\n\n/**\n * If defined, C++ literals will be available for use. All literals are in the\n * pros::literals namespace.\n *\n * For instance, you can do `4_mtr = 50` to set motor 4's target velocity to 50\n */\n#define PROS_USE_LITERALS\n\n#include \"api.h\"\n\n/**\n * You should add more #includes here\n */\n//#include \"okapi/api.hpp\"\n//#include \"pros/api_legacy.h\"\n\n/**\n * If you find doing pros::Motor() to be tedious and you'd prefer just to do\n * Motor, you can use the namespace with the following commented out line.\n *\n * IMPORTANT: Only the okapi or pros namespace may be used, not both\n * concurrently! The okapi namespace will export all symbols inside the pros\n * namespace.\n */\n// using namespace pros;\n// using namespace pros::literals;\n// using namespace okapi;\n\n/**\n * Prototypes for the competition control tasks are redefined here to ensure\n * that they can be called from user code (i.e. calling autonomous from a\n * button press in opcontrol() for testing purposes).\n */\n#ifdef __cplusplus\nextern \"C\" {\n#endif\nvoid autonomous(void);\nvoid initialize(void);\nvoid disabled(void);\nvoid competition_initialize(void);\nvoid opcontrol(void);\n#ifdef __cplusplus\n}\n#endif\n\n#ifdef __cplusplus\n/**\n * You can add C++-only headers here\n */\n//#include <iostream>\n#endif\n\n#endif  // _PROS_MAIN_H_",
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-autonomous",
+      "argsString": "(void)",
+      "brief": "You should add more #includes here. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void autonomous",
+      "deleted": false,
+      "details": "If you find doing [pros::Motor()](classpros_1_1Motor.md) to be tedious and you'd prefer just to do Motor, you can use the namespace with the following commented out line.\n\nIMPORTANT: Only the okapi or pros namespace may be used, not both concurrently! The okapi namespace will export all symbols inside the pros namespace. Prototypes for the competition control tasks are redefined here to ensure that they can be called from user code (i.e. calling autonomous from a button press in [opcontrol()](main_8h.md#function-opcontrol) for testing purposes). ",
+      "explicit": false,
+      "fullname": "main.h::autonomous",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "main.h",
+        "line": 65
+      },
+      "name": "autonomous",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "main_8h_1a2df3d06bc5bced154da27fce393f991f",
+      "static": false,
+      "strong": false,
+      "summary": "You should add more #includes here. ",
+      "title": "autonomous",
+      "type": "void",
+      "typePlain": "void",
+      "url": "main_8h.md#function-autonomous",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-initialize",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void initialize",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "main.h::initialize",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "main.h",
+        "line": 66
+      },
+      "name": "initialize",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "main_8h_1a9efe22aaead3a5e936b5df459de02eba",
+      "static": false,
+      "strong": false,
+      "title": "initialize",
+      "type": "void",
+      "typePlain": "void",
+      "url": "main_8h.md#function-initialize",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-disabled",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void disabled",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "main.h::disabled",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "main.h",
+        "line": 67
+      },
+      "name": "disabled",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "main_8h_1a3ed01880f60e5a3afffc71f623174dbd",
+      "static": false,
+      "strong": false,
+      "title": "disabled",
+      "type": "void",
+      "typePlain": "void",
+      "url": "main_8h.md#function-disabled",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-competition_initialize",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void competition_initialize",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "main.h::competition_initialize",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "main.h",
+        "line": 68
+      },
+      "name": "competition_initialize",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "main_8h_1a16a77889800f9a99f69f9dd026013505",
+      "static": false,
+      "strong": false,
+      "title": "competition_initialize",
+      "type": "void",
+      "typePlain": "void",
+      "url": "main_8h.md#function-competition_initialize",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-opcontrol",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void opcontrol",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "main.h::opcontrol",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "main.h",
+        "line": 69
+      },
+      "name": "opcontrol",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "main_8h_1a1903abdb5ef0f301d660754c8315fc17",
+      "static": false,
+      "strong": false,
+      "title": "opcontrol",
+      "type": "void",
+      "typePlain": "void",
+      "url": "main_8h.md#function-opcontrol",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "main_8h",
+  "static": false,
+  "strong": false,
+  "title": "main.h",
+  "url": "main_8h.md#file-main.h",
+  "visibility": "public"
+}

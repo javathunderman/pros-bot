@@ -1,0 +1,537 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "ADIPort",
+      "privateAttributes": [
+        {
+          "abstract": false,
+          "anchor": "#variable-_smart_port",
+          "category": "attributes",
+          "const": false,
+          "definition": "std::uint8_t _smart_port",
+          "explicit": false,
+          "fullname": "pros::ADIPort::_smart_port",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "variable",
+          "location": {
+            "bodyFile": "pros/adi.hpp",
+            "bodyStart": 108,
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 108
+          },
+          "name": "_smart_port",
+          "override": false,
+          "refid": "classpros_1_1ADIPort_1a44a445eef95291c2673e57ed31106dd4",
+          "static": false,
+          "strong": false,
+          "title": "_smart_port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t",
+          "url": "classpros_1_1ADIPort.md#variable-_smart_port",
+          "visibility": "private"
+        },
+        {
+          "abstract": false,
+          "anchor": "#variable-_adi_port",
+          "category": "attributes",
+          "const": false,
+          "definition": "std::uint8_t _adi_port",
+          "explicit": false,
+          "fullname": "pros::ADIPort::_adi_port",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "variable",
+          "location": {
+            "bodyFile": "pros/adi.hpp",
+            "bodyStart": 109,
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 109
+          },
+          "name": "_adi_port",
+          "override": false,
+          "refid": "classpros_1_1ADIPort_1a4140268936472c65e97796860c95cc4a",
+          "static": false,
+          "strong": false,
+          "title": "_adi_port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t",
+          "url": "classpros_1_1ADIPort.md#variable-_adi_port",
+          "visibility": "private"
+        }
+      ],
+      "publicFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-adiport",
+          "argsString": "(std::uint8_t adi_port, adi_port_config_e_t type=E_ADI_TYPE_UNDEFINED)",
+          "brief": "Configures an ADI port to act as a given sensor type. ",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "ADIPort",
+          "deleted": false,
+          "details": "This function uses the following values of errno when an error state is reached: ENXIO - Either the ADI port value or the smart port value is not within its valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).",
+          "explicit": true,
+          "fullname": "pros::ADIPort::ADIPort",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 10,
+            "file": "pros/adi.hpp",
+            "line": 50
+          },
+          "name": "ADIPort",
+          "override": false,
+          "paramList": [
+            {
+              "name": "adi_port",
+              "text": "The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure "
+            },
+            {
+              "name": "type",
+              "text": "The configuration type for the port "
+            }
+          ],
+          "params": [
+            {
+              "name": "adi_port",
+              "type": "std::uint8_t",
+              "typePlain": "std::uint8_t"
+            },
+            {
+              "defval": "[E_ADI_TYPE_UNDEFINED](namespacepros.md#enumvalue-e_adi_type_undefined)",
+              "defvalPlain": "E_ADI_TYPE_UNDEFINED",
+              "name": "type",
+              "type": "adi_port_config_e_t",
+              "typePlain": "adi_port_config_e_t"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1a538a789ca89bc61ebf5fb95fa723951f",
+          "static": false,
+          "strong": false,
+          "summary": "Configures an ADI port to act as a given sensor type. ",
+          "title": "ADIPort",
+          "url": "classpros_1_1ADIPort.md#function-adiport",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-adiport",
+          "argsString": "(ext_adi_port_pair_t port_pair, adi_port_config_e_t type=E_ADI_TYPE_UNDEFINED)",
+          "brief": "Configures an ADI port on an adi expander to act as a given sensor type. ",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "ADIPort",
+          "deleted": false,
+          "details": "This function uses the following values of errno when an error state is reached: ENXIO - Either the ADI port value or the smart port value is not within its valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).",
+          "explicit": false,
+          "fullname": "pros::ADIPort::ADIPort",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 1,
+            "file": "pros/adi.hpp",
+            "line": 66
+          },
+          "name": "ADIPort",
+          "override": false,
+          "paramList": [
+            {
+              "name": "port_pair",
+              "text": "The pair of the smart port number (from 1-22) and the ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure "
+            },
+            {
+              "name": "type",
+              "text": "The configuration type for the port "
+            }
+          ],
+          "params": [
+            {
+              "name": "port_pair",
+              "type": "[ext_adi_port_pair_t](namespacepros.md#using-ext_adi_port_pair_t)",
+              "typePlain": "ext_adi_port_pair_t"
+            },
+            {
+              "defval": "[E_ADI_TYPE_UNDEFINED](namespacepros.md#enumvalue-e_adi_type_undefined)",
+              "defvalPlain": "E_ADI_TYPE_UNDEFINED",
+              "name": "type",
+              "type": "adi_port_config_e_t",
+              "typePlain": "adi_port_config_e_t"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1a97ca42fda4089b884e38867a2551d2c2",
+          "static": false,
+          "strong": false,
+          "summary": "Configures an ADI port on an adi expander to act as a given sensor type. ",
+          "title": "ADIPort",
+          "url": "classpros_1_1ADIPort.md#function-adiport",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-get_config",
+          "argsString": "() const",
+          "brief": "Gets the configuration for the given ADI port. ",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "std::int32_t get_config",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "pros::ADIPort::get_config",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 73
+          },
+          "name": "get_config",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1abc268911f1961b5389b71852e946f729",
+          "returns": [
+            "The ADI configuration for the given port "
+          ],
+          "static": false,
+          "strong": false,
+          "summary": "Gets the configuration for the given ADI port. ",
+          "title": "get_config",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t",
+          "url": "classpros_1_1ADIPort.md#function-get_config",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-get_value",
+          "argsString": "() const",
+          "brief": "Gets the value for the given ADI port. ",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "std::int32_t get_value",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "pros::ADIPort::get_value",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 80
+          },
+          "name": "get_value",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1a60987c8e4946650cf9aa40f8e8345f01",
+          "returns": [
+            "The value stored for the given port "
+          ],
+          "static": false,
+          "strong": false,
+          "summary": "Gets the value for the given ADI port. ",
+          "title": "get_value",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t",
+          "url": "classpros_1_1ADIPort.md#function-get_value",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-set_config",
+          "argsString": "(adi_port_config_e_t type) const",
+          "brief": "Configures an ADI port to act as a given sensor type. ",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "std::int32_t set_config",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "pros::ADIPort::set_config",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "location": {
+            "column": 14,
+            "file": "pros/adi.hpp",
+            "line": 91
+          },
+          "name": "set_config",
+          "override": false,
+          "paramList": [
+            {
+              "name": "type",
+              "text": "The configuration type for the port"
+            }
+          ],
+          "params": [
+            {
+              "name": "type",
+              "type": "adi_port_config_e_t",
+              "typePlain": "adi_port_config_e_t"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classpros_1_1ADIPort_1ae1418e3d7d46f72ea805789d6e511c50",
+          "returns": [
+            "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+          ],
+          "static": false,
+          "strong": false,
+          "summary": "Configures an ADI port to act as a given sensor type. ",
+          "title": "set_config",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t",
+          "url": "classpros_1_1ADIPort.md#function-set_config",
+          "virtual": false,
+          "visibility": "public"
+        }
+      ],
+      "refid": "classpros_1_1ADIPort",
+      "url": "classpros_1_1ADIPort.md",
+      "virtual": "non-virtual",
+      "visibility": "private"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::ADIDigitalOut",
+  "hasAdditionalMembers": true,
+  "hasDetails": false,
+  "includes": "\"adi.hpp\"",
+  "inline": false,
+  "kind": "class",
+  "location": {
+    "bodyEnd": 330,
+    "bodyFile": "pros/adi.hpp",
+    "bodyStart": 281,
+    "column": 36,
+    "file": "pros/adi.hpp",
+    "line": 281
+  },
+  "name": "pros::ADIDigitalOut",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-adidigitalout",
+      "argsString": "(std::uint8_t adi_port, bool init_state=LOW)",
+      "brief": "Configures an ADI port to act as a Digital Output. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ADIDigitalOut",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - Either the ADI port value or the smart port value is not within its valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).",
+      "explicit": true,
+      "fullname": "pros::ADIDigitalOut::ADIDigitalOut",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/adi.hpp",
+        "line": 296
+      },
+      "name": "ADIDigitalOut",
+      "override": false,
+      "paramList": [
+        {
+          "name": "adi_port",
+          "text": "The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure "
+        },
+        {
+          "name": "init_state",
+          "text": "The initial state for the port "
+        }
+      ],
+      "params": [
+        {
+          "name": "adi_port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "defval": "[LOW](adi_8h.md#define-low)",
+          "defvalPlain": "LOW",
+          "name": "init_state",
+          "type": "bool",
+          "typePlain": "bool"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIDigitalOut_1aace6711643eedf7f140d3af34da7bfa6",
+      "static": false,
+      "strong": false,
+      "summary": "Configures an ADI port to act as a Digital Output. ",
+      "title": "ADIDigitalOut",
+      "url": "classpros_1_1ADIDigitalOut.md#function-adidigitalout",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-adidigitalout",
+      "argsString": "(ext_adi_port_pair_t port_pair, bool init_state=LOW)",
+      "brief": "Configures an ADI port on an adi_expander to act as a Digital Output. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ADIDigitalOut",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - Either the ADI port value or the smart port value is not within its valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).",
+      "explicit": false,
+      "fullname": "pros::ADIDigitalOut::ADIDigitalOut",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 312
+      },
+      "name": "ADIDigitalOut",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port_pair",
+          "text": "The pair of the smart port number (from 1-22) and the ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure "
+        },
+        {
+          "name": "init_state",
+          "text": "The initial state for the port "
+        }
+      ],
+      "params": [
+        {
+          "name": "port_pair",
+          "type": "[ext_adi_port_pair_t](namespacepros.md#using-ext_adi_port_pair_t)",
+          "typePlain": "ext_adi_port_pair_t"
+        },
+        {
+          "defval": "[LOW](adi_8h.md#define-low)",
+          "defvalPlain": "LOW",
+          "name": "init_state",
+          "type": "bool",
+          "typePlain": "bool"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIDigitalOut_1ab2912f0fe6ad3c664391d90febe4fc98",
+      "static": false,
+      "strong": false,
+      "summary": "Configures an ADI port on an adi_expander to act as a Digital Output. ",
+      "title": "ADIDigitalOut",
+      "url": "classpros_1_1ADIDigitalOut.md#function-adidigitalout",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_value",
+      "argsString": "(std::int32_t value) const",
+      "brief": "Sets the value for the given ADI port. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t set_value",
+      "deleted": false,
+      "details": "This only works on ports configured as outputs, and the behavior will change depending on the configuration of the port.\n\nThis function uses the following values of errno when an error state is reached: ENODEV - The port is not configured as a digital output",
+      "explicit": false,
+      "fullname": "pros::ADIDigitalOut::set_value",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 329
+      },
+      "name": "set_value",
+      "override": false,
+      "paramList": [
+        {
+          "name": "value",
+          "text": "The value to set the ADI port to"
+        }
+      ],
+      "params": [
+        {
+          "name": "value",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1ADIDigitalOut_1a833ed782b711495035dae08cfce3e62e",
+      "returns": [
+        "if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the value for the given ADI port. ",
+      "title": "set_value",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1ADIDigitalOut.md#function-set_value",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classpros_1_1ADIDigitalOut",
+  "static": false,
+  "strong": false,
+  "title": "pros::ADIDigitalOut",
+  "url": "classpros_1_1ADIDigitalOut.md",
+  "visibility": "public"
+}

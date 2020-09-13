@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-controller.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "controller.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/topical/controller.md",
+    "line": 0
+  },
+  "name": "controller.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page controller Controller\n\n\\note\nFor a full list of functions for interacting with the V5 Controller, see its\n[C API](@ref c-misc) and [C++ API](@ref cpp-misc).\nFeedback from the V5 Controller comes in two forms - analog and digital.\nThe analog data comes from the [joysticks](https://en.wikipedia.org/wiki/Analog_stick),\nand the digital data comes from the buttons.\n\nThe analog data is a value in the range of [-127,127], and digital data\nis either 1 or 0 (pressed or unpressed, respectively).\n\n## Analog Data\n\nRetrieve analog values from the V5 Controller in the following manner:\n\nThe controller returns a range of [-127,127] for analog data, which is\nwhy the [motor_move](../../api/c/motors.html#motor-move) function is\nappropriate for easy use with the controllers.\n\n## Digital Data\n\nRetrieve Digital Values from the V5 Controller in the following manner:",
+  "refid": "controller_8md",
+  "static": false,
+  "strong": false,
+  "title": "controller.md",
+  "url": "controller_8md.md#file-controller.md",
+  "visibility": "public"
+}

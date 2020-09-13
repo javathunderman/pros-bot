@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-motors.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "motors.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/topical/motors.md",
+    "line": 0
+  },
+  "name": "motors.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page motors Motors\n\n\\note\nFor a full list of functions for interacting with the V5 Motors, see its\n[C API](@ref c-motors) and [C++ API](@ref cpp-motors).\n\n## Initialization\n\nV5 Motors should be configured before use in your code. Configuration\noptions like the gearset and encoder units are important to address\nfirst thing in your user program to ensure that functions like\n`motor_move_velocity()`\nwill work as expected.\n\nWhen declaring motors in C++, it is not necessary to set the\nconfiguration for the motor with its constructor (beyond its port\nnumber) more than once for the given port. An example of this is given\nbelow.\n\n```{.cpp}\n#define MOTOR_PORT 1\nvoid opcontrol() {\n  pros::Motor drive_left (MOTOR_PORT);\n  // drive_left will have the same configuration as drive_left_initializer\n}\n```\n\n## Simple Usage\n\nThe easiest way to interact with the motors is through the\n[motor_move](../../api/c/motors.html#motor-move) function.\n\n## Autonomous Movement\n\nThe V5 Motors can move in a number of different ways that are better\nsuited towards autonomous movement than the simple `motor_move()`\nexample shown above.\n\n### Profile Movements\n\nProfile movements are movements to a given position that are executed by\nthe motor's firmware. There are two functions that achieve this,\n`motor_move_absolute()` and `motor_move_relative()`. These two functions\nare practically similar, but `motor_move_relative()` takes into account\nthe zero position of the motor's encoder.\n\nThese functions are very well suited to movement in autonomous.\n\nFor further reading material on the algorithms that create these\nprofiled movement, see [Mathematics of Motion Control\nProfiles](https://pdfs.semanticscholar.org/a229/fdba63d8d68abd09f70604d56cc07ee50f7d.pdf)\nfor the\n[Feedforward](<https://en.wikipedia.org/wiki/Feed_forward_(control)>)\ncontrol, and [George Gillard's PID\nExplanation](http://georgegillard.com/documents/2-introduction-to-pid-controllers)\nfor the\n[feedback](https://en.wikipedia.org/wiki/Control_theory#PID_feedback_control)\ncontrol.\n\n### Velocity Controller Movement\n\nThe final `move` function available with the PROS Motor API is\n`motor_move_velocity()`. This ensures consistent velocity output from\nthe motor through the use of\n[PID](http://georgegillard.com/documents/2-introduction-to-pid-controllers).",
+  "refid": "motors_8md",
+  "static": false,
+  "strong": false,
+  "title": "motors.md",
+  "url": "motors_8md.md#file-motors.md",
+  "visibility": "public"
+}

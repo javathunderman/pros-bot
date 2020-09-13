@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-macos.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "macos.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/getting-started/macos.md",
+    "line": 0
+  },
+  "name": "macos.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page install-macos Installing on macOS\n\nThere are currently two ways to install PROS 3 on macOS. The recommended\nmethod uses [Homebrew](https://brew.sh/), and the other method involves\ninstalling components manually.\n\n## Recommended Method (Homebrew)\n\nThe recommended method of installing PROS 3 for macOS involves using\n[Homebrew](https://brew.sh/).\n\n1.  If you do not already have Homebrew installed, install it by\n    following the instructions on [their site](https://brew.sh). This\n    will take a while, and may prompt you to follow some additional\n    instructions.\n2.  Once you have Homebrew installed, run\n    `brew tap osx-cross/arm && brew install arm-gcc-bin` to register a\n    repository with Homebrew that contains the toolchain used to build\n    PROS projects, and then install the toolchain.\n3.  Run `brew tap purduesigbots/pros` to register the PROS Homebrew\n    repository with Homebrew.\n4.  Run `brew cask install pros-editor` to install the PROS Editor (the\n    CLI will also be installed). This may also take a while.\n5.  That's it! You can now start using PROS 3.\n\n\\note\nIf you do not want to use the PROS Editor, and instead intend to use\nonly the PROS CLI, substitute the command in step 3 with the\nfollowing: `brew install pros-cli`.\n\n## Other Methods\n\nIf you don't want to use Homebrew to install PROS 3, you can install all\nthe components manually.\n\n### Install the toolchain\n\n1.  Download the latest version of the GNU Arm Embedded Toolchain for\n    macOS from [their\n    site](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads).\n2.  Once you have downloaded the toolchain, double click the file to\n    extract its contents.\n3.  Copy the contents of the `gcc-arm-none-eabi-X-20XX-qX-update` folder\n    (where the Xs are numbers specific to the version you downloaded) to\n    another folder, for example `/usr/local/lib/pros-toolchain`.\n4.  Now you will need to link the toolchain binaries to somewhere that\n    the system will be able to find them. There are two ways to do this:\n    - recommended, easy to update: run\n      `mkdir -p /usr/local/bin/pros-toolchain && ln -s /usr/local/lib/pros-toolchain/bin/* /usr/local/bin/pros-toolchain`\n      replacing `/usr/local/lib/pros-toolchain` with the path to the\n      folder you made in step 4 above. Finally, add\n      `/usr/local/bin/pros-toolchain` to the end of your `/etc/paths`\n      file.\n    - easier, less easy to update: simply run\n      `ln -s /usr/local/lib/pros-toolchain/bin/* /usr/local/bin`.\n\n### Install the CLI\n\n1.  Install Python 3.6 or higher from [the Python\n    website](http://python.org).\n2.  Install the CLI by downloading the latest version of the Python\n    Wheel file (.whl) from\n    [here](https://github.com/purduesigbots/pros-cli3/releases/latest).\n    Once downloaded, run\n    `python3 -m pip install ~/Downloads/pros-cli-v5_3.X.X-py3-none-any.whl`\n    (replacing that path with the path to which you downloaded the\n    file).\n\n### Install the Editor\n\n\\note\nThis section is optional if you intend to use an editor other than the\nPROS Editor\n\n1.  Build and install cquery by following the instructions on [their wiki\n    page](https://github.com/cquery-project/cquery/wiki/Building-cquery).\n2.  Download the pros-editor-mac.zip file from [our releases\n    page](https://github.com/purduesigbots/atom/releases/latest). Once\n    downloaded, double click to extract the application, then drag the\n    `PROS Editor.app` file to your `/Applications` folder.\n\n## Requirements\n\nMinimum macOS version: 10.8 Minimum Python version: 3.6\n\n## Known Issues\n\n`RuntimeError: Click will abort further execution because Python 3 was configured to use ASCII as encoding for the environment.`\n\nIf you are using the PROS Editor, open up your init script (File \\> Init\nScript) and add the following two lines:\n\n```{.coffee}\nprocess.env.LANG = 'en_US.utf-8'\nprocess.env.LC_ALL = 'en_US.utf-8'\n```\n\nIf you are just using the CLI at the Terminal:\n\n- Open up your Terminal.\n- Run `cd` to make sure you're in your home directory.\n- Run `touch .bash_profile` to make sure you have a shell login\n  configuration file.\n- Edit the `~/.bash_profile` file in your preferred editor (you can\n  also run `open -e .bash_profile` to edit it in TextEdit), adding the\n  following two lines at the end:\n\n```{.bash}\nexport LANG=\"en_US.utf-8\"\nexport LC_ALL=\"en_US.utf-8\"\n```\n\n- Run `. .bash_profile` to reload the file for the current session.\n\n<hr>\n`/bin/sh: intercept-c++: command not found`\n\n\\note\nThis issue should be fixed for PROS CLI versions \\> 3.1.2\n\n1.  Check your PROS CLI version by running `prosv5 --version`. If your\n    version is \\<= 3.1.2, try updating first to check if that solves\n    your problem. If not, continue with step 2.\n2.  Follow steps 1-4 listed above for those using the CLI only. In step\n    4, however, add the following line instead (replacing the Xs with\n    the numbers found in step 1):\n\n```{.bash}\nexport PATH=\"/usr/local/Cellar/pros-cli/3.X.X/libexec/bin:$PATH\"\n```",
+  "refid": "macos_8md",
+  "static": false,
+  "strong": false,
+  "title": "macos.md",
+  "url": "macos_8md.md#file-macos.md",
+  "visibility": "public"
+}

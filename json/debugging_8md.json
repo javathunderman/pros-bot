@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-debugging.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "debugging.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/general/debugging.md",
+    "line": 0
+  },
+  "name": "debugging.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page debugging Debugging\n\n\\warning\nThis content is subject to change as the PROS CLI for V5 is created.\n\nThe [PROS API](../../api/index.html) provides functions like\n[printf](http://www.cplusplus.com/reference/cstdio/printf/) that allow\nyour robot to output information to a connected serial console during\noperation.\n\n## Viewing printf output\n\nTo view a robot's output, there are two officially supported methods:\n\n1.  Through the PROS CLI:\n\n    Running `prosv5 terminal` on the command line will open an output\n    stream from a robot connected over direct USB connection, VEXnet, or\n    @ref jinx.\n\n2.  From within Atom:\n\n    Click the button labeled \"Open cortex serial output\"\n\n![](open-cortex.png)\n\nA terminal panel will open at the bottom of the screen containing the\noutput of a connected robot.\n\n![](terminal-platformio.png)\n\n## Further debug info with `errno`\n\n`errno` is a global value that is set when any part of the PROS kernel\nencounters an error. The value of `errno` is specific to each function,\nso check the function headers or the [API docs](../../api/index.html)\nfor possible values and their meaning. If you think you're encountering\nan error in the kernel code, check the value of `errno` to see what's\ncausing the issue.\n\nDebugging in this manner is standard to other environments besides PROS.\nFor further information on using `errno`, see the following tutorial:\n<https://www.tutorialspoint.com/cprogramming/c_error_handling.htm>\n\n## JINX Graphical Debugger\n\nJINX offers further debugging functionality over traditional debugging\nthrough print statements. For a full explanation of JINX's abilities and\nits use, see @ref jinx.",
+  "refid": "debugging_8md",
+  "static": false,
+  "strong": false,
+  "title": "debugging.md",
+  "url": "debugging_8md.md#file-debugging.md",
+  "visibility": "public"
+}

@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-index.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "index.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/getting-started/index.md",
+    "line": 0
+  },
+  "name": "index.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page getting-started Getting Started\n\nIf this is your first time working with PROS for V5, you've come to the right place. These guides are designed to walk you through the PROS installation process and starting your first PROS project.\n\nFor more advanced, topical guides, visit the \\ref tutorials section.\n\n### First Time PROS User?\n\n- \\subpage new-users\n\n### Installation Guides\n\n- \\subpage install-windows\n- \\subpage install-macos\n- \\subpage install-linux",
+  "refid": "getting-started_2index_8md",
+  "static": false,
+  "strong": false,
+  "title": "index.md",
+  "url": "getting-started_2index_8md.md#file-index.md",
+  "visibility": "public"
+}

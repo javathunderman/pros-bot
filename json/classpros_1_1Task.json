@@ -1,0 +1,1235 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::Task",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "\"rtos.hpp\"",
+  "inline": false,
+  "kind": "class",
+  "location": {
+    "bodyEnd": 321,
+    "bodyFile": "pros/rtos.hpp",
+    "bodyStart": 33,
+    "column": 11,
+    "file": "pros/rtos.hpp",
+    "line": 33
+  },
+  "name": "pros::Task",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-task",
+      "category": "attributes",
+      "const": false,
+      "definition": "task_t task",
+      "explicit": false,
+      "fullname": "pros::Task::task",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/rtos.hpp",
+        "bodyStart": 320,
+        "column": 8,
+        "file": "pros/rtos.hpp",
+        "line": 320
+      },
+      "name": "task",
+      "override": false,
+      "refid": "classpros_1_1Task_1a56cc089e11e076028d73369e1ba36e30",
+      "static": false,
+      "strong": false,
+      "title": "task",
+      "type": "[task_t](namespacepros.md#typedef-task_t)",
+      "typePlain": "task_t",
+      "url": "classpros_1_1Task.md#variable-task",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-task",
+      "argsString": "(task_fn_t function, void *parameters=NULL, std::uint32_t prio=TASK_PRIORITY_DEFAULT, std::uint16_t stack_depth=TASK_STACK_DEPTH_DEFAULT, const char *name=\"\")",
+      "brief": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Task",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created.",
+      "explicit": false,
+      "fullname": "pros::Task::Task",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/rtos.hpp",
+        "line": 60
+      },
+      "name": "Task",
+      "override": false,
+      "paramList": [
+        {
+          "name": "function",
+          "text": "Pointer to the task entry function "
+        },
+        {
+          "name": "parameters",
+          "text": "Pointer to memory that will be used as a parameter for the task being created. This memory should not typically come from stack, but rather from dynamically (i.e., malloc'd) or statically allocated memory. "
+        },
+        {
+          "name": "prio",
+          "text": "The priority at which the task should run. TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used. "
+        },
+        {
+          "name": "stack_depth",
+          "text": "The number of words (i.e. 4 * stack_depth) available on the task's stack. TASK_STACK_DEPTH_DEFAULT is typically sufficienct. "
+        },
+        {
+          "name": "name",
+          "text": "A descriptive name for the task. This is mainly used to facilitate debugging. The name may be up to 32 characters long. "
+        }
+      ],
+      "params": [
+        {
+          "name": "function",
+          "type": "[task_fn_t](namespacepros.md#typedef-task_fn_t)",
+          "typePlain": "task_fn_t"
+        },
+        {
+          "defval": "NULL",
+          "defvalPlain": "NULL",
+          "name": "parameters",
+          "type": "void *",
+          "typePlain": "void *"
+        },
+        {
+          "defval": "[TASK_PRIORITY_DEFAULT](rtos_8h.md#define-task_priority_default)",
+          "defvalPlain": "TASK_PRIORITY_DEFAULT",
+          "name": "prio",
+          "type": "std::uint32_t",
+          "typePlain": "std::uint32_t"
+        },
+        {
+          "defval": "[TASK_STACK_DEPTH_DEFAULT](rtos_8h.md#define-task_stack_depth_default)",
+          "defvalPlain": "TASK_STACK_DEPTH_DEFAULT",
+          "name": "stack_depth",
+          "type": "std::uint16_t",
+          "typePlain": "std::uint16_t"
+        },
+        {
+          "defval": "\"\"",
+          "defvalPlain": "\"\"",
+          "name": "name",
+          "type": "const char *",
+          "typePlain": "const char *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a79f4c328ab54362b1ae8bce0b0071edb",
+      "static": false,
+      "strong": false,
+      "summary": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "title": "Task",
+      "url": "classpros_1_1Task.md#function-task",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-task",
+      "argsString": "(task_fn_t function, void *parameters, const char *name)",
+      "brief": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Task",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created.",
+      "explicit": false,
+      "fullname": "pros::Task::Task",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/rtos.hpp",
+        "line": 82
+      },
+      "name": "Task",
+      "override": false,
+      "paramList": [
+        {
+          "name": "function",
+          "text": "Pointer to the task entry function "
+        },
+        {
+          "name": "parameters",
+          "text": "Pointer to memory that will be used as a parameter for the task being created. This memory should not typically come from stack, but rather from dynamically (i.e., malloc'd) or statically allocated memory. "
+        },
+        {
+          "name": "name",
+          "text": "A descriptive name for the task. This is mainly used to facilitate debugging. The name may be up to 32 characters long. "
+        }
+      ],
+      "params": [
+        {
+          "name": "function",
+          "type": "[task_fn_t](namespacepros.md#typedef-task_fn_t)",
+          "typePlain": "task_fn_t"
+        },
+        {
+          "name": "parameters",
+          "type": "void *",
+          "typePlain": "void *"
+        },
+        {
+          "name": "name",
+          "type": "const char *",
+          "typePlain": "const char *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a8d6642f2de80d6445619fe395568085d",
+      "static": false,
+      "strong": false,
+      "summary": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "title": "Task",
+      "url": "classpros_1_1Task.md#function-task",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-task",
+      "argsString": "(F &&function, std::uint32_t prio=TASK_PRIORITY_DEFAULT, std::uint16_t stack_depth=TASK_STACK_DEPTH_DEFAULT, const char *name=\"\")",
+      "brief": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Task",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created.",
+      "explicit": false,
+      "fullname": "pros::Task::Task",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 114,
+        "bodyFile": "pros/rtos.hpp",
+        "bodyStart": 105,
+        "column": 1,
+        "file": "pros/rtos.hpp",
+        "line": 105
+      },
+      "name": "Task",
+      "override": false,
+      "paramList": [
+        {
+          "name": "function",
+          "text": "Callable object to use as entry function "
+        },
+        {
+          "name": "prio",
+          "text": "The priority at which the task should run. TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used. "
+        },
+        {
+          "name": "stack_depth",
+          "text": "The number of words (i.e. 4 * stack_depth) available on the task's stack. TASK_STACK_DEPTH_DEFAULT is typically sufficienct. "
+        },
+        {
+          "name": "name",
+          "text": "A descriptive name for the task. This is mainly used to facilitate debugging. The name may be up to 32 characters long. "
+        }
+      ],
+      "params": [
+        {
+          "name": "function",
+          "type": "F &&",
+          "typePlain": "F &&"
+        },
+        {
+          "defval": "[TASK_PRIORITY_DEFAULT](rtos_8h.md#define-task_priority_default)",
+          "defvalPlain": "TASK_PRIORITY_DEFAULT",
+          "name": "prio",
+          "type": "std::uint32_t",
+          "typePlain": "std::uint32_t"
+        },
+        {
+          "defval": "[TASK_STACK_DEPTH_DEFAULT](rtos_8h.md#define-task_stack_depth_default)",
+          "defvalPlain": "TASK_STACK_DEPTH_DEFAULT",
+          "name": "stack_depth",
+          "type": "std::uint16_t",
+          "typePlain": "std::uint16_t"
+        },
+        {
+          "defval": "\"\"",
+          "defvalPlain": "\"\"",
+          "name": "name",
+          "type": "const char *",
+          "typePlain": "const char *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1aa1ffe37a99acadd8b2b750e9a9f0bf14",
+      "static": false,
+      "strong": false,
+      "summary": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "class F",
+          "typePlain": "class F"
+        }
+      ],
+      "title": "Task",
+      "url": "classpros_1_1Task.md#function-task",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-task",
+      "argsString": "(F &&function, const char *name)",
+      "brief": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Task",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created.",
+      "explicit": false,
+      "fullname": "pros::Task::Task",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 132,
+        "bodyFile": "pros/rtos.hpp",
+        "bodyStart": 131,
+        "column": 1,
+        "file": "pros/rtos.hpp",
+        "line": 131
+      },
+      "name": "Task",
+      "override": false,
+      "paramList": [
+        {
+          "name": "function",
+          "text": "Callable object to use as entry function "
+        },
+        {
+          "name": "name",
+          "text": "A descriptive name for the task. This is mainly used to facilitate debugging. The name may be up to 32 characters long. "
+        }
+      ],
+      "params": [
+        {
+          "name": "function",
+          "type": "F &&",
+          "typePlain": "F &&"
+        },
+        {
+          "name": "name",
+          "type": "const char *",
+          "typePlain": "const char *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1acbd0c9af4689e81baec06af05a16d29f",
+      "static": false,
+      "strong": false,
+      "summary": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "class F",
+          "typePlain": "class F"
+        }
+      ],
+      "title": "Task",
+      "url": "classpros_1_1Task.md#function-task",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-task",
+      "argsString": "(task_t task)",
+      "brief": "Create a C++ task object from a task handle. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Task",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::Task",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/rtos.hpp",
+        "line": 141
+      },
+      "name": "Task",
+      "override": false,
+      "paramList": [
+        {
+          "name": "task",
+          "text": "A task handle from [task_create()](namespacepros_1_1c.md#function-task_create) for which to create a [pros::Task](classpros_1_1Task.md) object. "
+        }
+      ],
+      "params": [
+        {
+          "name": "task",
+          "type": "[task_t](namespacepros.md#typedef-task_t)",
+          "typePlain": "task_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a966220f76c100aa2fbfdb221d032ddd9",
+      "static": false,
+      "strong": false,
+      "summary": "Create a C++ task object from a task handle. ",
+      "title": "Task",
+      "url": "classpros_1_1Task.md#function-task",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(task_t in)",
+      "brief": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Task& operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::operator=",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/rtos.hpp",
+        "line": 155
+      },
+      "name": "operator=",
+      "override": false,
+      "paramList": [
+        {
+          "name": "in",
+          "text": "A task handle from [task_create()](namespacepros_1_1c.md#function-task_create) for which to create a [pros::Task](classpros_1_1Task.md) object. "
+        }
+      ],
+      "params": [
+        {
+          "name": "in",
+          "type": "[task_t](namespacepros.md#typedef-task_t)",
+          "typePlain": "task_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a6511e9f551c6e751f3b553f6235e3080",
+      "static": false,
+      "strong": false,
+      "summary": "Creates a new task and add it to the list of tasks that are ready to run. ",
+      "title": "operator=",
+      "type": "[Task](classpros_1_1Task.md) &",
+      "typePlain": "Task &",
+      "url": "classpros_1_1Task.md#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-remove",
+      "argsString": "()",
+      "brief": "Removes the [Task](classpros_1_1Task.md) from the RTOS real time kernel's management. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void remove",
+      "deleted": false,
+      "details": "This task will be removed from all ready, blocked, suspended and event lists.\n\nMemory dynamically allocated by the task is not automatically freed, and should be freed before the task is deleted. ",
+      "explicit": false,
+      "fullname": "pros::Task::remove",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/rtos.hpp",
+        "line": 164
+      },
+      "name": "remove",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a1fcb45e5d2428352eb36b487d1d4eea3",
+      "static": false,
+      "strong": false,
+      "summary": "Removes the Task from the RTOS real time kernel's management. ",
+      "title": "remove",
+      "type": "void",
+      "typePlain": "void",
+      "url": "classpros_1_1Task.md#function-remove",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_priority",
+      "argsString": "(void)",
+      "brief": "Gets the priority of the specified task. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint32_t get_priority",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::get_priority",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 15,
+        "file": "pros/rtos.hpp",
+        "line": 171
+      },
+      "name": "get_priority",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a4909958d9882db376c16198582212831",
+      "returns": [
+        "The priority of the task "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the priority of the specified task. ",
+      "title": "get_priority",
+      "type": "std::uint32_t",
+      "typePlain": "std::uint32_t",
+      "url": "classpros_1_1Task.md#function-get_priority",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_priority",
+      "argsString": "(std::uint32_t prio)",
+      "brief": "Sets the priority of the specified task. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void set_priority",
+      "deleted": false,
+      "details": "If the specified task's state is available to be scheduled (e.g. not blocked) and new priority is higher than the currently running task, a context switch may occur.",
+      "explicit": false,
+      "fullname": "pros::Task::set_priority",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/rtos.hpp",
+        "line": 183
+      },
+      "name": "set_priority",
+      "override": false,
+      "paramList": [
+        {
+          "name": "prio",
+          "text": "The new priority of the task "
+        }
+      ],
+      "params": [
+        {
+          "name": "prio",
+          "type": "std::uint32_t",
+          "typePlain": "std::uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a685ad82d9352c7fe58deb1506ab6ab86",
+      "static": false,
+      "strong": false,
+      "summary": "Sets the priority of the specified task. ",
+      "title": "set_priority",
+      "type": "void",
+      "typePlain": "void",
+      "url": "classpros_1_1Task.md#function-set_priority",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_state",
+      "argsString": "(void)",
+      "brief": "Gets the state of the specified task. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint32_t get_state",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::get_state",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 15,
+        "file": "pros/rtos.hpp",
+        "line": 190
+      },
+      "name": "get_state",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a8cc01716428aed5c3c0b19b0d05ce3e2",
+      "returns": [
+        "The state of the task "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the state of the specified task. ",
+      "title": "get_state",
+      "type": "std::uint32_t",
+      "typePlain": "std::uint32_t",
+      "url": "classpros_1_1Task.md#function-get_state",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-suspend",
+      "argsString": "(void)",
+      "brief": "Suspends the specified task, making it ineligible to be scheduled. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void suspend",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::suspend",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/rtos.hpp",
+        "line": 195
+      },
+      "name": "suspend",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1acf110e07a416e636772e6ba9c3246ebb",
+      "static": false,
+      "strong": false,
+      "summary": "Suspends the specified task, making it ineligible to be scheduled. ",
+      "title": "suspend",
+      "type": "void",
+      "typePlain": "void",
+      "url": "classpros_1_1Task.md#function-suspend",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-resume",
+      "argsString": "(void)",
+      "brief": "Resumes the specified task, making it eligible to be scheduled. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void resume",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::resume",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/rtos.hpp",
+        "line": 203
+      },
+      "name": "resume",
+      "override": false,
+      "paramList": [
+        {
+          "name": "task",
+          "text": "The task to resume "
+        }
+      ],
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a3e326872c54e58ed7d8c431039fb55e3",
+      "static": false,
+      "strong": false,
+      "summary": "Resumes the specified task, making it eligible to be scheduled. ",
+      "title": "resume",
+      "type": "void",
+      "typePlain": "void",
+      "url": "classpros_1_1Task.md#function-resume",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_name",
+      "argsString": "(void)",
+      "brief": "Gets the name of the specified task. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "const char* get_name",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::get_name",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 12,
+        "file": "pros/rtos.hpp",
+        "line": 210
+      },
+      "name": "get_name",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a84ab7dcc81b94b73e61efd580e5e714d",
+      "returns": [
+        "A pointer to the name of the task "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the name of the specified task. ",
+      "title": "get_name",
+      "type": "const char *",
+      "typePlain": "const char *",
+      "url": "classpros_1_1Task.md#function-get_name",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator-task_t",
+      "argsString": "()",
+      "brief": "Convert this object to a C task_t handle. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "operator task_t",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::operator task_t",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 217,
+        "bodyFile": "pros/rtos.hpp",
+        "bodyStart": 215,
+        "column": 1,
+        "file": "pros/rtos.hpp",
+        "line": 215
+      },
+      "name": "operator task_t",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1af68d7f3aeaf718187f2a74d80b1a669f",
+      "static": false,
+      "strong": false,
+      "summary": "Convert this object to a C task_t handle. ",
+      "title": "operator task_t",
+      "url": "classpros_1_1Task.md#function-operator-task_t",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-notify",
+      "argsString": "(void)",
+      "brief": "Sends a simple notification to task and increments the notification counter. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint32_t notify",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html](https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html) for details.",
+      "explicit": false,
+      "fullname": "pros::Task::notify",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 15,
+        "file": "pros/rtos.hpp",
+        "line": 228
+      },
+      "name": "notify",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a28c0bf81d14b00d44fbe30003e908959",
+      "returns": [
+        "Always returns true. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sends a simple notification to task and increments the notification counter. ",
+      "title": "notify",
+      "type": "std::uint32_t",
+      "typePlain": "std::uint32_t",
+      "url": "classpros_1_1Task.md#function-notify",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-notify_ext",
+      "argsString": "(std::uint32_t value, notify_action_e_t action, std::uint32_t *prev_value)",
+      "brief": "Sends a notification to a task, optionally performing some action. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint32_t notify_ext",
+      "deleted": false,
+      "details": "Will also retrieve the value of the notification in the target task before modifying the notification value.\n\nSee [https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html](https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html) for details.",
+      "explicit": false,
+      "fullname": "pros::Task::notify_ext",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 15,
+        "file": "pros/rtos.hpp",
+        "line": 252
+      },
+      "name": "notify_ext",
+      "override": false,
+      "paramList": [
+        {
+          "name": "value",
+          "text": "The value used in performing the action "
+        },
+        {
+          "name": "action",
+          "text": "An action to optionally perform on the receiving task's notification value "
+        },
+        {
+          "name": "prev_value",
+          "text": "A pointer to store the previous value of the target task's notification, may be NULL"
+        }
+      ],
+      "params": [
+        {
+          "name": "value",
+          "type": "std::uint32_t",
+          "typePlain": "std::uint32_t"
+        },
+        {
+          "name": "action",
+          "type": "[notify_action_e_t](namespacepros.md#enum-notify_action_e_t)",
+          "typePlain": "notify_action_e_t"
+        },
+        {
+          "name": "prev_value",
+          "type": "std::uint32_t *",
+          "typePlain": "std::uint32_t *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a8416442a23f42ca38044c9b2dec99316",
+      "returns": [
+        "Dependent on the notification action. For NOTIFY_ACTION_NO_WRITE: return 0 if the value could be written without needing to overwrite, 1 otherwise. For all other NOTIFY_ACTION values: always return 0 "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sends a notification to a task, optionally performing some action. ",
+      "title": "notify_ext",
+      "type": "std::uint32_t",
+      "typePlain": "std::uint32_t",
+      "url": "classpros_1_1Task.md#function-notify_ext",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-notify_clear",
+      "argsString": "(void)",
+      "brief": "Clears the notification for a task. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool notify_clear",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html](https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html) for details.",
+      "explicit": false,
+      "fullname": "pros::Task::notify_clear",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/rtos.hpp",
+        "line": 280
+      },
+      "name": "notify_clear",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a52171b4725e8104845680ef6a579a078",
+      "returns": [
+        "False if there was not a notification waiting, true if there was "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Clears the notification for a task. ",
+      "title": "notify_clear",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "classpros_1_1Task.md#function-notify_clear",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-current",
+      "argsString": "()",
+      "brief": "Get the currently running [Task](classpros_1_1Task.md). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static Task current",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Task::current",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 13,
+        "file": "pros/rtos.hpp",
+        "line": 146
+      },
+      "name": "current",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a6bc440ea23792294f5f41f00b3e4b5cd",
+      "static": true,
+      "strong": false,
+      "summary": "Get the currently running Task. ",
+      "title": "current",
+      "type": "[Task](classpros_1_1Task.md)",
+      "typePlain": "Task",
+      "url": "classpros_1_1Task.md#function-current",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-notify_take",
+      "argsString": "(bool clear_on_exit, std::uint32_t timeout)",
+      "brief": "Waits for a notification to be nonzero. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static std::uint32_t notify_take",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html](https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html) for details.",
+      "explicit": false,
+      "fullname": "pros::Task::notify_take",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/rtos.hpp",
+        "line": 270
+      },
+      "name": "notify_take",
+      "override": false,
+      "paramList": [
+        {
+          "name": "clear_on_exit",
+          "text": "If true (1), then the notification value is cleared. If false (0), then the notification value is decremented. "
+        },
+        {
+          "name": "timeout",
+          "text": "Specifies the amount of time to be spent waiting for a notification to occur."
+        }
+      ],
+      "params": [
+        {
+          "name": "clear_on_exit",
+          "type": "bool",
+          "typePlain": "bool"
+        },
+        {
+          "name": "timeout",
+          "type": "std::uint32_t",
+          "typePlain": "std::uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a070827d25e8a07d2124578dcbd638dd0",
+      "returns": [
+        "The value of the task's notification value before it is decremented or cleared "
+      ],
+      "static": true,
+      "strong": false,
+      "summary": "Waits for a notification to be nonzero. ",
+      "title": "notify_take",
+      "type": "std::uint32_t",
+      "typePlain": "std::uint32_t",
+      "url": "classpros_1_1Task.md#function-notify_take",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-delay",
+      "argsString": "(const std::uint32_t milliseconds)",
+      "brief": "Delays a task for a given number of milliseconds. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static void delay",
+      "deleted": false,
+      "details": "This is not the best method to have a task execute code at predefined intervals, as the delay time is measured from when the delay is requested. To delay cyclically, use [task_delay_until()](namespacepros_1_1c.md#function-task_delay_until).",
+      "explicit": false,
+      "fullname": "pros::Task::delay",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 13,
+        "file": "pros/rtos.hpp",
+        "line": 292
+      },
+      "name": "delay",
+      "override": false,
+      "paramList": [
+        {
+          "name": "milliseconds",
+          "text": "The number of milliseconds to wait (1000 milliseconds per second) "
+        }
+      ],
+      "params": [
+        {
+          "name": "milliseconds",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1afd19e4a13c12c607998bcfc56768ddbc",
+      "static": true,
+      "strong": false,
+      "summary": "Delays a task for a given number of milliseconds. ",
+      "title": "delay",
+      "type": "void",
+      "typePlain": "void",
+      "url": "classpros_1_1Task.md#function-delay",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-delay_until",
+      "argsString": "(std::uint32_t *const prev_time, const std::uint32_t delta)",
+      "brief": "Delays a task until a specified time. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static void delay_until",
+      "deleted": false,
+      "details": "This function can be used by periodic tasks to ensure a constant execution frequency.\n\nThe task will be woken up at the time *prev_time + delta, and *prev_time will be updated to reflect the time at which the task will unblock.",
+      "explicit": false,
+      "fullname": "pros::Task::delay_until",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 13,
+        "file": "pros/rtos.hpp",
+        "line": 307
+      },
+      "name": "delay_until",
+      "override": false,
+      "paramList": [
+        {
+          "name": "prev_time",
+          "text": "A pointer to the location storing the setpoint time. This should typically be initialized to the return value from [pros::millis()](namespacepros_1_1c.md#function-millis). "
+        },
+        {
+          "name": "delta",
+          "text": "The number of milliseconds to wait (1000 milliseconds per second) "
+        }
+      ],
+      "params": [
+        {
+          "name": "prev_time",
+          "type": "std::uint32_t *const",
+          "typePlain": "std::uint32_t *const"
+        },
+        {
+          "name": "delta",
+          "type": "const std::uint32_t",
+          "typePlain": "const std::uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1afcfc4faff77d7ca1f4c080d1e8c508fa",
+      "static": true,
+      "strong": false,
+      "summary": "Delays a task until a specified time. ",
+      "title": "delay_until",
+      "type": "void",
+      "typePlain": "void",
+      "url": "classpros_1_1Task.md#function-delay_until",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_count",
+      "argsString": "(void)",
+      "brief": "Gets the number of tasks the kernel is currently managing, including all ready, blocked, or suspended tasks. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static std::uint32_t get_count",
+      "deleted": false,
+      "details": "A task that has been deleted, but not yet reaped by the idle task will also be included in the count. Tasks recently created may take one context switch to be counted.",
+      "explicit": false,
+      "fullname": "pros::Task::get_count",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/rtos.hpp",
+        "line": 317
+      },
+      "name": "get_count",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Task_1a6317b4f7221ab1df8e5d107ed0f5dadd",
+      "returns": [
+        "The number of tasks that are currently being managed by the kernel. "
+      ],
+      "static": true,
+      "strong": false,
+      "summary": "Gets the number of tasks the kernel is currently managing, including all ready, blocked, or suspended tasks. ",
+      "title": "get_count",
+      "type": "std::uint32_t",
+      "typePlain": "std::uint32_t",
+      "url": "classpros_1_1Task.md#function-get_count",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classpros_1_1Task",
+  "static": false,
+  "strong": false,
+  "title": "pros::Task",
+  "url": "classpros_1_1Task.md",
+  "visibility": "public"
+}

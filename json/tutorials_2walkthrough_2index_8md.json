@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-index.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "index.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/walkthrough/index.md",
+    "line": 0
+  },
+  "name": "index.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page walkthrough-tutorials Walkthrough Tutorials\n\nIf you want to write full sample programs to learn to use PROS through\npractical applications, or teach students to use PROS in a classroom\nenvironment, the **Walkthrough Tutorials** are a great resource to go\nstep by step through the process of writing a PROS program.\n\n- \\subpage clawbot\n- \\subpage creating-c-project",
+  "refid": "tutorials_2walkthrough_2index_8md",
+  "static": false,
+  "strong": false,
+  "title": "index.md",
+  "url": "tutorials_2walkthrough_2index_8md.md#file-index.md",
+  "visibility": "public"
+}

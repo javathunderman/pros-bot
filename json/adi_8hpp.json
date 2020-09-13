@@ -1,0 +1,524 @@
+{
+  "abstract": false,
+  "anchor": "#file-adi.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "details": "Contains prototypes for interfacing with the ADI.\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/adi.html](https://pros.cs.purdue.edu/v5/tutorials/topical/adi.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/adi.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<cstdint>",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/adi.hpp",
+    "line": 0
+  },
+  "name": "pros/adi.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/adi.hpp\n *\n * Contains prototypes for interfacing with the ADI.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/adi.html to learn more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_ADI_HPP_\n#define _PROS_ADI_HPP_\n\n#include <cstdint>\n#include <tuple>\n#include <utility>\n\n#include \"pros/adi.h\"\n\nnamespace pros {\n\n/** type definition for the pair of smart port and adi port for the basic adi devices */\nusing ext_adi_port_pair_t = std::pair<std::uint8_t, std::uint8_t>;\n\n/** type definition for the triplet of smart port and two adi ports for the two wire adi devices*/\nusing ext_adi_port_tuple_t = std::tuple<std::uint8_t, std::uint8_t, std::uint8_t>;\n\nclass ADIPort {\n    public:\n    /**\n     * Configures an ADI port to act as a given sensor type.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param adi_port\n     *        The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     * \\param type\n     *        The configuration type for the port\n     */\n    explicit ADIPort(std::uint8_t adi_port, adi_port_config_e_t type = E_ADI_TYPE_UNDEFINED);\n\n    /**\n     * Configures an ADI port on an adi expander to act as a given sensor type.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_pair\n     *        The pair of the smart port number (from 1-22) and the ADI port number\n     *        (from 1-8, 'a'-'h', 'A'-'H') to configure\n     * \\param type\n     *        The configuration type for the port\n     */\n    ADIPort(ext_adi_port_pair_t port_pair, adi_port_config_e_t type = E_ADI_TYPE_UNDEFINED);\n\n    /**\n     * Gets the configuration for the given ADI port.\n     *\n     * \\return The ADI configuration for the given port\n     */\n    std::int32_t get_config() const;\n\n    /**\n     * Gets the value for the given ADI port.\n     *\n     * \\return The value stored for the given port\n     */\n    std::int32_t get_value() const;\n\n    /**\n     * Configures an ADI port to act as a given sensor type.\n     *\n     * \\param type\n     *        The configuration type for the port\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t set_config(adi_port_config_e_t type) const;\n\n    /**\n     * Sets the value for the given ADI port.\n     *\n     * This only works on ports configured as outputs, and the behavior will\n     * change depending on the configuration of the port.\n     *\n     * \\param value\n     *        The value to set the ADI port to\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t set_value(std::int32_t value) const;\n\n    protected:\n    std::uint8_t _smart_port;\n    std::uint8_t _adi_port;\n};\n\nclass ADIAnalogIn : private ADIPort {\n    public:\n    /**\n     * Configures an ADI port to act as an Analog Input.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param adi_port\n     *        The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    explicit ADIAnalogIn(std::uint8_t adi_port);\n\n    /**\n     * Configures an ADI port on an adi expander to act as an Analog Input.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_pair\n     *        The pair of the smart port number (from 1-22) and the\n     *        ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    ADIAnalogIn(ext_adi_port_pair_t port_pair);\n\n    /**\n     * Calibrates the analog sensor on the specified port and returns the new\n     * calibration value.\n     *\n     * This method assumes that the true sensor value is not actively changing at\n     * this time and computes an average from approximately 500 samples, 1 ms\n     * apart, for a 0.5 s period of calibration. The average value thus calculated\n     * is returned and stored for later calls to the\n     * pros::ADIAnalogIn::get_value_calibrated() and\n     * pros::ADIAnalogIn::get_value_calibrated_HR() functions. These functions\n     * will return the difference between this value and the current sensor value\n     * when called.\n     *\n     * Do not use this function when the sensor value might be unstable (gyro\n     * rotation, accelerometer movement).\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as an analog input\n     *\n     * \\return The average sensor value computed by this function\n     */\n    std::int32_t calibrate() const;\n\n    /**\n     * Gets the 12 bit calibrated value of an analog input port.\n     *\n     * The pros::ADIAnalogIn::calibrate() function must be run first. This\n     * function is inappropriate for sensor values intended for integration, as\n     * round-off error can accumulate causing drift over time. Use\n     * pros::ADIAnalogIn::get_value_calibrated_HR() instead.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as an analog input\n     *\n     * \\return The difference of the sensor value from its calibrated default from\n     * -4095 to 4095\n     */\n    std::int32_t get_value_calibrated() const;\n\n    /**\n     * Gets the 16 bit calibrated value of an analog input port.\n     *\n     * The pros::ADIAnalogIn::calibrate() function must be run first. This is\n     * intended for integrated sensor values such as gyros and accelerometers to\n     * reduce drift due to round-off, and should not be used on a sensor such as a\n     * line tracker or potentiometer.\n     *\n     * The value returned actually has 16 bits of \"precision\", even though the ADC\n     * only reads 12 bits, so that error induced by the average value being\n     * between two values when integrated over time is trivial. Think of the value\n     * as the true value times 16.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as an analog input\n     *\n     * \\return The difference of the sensor value from its calibrated default from\n     * -16384 to 16384\n     */\n    std::int32_t get_value_calibrated_HR() const;\n\n    /**\n     * Gets the 12-bit value of the specified port.\n     *\n     * The value returned is undefined if the analog pin has been switched to a\n     * different mode.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as an analog input\n     *\n     * \\return The analog sensor value, where a value of 0 reflects an input\n     * voltage of nearly 0 V and a value of 4095 reflects an input voltage of\n     * nearly 5 V\n     */\n    using ADIPort::get_value;\n};\n\nusing ADIPotentiometer = ADIAnalogIn;\nusing ADILineSensor = ADIAnalogIn;\nusing ADILightSensor = ADIAnalogIn;\nusing ADIAccelerometer = ADIAnalogIn;\n\nclass ADIAnalogOut : private ADIPort {\n    public:\n    /**\n     * Configures an ADI port to act as an Analog Output.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param adi_port\n     *        The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     */\n    explicit ADIAnalogOut(std::uint8_t adi_port);\n\n    /**\n     * Configures an ADI port on an adi_expander to act as an Analog Output.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_pair\n     *        The pair of the smart port number (from 1-22) and the\n     *        ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     *\n     */\n    ADIAnalogOut(ext_adi_port_pair_t port_pair);\n\n    /**\n     * Sets the value for the given ADI port.\n     *\n     * This only works on ports configured as outputs, and the behavior will\n     * change depending on the configuration of the port.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as an analog output\n     *\n     * \\param value\n     *        The value to set the ADI port to\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    using ADIPort::set_value;\n};\n\nclass ADIDigitalOut : private ADIPort {\n    public:\n    /**\n     * Configures an ADI port to act as a Digital Output.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param adi_port\n     *        The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     * \\param init_state\n     *        The initial state for the port\n     */\n    explicit ADIDigitalOut(std::uint8_t adi_port, bool init_state = LOW);\n\n    /**\n     * Configures an ADI port on an adi_expander to act as a Digital Output.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_pair\n     *        The pair of the smart port number (from 1-22) and the\n     *        ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     * \\param init_state\n     *        The initial state for the port\n     */\n    ADIDigitalOut(ext_adi_port_pair_t port_pair, bool init_state = LOW);\n\n    /**\n     * Sets the value for the given ADI port.\n     *\n     * This only works on ports configured as outputs, and the behavior will\n     * change depending on the configuration of the port.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a digital output\n     *\n     * \\param value\n     *        The value to set the ADI port to\n     *\n     * \\return if the operation was successful or PROS_ERR if the operation failed, setting errno.\n     */\n    using ADIPort::set_value;\n};\n\nclass ADIDigitalIn : private ADIPort {\n    public:\n    /**\n     * Configures an ADI port to act as a Digital Input.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param adi_port\n     *        The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     */\n    explicit ADIDigitalIn(std::uint8_t adi_port);\n\n    /**\n     * Configures an ADI port on an adi_expander to act as a Digital Input.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_pair\n     *        The pair of the smart port number (from 1-22) and the\n     *        ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     */\n    ADIDigitalIn(ext_adi_port_pair_t port_pair);\n\n    /**\n     * Gets a rising-edge case for a digital button press.\n     *\n     * This function is not thread-safe.\n     * Multiple tasks polling a single button may return different results under\n     * the same circumstances, so only one task should call this function for any\n     * given button. E.g., Task A calls this function for buttons 1 and 2. Task B\n     * may call this function for button 3, but should not for buttons 1 or 2. A\n     * typical use-case for this function is to call inside opcontrol to detect\n     * new button presses, and not in any other tasks.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a digital input\n     *\n     * \\return 1 if the button is pressed and had not been pressed the last time\n     * this function was called, 0 otherwise.\n     */\n    std::int32_t get_new_press() const;\n\n    /**\n     * Gets the value for the given ADI port.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a digital input\n     *\n     * \\return The value stored for the given port\n     */\n    using ADIPort::get_value;\n};\n\nusing ADIButton = ADIDigitalIn;\n\nclass ADIMotor : private ADIPort {\n    public:\n    /**\n     * Configures an ADI port to act as a Motor.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param adi_port\n     *        The ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     */\n    explicit ADIMotor(std::uint8_t adi_port);\n\n    /**\n     * Configures an ADI port on an adi_expander to act as a Motor.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_pair\n     *        The pair of the smart port number (from 1-22) and the\n     *        ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     */\n    ADIMotor(ext_adi_port_pair_t port_pair);\n\n    /**\n     * Stops the motor on the given port.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a motor\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t stop() const;\n\n    /**\n     * Sets the speed of the motor on the given port.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a motor\n     *\n     * \\param value\n     *        The new signed speed; -127 is full reverse and 127 is full forward,\n     *        with 0 being off\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    using ADIPort::set_value;\n\n    /**\n     * Gets the last set speed of the motor on the given port.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a motor\n     *\n     * \\return The last set speed of the motor on the given port\n     */\n    using ADIPort::get_value;\n};\n\nclass ADIEncoder : private ADIPort {\n    public:\n    /**\n     * Configures a set of ADI ports to act as an Encoder.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param adi_port_top\n     *        The  \"top\" wire from the encoder sensor with the removable cover side up\n     * \\param adi_port_bottom\n     *       The \"bottom\" wire from the encoder sensor\n     * \\param reverse\n     *        If \"true\", the sensor will count in the opposite direction\n     */\n    ADIEncoder(std::uint8_t adi_port_top, std::uint8_t adi_port_bottom, bool reversed = false);\n\n    /**\n     * Configures a set of ADI ports on an adi_expander to act as an Encoder.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_tuple\n     *        The tuple of the smart port number, the \"top\" wire from the encoder\n     *        sensor with the removable cover side up, and the \"bottom\" wire from\n     *        the encoder sensor\n     * \\param reverse\n     *        If \"true\", the sensor will count in theopposite direction\n     */\n    ADIEncoder(ext_adi_port_tuple_t port_tuple, bool reversed = false);\n\n    /**\n     * Sets the encoder value to zero.\n     *\n     * It is safe to use this method while an encoder is enabled. It is not\n     * necessary to call this method before stopping or starting an encoder.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a motor\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t reset() const;\n\n    /**\n     * Gets the number of ticks recorded by the encoder.\n     *\n     * There are 360 ticks in one revolution.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a motor\n     *\n     * \\return The signed and cumulative number of counts since the last start or\n     * reset\n     */\n    std::int32_t get_value() const;\n};\n\nclass ADIUltrasonic : private ADIPort {\n    public:\n    /**\n     * Configures a set of ADI ports to act as an Ultrasonic sensor.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_ping\n     *        The port connected to the orange OUTPUT cable. This should be in port\n     *        1, 3, 5, or 7 ('A', 'C', 'E', 'G').\n     * \\param port_echo\n     *        The port connected to the yellow INPUT cable. This should be in the\n     *        next highest port following port_ping.\n     */\n    ADIUltrasonic(std::uint8_t adi_port_ping, std::uint8_t adi_port_echo);\n\n    /**\n     * Configures a set of ADI ports on an adi_expander to act as an Ultrasonic sensor.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_tuple\n     *        The tuple of the smart port number, the port connected to the orange\n     *        OUTPUT cable (1, 3, 5, 7 or 'A', 'C', 'E', 'G'), and the port \n     *        connected to the yellow INPUT cable (the next) highest port \n     *        following port_ping).\n     */\n    ADIUltrasonic(ext_adi_port_tuple_t port_tuple);\n\n    /**\n     * Gets the current ultrasonic sensor value in centimeters.\n     *\n     * If no object was found, zero is returned. If the ultrasonic sensor was\n     * never started, the return value is undefined. Round and fluffy objects can\n     * cause inaccurate values to be returned.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as an ultrasonic\n     *\n     * \\return The distance to the nearest object in m^-4 (10000 indicates 1\n     * meter), measured from the sensor's mounting points.\n     */\n    std::int32_t get_value() const;\n};\n\nclass ADIGyro : private ADIPort {\n    public:\n    /**\n     * Initializes a gyroscope on the given port. If the given port has not\n     * previously been configured as a gyro, then this function starts a 1300ms\n     * calibration period.\n     *\n     * It is highly recommended that an ADIGyro object be created in initialize()\n     * when the robot is stationary to ensure proper calibration. If an ADIGyro\n     * object is declared at the global scope, a hardcoded 1300ms delay at the\n     * beginning of initialize will be necessary to ensure that the gyro's\n     * returned values are correct at the beginning of autonomous/opcontrol.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param adi_port\n     *        The ADI port to initialize as a gyro (from 1-8, 'a'-'h', 'A'-'H')\n     * \\param multiplier\n     *        A scalar value that will be multiplied by the gyro heading value\n     *        supplied by the ADI\n     */\n    explicit ADIGyro(std::uint8_t adi_port, double multiplier = 1);\n\n    /**\n     * Initializes a gyroscope on the given port of an adi expander. If the given\n     * port has not previously been configured as a gyro, then this function starts\n     * a 1300ms calibration period.\n     *\n     * It is highly recommended that an ADIGyro object be created in initialize()\n     * when the robot is stationary to ensure proper calibration. If an ADIGyro\n     * object is declared at the global scope, a hardcoded 1300ms delay at the\n     * beginning of initialize will be necessary to ensure that the gyro's\n     * returned values are correct at the beginning of autonomous/opcontrol.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - Either the ADI port value or the smart port value is not within its\n     *     valid range (ADI port: 1-8, 'a'-'h', or 'A'-'H'; smart port: 1-21).\n     *\n     * \\param port_pair\n     *        The pair of the smart port number (from 1-22) and the\n     *        ADI port number (from 1-8, 'a'-'h', 'A'-'H') to configure\n     * \\param multiplier\n     *        A scalar value that will be multiplied by the gyro heading value\n     *        supplied by the ADI\n     */\n    ADIGyro(ext_adi_port_pair_t port_pair, double multiplier = 1);\n\n    /**\n     * Gets the current gyro angle in tenths of a degree. Unless a multiplier is\n     * applied to the gyro, the return value will be a whole number representing\n     * the number of degrees of rotation times 10.\n     *\n     * There are 360 degrees in a circle, thus the gyro will return 3600 for one\n     * whole rotation.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a gyro\n     *\n     * \\return The gyro angle in degrees.\n     */\n    double get_value() const;\n\n    /**\n     * Resets the gyroscope value to zero.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENODEV - The port is not configured as a gyro\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t reset() const;\n};\n}  // namespace pros\n\n#endif  // _PROS_ADI_HPP_",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "ADIAnalogIn",
+          "refid": "classpros_1_1ADIAnalogIn",
+          "url": "classpros_1_1ADIAnalogIn.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "ADIAnalogOut",
+          "refid": "classpros_1_1ADIAnalogOut",
+          "url": "classpros_1_1ADIAnalogOut.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "ADIDigitalIn",
+          "refid": "classpros_1_1ADIDigitalIn",
+          "url": "classpros_1_1ADIDigitalIn.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "ADIDigitalOut",
+          "refid": "classpros_1_1ADIDigitalOut",
+          "url": "classpros_1_1ADIDigitalOut.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "ADIEncoder",
+          "refid": "classpros_1_1ADIEncoder",
+          "url": "classpros_1_1ADIEncoder.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "ADIGyro",
+          "refid": "classpros_1_1ADIGyro",
+          "url": "classpros_1_1ADIGyro.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "ADIMotor",
+          "refid": "classpros_1_1ADIMotor",
+          "url": "classpros_1_1ADIMotor.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "ADIUltrasonic",
+          "refid": "classpros_1_1ADIUltrasonic",
+          "url": "classpros_1_1ADIUltrasonic.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "fullname": "pros::ADIPort",
+      "kind": "class",
+      "name": "pros::ADIPort",
+      "refid": "classpros_1_1ADIPort",
+      "title": "pros::ADIPort",
+      "url": "classpros_1_1ADIPort.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "ADIPort",
+          "refid": "classpros_1_1ADIPort",
+          "url": "classpros_1_1ADIPort.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "pros::ADIAnalogIn",
+      "kind": "class",
+      "name": "pros::ADIAnalogIn",
+      "refid": "classpros_1_1ADIAnalogIn",
+      "title": "pros::ADIAnalogIn",
+      "url": "classpros_1_1ADIAnalogIn.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "ADIPort",
+          "refid": "classpros_1_1ADIPort",
+          "url": "classpros_1_1ADIPort.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "pros::ADIAnalogOut",
+      "kind": "class",
+      "name": "pros::ADIAnalogOut",
+      "refid": "classpros_1_1ADIAnalogOut",
+      "title": "pros::ADIAnalogOut",
+      "url": "classpros_1_1ADIAnalogOut.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "ADIPort",
+          "refid": "classpros_1_1ADIPort",
+          "url": "classpros_1_1ADIPort.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "pros::ADIDigitalOut",
+      "kind": "class",
+      "name": "pros::ADIDigitalOut",
+      "refid": "classpros_1_1ADIDigitalOut",
+      "title": "pros::ADIDigitalOut",
+      "url": "classpros_1_1ADIDigitalOut.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "ADIPort",
+          "refid": "classpros_1_1ADIPort",
+          "url": "classpros_1_1ADIPort.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "pros::ADIDigitalIn",
+      "kind": "class",
+      "name": "pros::ADIDigitalIn",
+      "refid": "classpros_1_1ADIDigitalIn",
+      "title": "pros::ADIDigitalIn",
+      "url": "classpros_1_1ADIDigitalIn.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "ADIPort",
+          "refid": "classpros_1_1ADIPort",
+          "url": "classpros_1_1ADIPort.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "pros::ADIMotor",
+      "kind": "class",
+      "name": "pros::ADIMotor",
+      "refid": "classpros_1_1ADIMotor",
+      "title": "pros::ADIMotor",
+      "url": "classpros_1_1ADIMotor.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "ADIPort",
+          "refid": "classpros_1_1ADIPort",
+          "url": "classpros_1_1ADIPort.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "pros::ADIEncoder",
+      "kind": "class",
+      "name": "pros::ADIEncoder",
+      "refid": "classpros_1_1ADIEncoder",
+      "title": "pros::ADIEncoder",
+      "url": "classpros_1_1ADIEncoder.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "ADIPort",
+          "refid": "classpros_1_1ADIPort",
+          "url": "classpros_1_1ADIPort.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "pros::ADIUltrasonic",
+      "kind": "class",
+      "name": "pros::ADIUltrasonic",
+      "refid": "classpros_1_1ADIUltrasonic",
+      "title": "pros::ADIUltrasonic",
+      "url": "classpros_1_1ADIUltrasonic.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "ADIPort",
+          "refid": "classpros_1_1ADIPort",
+          "url": "classpros_1_1ADIPort.md",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "pros::ADIGyro",
+      "kind": "class",
+      "name": "pros::ADIGyro",
+      "refid": "classpros_1_1ADIGyro",
+      "title": "pros::ADIGyro",
+      "url": "classpros_1_1ADIGyro.md",
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-ext_adi_port_pair_t",
+      "brief": "type definition for the pair of smart port and adi port for the basic adi devices ",
+      "category": "types",
+      "const": false,
+      "definition": "using ext_adi_port_pair_t =  std::pair<std::uint8_t, std::uint8_t>",
+      "explicit": false,
+      "fullname": "adi.hpp::ext_adi_port_pair_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "location": {
+        "bodyFile": "pros/adi.hpp",
+        "bodyStart": 30,
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 30
+      },
+      "name": "ext_adi_port_pair_t",
+      "override": false,
+      "refid": "namespacepros_1aa8b90563c470741ebd760aeacfd90599",
+      "static": false,
+      "strong": false,
+      "summary": "type definition for the pair of smart port and adi port for the basic adi devices ",
+      "title": "ext_adi_port_pair_t",
+      "type": "std::pair< std::uint8_t, std::uint8_t >",
+      "typePlain": "std::pair< std::uint8_t, std::uint8_t >",
+      "url": "adi_8hpp.md#using-ext_adi_port_pair_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-ext_adi_port_tuple_t",
+      "brief": "type definition for the triplet of smart port and two adi ports for the two wire adi devices ",
+      "category": "types",
+      "const": false,
+      "definition": "using ext_adi_port_tuple_t =  std::tuple<std::uint8_t, std::uint8_t, std::uint8_t>",
+      "explicit": false,
+      "fullname": "adi.hpp::ext_adi_port_tuple_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "location": {
+        "bodyFile": "pros/adi.hpp",
+        "bodyStart": 33,
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 33
+      },
+      "name": "ext_adi_port_tuple_t",
+      "override": false,
+      "refid": "namespacepros_1ab96eeca6120dfe95a7a63bbe88723f3e",
+      "static": false,
+      "strong": false,
+      "summary": "type definition for the triplet of smart port and two adi ports for the two wire adi devices ",
+      "title": "ext_adi_port_tuple_t",
+      "type": "std::tuple< std::uint8_t, std::uint8_t, std::uint8_t >",
+      "typePlain": "std::tuple< std::uint8_t, std::uint8_t, std::uint8_t >",
+      "url": "adi_8hpp.md#using-ext_adi_port_tuple_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-adipotentiometer",
+      "category": "types",
+      "const": false,
+      "definition": "using ADIPotentiometer =  ADIAnalogIn",
+      "explicit": false,
+      "fullname": "adi.hpp::ADIPotentiometer",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "location": {
+        "bodyFile": "pros/adi.hpp",
+        "bodyStart": 227,
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 227
+      },
+      "name": "ADIPotentiometer",
+      "override": false,
+      "refid": "namespacepros_1ab6b44523d9a679ce06a6c612280dd1c4",
+      "static": false,
+      "strong": false,
+      "title": "ADIPotentiometer",
+      "type": "ADIAnalogIn",
+      "typePlain": "ADIAnalogIn",
+      "url": "adi_8hpp.md#using-adipotentiometer",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-adilinesensor",
+      "category": "types",
+      "const": false,
+      "definition": "using ADILineSensor =  ADIAnalogIn",
+      "explicit": false,
+      "fullname": "adi.hpp::ADILineSensor",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "location": {
+        "bodyFile": "pros/adi.hpp",
+        "bodyStart": 228,
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 228
+      },
+      "name": "ADILineSensor",
+      "override": false,
+      "refid": "namespacepros_1abaac6c8ec62285f7293ac88f0143c62d",
+      "static": false,
+      "strong": false,
+      "title": "ADILineSensor",
+      "type": "ADIAnalogIn",
+      "typePlain": "ADIAnalogIn",
+      "url": "adi_8hpp.md#using-adilinesensor",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-adilightsensor",
+      "category": "types",
+      "const": false,
+      "definition": "using ADILightSensor =  ADIAnalogIn",
+      "explicit": false,
+      "fullname": "adi.hpp::ADILightSensor",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "location": {
+        "bodyFile": "pros/adi.hpp",
+        "bodyStart": 229,
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 229
+      },
+      "name": "ADILightSensor",
+      "override": false,
+      "refid": "namespacepros_1a3e10d08b5d336d7a84f9cb86429cf916",
+      "static": false,
+      "strong": false,
+      "title": "ADILightSensor",
+      "type": "ADIAnalogIn",
+      "typePlain": "ADIAnalogIn",
+      "url": "adi_8hpp.md#using-adilightsensor",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-adiaccelerometer",
+      "category": "types",
+      "const": false,
+      "definition": "using ADIAccelerometer =  ADIAnalogIn",
+      "explicit": false,
+      "fullname": "adi.hpp::ADIAccelerometer",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "location": {
+        "bodyFile": "pros/adi.hpp",
+        "bodyStart": 230,
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 230
+      },
+      "name": "ADIAccelerometer",
+      "override": false,
+      "refid": "namespacepros_1ac8701b18f7f80ecb201d7787b9d91a95",
+      "static": false,
+      "strong": false,
+      "title": "ADIAccelerometer",
+      "type": "ADIAnalogIn",
+      "typePlain": "ADIAnalogIn",
+      "url": "adi_8hpp.md#using-adiaccelerometer",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-adibutton",
+      "category": "types",
+      "const": false,
+      "definition": "using ADIButton =  ADIDigitalIn",
+      "explicit": false,
+      "fullname": "adi.hpp::ADIButton",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "location": {
+        "bodyFile": "pros/adi.hpp",
+        "bodyStart": 393,
+        "column": 1,
+        "file": "pros/adi.hpp",
+        "line": 393
+      },
+      "name": "ADIButton",
+      "override": false,
+      "refid": "namespacepros_1abce13c10ad708ca800c46ee817fa0e57",
+      "static": false,
+      "strong": false,
+      "title": "ADIButton",
+      "type": "ADIDigitalIn",
+      "typePlain": "ADIDigitalIn",
+      "url": "adi_8hpp.md#using-adibutton",
+      "visibility": "public"
+    }
+  ],
+  "refid": "adi_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "pros/adi.hpp",
+  "url": "adi_8hpp.md#file-adi.hpp",
+  "visibility": "public"
+}

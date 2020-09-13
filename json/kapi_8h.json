@@ -1,0 +1,1069 @@
+{
+  "abstract": false,
+  "anchor": "#file-kapi.h",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-task_t",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "task_t",
+      "hasDetails": false,
+      "initializer": "[pros::task_t](namespacepros.md#typedef-task_t)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 28,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 28
+      },
+      "name": "task_t",
+      "override": false,
+      "refid": "kapi_8h_1af4e78a5aaf6b45938ea1d203bbc5ad12",
+      "static": false,
+      "strong": false,
+      "title": "task_t",
+      "url": "kapi_8h.md#define-task_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-task_fn_t",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "task_fn_t",
+      "hasDetails": false,
+      "initializer": "pros::task_fn_t",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 29,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 29
+      },
+      "name": "task_fn_t",
+      "override": false,
+      "refid": "kapi_8h_1afd273bc26dce33480b445457e89bfaeb",
+      "static": false,
+      "strong": false,
+      "title": "task_fn_t",
+      "url": "kapi_8h.md#define-task_fn_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-mutex_t",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "mutex_t",
+      "hasDetails": false,
+      "initializer": "[pros::mutex_t](namespacepros.md#typedef-mutex_t)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 30,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 30
+      },
+      "name": "mutex_t",
+      "override": false,
+      "refid": "kapi_8h_1a93e65d556f878c762685fae603d1f95d",
+      "static": false,
+      "strong": false,
+      "title": "mutex_t",
+      "url": "kapi_8h.md#define-mutex_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-sem_t",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "sem_t",
+      "hasDetails": false,
+      "initializer": "[pros::c::sem_t](namespacepros_1_1c.md#typedef-sem_t)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 31,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 31
+      },
+      "name": "sem_t",
+      "override": false,
+      "refid": "kapi_8h_1ab41e0251d1181d4d91b70a583a372ef2",
+      "static": false,
+      "strong": false,
+      "title": "sem_t",
+      "url": "kapi_8h.md#define-sem_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-queue_t",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "queue_t",
+      "hasDetails": false,
+      "initializer": "[pros::c::queue_t](namespacepros_1_1c.md#typedef-queue_t)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 32,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 32
+      },
+      "name": "queue_t",
+      "override": false,
+      "refid": "kapi_8h_1a5a6f19dc156a45653f8ff36d7beaa168",
+      "static": false,
+      "strong": false,
+      "title": "queue_t",
+      "url": "kapi_8h.md#define-queue_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-kdbg_fileno",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "KDBG_FILENO",
+      "hasDetails": false,
+      "initializer": "3",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 35,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 35
+      },
+      "name": "KDBG_FILENO",
+      "override": false,
+      "refid": "kapi_8h_1a7cb5988f848e9a61b6f81576ef4fda8a",
+      "static": false,
+      "strong": false,
+      "title": "KDBG_FILENO",
+      "url": "kapi_8h.md#define-kdbg_fileno",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-warn_printf",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "warn_printf",
+      "hasDetails": false,
+      "initializer": "dprintf(STDERR_FILENO, \"%s:%d -- \" fmt \"\\n\", __FILE__, __LINE__, ##__VA_ARGS__)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 37,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 37
+      },
+      "name": "warn_printf",
+      "override": false,
+      "params": [
+        {
+          "name": "fmt",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "...",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "kapi_8h_1ae722946254739175acaf8b570e77e510",
+      "static": false,
+      "strong": false,
+      "title": "warn_printf",
+      "url": "kapi_8h.md#define-warn_printf",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-warn_wprint",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "warn_wprint",
+      "hasDetails": false,
+      "initializer": "wprintf(\"%s\", str)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 38,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 38
+      },
+      "name": "warn_wprint",
+      "override": false,
+      "params": [
+        {
+          "name": "str",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "kapi_8h_1aa56805b96562808390c620b9a60dec05",
+      "static": false,
+      "strong": false,
+      "title": "warn_wprint",
+      "url": "kapi_8h.md#define-warn_wprint",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-kprintf",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "kprintf",
+      "hasDetails": false,
+      "initializer": "dprintf([KDBG_FILENO](kapi_8h.md#define-kdbg_fileno), \"%s:%d -- \" fmt \"\\n\", __FILE__, __LINE__, ##__VA_ARGS__)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 40,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 40
+      },
+      "name": "kprintf",
+      "override": false,
+      "params": [
+        {
+          "name": "fmt",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "...",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "kapi_8h_1ad6e5f3a8fac274076a837a26e508ffb7",
+      "static": false,
+      "strong": false,
+      "title": "kprintf",
+      "url": "kapi_8h.md#define-kprintf",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-kprint",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "kprint",
+      "hasDetails": false,
+      "initializer": "[kprintf](kapi_8h.md#define-kprintf)(\"%s\", str)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 41,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 41
+      },
+      "name": "kprint",
+      "override": false,
+      "params": [
+        {
+          "name": "str",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "kapi_8h_1a9cdf245d9d4255125fe917cb04da49af",
+      "static": false,
+      "strong": false,
+      "title": "kprint",
+      "url": "kapi_8h.md#define-kprint",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-kassert",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "kassert",
+      "hasDetails": false,
+      "initializer": "\tdo {                                    \\\n\t\tif (!(cond)) {                        \\\n\t\t\t[kprint](kapi_8h.md#define-kprint)(\"Assertion failed: \" #cond); \\\n\t\t}                                     \\\n\t} while (0)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 44,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 44
+      },
+      "name": "kassert",
+      "override": false,
+      "params": [
+        {
+          "name": "cond",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "kapi_8h_1a5c5fecd69dde4a2e5298d6702073c547",
+      "static": false,
+      "strong": false,
+      "title": "kassert",
+      "url": "kapi_8h.md#define-kassert",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskscheduler_suspended",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskSCHEDULER_SUSPENDED",
+      "hasDetails": false,
+      "initializer": "((int32_t)0)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 197,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 197
+      },
+      "name": "taskSCHEDULER_SUSPENDED",
+      "override": false,
+      "refid": "kapi_8h_1a0cad071ca127a35df93166e9ed5b6ada",
+      "static": false,
+      "strong": false,
+      "title": "taskSCHEDULER_SUSPENDED",
+      "url": "kapi_8h.md#define-taskscheduler_suspended",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskscheduler_not_started",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskSCHEDULER_NOT_STARTED",
+      "hasDetails": false,
+      "initializer": "((int32_t)1)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 198,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 198
+      },
+      "name": "taskSCHEDULER_NOT_STARTED",
+      "override": false,
+      "refid": "kapi_8h_1a0923fdaae1bfe42ac5cccd9e9ddca9ed",
+      "static": false,
+      "strong": false,
+      "title": "taskSCHEDULER_NOT_STARTED",
+      "url": "kapi_8h.md#define-taskscheduler_not_started",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-taskscheduler_running",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "taskSCHEDULER_RUNNING",
+      "hasDetails": false,
+      "initializer": "((int32_t)2)",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 199,
+        "column": 9,
+        "file": "kapi.h",
+        "line": 199
+      },
+      "name": "taskSCHEDULER_RUNNING",
+      "override": false,
+      "refid": "kapi_8h_1acbb675035741787d29da475b5a887545",
+      "static": false,
+      "strong": false,
+      "title": "taskSCHEDULER_RUNNING",
+      "url": "kapi_8h.md#define-taskscheduler_running",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "details": "Kernel API header\n\nContains additional declarations for use internally within kernel development. This file includes the FreeRTOS header, which allows for creation of statically allocated FreeRTOS primitives like tasks, semaphores, and queues.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots. All rights reserved.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "kapi.h",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "\"api.h\"",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "kapi.h",
+    "line": 0
+  },
+  "name": "kapi.h",
+  "override": false,
+  "parent": null,
+  "programlisting": "/**\n * \\file kapi.h\n *\n * Kernel API header\n *\n * Contains additional declarations for use internally within kernel\n * development. This file includes the FreeRTOS header, which allows for\n * creation of statically allocated FreeRTOS primitives like tasks, semaphores,\n * and queues.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n * All rights reserved.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#pragma once\n\n#include \"api.h\"\n#include \"pros/apix.h\"\n#include \"rtos/FreeRTOS.h\"\n#include \"rtos/stream_buffer.h\"\n\n#ifdef __cplusplus\nextern \"C\" {\n#define task_t pros::task_t\n#define task_fn_t pros::task_fn_t\n#define mutex_t pros::mutex_t\n#define sem_t pros::c::sem_t\n#define queue_t pros::c::queue_t\n#endif\n\n#define KDBG_FILENO 3\n\n#define warn_printf(fmt, ...) dprintf(STDERR_FILENO, \"%s:%d -- \" fmt \"\\n\", __FILE__, __LINE__, ##__VA_ARGS__)\n#define warn_wprint(str) wprintf(\"%s\", str)\n\n#define kprintf(fmt, ...) dprintf(KDBG_FILENO, \"%s:%d -- \" fmt \"\\n\", __FILE__, __LINE__, ##__VA_ARGS__)\n#define kprint(str) kprintf(\"%s\", str)\n\n#ifndef PROS_RELEASING\n#define kassert(cond)                     \\\n    do {                                    \\\n        if (!(cond)) {                        \\\n            kprint(\"Assertion failed: \" #cond); \\\n        }                                     \\\n    } while (0)\n#else\n#define kassert(cond)\n#endif\n\ntypedef uint32_t task_stack_t;\n\n/**\n * Suspends the scheduler without disabling interrupts. context switches will\n * not occur while the scheduler is suspended. RTOS ticks that occur while the\n * scheduler is suspended will be held pending until the scheduler has been\n * unsuspended with rtos_resume_all()\n *\n * When used correctly, this function ensures that operations occur atomically\n * w.r.t. multitasking. Functions like task_delay, queue_send, and other\n * functions MUST NOT be called while the scheduler is disabled.\n */\nvoid rtos_suspend_all(void);\n\n/**\n * Resumes the scheduler. It does not resume unsuspended tasks that were\n * previously suspended by task_suspend.\n *\n * if(rtos_resume_all()) {\n *     task_delay(0); // force context switch\n * }\n * \\return True if a context switch is necessary.\n */\nint32_t rtos_resume_all(void);\n\n/**\n * Creates a task using statically allocated buffers. All tasks used by the PROS\n * system must use statically allocated buffers.\n * This function uses the following values of errno when an error state is\n * reached:\n * ENOMEM - The stack cannot be used as the TCB was not created.\n *\n * \\param function\n *        Pointer to the task entry function\n * \\param parameters\n *        Pointer to memory that will be used as a parameter for the task being\n *        created. This memory should not typically come from stack, but rather\n *        from dynamically (i.e., malloc'd) or statically allocated memory.\n * \\param prio\n *        The priority at which the task should run.\n *        TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used.\n * \\param stack_depth\n *        The number of words (i.e. 4 * stack_depth) available on the task's\n *        stack. TASK_STACK_DEPTH_DEFAULT is typically sufficienct.\n * \\param name\n *        A descriptive name for the task.  This is mainly used to facilitate\n *        debugging. The name may be up to 32 characters long.\n *\n * \\return A handle by which the newly created task can be referenced. If an\n * error occurred, NULL will be returned and errno can be checked for hints as\n * to why task_create failed.\n */\ntask_t task_create_static(task_fn_t task_code, void* const param, uint32_t priority, const size_t stack_size,\n                          const char* const name, task_stack_t* const stack_buffer, static_task_s_t* const task_buffer);\n\n/**\n * Creates a statically allocated mutex.\n *\n * All FreeRTOS primitives must be created statically if they are required for\n * operation of the kernel.\n *\n * \\param[out] mutex_buffer\n *             A buffer to store the mutex in\n *\n * \\return A handle to a newly created mutex. If an error occurred, NULL will be\n * returned and errno can be checked for hints as to why mutex_create failed.\n */\nmutex_t mutex_create_static(static_sem_s_t* mutex_buffer);\n\n/**\n * Creates a statically allocated semaphore.\n *\n * All FreeRTOS primitives must be created statically if they are required for\n * operation of the kernel.\n *\n * \\param max_count\n *        The maximum count value that can be reached.\n * \\param init_count\n *        The initial count value assigned to the new semaphore.\n * \\param[out] semaphore_buffer\n *             A buffer to store the semaphore in\n *\n * \\return A newly created semaphore. If an error occurred, NULL will be\n * returned and errno can be checked for hints as to why sem_create failed.\n */\nsem_t sem_create_static(uint32_t max_count, uint32_t init_count, static_sem_s_t* semaphore_buffer);\n\n/**\n * Creates a statically allocated queue.\n *\n * All FreeRTOS primitives must be created statically if they are required for\n * operation of the kernel.\n *\n * \\param length\n *        The maximum number of items that the queue can contain.\n * \\param item_size\n *        The number of bytes each item in the queue will require.\n * \\param[out] storage_buffer\n *             A memory location for data storage\n * \\param[out] queue_buffer\n *             A buffer to store the queue in\n *\n * \\return A handle to a newly created queue, or NULL if the queue cannot be\n * created.\n */\nqueue_t queue_create_static(uint32_t length, uint32_t item_size, uint8_t* storage_buffer,\n                            static_queue_s_t* queue_buffer);\n\n/**\n * Display a non-fatal error to the built-in LCD/touch screen.\n *\n * Note that this function is thread-safe, which requires that the scheduler be\n * in a functioning state. For situations in which it is unclear whether the\n * scheduler is working, use `display_fatal_error` instead.\n *\n * \\param[in] text\n *            The text string to display to the screen\n */\nvoid display_error(const char* text);\n\n/**\n * Display a fatal error to the built-in LCD/touch screen.\n *\n * This function is intended to be used when the integrity of the RTOS cannot be\n * trusted. No thread-safety mechanisms are used and this function only relies\n * on the use of the libv5rts.\n *\n * \\param[in] text\n *            The text string to display to the screen\n */\nvoid display_fatal_error(const char* text);\n\n/**\n * Prints hex characters to the terminal.\n *\n * \\param[in] s\n *            The array of hex characters to print\n * \\param len\n *        The number of hex characters to print\n */\nvoid kprint_hex(uint8_t* s, size_t len);\n\nint32_t xTaskGetSchedulerState();\n#define taskSCHEDULER_SUSPENDED ((int32_t)0)\n#define taskSCHEDULER_NOT_STARTED ((int32_t)1)\n#define taskSCHEDULER_RUNNING ((int32_t)2)\n\n#ifdef __cplusplus\n#undef task_t\n#undef task_fn_t\n#undef mutex_t\n}\n#endif",
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-rtos_suspend_all",
+      "argsString": "(void)",
+      "brief": "Suspends the scheduler without disabling interrupts. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void rtos_suspend_all",
+      "deleted": false,
+      "details": "context switches will not occur while the scheduler is suspended. RTOS ticks that occur while the scheduler is suspended will be held pending until the scheduler has been unsuspended with [rtos_resume_all()](kapi_8h.md#function-rtos_resume_all)\n\nWhen used correctly, this function ensures that operations occur atomically w.r.t. multitasking. Functions like task_delay, queue_send, and other functions MUST NOT be called while the scheduler is disabled. ",
+      "explicit": false,
+      "fullname": "kapi.h::rtos_suspend_all",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "kapi.h",
+        "line": 66
+      },
+      "name": "rtos_suspend_all",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1afd02377d2e9c5c04feadab70462322fd",
+      "static": false,
+      "strong": false,
+      "summary": "Suspends the scheduler without disabling interrupts. ",
+      "title": "rtos_suspend_all",
+      "type": "void",
+      "typePlain": "void",
+      "url": "kapi_8h.md#function-rtos_suspend_all",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-rtos_resume_all",
+      "argsString": "(void)",
+      "brief": "Resumes the scheduler. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t rtos_resume_all",
+      "deleted": false,
+      "details": "It does not resume unsuspended tasks that were previously suspended by task_suspend.\n\nif(rtos_resume_all()) { task_delay(0); // force context switch } ",
+      "explicit": false,
+      "fullname": "kapi.h::rtos_resume_all",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "kapi.h",
+        "line": 77
+      },
+      "name": "rtos_resume_all",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1a1db72fd4961113c9255cce71d169cbfa",
+      "returns": [
+        "True if a context switch is necessary. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Resumes the scheduler. ",
+      "title": "rtos_resume_all",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "kapi_8h.md#function-rtos_resume_all",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-task_create_static",
+      "argsString": "(task_fn_t task_code, void *const param, uint32_t priority, const size_t stack_size, const char *const name, task_stack_t *const stack_buffer, static_task_s_t *const task_buffer)",
+      "brief": "Creates a task using statically allocated buffers. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "task_t task_create_static",
+      "deleted": false,
+      "details": "All tasks used by the PROS system must use statically allocated buffers. This function uses the following values of errno when an error state is reached: ENOMEM - The stack cannot be used as the TCB was not created.",
+      "explicit": false,
+      "fullname": "kapi.h::task_create_static",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "kapi.h",
+        "line": 106
+      },
+      "name": "task_create_static",
+      "override": false,
+      "paramList": [
+        {
+          "name": "function",
+          "text": "Pointer to the task entry function "
+        },
+        {
+          "name": "parameters",
+          "text": "Pointer to memory that will be used as a parameter for the task being created. This memory should not typically come from stack, but rather from dynamically (i.e., malloc'd) or statically allocated memory. "
+        },
+        {
+          "name": "prio",
+          "text": "The priority at which the task should run. TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used. "
+        },
+        {
+          "name": "stack_depth",
+          "text": "The number of words (i.e. 4 * stack_depth) available on the task's stack. TASK_STACK_DEPTH_DEFAULT is typically sufficienct. "
+        },
+        {
+          "name": "name",
+          "text": "A descriptive name for the task. This is mainly used to facilitate debugging. The name may be up to 32 characters long."
+        }
+      ],
+      "params": [
+        {
+          "name": "task_code",
+          "type": "[task_fn_t](kapi_8h.md#define-task_fn_t)",
+          "typePlain": "task_fn_t"
+        },
+        {
+          "name": "param",
+          "type": "void *const",
+          "typePlain": "void *const"
+        },
+        {
+          "name": "priority",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        },
+        {
+          "name": "stack_size",
+          "type": "const size_t",
+          "typePlain": "const size_t"
+        },
+        {
+          "name": "name",
+          "type": "const char *const",
+          "typePlain": "const char *const"
+        },
+        {
+          "name": "stack_buffer",
+          "type": "[task_stack_t](kapi_8h.md#typedef-task_stack_t) *const",
+          "typePlain": "task_stack_t *const"
+        },
+        {
+          "name": "task_buffer",
+          "type": "static_task_s_t *const",
+          "typePlain": "static_task_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1a0f24b77c29ca853ea5f03d79acc4b726",
+      "returns": [
+        "A handle by which the newly created task can be referenced. If an error occurred, NULL will be returned and errno can be checked for hints as to why task_create failed. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a task using statically allocated buffers. ",
+      "title": "task_create_static",
+      "type": "[task_t](kapi_8h.md#define-task_t)",
+      "typePlain": "task_t",
+      "url": "kapi_8h.md#function-task_create_static",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-mutex_create_static",
+      "argsString": "(static_sem_s_t *mutex_buffer)",
+      "brief": "Creates a statically allocated mutex. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "mutex_t mutex_create_static",
+      "deleted": false,
+      "details": "All FreeRTOS primitives must be created statically if they are required for operation of the kernel.",
+      "explicit": false,
+      "fullname": "kapi.h::mutex_create_static",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "kapi.h",
+        "line": 121
+      },
+      "name": "mutex_create_static",
+      "override": false,
+      "paramList": [
+        {
+          "name": "mutex_buffer",
+          "text": "A buffer to store the mutex in"
+        }
+      ],
+      "params": [
+        {
+          "name": "mutex_buffer",
+          "type": "static_sem_s_t *",
+          "typePlain": "static_sem_s_t *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1a81b28a183397697dc8dfb94f96f875f2",
+      "returns": [
+        "A handle to a newly created mutex. If an error occurred, NULL will be returned and errno can be checked for hints as to why mutex_create failed. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a statically allocated mutex. ",
+      "title": "mutex_create_static",
+      "type": "[mutex_t](kapi_8h.md#define-mutex_t)",
+      "typePlain": "mutex_t",
+      "url": "kapi_8h.md#function-mutex_create_static",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-sem_create_static",
+      "argsString": "(uint32_t max_count, uint32_t init_count, static_sem_s_t *semaphore_buffer)",
+      "brief": "Creates a statically allocated semaphore. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "sem_t sem_create_static",
+      "deleted": false,
+      "details": "All FreeRTOS primitives must be created statically if they are required for operation of the kernel.",
+      "explicit": false,
+      "fullname": "kapi.h::sem_create_static",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 7,
+        "file": "kapi.h",
+        "line": 139
+      },
+      "name": "sem_create_static",
+      "override": false,
+      "paramList": [
+        {
+          "name": "max_count",
+          "text": "The maximum count value that can be reached. "
+        },
+        {
+          "name": "init_count",
+          "text": "The initial count value assigned to the new semaphore. "
+        },
+        {
+          "name": "semaphore_buffer",
+          "text": "A buffer to store the semaphore in"
+        }
+      ],
+      "params": [
+        {
+          "name": "max_count",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        },
+        {
+          "name": "init_count",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        },
+        {
+          "name": "semaphore_buffer",
+          "type": "static_sem_s_t *",
+          "typePlain": "static_sem_s_t *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1a00d5fa4e33897eebbb15fced79d92c15",
+      "returns": [
+        "A newly created semaphore. If an error occurred, NULL will be returned and errno can be checked for hints as to why sem_create failed. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a statically allocated semaphore. ",
+      "title": "sem_create_static",
+      "type": "[sem_t](kapi_8h.md#define-sem_t)",
+      "typePlain": "sem_t",
+      "url": "kapi_8h.md#function-sem_create_static",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_create_static",
+      "argsString": "(uint32_t length, uint32_t item_size, uint8_t *storage_buffer, static_queue_s_t *queue_buffer)",
+      "brief": "Creates a statically allocated queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "queue_t queue_create_static",
+      "deleted": false,
+      "details": "All FreeRTOS primitives must be created statically if they are required for operation of the kernel.",
+      "explicit": false,
+      "fullname": "kapi.h::queue_create_static",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "kapi.h",
+        "line": 159
+      },
+      "name": "queue_create_static",
+      "override": false,
+      "paramList": [
+        {
+          "name": "length",
+          "text": "The maximum number of items that the queue can contain. "
+        },
+        {
+          "name": "item_size",
+          "text": "The number of bytes each item in the queue will require. "
+        },
+        {
+          "name": "storage_buffer",
+          "text": "A memory location for data storage "
+        },
+        {
+          "name": "queue_buffer",
+          "text": "A buffer to store the queue in"
+        }
+      ],
+      "params": [
+        {
+          "name": "length",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        },
+        {
+          "name": "item_size",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        },
+        {
+          "name": "storage_buffer",
+          "type": "uint8_t *",
+          "typePlain": "uint8_t *"
+        },
+        {
+          "name": "queue_buffer",
+          "type": "static_queue_s_t *",
+          "typePlain": "static_queue_s_t *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1a25237b68d7e177a3b32ece8b36bff9ef",
+      "returns": [
+        "A handle to a newly created queue, or NULL if the queue cannot be created. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a statically allocated queue. ",
+      "title": "queue_create_static",
+      "type": "[queue_t](kapi_8h.md#define-queue_t)",
+      "typePlain": "queue_t",
+      "url": "kapi_8h.md#function-queue_create_static",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-display_error",
+      "argsString": "(const char *text)",
+      "brief": "Display a non-fatal error to the built-in LCD/touch screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void display_error",
+      "deleted": false,
+      "details": "Note that this function is thread-safe, which requires that the scheduler be in a functioning state. For situations in which it is unclear whether the scheduler is working, use `display_fatal_error` instead.",
+      "explicit": false,
+      "fullname": "kapi.h::display_error",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "kapi.h",
+        "line": 172
+      },
+      "name": "display_error",
+      "override": false,
+      "paramList": [
+        {
+          "name": "text",
+          "text": "The text string to display to the screen "
+        }
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "const char *",
+          "typePlain": "const char *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1abc782ea27c8020a7181f1d9620d22d7c",
+      "static": false,
+      "strong": false,
+      "summary": "Display a non-fatal error to the built-in LCD/touch screen. ",
+      "title": "display_error",
+      "type": "void",
+      "typePlain": "void",
+      "url": "kapi_8h.md#function-display_error",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-display_fatal_error",
+      "argsString": "(const char *text)",
+      "brief": "Display a fatal error to the built-in LCD/touch screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void display_fatal_error",
+      "deleted": false,
+      "details": "This function is intended to be used when the integrity of the RTOS cannot be trusted. No thread-safety mechanisms are used and this function only relies on the use of the libv5rts.",
+      "explicit": false,
+      "fullname": "kapi.h::display_fatal_error",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "kapi.h",
+        "line": 184
+      },
+      "name": "display_fatal_error",
+      "override": false,
+      "paramList": [
+        {
+          "name": "text",
+          "text": "The text string to display to the screen "
+        }
+      ],
+      "params": [
+        {
+          "name": "text",
+          "type": "const char *",
+          "typePlain": "const char *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1a0070639864e6a77a016b6262a1eb5e7c",
+      "static": false,
+      "strong": false,
+      "summary": "Display a fatal error to the built-in LCD/touch screen. ",
+      "title": "display_fatal_error",
+      "type": "void",
+      "typePlain": "void",
+      "url": "kapi_8h.md#function-display_fatal_error",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-kprint_hex",
+      "argsString": "(uint8_t *s, size_t len)",
+      "brief": "Prints hex characters to the terminal. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void kprint_hex",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "kapi.h::kprint_hex",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "kapi.h",
+        "line": 194
+      },
+      "name": "kprint_hex",
+      "override": false,
+      "paramList": [
+        {
+          "name": "s",
+          "text": "The array of hex characters to print "
+        },
+        {
+          "name": "len",
+          "text": "The number of hex characters to print "
+        }
+      ],
+      "params": [
+        {
+          "name": "s",
+          "type": "uint8_t *",
+          "typePlain": "uint8_t *"
+        },
+        {
+          "name": "len",
+          "type": "size_t",
+          "typePlain": "size_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1ae1fae740005d8465ab94006b6ba8629e",
+      "static": false,
+      "strong": false,
+      "summary": "Prints hex characters to the terminal. ",
+      "title": "kprint_hex",
+      "type": "void",
+      "typePlain": "void",
+      "url": "kapi_8h.md#function-kprint_hex",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-xtaskgetschedulerstate",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t xTaskGetSchedulerState",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "kapi.h::xTaskGetSchedulerState",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "kapi.h",
+        "line": 196
+      },
+      "name": "xTaskGetSchedulerState",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "kapi_8h_1a26e0cd9a9907be72f7d3028164380cda",
+      "static": false,
+      "strong": false,
+      "title": "xTaskGetSchedulerState",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "kapi_8h.md#function-xtaskgetschedulerstate",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#typedef-task_stack_t",
+      "category": "types",
+      "const": false,
+      "definition": "typedef uint32_t task_stack_t",
+      "explicit": false,
+      "fullname": "kapi.h::task_stack_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "kapi.h",
+        "bodyStart": 54,
+        "column": 18,
+        "file": "kapi.h",
+        "line": 54
+      },
+      "name": "task_stack_t",
+      "override": false,
+      "refid": "kapi_8h_1a184cb36aad264b6917c489bbc2b793a5",
+      "static": false,
+      "strong": false,
+      "title": "task_stack_t",
+      "type": "uint32_t",
+      "typePlain": "uint32_t",
+      "url": "kapi_8h.md#typedef-task_stack_t",
+      "visibility": "public"
+    }
+  ],
+  "refid": "kapi_8h",
+  "static": false,
+  "strong": false,
+  "title": "kapi.h",
+  "url": "kapi_8h.md#file-kapi.h",
+  "visibility": "public"
+}

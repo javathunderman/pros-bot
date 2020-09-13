@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-jinx",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "This will be completed when JINX is finalized for an upcoming minor version increment. ",
+  "explicit": false,
+  "fullname": "::jinx",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "jinx",
+  "override": false,
+  "parent": null,
+  "refid": "jinx",
+  "static": false,
+  "strong": false,
+  "title": "JINX Graphical Debugger",
+  "url": "jinx.md#page-jinx",
+  "visibility": "public"
+}

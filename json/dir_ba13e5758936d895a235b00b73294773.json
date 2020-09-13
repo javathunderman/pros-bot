@@ -1,0 +1,50 @@
+{
+  "abstract": false,
+  "anchor": "#dir-docs/getting-started",
+  "category": "dirs",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "docs/getting-started",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "dir",
+  "location": {
+    "column": 0,
+    "file": "docs/getting-started/",
+    "line": 0
+  },
+  "name": "docs/getting-started",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-docs",
+    "category": "dirs",
+    "fullname": "docs",
+    "kind": "dir",
+    "name": "docs",
+    "refid": "dir_49e56c817e5e54854c35e136979f97ca",
+    "title": "docs",
+    "url": "dir_49e56c817e5e54854c35e136979f97ca.md#dir-docs",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-docs",
+      "category": "dirs",
+      "fullname": "docs",
+      "kind": "dir",
+      "name": "docs",
+      "refid": "dir_49e56c817e5e54854c35e136979f97ca",
+      "title": "docs",
+      "url": "dir_49e56c817e5e54854c35e136979f97ca.md#dir-docs",
+      "visibility": "public"
+    }
+  ],
+  "refid": "dir_ba13e5758936d895a235b00b73294773",
+  "static": false,
+  "strong": false,
+  "title": "docs/getting-started",
+  "url": "dir_ba13e5758936d895a235b00b73294773.md#dir-docs/getting-started",
+  "visibility": "public"
+}

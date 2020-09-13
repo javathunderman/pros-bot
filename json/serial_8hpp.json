@@ -1,0 +1,136 @@
+{
+  "abstract": false,
+  "anchor": "#file-serial.hpp",
+  "category": "files",
+  "const": false,
+  "copyright": [
+    "(c) 2017-2018, Purdue University ACM SIGBots."
+  ],
+  "definition": "",
+  "details": "Contains prototypes for the V5 Generic Serial related functions.\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/serial.html](https://pros.cs.purdue.edu/v5/tutorials/topical/serial.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/serial.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<cstdint>",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/serial.hpp",
+    "line": 0
+  },
+  "name": "pros/serial.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::literals",
+      "kind": "namespace",
+      "name": "pros::literals",
+      "refid": "namespacepros_1_1literals",
+      "title": "pros::literals",
+      "url": "namespacepros_1_1literals.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/serial.hpp\n *\n * Contains prototypes for the V5 Generic Serial related functions.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/serial.html to learn\n * more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * \\copyright (c) 2017-2018, Purdue University ACM SIGBots.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_SERIAL_HPP_\n#define _PROS_SERIAL_HPP_\n\n#include <cstdint>\n#include \"pros/serial.h\"\n\nnamespace pros {\nclass Serial {\n    public:\n    /**\n     * Creates a Serial object for the given port and specifications.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     *\n     * \\param port\n     *        The V5 port number from 1-21\n     * \\param baudrate\n     *        The baudrate to run the port at\n     */\n    explicit Serial(std::uint8_t port, std::int32_t baudrate);\n\n    explicit Serial(std::uint8_t port);\n\n    /******************************************************************************/\n    /**                      Serial communication functions                      **/\n    /**                                                                          **/\n    /**  These functions allow programmers to communicate using UART over RS485  **/\n    /******************************************************************************/\n\n    /**\n     * Sets the baudrate for the serial port to operate at.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     *\n     * \\param baudrate\n     *        The baudrate to operate at\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    virtual std::int32_t set_baudrate(std::int32_t baudrate) const;\n\n    /**\n     * Clears the internal input and output FIFO buffers.\n     *\n     * This can be useful to reset state and remove old, potentially unneeded data\n     * from the input FIFO buffer or to cancel sending any data in the output FIFO\n     * buffer.\n     *\n     * \\note This function does not cause the data in the output buffer to be\n     * written, it simply clears the internal buffers. Unlike stdout, generic\n     * serial does not use buffered IO (the FIFO buffers are written as soon\n     * as possible).\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    virtual std::int32_t flush() const;\n\n    /**\n     * Returns the number of bytes available to be read in the the port's FIFO\n     * input buffer.\n     *\n     * \\note This function does not actually read any bytes, is simply returns the\n     * number of bytes available to be read.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     *\n     * \\return The number of bytes avaliable to be read or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    virtual std::int32_t get_read_avail() const;\n\n    /**\n     * Returns the number of bytes free in the port's FIFO output buffer.\n     *\n     * \\note This function does not actually write any bytes, is simply returns the\n     * number of bytes free in the port's buffer.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     *\n     * \\return The number of bytes free or PROS_ERR if the operation failed,\n     * setting errno.\n     */\n    virtual std::int32_t get_write_free() const;\n\n    /**\n     * Gets the port number of the serial port.\n     *\n     * \\return The serial port's port number.\n     */\n    std::uint8_t get_port() const;\n\n    /**\n     * Reads the next byte avaliable in the port's input buffer without removing it.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     *\n     * \\return The next byte avaliable to be read, -1 if none are available, or\n     * PROS_ERR if the operation failed, setting errno.\n     */\n    virtual std::int32_t peek_byte() const;\n\n    /**\n     * Reads the next byte avaliable in the port's input buffer.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     *\n     * \\return The next byte avaliable to be read, -1 if none are available, or\n     * PROS_ERR if the operation failed, setting errno.\n     */\n    virtual std::int32_t read_byte() const;\n\n    /**\n     * Reads up to the next length bytes from the port's input buffer and places\n     * them in the user supplied buffer.\n     *\n     * \\note This function will only return bytes that are currently avaliable to be\n     * read and will not block waiting for any to arrive.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     *\n     * \\param buffer\n     *        The location to place the data read\n     * \\param length\n     *        The maximum number of bytes to read\n     *\n     * \\return The number of bytes read or PROS_ERR if the operation failed, setting\n     * errno.\n     */\n    virtual std::int32_t read(std::uint8_t* buffer, std::int32_t length) const;\n\n    /**\n     * Write the given byte to the port's output buffer.\n     *\n     * \\note Data in the port's output buffer is written to the serial port as soon\n     * as possible on a FIFO basis and can not be done manually by the user.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     * EIO - Serious internal write error.\n     *\n     * \\param buffer\n     *        The byte to write\n     *\n     * \\return The number of bytes written or PROS_ERR if the operation failed,\n     * setting errno.\n     */\n    virtual std::int32_t write_byte(std::uint8_t buffer) const;\n\n    /**\n     * Writes up to length bytes from the user supplied buffer to the port's output\n     * buffer.\n     *\n     * \\note Data in the port's output buffer is written to the serial port as soon\n     * as possible on a FIFO basis and can not be done manually by the user.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EINVAL - The given value is not within the range of V5 ports (1-21).\n     * EACCES - Another resource is currently trying to access the port.\n     * EIO - Serious internal write error.\n     *\n     * \\param buffer\n     *        The data to write\n     * \\param length\n     *        The maximum number of bytes to write\n     *\n     * \\return The number of bytes written or PROS_ERR if the operation failed,\n     * setting errno.\n     */\n    virtual std::int32_t write(std::uint8_t* buffer, std::int32_t length) const;\n\n    private:\n    const std::uint8_t _port;\n};\n\nnamespace literals {\nconst pros::Serial operator\"\" _ser(const unsigned long long int m);\n}  // namespace literals\n}  // namespace pros\n#endif  // _PROS_SERIAL_HPP_",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pros::Serial",
+      "kind": "class",
+      "name": "pros::Serial",
+      "refid": "classpros_1_1Serial",
+      "title": "pros::Serial",
+      "url": "classpros_1_1Serial.md",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-operator\"\"_ser",
+      "argsString": "(const unsigned long long int m)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "const pros::Serial pros::literals::operator\"\"_ser",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "serial.hpp::operator\"\"_ser",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 20,
+        "file": "pros/serial.hpp",
+        "line": 225
+      },
+      "name": "operator\"\"_ser",
+      "override": false,
+      "params": [
+        {
+          "name": "m",
+          "type": "const unsigned long long int",
+          "typePlain": "const unsigned long long int"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1literals_1a1a9e53fd8b6ee7c665f6eb048129f7bd",
+      "static": false,
+      "strong": false,
+      "title": "operator\"\"_ser",
+      "type": "const [pros::Serial](classpros_1_1Serial.md)",
+      "typePlain": "const pros::Serial",
+      "url": "serial_8hpp.md#function-operator\"\"_ser",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "serial_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "pros/serial.hpp",
+  "url": "serial_8hpp.md#file-serial.hpp",
+  "visibility": "public"
+}

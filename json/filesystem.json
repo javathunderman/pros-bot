@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-filesystem",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "You can interact with files on the microSD card (you can **not** interact with files on the V5 brain's flash) through standard C/C++ file I/O methods. For the most part, you can follow along with any standard C tutorial for file I/O and it will work with PROS. Here are a couple of recommended tutorials:\n\n\n\n* [https://www.cprogramming.com/tutorial/cfileio.html](https://www.cprogramming.com/tutorial/cfileio.html)\n* [https://www.tutorialspoint.com/cprogramming/c_file_io.htm](https://www.tutorialspoint.com/cprogramming/c_file_io.htm)\nThe only additional detail needed for interacting with the filesystem in PROS is that any files on the microSD card **must** be prefaced with `/usd/`. A file on the microSD card can be written to in the following manner:\n\n\n\n```cpp\nFILE* usd_file_write = fopen(\"/usd/example.txt\", \"w\");\nfputs(\"Example text\", usd_file_write);\nfclose(usd_file_write);\n\nFILE* usd_file_read = fopen(\"/usd/example.txt\", \"r\");\nchar buf[50]; // This just needs to be larger than the contents of the file\nfread(buf, 1, 50, usd_file_read); // passing 1 because a `char` is 1 byte, and 50 b/c it's the length of buf\nprintf(\"%s\\n\", buf); // print the string read from the file\n// Should print \"Example text\" to the terminal\nfclose(usd_file_read); // always close files when you're done with them\n```\n\n_Filename: .cpp_\n\n\n## Remarks\n\nThe microSD card must be fat32 in order to work.\n\n\n### Serial\n\nIt's also possible to interact with the serial communications (`stdin`, `stdout`, etc.) through the filesystem drivers. You can write and read from these streams in the same manner as a file, but using the four character stream identifiers.\n\nFor instance, you can write to `stderr` in the following manner:\n\n\n\n```cpp\nFILE* stderr = fopen(\"serr\", \"w\");\nfputs(\"Example text\", stderr);\nfclose(usd_file_write);\n```\n\n_Filename: .cpp_\n\nThere are also a number of methods for controlling serial communication behavior exposed in [apix.h](../../extended/apix.html). These methods can be accessed through the `[serctl()](namespacepros_1_1c.md#function-serctl)` function. At the moment two actions are supported -activating/deactivating the streams, and enabling/disabling [COBS](https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing) . If you want to read the serial comms yourself (without using `pros terminal`), then you'll want to disable COBS. ",
+  "explicit": false,
+  "fullname": "::filesystem",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "filesystem",
+  "override": false,
+  "parent": null,
+  "refid": "filesystem",
+  "static": false,
+  "strong": false,
+  "title": "Filesystem",
+  "url": "filesystem.md#page-filesystem",
+  "visibility": "public"
+}

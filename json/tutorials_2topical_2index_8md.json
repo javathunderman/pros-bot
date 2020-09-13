@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-index.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "index.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/topical/index.md",
+    "line": 0
+  },
+  "name": "index.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page topical-tutorials Topical Tutorials\nIf you want more information about using a particular part of the \\ref api, the **Topical Tutorials** offer longer examples\nand more detail about using the PROS API.\n\n- \\subpage adi\n- \\subpage controller\n- \\subpage display\n- \\subpage filesystem\n- \\subpage jinx\n- \\subpage llemu\n- \\subpage motors\n- \\subpage multitasking\n- \\subpage notifications\n- \\subpage vision\n- \\subpage wireless-upload",
+  "refid": "tutorials_2topical_2index_8md",
+  "static": false,
+  "strong": false,
+  "title": "index.md",
+  "url": "tutorials_2topical_2index_8md.md#file-index.md",
+  "visibility": "public"
+}

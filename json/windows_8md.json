@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-windows.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "windows.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/getting-started/windows.md",
+    "line": 0
+  },
+  "name": "windows.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page install-windows Installing on Windows\n\nTo start using PROS 3 on Windows, simply download the latest version of\nthe installer (.exe file) from\n[here](https://github.com/purduesigbots/pros-cli3/releases/latest/).\n\n\\note\nMake sure that you download the correct version of the installer for\nyour computer (32- or 64-bit). You will run into problems if you use\nthe wrong one.",
+  "refid": "windows_8md",
+  "static": false,
+  "strong": false,
+  "title": "windows.md",
+  "url": "windows_8md.md#file-windows.md",
+  "visibility": "public"
+}

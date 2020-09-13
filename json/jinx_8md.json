@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-jinx.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "jinx.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/topical/jinx.md",
+    "line": 0
+  },
+  "name": "jinx.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page jinx JINX Graphical Debugger\n\n\\warning\nThis will be completed when JINX is finalized for an upcoming minor\nversion increment.",
+  "refid": "jinx_8md",
+  "static": false,
+  "strong": false,
+  "title": "jinx.md",
+  "url": "jinx_8md.md#file-jinx.md",
+  "visibility": "public"
+}

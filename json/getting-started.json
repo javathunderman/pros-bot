@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-getting-started",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "If this is your first time working with PROS for V5, you've come to the right place. These guides are designed to walk you through the PROS installation process and starting your first PROS project.\n\nFor more advanced, topical guides, visit the [Tutorials](tutorials.md#page-tutorials) section.\n\n\n### First Time PROS User?\n\n\n\n* [PROS First Time Users Guide](new-users.md#page-new-users)\n\n### Installation Guides\n\n\n\n* [Installing on Windows](install-windows.md#page-install-windows)\n* [Installing on macOS](install-macos.md#page-install-macos)\n* [Installing on Linux](install-linux.md#page-install-linux)",
+  "explicit": false,
+  "fullname": "::getting-started",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "getting-started",
+  "override": false,
+  "parent": null,
+  "refid": "getting-started",
+  "static": false,
+  "strong": false,
+  "title": "Getting Started",
+  "url": "getting-started.md#page-getting-started",
+  "visibility": "public"
+}

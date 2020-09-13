@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-index.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "index.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/index.md",
+    "line": 0
+  },
+  "name": "index.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\mainpage Home\n\nWelcome to the PROS Documentation!\n\nIf this is your first time using PROS, it is recommended that you check out the \\subpage getting-started section.\n\nFor topical tutorials on everything from the [ADI (3 Wire Ports)](docs/tutorials/topical/adi.md) to [Wireless Upload and Hot/Cold Linking](docs/tutorials/topical/wireless-upload.md), check out the \\subpage tutorials section.\n\nAnd for documentation on using the PROS API, see the \\ref api section.",
+  "refid": "index_8md",
+  "static": false,
+  "strong": false,
+  "title": "index.md",
+  "url": "index_8md.md#file-index.md",
+  "visibility": "public"
+}

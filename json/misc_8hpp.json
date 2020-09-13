@@ -1,0 +1,501 @@
+{
+  "abstract": false,
+  "anchor": "#file-misc.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "details": "Contains prototypes for miscellaneous functions pertaining to the controller, battery, and competition control.\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/controller.html](https://pros.cs.purdue.edu/v5/tutorials/topical/controller.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots. All rights reservered.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/misc.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "\"pros/misc.h\"",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/misc.hpp",
+    "line": 0
+  },
+  "name": "pros/misc.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::battery",
+      "kind": "namespace",
+      "name": "pros::battery",
+      "refid": "namespacepros_1_1battery",
+      "title": "pros::battery",
+      "url": "namespacepros_1_1battery.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::competition",
+      "kind": "namespace",
+      "name": "pros::competition",
+      "refid": "namespacepros_1_1competition",
+      "title": "pros::competition",
+      "url": "namespacepros_1_1competition.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::usd",
+      "kind": "namespace",
+      "name": "pros::usd",
+      "refid": "namespacepros_1_1usd",
+      "title": "pros::usd",
+      "url": "namespacepros_1_1usd.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/misc.hpp\n *\n * Contains prototypes for miscellaneous functions pertaining to the controller,\n * battery, and competition control.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/controller.html to\n * learn more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n * All rights reservered.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_MISC_HPP_\n#define _PROS_MISC_HPP_\n\n#include \"pros/misc.h\"\n\n#include <cstdint>\n#include <string>\n\nnamespace pros {\nclass Controller {\n    public:\n    /**\n     * Creates a controller object for the given controller id.\n     *\n     * \\param id\n     *            The ID of the controller (e.g. the master or partner controller).\n     *            Must be one of CONTROLLER_MASTER or CONTROLLER_PARTNER\n     */\n    Controller(controller_id_e_t id);\n\n    /**\n     * Checks if the controller is connected.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\return 1 if the controller is connected, 0 otherwise\n     */\n    std::int32_t is_connected(void);\n\n    /**\n     * Gets the value of an analog channel (joystick) on a controller.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\param channel\n     *            The analog channel to get.\n     *            Must be one of ANALOG_LEFT_X, ANALOG_LEFT_Y, ANALOG_RIGHT_X,\n     *        ANALOG_RIGHT_Y\n     *\n     * \\return The current reading of the analog channel: [-127, 127].\n     * If the controller was not connected, then 0 is returned\n     */\n    std::int32_t get_analog(controller_analog_e_t channel);\n\n    /**\n     * Gets the battery capacity of the controller.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\return The controller's battery capacity\n     */\n    std::int32_t get_battery_capacity(void);\n\n    /**\n     * Gets the battery level of the controller.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\return The controller's battery level\n     */\n    std::int32_t get_battery_level(void);\n\n    /**\n     * Checks if a digital channel (button) on the controller is currently\n     * pressed.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\param button\n     *            The button to read. Must be one of\n     *        DIGITAL_{RIGHT,DOWN,LEFT,UP,A,B,Y,X,R1,R2,L1,L2}\n     *\n     * \\return 1 if the button on the controller is pressed.\n     * If the controller was not connected, then 0 is returned\n     */\n    std::int32_t get_digital(controller_digital_e_t button);\n\n    /**\n     * Returns a rising-edge case for a controller button press.\n     *\n     * This function is not thread-safe.\n     * Multiple tasks polling a single button may return different results under\n     * the same circumstances, so only one task should call this function for any\n     * given button. E.g., Task A calls this function for buttons 1 and 2.\n     * Task B may call this function for button 3, but should not for buttons\n     * 1 or 2. A typical use-case for this function is to call inside opcontrol\n     * to detect new button presses, and not in any other tasks.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\param button\n     *            The button to read. Must be one of\n     *        DIGITAL_{RIGHT,DOWN,LEFT,UP,A,B,Y,X,R1,R2,L1,L2}\n     *\n     * \\return 1 if the button on the controller is pressed and had not been\n     * pressed the last time this function was called, 0 otherwise.\n     */\n    std::int32_t get_digital_new_press(controller_digital_e_t button);\n\n#pragma GCC diagnostic push\n#pragma GCC diagnostic ignored \"-Wunused-function\"\n    template <typename T>\n    T convert_args(T arg) {\n        return arg;\n    }\n    const char* convert_args(const std::string& arg) {\n        return arg.c_str();\n    }\n#pragma GCC diagnostic pop\n\n    /**\n     * Sets text to the controller LCD screen.\n     *\n     * \\note Controller text setting is currently in beta, so continuous, fast\n     * updates will not work well.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\param line\n     *        The line number at which the text will be displayed [0-2]\n     * \\param col\n     *        The column number at which the text will be displayed [0-14]\n     * \\param fmt\n     *        The format string to print to the controller\n     * \\param ...\n     *        The argument list for the format string\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    template <typename... Params>\n    std::int32_t print(std::uint8_t line, std::uint8_t col, const char* fmt, Params... args) {\n        return pros::c::controller_print(_id, line, col, fmt, convert_args(args)...);\n    }\n\n    /**\n     * Sets text to the controller LCD screen.\n     *\n     * \\note Controller text setting is currently in beta, so continuous, fast\n     * updates will not work well.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\param line\n     *        The line number at which the text will be displayed [0-2]\n     * \\param col\n     *        The column number at which the text will be displayed [0-14]\n     * \\param str\n     *        The pre-formatted string to print to the controller\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t set_text(std::uint8_t line, std::uint8_t col, const char* str);\n    std::int32_t set_text(std::uint8_t line, std::uint8_t col, const std::string& str);\n\n    /**\n     * Clears an individual line of the controller screen.\n     *\n     * \\note Controller text setting is currently in beta, so continuous, fast\n     * updates will not work well.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\param line\n     *        The line number to clear [0-2]\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t clear_line(std::uint8_t line);\n\n    /**\n     * Rumble the controller.\n     *\n     * \\note Controller rumble activation is currently in beta, so continuous, fast\n     * updates will not work well.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\param rumble_pattern\n     *              A string consisting of the characters '.', '-', and ' ', where dots\n     *              are short rumbles, dashes are long rumbles, and spaces are pauses.\n     *              Maximum supported length is 8 characters.\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t rumble(const char* rumble_pattern);\n\n    /**\n     * Clears all of the lines on the controller screen.\n     *\n     * \\note Controller text setting is currently in beta, so continuous, fast\n     * updates will not work well. On vexOS version 1.0.0 this function will\n     * block for 110ms.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * EACCES - Another resource is currently trying to access the controller\n     * port.\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    std::int32_t clear(void);\n\n    private:\n    controller_id_e_t _id;\n};\n\nnamespace battery {\n/**\n * Gets the current voltage of the battery, as reported by VEXos.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * EACCES - Another resource is currently trying to access the battery port.\n *\n * \\return The current voltage of the battery\n */\ndouble get_capacity(void);\n\n/**\n * Gets the current current of the battery in milliamps, as reported by VEXos.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * EACCES - Another resource is currently trying to access the battery port.\n *\n * \\return The current current of the battery\n */\nint32_t get_current(void);\n\n/**\n * Gets the current temperature of the battery, as reported by VEXos.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * EACCES - Another resource is currently trying to access the battery port.\n *\n * \\return The current temperature of the battery\n */\ndouble get_temperature(void);\n\n/**\n * Gets the current capacity of the battery in millivolts, as reported by VEXos.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * EACCES - Another resource is currently trying to access the battery port.\n *\n * \\return The current capacity of the battery\n */\nint32_t get_voltage(void);\n}  // namespace battery\n\nnamespace competition {\n/**\n * Get the current status of the competition control.\n *\n * \\return The competition control status as a mask of bits with\n * COMPETITION_{ENABLED,AUTONOMOUS,CONNECTED}.\n */\nstd::uint8_t get_status(void);\nstd::uint8_t is_autonomous(void);\nstd::uint8_t is_connected(void);\nstd::uint8_t is_disabled(void);\n}  // namespace competition\n\nnamespace usd {\n/**\n * Checks if the SD card is installed.\n *\n * \\return 1 if the SD card is installed, 0 otherwise\n */\nstd::int32_t is_installed(void);\n}  // namespace usd\n}  // namespace pros\n\n#endif  // _PROS_MISC_HPP_",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pros::Controller",
+      "kind": "class",
+      "name": "pros::Controller",
+      "refid": "classpros_1_1Controller",
+      "title": "pros::Controller",
+      "url": "classpros_1_1Controller.md",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-get_capacity",
+      "argsString": "(void)",
+      "brief": "Gets the current voltage of the battery, as reported by VEXos. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::battery::get_capacity",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port.",
+      "explicit": false,
+      "fullname": "misc.hpp::get_capacity",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/misc.hpp",
+        "line": 272
+      },
+      "name": "get_capacity",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1battery_1a42876357c2ed5a047a535aca84f4458e",
+      "returns": [
+        "The current voltage of the battery "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current voltage of the battery, as reported by VEXos. ",
+      "title": "get_capacity",
+      "type": "double",
+      "typePlain": "double",
+      "url": "misc_8hpp.md#function-get_capacity",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_current",
+      "argsString": "(void)",
+      "brief": "Gets the current current of the battery in milliamps, as reported by VEXos. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::battery::get_current",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port.",
+      "explicit": false,
+      "fullname": "misc.hpp::get_current",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/misc.hpp",
+        "line": 283
+      },
+      "name": "get_current",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1battery_1ad0f092e6341126d68ae15d41b5dba352",
+      "returns": [
+        "The current current of the battery "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current current of the battery in milliamps, as reported by VEXos. ",
+      "title": "get_current",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "misc_8hpp.md#function-get_current",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_temperature",
+      "argsString": "(void)",
+      "brief": "Gets the current temperature of the battery, as reported by VEXos. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::battery::get_temperature",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port.",
+      "explicit": false,
+      "fullname": "misc.hpp::get_temperature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/misc.hpp",
+        "line": 294
+      },
+      "name": "get_temperature",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1battery_1a33d1a503808ed06148a1884e3ccf88ae",
+      "returns": [
+        "The current temperature of the battery "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current temperature of the battery, as reported by VEXos. ",
+      "title": "get_temperature",
+      "type": "double",
+      "typePlain": "double",
+      "url": "misc_8hpp.md#function-get_temperature",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_voltage",
+      "argsString": "(void)",
+      "brief": "Gets the current capacity of the battery in millivolts, as reported by VEXos. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::battery::get_voltage",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port.",
+      "explicit": false,
+      "fullname": "misc.hpp::get_voltage",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/misc.hpp",
+        "line": 305
+      },
+      "name": "get_voltage",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1battery_1a2c325b346f66c15ca7e5a844a66b20d9",
+      "returns": [
+        "The current capacity of the battery "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current capacity of the battery in millivolts, as reported by VEXos. ",
+      "title": "get_voltage",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "misc_8hpp.md#function-get_voltage",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_status",
+      "argsString": "(void)",
+      "brief": "Get the current status of the competition control. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::competition::get_status",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "misc.hpp::get_status",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 315
+      },
+      "name": "get_status",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1competition_1ad75e0e06e0817959c08798358eaa8ab0",
+      "returns": [
+        "The competition control status as a mask of bits with COMPETITION_{ENABLED,AUTONOMOUS,CONNECTED}. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the current status of the competition control. ",
+      "title": "get_status",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "misc_8hpp.md#function-get_status",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is_autonomous",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::competition::is_autonomous",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "misc.hpp::is_autonomous",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 316
+      },
+      "name": "is_autonomous",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1competition_1a88353a4f8e5e283558ee6504c54283af",
+      "static": false,
+      "strong": false,
+      "title": "is_autonomous",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "misc_8hpp.md#function-is_autonomous",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is_connected",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::competition::is_connected",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "misc.hpp::is_connected",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 317
+      },
+      "name": "is_connected",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1competition_1aaf36367a2369390657f6bc4285f68c64",
+      "static": false,
+      "strong": false,
+      "title": "is_connected",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "misc_8hpp.md#function-is_connected",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is_disabled",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::competition::is_disabled",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "misc.hpp::is_disabled",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 318
+      },
+      "name": "is_disabled",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1competition_1a2d4f4555af4c45f7f82ea75e1223899b",
+      "static": false,
+      "strong": false,
+      "title": "is_disabled",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "misc_8hpp.md#function-is_disabled",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is_installed",
+      "argsString": "(void)",
+      "brief": "Checks if the SD card is installed. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t pros::usd::is_installed",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "misc.hpp::is_installed",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 327
+      },
+      "name": "is_installed",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1usd_1a2d7eecbe50533c0d753e82470dc2e6f3",
+      "returns": [
+        "1 if the SD card is installed, 0 otherwise "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks if the SD card is installed. ",
+      "title": "is_installed",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "misc_8hpp.md#function-is_installed",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "misc_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "pros/misc.hpp",
+  "url": "misc_8hpp.md#file-misc.hpp",
+  "visibility": "public"
+}

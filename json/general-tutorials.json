@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-general-tutorials",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "If you're still new to writing software or PROS, and looking for additional information beyond our [Getting Started](getting-started.md#page-getting-started) guides, the **General Tutorials** are a great resource for topics like debugging and the PROS project structure.\n\n\n\n* [Combining C and C++](combining-c-cpp.md#page-combining-c-cpp)\n* [Debugging](debugging.md#page-debugging)\n* [Project Structure](project-structure.md#page-project-structure)\n* [PROS Troubleshooting and Common Problems](troubleshooting.md#page-troubleshooting)",
+  "explicit": false,
+  "fullname": "::general-tutorials",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "general-tutorials",
+  "override": false,
+  "parent": null,
+  "refid": "general-tutorials",
+  "static": false,
+  "strong": false,
+  "title": "General Tutorials",
+  "url": "general-tutorials.md#page-general-tutorials",
+  "visibility": "public"
+}

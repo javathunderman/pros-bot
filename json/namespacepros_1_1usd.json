@@ -1,0 +1,100 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "namespaces",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::usd",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "namespace",
+  "location": {
+    "column": 13,
+    "file": "pros/misc.hpp",
+    "line": 321
+  },
+  "name": "pros::usd",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-is_installed",
+      "argsString": "(void)",
+      "brief": "Checks if the SD card is installed. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t pros::usd::is_installed",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::usd::is_installed",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 327
+      },
+      "name": "is_installed",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1usd_1a2d7eecbe50533c0d753e82470dc2e6f3",
+      "returns": [
+        "1 if the SD card is installed, 0 otherwise "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks if the SD card is installed. ",
+      "title": "is_installed",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "namespacepros_1_1usd.md#function-is_installed",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "namespacepros_1_1usd",
+  "static": false,
+  "strong": false,
+  "title": "pros::usd",
+  "url": "namespacepros_1_1usd.md",
+  "visibility": "public"
+}

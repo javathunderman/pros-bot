@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-creating-c-project.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "creating-c-project.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/walkthrough/creating-c-project.md",
+    "line": 0
+  },
+  "name": "creating-c-project.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page creating-c-project Creating a C Project\n\nBy default, a new PROS project contains C++ source files and the C++\nAPI. If you would prefer to program in C instead, change the extension\nof the source files (prior to PROS kernel 3.2.0: `initialize.cpp`,\n`autonomous.cpp`, and `opcontrol.cpp`; after PROS kernel 3.2.0:\n`main.cpp`) to `.c`.\n\n\\warning\nDo not change any of the PROS header files in this process. That will cause the wrong files to be\nincluded in your project, and will likely prevent compilation. Only modify the extensions of the `.cpp` files.\n\nThis will compile your PROS project as C code, and will give you access\nto the [C API](@ref c-index).\n\nIf you're interested in combining C and C++, you should read through the\n@ref combining-c-cpp. Please\nnote that it is typically a complicated matter to combine the two, and\nrarely a good idea.",
+  "refid": "creating-c-project_8md",
+  "static": false,
+  "strong": false,
+  "title": "creating-c-project.md",
+  "url": "creating-c-project_8md.md#file-creating-c-project.md",
+  "visibility": "public"
+}

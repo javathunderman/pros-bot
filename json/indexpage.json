@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-index",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "Welcome to the PROS Documentation!\n\nIf this is your first time using PROS, it is recommended that you check out the [Getting Started](getting-started.md#page-getting-started) section.\n\nFor topical tutorials on everything from the [ADI (3 Wire Ports)](adi_8md.md#file-adi.md) to [Wireless Upload and Hot/Cold Linking](wireless-upload_8md.md#file-wireless-upload.md), check out the [Tutorials](tutorials.md#page-tutorials) section.\n\nAnd for documentation on using the PROS API, see the [API Home](api.md#page-api) section. ",
+  "explicit": false,
+  "fullname": "::index",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "index",
+  "override": false,
+  "parent": null,
+  "refid": "indexpage",
+  "static": false,
+  "strong": false,
+  "title": "Home",
+  "url": "",
+  "visibility": "public"
+}

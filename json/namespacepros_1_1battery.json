@@ -1,0 +1,236 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "namespaces",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::battery",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "namespace",
+  "location": {
+    "column": 17,
+    "file": "pros/misc.hpp",
+    "line": 262
+  },
+  "name": "pros::battery",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-get_capacity",
+      "argsString": "(void)",
+      "brief": "Gets the current voltage of the battery, as reported by VEXos. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::battery::get_capacity",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port.",
+      "explicit": false,
+      "fullname": "pros::battery::get_capacity",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/misc.hpp",
+        "line": 272
+      },
+      "name": "get_capacity",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1battery_1a42876357c2ed5a047a535aca84f4458e",
+      "returns": [
+        "The current voltage of the battery "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current voltage of the battery, as reported by VEXos. ",
+      "title": "get_capacity",
+      "type": "double",
+      "typePlain": "double",
+      "url": "namespacepros_1_1battery.md#function-get_capacity",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_current",
+      "argsString": "(void)",
+      "brief": "Gets the current current of the battery in milliamps, as reported by VEXos. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::battery::get_current",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port.",
+      "explicit": false,
+      "fullname": "pros::battery::get_current",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/misc.hpp",
+        "line": 283
+      },
+      "name": "get_current",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1battery_1ad0f092e6341126d68ae15d41b5dba352",
+      "returns": [
+        "The current current of the battery "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current current of the battery in milliamps, as reported by VEXos. ",
+      "title": "get_current",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "namespacepros_1_1battery.md#function-get_current",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_temperature",
+      "argsString": "(void)",
+      "brief": "Gets the current temperature of the battery, as reported by VEXos. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::battery::get_temperature",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port.",
+      "explicit": false,
+      "fullname": "pros::battery::get_temperature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/misc.hpp",
+        "line": 294
+      },
+      "name": "get_temperature",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1battery_1a33d1a503808ed06148a1884e3ccf88ae",
+      "returns": [
+        "The current temperature of the battery "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current temperature of the battery, as reported by VEXos. ",
+      "title": "get_temperature",
+      "type": "double",
+      "typePlain": "double",
+      "url": "namespacepros_1_1battery.md#function-get_temperature",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_voltage",
+      "argsString": "(void)",
+      "brief": "Gets the current capacity of the battery in millivolts, as reported by VEXos. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::battery::get_voltage",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the battery port.",
+      "explicit": false,
+      "fullname": "pros::battery::get_voltage",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/misc.hpp",
+        "line": 305
+      },
+      "name": "get_voltage",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1battery_1a2c325b346f66c15ca7e5a844a66b20d9",
+      "returns": [
+        "The current capacity of the battery "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current capacity of the battery in millivolts, as reported by VEXos. ",
+      "title": "get_voltage",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "namespacepros_1_1battery.md#function-get_voltage",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "namespacepros_1_1battery",
+  "static": false,
+  "strong": false,
+  "title": "pros::battery",
+  "url": "namespacepros_1_1battery.md",
+  "visibility": "public"
+}

@@ -1,0 +1,50 @@
+{
+  "abstract": false,
+  "anchor": "#dir-docs/api",
+  "category": "dirs",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "docs/api",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "dir",
+  "location": {
+    "column": 0,
+    "file": "docs/api/",
+    "line": 0
+  },
+  "name": "docs/api",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-docs",
+    "category": "dirs",
+    "fullname": "docs",
+    "kind": "dir",
+    "name": "docs",
+    "refid": "dir_49e56c817e5e54854c35e136979f97ca",
+    "title": "docs",
+    "url": "dir_49e56c817e5e54854c35e136979f97ca.md#dir-docs",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-docs",
+      "category": "dirs",
+      "fullname": "docs",
+      "kind": "dir",
+      "name": "docs",
+      "refid": "dir_49e56c817e5e54854c35e136979f97ca",
+      "title": "docs",
+      "url": "dir_49e56c817e5e54854c35e136979f97ca.md#dir-docs",
+      "visibility": "public"
+    }
+  ],
+  "refid": "dir_bff1a75f97c7ace650ee0c8d57d0aaa5",
+  "static": false,
+  "strong": false,
+  "title": "docs/api",
+  "url": "dir_bff1a75f97c7ace650ee0c8d57d0aaa5.md#dir-docs/api",
+  "visibility": "public"
+}

@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-notifications.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "notifications.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/topical/notifications.md",
+    "line": 0
+  },
+  "name": "notifications.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page notifications Task Notifications\n\n\\note\nFor a full list of functions for interacting with Tasks, see its\n[C API](@ref c-rtos) and [C++ API](@ref cpp-rtos).\nTask notifications are a powerful new feature in PROS 3 which allows\ndirect-to-task synchronization. Each task has a 32-bit notification\nvalue. Each task can block on its own notification (wait for it to\nbecome non-zero) and any task can update the notification value. Task\nnotifications have a broad range of applications, are simple to use, and\nhave significant memory and speed advantages when compared to\ntraditional semaphore-based synchronization mechanisms.\n\nThe simplest application of task notifications does not care about the\ntask notification value:",
+  "refid": "notifications_8md",
+  "static": false,
+  "strong": false,
+  "title": "notifications.md",
+  "url": "notifications_8md.md#file-notifications.md",
+  "visibility": "public"
+}

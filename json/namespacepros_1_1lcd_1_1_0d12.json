@@ -1,0 +1,27 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "namespaces",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::lcd::@12",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "namespace",
+  "location": {
+    "column": 11,
+    "file": "pros/llemu.hpp",
+    "line": 65
+  },
+  "name": "pros::lcd::@12",
+  "override": false,
+  "parent": null,
+  "refid": "namespacepros_1_1lcd_1_1_0d12",
+  "static": false,
+  "strong": false,
+  "title": "pros::lcd::@12",
+  "url": "namespacepros_1_1lcd_1_1_0d12.md",
+  "visibility": "public"
+}

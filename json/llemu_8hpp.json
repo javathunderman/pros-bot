@@ -1,0 +1,668 @@
+{
+  "abstract": false,
+  "anchor": "#file-llemu.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros/llemu.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<cstdint>",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/llemu.hpp",
+    "line": 0
+  },
+  "name": "pros/llemu.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::lcd",
+      "kind": "namespace",
+      "name": "pros::lcd",
+      "refid": "namespacepros_1_1lcd",
+      "title": "pros::lcd",
+      "url": "namespacepros_1_1lcd.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/*\n * \\file pros/llemu.hpp\n *\n * Legacy LCD Emulator\n *\n * This file defines a high-level API for emulating the three-button, UART-based\n * VEX LCD, containing a set of functions that facilitate the use of a software-\n * emulated version of the classic VEX LCD module.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/llemu.html to learn\n * more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_LLEMU_HPP_\n#define _PROS_LLEMU_HPP_\n\n#include <cstdint>\n#include <string>\n\n#include \"pros/llemu.h\"\n\nnamespace pros {\nnamespace lcd {\n/**\n * Checks whether the emulated three-button LCD has already been initialized.\n *\n * \\return True if the LCD has been initialized or false if not.\n */\nbool is_initialized(void);\n\n/**\n * Creates an emulation of the three-button, UART-based VEX LCD on the display.\n *\n * \\return True if the LCD was successfully initialized, or false if it has\n * already been initialized.\n */\nbool initialize(void);\n\n/**\n * Turns off the Legacy LCD Emulator.\n *\n * Calling this function will clear the entire display, and you will not be able\n * to call any further LLEMU functions until another call to lcd_initialize.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The LCD has not been initialized. Call lcd_initialize() first.\n *\n * \\return True if the operation was successful, or false otherwise, setting\n * errno values as specified above.\n */\nbool shutdown(void);\n\n#pragma GCC diagnostic push\n#pragma GCC diagnostic ignored \"-Wunused-function\"\nnamespace {\ntemplate <typename T>\nT convert_args(T arg) {\n    return arg;\n}\nconst char* convert_args(const std::string& arg) {\n    return arg.c_str();\n}\n}  // namespace\n#pragma GCC diagnostic pop\n\n/**\n * Displays a formatted string on the emulated three-button LCD screen.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO  - The LCD has not been initialized. Call lcd_initialize() first.\n * EINVAL - The line number specified is not in the range [0-7]\n *\n * \\param line\n *        The line on which to display the text [0-7]\n * \\param fmt\n *        Format string\n * \\param ...\n *        Optional list of arguments for the format string\n *\n * \\return True if the operation was successful, or false otherwise, setting\n * errno values as specified above.\n */\ntemplate <typename... Params>\nbool print(std::int16_t line, const char* fmt, Params... args) {\n    return pros::c::lcd_print(line, fmt, convert_args(args)...);\n}\n\n/**\n * Displays a string on the emulated three-button LCD screen.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO  - The LCD has not been initialized. Call lcd_initialize() first.\n * EINVAL - The line number specified is not in the range [0-7]\n *\n * \\param line\n *        The line on which to display the text [0-7]\n * \\param text\n *        The text to display\n *\n * \\return True if the operation was successful, or false otherwise, setting\n * errno values as specified above.\n */\nbool set_text(std::int16_t line, std::string text);\n\n/**\n * Clears the contents of the emulated three-button LCD screen.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO  - The LCD has not been initialized. Call lcd_initialize() first.\n * EINVAL - The line number specified is not in the range [0-7]\n *\n * \\return True if the operation was successful, or false otherwise, setting\n * errno values as specified above.\n */\nbool clear(void);\n\n/**\n * Clears the contents of a line of the emulated three-button LCD screen.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO  - The LCD has not been initialized. Call lcd_initialize() first.\n * EINVAL - The line number specified is not in the range [0-7]\n *\n * \\param line\n *        The line to clear\n *\n * \\return True if the operation was successful, or false otherwise, setting\n * errno values as specified above.\n */\nbool clear_line(std::int16_t line);\n\nusing lcd_btn_cb_fn_t = void (*)(void);\n\n/**\n * Registers a callback function for the leftmost button.\n *\n * When the leftmost button on the emulated three-button LCD is pressed, the\n * user-provided callback function will be invoked.\n *\n * \\param cb\n * A callback function of type lcd_btn_cb_fn_t(void (*cb)(void))\n */\nvoid register_btn0_cb(lcd_btn_cb_fn_t cb);\n\n/**\n * Registers a callback function for the center button.\n *\n * When the center button on the emulated three-button LCD is pressed, the\n * user-provided callback function will be invoked.\n *\n * \\param cb\n * A callback function of type lcd_btn_cb_fn_t(void (*cb)(void))\n */\nvoid register_btn1_cb(lcd_btn_cb_fn_t cb);\n\n/**\n * Registers a callback function for the rightmost button.\n *\n * When the rightmost button on the emulated three-button LCD is pressed, the\n * user-provided callback function will be invoked.\n *\n * \\param cb\n * A callback function of type lcd_btn_cb_fn_t(void (*cb)(void))\n */\nvoid register_btn2_cb(lcd_btn_cb_fn_t cb);\n\n/**\n * Gets the button status from the emulated three-button LCD.\n *\n * The value returned is a 3-bit integer where 1 0 0 indicates the left button\n * is pressed, 0 1 0 indicates the center button is pressed, and 0 0 1\n * indicates the right button is pressed. 0 is returned if no buttons are\n * currently being pressed.\n *\n * Note that this function is provided for legacy API compatibility purposes,\n * with the caveat that the V5 touch screen does not actually support pressing\n * multiple points on the screen at the same time.\n *\n * \\return The buttons pressed as a bit mask\n */\nstd::uint8_t read_buttons(void);\n}  // namespace lcd\n}  // namespace pros\n\n#endif  // _PROS_LLEMU_HPP_",
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-is_initialized",
+      "argsString": "(void)",
+      "brief": "Checks whether the emulated three-button LCD has already been initialized. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::lcd::is_initialized",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "llemu.hpp::is_initialized",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 38
+      },
+      "name": "is_initialized",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1a867eb9cd989e1c6c31982fe2b5c58dd9",
+      "returns": [
+        "True if the LCD has been initialized or false if not. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks whether the emulated three-button LCD has already been initialized. ",
+      "title": "is_initialized",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "llemu_8hpp.md#function-is_initialized",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-initialize",
+      "argsString": "(void)",
+      "brief": "Creates an emulation of the three-button, UART-based VEX LCD on the display. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::lcd::initialize",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "llemu.hpp::initialize",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 46
+      },
+      "name": "initialize",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1afb69bfa2fc5da3018b6886f612ed190e",
+      "returns": [
+        "True if the LCD was successfully initialized, or false if it has already been initialized. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates an emulation of the three-button, UART-based VEX LCD on the display. ",
+      "title": "initialize",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "llemu_8hpp.md#function-initialize",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-shutdown",
+      "argsString": "(void)",
+      "brief": "Turns off the Legacy LCD Emulator. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::lcd::shutdown",
+      "deleted": false,
+      "details": "Calling this function will clear the entire display, and you will not be able to call any further LLEMU functions until another call to lcd_initialize.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The LCD has not been initialized. Call [lcd_initialize()](namespacepros_1_1c.md#function-lcd_initialize) first.",
+      "explicit": false,
+      "fullname": "llemu.hpp::shutdown",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 61
+      },
+      "name": "shutdown",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1a7aa9a422049011de193f54bce8cc95ed",
+      "returns": [
+        "True if the operation was successful, or false otherwise, setting errno values as specified above. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Turns off the Legacy LCD Emulator. ",
+      "title": "shutdown",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "llemu_8hpp.md#function-shutdown",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-print",
+      "argsString": "(std::int16_t line, const char *fmt, Params... args)",
+      "brief": "Displays a formatted string on the emulated three-button LCD screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::lcd::print",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The LCD has not been initialized. Call [lcd_initialize()](namespacepros_1_1c.md#function-lcd_initialize) first. EINVAL - The line number specified is not in the range [0-7]",
+      "explicit": false,
+      "fullname": "llemu.hpp::print",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 97,
+        "bodyFile": "pros/llemu.hpp",
+        "bodyStart": 95,
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 95
+      },
+      "name": "print",
+      "override": false,
+      "paramList": [
+        {
+          "name": "line",
+          "text": "The line on which to display the text [0-7] "
+        },
+        {
+          "name": "fmt",
+          "text": "Format string "
+        },
+        {
+          "name": "...",
+          "text": "Optional list of arguments for the format string"
+        }
+      ],
+      "params": [
+        {
+          "name": "line",
+          "type": "std::int16_t",
+          "typePlain": "std::int16_t"
+        },
+        {
+          "name": "fmt",
+          "type": "const char *",
+          "typePlain": "const char *"
+        },
+        {
+          "name": "args",
+          "type": "Params...",
+          "typePlain": "Params..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1aead67d10b420308d58883135f0d28099",
+      "returns": [
+        "True if the operation was successful, or false otherwise, setting errno values as specified above. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Displays a formatted string on the emulated three-button LCD screen. ",
+      "templateParams": [
+        {
+          "name": "Params",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "print",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "llemu_8hpp.md#function-print",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_text",
+      "argsString": "(std::int16_t line, std::string text)",
+      "brief": "Displays a string on the emulated three-button LCD screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::lcd::set_text",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The LCD has not been initialized. Call [lcd_initialize()](namespacepros_1_1c.md#function-lcd_initialize) first. EINVAL - The line number specified is not in the range [0-7]",
+      "explicit": false,
+      "fullname": "llemu.hpp::set_text",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 115
+      },
+      "name": "set_text",
+      "override": false,
+      "paramList": [
+        {
+          "name": "line",
+          "text": "The line on which to display the text [0-7] "
+        },
+        {
+          "name": "text",
+          "text": "The text to display"
+        }
+      ],
+      "params": [
+        {
+          "name": "line",
+          "type": "std::int16_t",
+          "typePlain": "std::int16_t"
+        },
+        {
+          "name": "text",
+          "type": "std::string",
+          "typePlain": "std::string"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1a515526f1d3069a6aa985512273aa7788",
+      "returns": [
+        "True if the operation was successful, or false otherwise, setting errno values as specified above. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Displays a string on the emulated three-button LCD screen. ",
+      "title": "set_text",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "llemu_8hpp.md#function-set_text",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clear",
+      "argsString": "(void)",
+      "brief": "Clears the contents of the emulated three-button LCD screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::lcd::clear",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The LCD has not been initialized. Call [lcd_initialize()](namespacepros_1_1c.md#function-lcd_initialize) first. EINVAL - The line number specified is not in the range [0-7]",
+      "explicit": false,
+      "fullname": "llemu.hpp::clear",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 128
+      },
+      "name": "clear",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1a8d22379bd680a36182d51d8e8ef02baf",
+      "returns": [
+        "True if the operation was successful, or false otherwise, setting errno values as specified above. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Clears the contents of the emulated three-button LCD screen. ",
+      "title": "clear",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "llemu_8hpp.md#function-clear",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clear_line",
+      "argsString": "(std::int16_t line)",
+      "brief": "Clears the contents of a line of the emulated three-button LCD screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::lcd::clear_line",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The LCD has not been initialized. Call [lcd_initialize()](namespacepros_1_1c.md#function-lcd_initialize) first. EINVAL - The line number specified is not in the range [0-7]",
+      "explicit": false,
+      "fullname": "llemu.hpp::clear_line",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 144
+      },
+      "name": "clear_line",
+      "override": false,
+      "paramList": [
+        {
+          "name": "line",
+          "text": "The line to clear"
+        }
+      ],
+      "params": [
+        {
+          "name": "line",
+          "type": "std::int16_t",
+          "typePlain": "std::int16_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1aef44947cea9006f86d4aaa2e32856835",
+      "returns": [
+        "True if the operation was successful, or false otherwise, setting errno values as specified above. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Clears the contents of a line of the emulated three-button LCD screen. ",
+      "title": "clear_line",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "llemu_8hpp.md#function-clear_line",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-register_btn0_cb",
+      "argsString": "(lcd_btn_cb_fn_t cb)",
+      "brief": "Registers a callback function for the leftmost button. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void pros::lcd::register_btn0_cb",
+      "deleted": false,
+      "details": "When the leftmost button on the emulated three-button LCD is pressed, the user-provided callback function will be invoked.",
+      "explicit": false,
+      "fullname": "llemu.hpp::register_btn0_cb",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 157
+      },
+      "name": "register_btn0_cb",
+      "override": false,
+      "paramList": [
+        {
+          "name": "cb",
+          "text": "A callback function of type lcd_btn_cb_fn_t(void (*cb)(void)) "
+        }
+      ],
+      "params": [
+        {
+          "name": "cb",
+          "type": "lcd_btn_cb_fn_t",
+          "typePlain": "lcd_btn_cb_fn_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1a4d8f5121ac67ae7de816334e7b66f08d",
+      "static": false,
+      "strong": false,
+      "summary": "Registers a callback function for the leftmost button. ",
+      "title": "register_btn0_cb",
+      "type": "void",
+      "typePlain": "void",
+      "url": "llemu_8hpp.md#function-register_btn0_cb",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-register_btn1_cb",
+      "argsString": "(lcd_btn_cb_fn_t cb)",
+      "brief": "Registers a callback function for the center button. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void pros::lcd::register_btn1_cb",
+      "deleted": false,
+      "details": "When the center button on the emulated three-button LCD is pressed, the user-provided callback function will be invoked.",
+      "explicit": false,
+      "fullname": "llemu.hpp::register_btn1_cb",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 168
+      },
+      "name": "register_btn1_cb",
+      "override": false,
+      "paramList": [
+        {
+          "name": "cb",
+          "text": "A callback function of type lcd_btn_cb_fn_t(void (*cb)(void)) "
+        }
+      ],
+      "params": [
+        {
+          "name": "cb",
+          "type": "lcd_btn_cb_fn_t",
+          "typePlain": "lcd_btn_cb_fn_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1a9a3a9342268b8a95d91190ab36574a0a",
+      "static": false,
+      "strong": false,
+      "summary": "Registers a callback function for the center button. ",
+      "title": "register_btn1_cb",
+      "type": "void",
+      "typePlain": "void",
+      "url": "llemu_8hpp.md#function-register_btn1_cb",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-register_btn2_cb",
+      "argsString": "(lcd_btn_cb_fn_t cb)",
+      "brief": "Registers a callback function for the rightmost button. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void pros::lcd::register_btn2_cb",
+      "deleted": false,
+      "details": "When the rightmost button on the emulated three-button LCD is pressed, the user-provided callback function will be invoked.",
+      "explicit": false,
+      "fullname": "llemu.hpp::register_btn2_cb",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/llemu.hpp",
+        "line": 179
+      },
+      "name": "register_btn2_cb",
+      "override": false,
+      "paramList": [
+        {
+          "name": "cb",
+          "text": "A callback function of type lcd_btn_cb_fn_t(void (*cb)(void)) "
+        }
+      ],
+      "params": [
+        {
+          "name": "cb",
+          "type": "lcd_btn_cb_fn_t",
+          "typePlain": "lcd_btn_cb_fn_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1a5b08f4244e366a738668a5c3f700e4be",
+      "static": false,
+      "strong": false,
+      "summary": "Registers a callback function for the rightmost button. ",
+      "title": "register_btn2_cb",
+      "type": "void",
+      "typePlain": "void",
+      "url": "llemu_8hpp.md#function-register_btn2_cb",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-read_buttons",
+      "argsString": "(void)",
+      "brief": "Gets the button status from the emulated three-button LCD. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::lcd::read_buttons",
+      "deleted": false,
+      "details": "The value returned is a 3-bit integer where 1 0 0 indicates the left button is pressed, 0 1 0 indicates the center button is pressed, and 0 0 1 indicates the right button is pressed. 0 is returned if no buttons are currently being pressed.\n\nNote that this function is provided for legacy API compatibility purposes, with the caveat that the V5 touch screen does not actually support pressing multiple points on the screen at the same time.",
+      "explicit": false,
+      "fullname": "llemu.hpp::read_buttons",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/llemu.hpp",
+        "line": 195
+      },
+      "name": "read_buttons",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1lcd_1aa6ba655373f3eb0d9ef702337e89f624",
+      "returns": [
+        "The buttons pressed as a bit mask "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the button status from the emulated three-button LCD. ",
+      "title": "read_buttons",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "llemu_8hpp.md#function-read_buttons",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-lcd_btn_cb_fn_t",
+      "category": "types",
+      "const": false,
+      "definition": "using lcd_btn_cb_fn_t =  void (*)(void)",
+      "explicit": false,
+      "fullname": "llemu.hpp::lcd_btn_cb_fn_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "location": {
+        "bodyFile": "pros/llemu.hpp",
+        "bodyStart": 146,
+        "column": 1,
+        "file": "pros/llemu.hpp",
+        "line": 146
+      },
+      "name": "lcd_btn_cb_fn_t",
+      "override": false,
+      "refid": "namespacepros_1_1lcd_1a22ffa85cc6287c5c366fe0cb2416e28a",
+      "static": false,
+      "strong": false,
+      "title": "lcd_btn_cb_fn_t",
+      "type": "void(*)(void)",
+      "typePlain": "void(*)(void)",
+      "url": "llemu_8hpp.md#using-lcd_btn_cb_fn_t",
+      "visibility": "public"
+    }
+  ],
+  "refid": "llemu_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "pros/llemu.hpp",
+  "url": "llemu_8hpp.md#file-llemu.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,92 @@
+{
+  "abstract": false,
+  "anchor": "#file-rtos.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "details": "Contains declarations for the PROS RTOS kernel for use by typical VEX programmers.\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html](https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots. All rights reserved.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/rtos.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "\"pros/rtos.h\"",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/rtos.hpp",
+    "line": 0
+  },
+  "name": "pros/rtos.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/rtos.hpp\n *\n * Contains declarations for the PROS RTOS kernel for use by typical VEX\n * programmers.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html to\n * learn more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n * All rights reserved.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_RTOS_HPP_\n#define _PROS_RTOS_HPP_\n\n#include \"pros/rtos.h\"\n#undef delay\n#include <cstdint>\n#include <cstdlib>\n#include <functional>\n#include <memory>\n#include <type_traits>\n\nnamespace pros {\nclass Task {\n    public:\n    /**\n     * Creates a new task and add it to the list of tasks that are ready to run.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENOMEM - The stack cannot be used as the TCB was not created.\n     *\n     * \\param function\n     *        Pointer to the task entry function\n     * \\param parameters\n     *        Pointer to memory that will be used as a parameter for the task\n     *        being created. This memory should not typically come from stack,\n     *        but rather from dynamically (i.e., malloc'd) or statically\n     *        allocated memory.\n     * \\param prio\n     *        The priority at which the task should run.\n     *        TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used.\n     * \\param stack_depth\n     *        The number of words (i.e. 4 * stack_depth) available on the task's\n     *        stack. TASK_STACK_DEPTH_DEFAULT is typically sufficienct.\n     * \\param name\n     *        A descriptive name for the task.  This is mainly used to facilitate\n     *        debugging. The name may be up to 32 characters long.\n     *\n     */\n    Task(task_fn_t function, void* parameters = NULL, std::uint32_t prio = TASK_PRIORITY_DEFAULT,\n         std::uint16_t stack_depth = TASK_STACK_DEPTH_DEFAULT, const char* name = \"\");\n\n    /**\n     * Creates a new task and add it to the list of tasks that are ready to run.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENOMEM - The stack cannot be used as the TCB was not created.\n     *\n     * \\param function\n     *        Pointer to the task entry function\n     * \\param parameters\n     *        Pointer to memory that will be used as a parameter for the task\n     *        being created. This memory should not typically come from stack,\n     *        but rather from dynamically (i.e., malloc'd) or statically\n     *        allocated memory.\n     * \\param name\n     *        A descriptive name for the task.  This is mainly used to facilitate\n     *        debugging. The name may be up to 32 characters long.\n     *\n     */\n    Task(task_fn_t function, void* parameters, const char* name);\n\n    /**\n     * Creates a new task and add it to the list of tasks that are ready to run.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENOMEM - The stack cannot be used as the TCB was not created.\n     *\n     * \\param function\n     *        Callable object to use as entry function\n     * \\param prio\n     *        The priority at which the task should run.\n     *        TASK_PRIO_DEFAULT plus/minus 1 or 2 is typically used.\n     * \\param stack_depth\n     *        The number of words (i.e. 4 * stack_depth) available on the task's\n     *        stack. TASK_STACK_DEPTH_DEFAULT is typically sufficienct.\n     * \\param name\n     *        A descriptive name for the task.  This is mainly used to facilitate\n     *        debugging. The name may be up to 32 characters long.\n     *\n     */\n    template <class F>\n    Task(F&& function, std::uint32_t prio = TASK_PRIORITY_DEFAULT, std::uint16_t stack_depth = TASK_STACK_DEPTH_DEFAULT,\n         const char* name = \"\")\n        : Task(\n              [](void* parameters) {\n                  std::unique_ptr<std::function<void()>> ptr{static_cast<std::function<void()>*>(parameters)};\n                  (*ptr)();\n              },\n              new std::function<void()>(std::forward<F>(function)), prio, stack_depth, name) {\n        static_assert(std::is_invocable_r_v<void, F>);\n    }\n\n    /**\n     * Creates a new task and add it to the list of tasks that are ready to run.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENOMEM - The stack cannot be used as the TCB was not created.\n     *\n     * \\param function\n     *        Callable object to use as entry function\n     * \\param name\n     *        A descriptive name for the task.  This is mainly used to facilitate\n     *        debugging. The name may be up to 32 characters long.\n     *\n     */\n    template <class F>\n    Task(F&& function, const char* name)\n        : Task(std::forward<F>(function), TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, name) {}\n\n    /**\n     * Create a C++ task object from a task handle\n     *\n     * \\param task\n     *        A task handle from task_create() for which to create a pros::Task\n     *        object.\n     */\n    Task(task_t task);\n\n    /**\n     * Get the currently running Task\n     */\n    static Task current();\n\n    /**\n     * Creates a new task and add it to the list of tasks that are ready to run.\n     *\n     * \\param in\n     *        A task handle from task_create() for which to create a pros::Task\n     *        object.\n     */\n    Task& operator=(task_t in);\n\n    /**\n     * Removes the Task from the RTOS real time kernel's management. This task\n     * will be removed from all ready, blocked, suspended and event lists.\n     *\n     * Memory dynamically allocated by the task is not automatically freed, and\n     * should be freed before the task is deleted.\n     */\n    void remove();\n\n    /**\n     * Gets the priority of the specified task.\n     *\n     * \\return The priority of the task\n     */\n    std::uint32_t get_priority(void);\n\n    /**\n     * Sets the priority of the specified task.\n     *\n     * If the specified task's state is available to be scheduled (e.g. not\n     * blocked) and new priority is higher than the currently running task,\n     * a context switch may occur.\n     *\n     * \\param prio\n     *        The new priority of the task\n     */\n    void set_priority(std::uint32_t prio);\n\n    /**\n     * Gets the state of the specified task.\n     *\n     * \\return The state of the task\n     */\n    std::uint32_t get_state(void);\n\n    /**\n     * Suspends the specified task, making it ineligible to be scheduled.\n     */\n    void suspend(void);\n\n    /**\n     * Resumes the specified task, making it eligible to be scheduled.\n     *\n     * \\param task\n     *        The task to resume\n     */\n    void resume(void);\n\n    /**\n     * Gets the name of the specified task.\n     *\n     * \\return A pointer to the name of the task\n     */\n    const char* get_name(void);\n\n    /**\n     * Convert this object to a C task_t handle\n     */\n    operator task_t() {\n        return task;\n    }\n\n    /**\n     * Sends a simple notification to task and increments the notification\n     * counter.\n     *\n     * See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for\n     * details.\n     *\n     * \\return Always returns true.\n     */\n    std::uint32_t notify(void);\n\n    /**\n     * Sends a notification to a task, optionally performing some action. Will\n     * also retrieve the value of the notification in the target task before\n     * modifying the notification value.\n     *\n     * See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for\n     * details.\n     *\n     * \\param value\n     *        The value used in performing the action\n     * \\param action\n     *        An action to optionally perform on the receiving task's notification\n     *        value\n     * \\param prev_value\n     *        A pointer to store the previous value of the target task's\n     *        notification, may be NULL\n     *\n     * \\return Dependent on the notification action.\n     * For NOTIFY_ACTION_NO_WRITE: return 0 if the value could be written without\n     * needing to overwrite, 1 otherwise.\n     * For all other NOTIFY_ACTION values: always return 0\n     */\n    std::uint32_t notify_ext(std::uint32_t value, notify_action_e_t action, std::uint32_t* prev_value);\n\n    /**\n     * Waits for a notification to be nonzero.\n     *\n     * See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for\n     * details.\n     *\n     * \\param clear_on_exit\n     *        If true (1), then the notification value is cleared.\n     *        If false (0), then the notification value is decremented.\n     * \\param timeout\n     *        Specifies the amount of time to be spent waiting for a notification\n     *        to occur.\n     *\n     * \\return The value of the task's notification value before it is decremented\n     * or cleared\n     */\n    static std::uint32_t notify_take(bool clear_on_exit, std::uint32_t timeout);\n\n    /**\n     * Clears the notification for a task.\n     *\n     * See https://pros.cs.purdue.edu/v5/tutorials/topical/notifications.html for\n     * details.\n     *\n     * \\return False if there was not a notification waiting, true if there was\n     */\n    bool notify_clear(void);\n\n    /**\n     * Delays a task for a given number of milliseconds.\n     *\n     * This is not the best method to have a task execute code at predefined\n     * intervals, as the delay time is measured from when the delay is requested.\n     * To delay cyclically, use task_delay_until().\n     *\n     * \\param milliseconds\n     *        The number of milliseconds to wait (1000 milliseconds per second)\n     */\n    static void delay(const std::uint32_t milliseconds);\n\n    /**\n     * Delays a task until a specified time.  This function can be used by\n     * periodic tasks to ensure a constant execution frequency.\n     *\n     * The task will be woken up at the time *prev_time + delta, and *prev_time\n     * will be updated to reflect the time at which the task will unblock.\n     *\n     * \\param prev_time\n     *        A pointer to the location storing the setpoint time. This should\n     *        typically be initialized to the return value from pros::millis().\n     * \\param delta\n     *        The number of milliseconds to wait (1000 milliseconds per second)\n     */\n    static void delay_until(std::uint32_t* const prev_time, const std::uint32_t delta);\n\n    /**\n     * Gets the number of tasks the kernel is currently managing, including all\n     * ready, blocked, or suspended tasks. A task that has been deleted, but not\n     * yet reaped by the idle task will also be included in the count.\n     * Tasks recently created may take one context switch to be counted.\n     *\n     * \\return The number of tasks that are currently being managed by the kernel.\n     */\n    static std::uint32_t get_count(void);\n\n    private:\n    task_t task;\n};\n\nclass Mutex {\n    public:\n    Mutex(void);\n\n    /**\n     * Takes and locks a mutex, waiting for up to a certain number of milliseconds\n     * before timing out.\n     *\n     * See\n     * https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes\n     * for details.\n     *\n     * \\param timeout\n     *        Time to wait before the mutex becomes available. A timeout of 0 can\n     *        be used to poll the mutex. TIMEOUT_MAX can be used to block\n     *        indefinitely.\n     *\n     * \\return True if the mutex was successfully taken, false otherwise. If false\n     * is returned, then errno is set with a hint about why the the mutex\n     * couldn't be taken.\n     */\n    bool take(std::uint32_t timeout);\n\n    /**\n     * Unlocks a mutex.\n     *\n     * See\n     * https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes\n     * for details.\n     *\n     * \\return True if the mutex was successfully returned, false otherwise. If\n     * false is returned, then errno is set with a hint about why the mutex\n     * couldn't be returned.\n     */\n    bool give(void);\n\n    private:\n    std::shared_ptr<std::remove_pointer_t<mutex_t>> mutex;\n};\n\n/**\n * Gets the number of milliseconds since PROS initialized.\n *\n * \\return The number of milliseconds since PROS initialized\n */\nusing pros::c::millis;\n\n/**\n * Delays a task for a given number of milliseconds.\n *\n * This is not the best method to have a task execute code at predefined\n * intervals, as the delay time is measured from when the delay is requested.\n * To delay cyclically, use task_delay_until().\n *\n * \\param milliseconds\n *        The number of milliseconds to wait (1000 milliseconds per second)\n */\nusing pros::c::delay;\n}  // namespace pros\n\n#endif  // _PROS_RTOS_HPP_s",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pros::Task",
+      "kind": "class",
+      "name": "pros::Task",
+      "refid": "classpros_1_1Task",
+      "title": "pros::Task",
+      "url": "classpros_1_1Task.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pros::Mutex",
+      "kind": "class",
+      "name": "pros::Mutex",
+      "refid": "classpros_1_1Mutex",
+      "title": "pros::Mutex",
+      "url": "classpros_1_1Mutex.md",
+      "visibility": "public"
+    }
+  ],
+  "refid": "rtos_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "pros/rtos.hpp",
+  "url": "rtos_8hpp.md#file-rtos.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-llemu",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "For a full list of functions for interacting with the LLEMU, see its C API and C++ API.\n\n\n## Initialization\n\nInitialization of the LLEMU is very simple, it's just a call to its initialization function at whatever point in the program you would like the LLEMU to start displaying (this will most likely be in `[initialize()](main_8h.md#function-initialize)`).\n\nInitialization is done as such:\n\n\n## Writing to the LLEMU\n\nWriting to the LLEMU is nearly identical to writing to the LCD with [PROS 2](../../cortex/tutorials/lcd.html). Most writing should be done with the print function, which is analogous to [printf](http://www.cplusplus.com/reference/cstdio/printf/).\n\n\n## Using the Buttons\n\nUsing the buttons can be done in a similar method to [PROS 2](../../../cortex/tutorials/lcd.html) with the [pros::lcd::read_buttons](../../api/cpp/llemu.html#read-buttons) function. See the above example for printing the button readings.\n\nWhile this is sufficient for most applications, some tasks are easier to perform using the [pros::lcd::register_btn#_cb](../../api/cpp/llemu.html#register-btn0-cb) functions (where # is replaced with 0, 1, or 2 for the left, center, and right buttons respectively). With these function you can assign a function to be called each time that the button is pressed.\n\nCustom LVGL code cannot be displayed at the same time as LLEMU. ",
+  "explicit": false,
+  "fullname": "::llemu",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "llemu",
+  "override": false,
+  "parent": null,
+  "refid": "llemu",
+  "static": false,
+  "strong": false,
+  "title": "LLEMU (Legacy LCD Emulator)",
+  "url": "llemu.md#page-llemu",
+  "visibility": "public"
+}

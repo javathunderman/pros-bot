@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-combining-c-cpp.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "combining-c-cpp.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/general/combining-c-cpp.md",
+    "line": 0
+  },
+  "name": "combining-c-cpp.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page combining-c-cpp Combining C and C++\n\nThe PROS C and C++ APIs cover the exact same feature set, which means\nthat there is no significant advantage to using functions from one API\nin another language. However, if you do find yourself wanting to use C\nAPI functions in C++, these functions are accessible through the\nnamespace `pros::c`.\n\nThis can also be done by using the `pros::c` namespace as such:\n\n    using namespace pros::c;\n\nAs always, bear in mind the dangers of setting a global namespace and\nonly use the `using` keyword in appropriate scopes.\n\nFor guidance on mixing C and C++ code with code you've written, see\n[this tutorial](https://isocpp.org/wiki/faq/mixing-c-and-cpp).",
+  "refid": "combining-c-cpp_8md",
+  "static": false,
+  "strong": false,
+  "title": "combining-c-cpp.md",
+  "url": "combining-c-cpp_8md.md#file-combining-c-cpp.md",
+  "visibility": "public"
+}

@@ -1,0 +1,883 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::Controller",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "\"misc.hpp\"",
+  "inline": false,
+  "kind": "class",
+  "location": {
+    "bodyEnd": 260,
+    "bodyFile": "pros/misc.hpp",
+    "bodyStart": 30,
+    "column": 17,
+    "file": "pros/misc.hpp",
+    "line": 30
+  },
+  "name": "pros::Controller",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-_id",
+      "category": "attributes",
+      "const": false,
+      "definition": "controller_id_e_t _id",
+      "explicit": false,
+      "fullname": "pros::Controller::_id",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/misc.hpp",
+        "bodyStart": 259,
+        "column": 19,
+        "file": "pros/misc.hpp",
+        "line": 259
+      },
+      "name": "_id",
+      "override": false,
+      "refid": "classpros_1_1Controller_1a87feae64216cf22775b662fbc5f20048",
+      "static": false,
+      "strong": false,
+      "title": "_id",
+      "type": "[controller_id_e_t](namespacepros.md#enum-controller_id_e_t)",
+      "typePlain": "controller_id_e_t",
+      "url": "classpros_1_1Controller.md#variable-_id",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-controller",
+      "argsString": "(controller_id_e_t id)",
+      "brief": "Creates a controller object for the given controller id. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Controller",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Controller::Controller",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/misc.hpp",
+        "line": 39
+      },
+      "name": "Controller",
+      "override": false,
+      "paramList": [
+        {
+          "name": "id",
+          "text": "The ID of the controller (e.g. the master or partner controller). Must be one of CONTROLLER_MASTER or CONTROLLER_PARTNER "
+        }
+      ],
+      "params": [
+        {
+          "name": "id",
+          "type": "[controller_id_e_t](namespacepros.md#enum-controller_id_e_t)",
+          "typePlain": "controller_id_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a652922e5c7390ce35a405959dda1d68a",
+      "static": false,
+      "strong": false,
+      "summary": "Creates a controller object for the given controller id. ",
+      "title": "Controller",
+      "url": "classpros_1_1Controller.md#function-controller",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is_connected",
+      "argsString": "(void)",
+      "brief": "Checks if the controller is connected. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t is_connected",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::is_connected",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 51
+      },
+      "name": "is_connected",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a74a04929bc60c72d8436cfb5b40461c0",
+      "returns": [
+        "1 if the controller is connected, 0 otherwise "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks if the controller is connected. ",
+      "title": "is_connected",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-is_connected",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_analog",
+      "argsString": "(controller_analog_e_t channel)",
+      "brief": "Gets the value of an analog channel (joystick) on a controller. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t get_analog",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::get_analog",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 69
+      },
+      "name": "get_analog",
+      "override": false,
+      "paramList": [
+        {
+          "name": "channel",
+          "text": "The analog channel to get. Must be one of ANALOG_LEFT_X, ANALOG_LEFT_Y, ANALOG_RIGHT_X, ANALOG_RIGHT_Y"
+        }
+      ],
+      "params": [
+        {
+          "name": "channel",
+          "type": "[controller_analog_e_t](namespacepros.md#enum-controller_analog_e_t)",
+          "typePlain": "controller_analog_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a880820cec57dc2d47bb9cb27e18b4a0a",
+      "returns": [
+        "The current reading of the analog channel: [-127, 127]. If the controller was not connected, then 0 is returned "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the value of an analog channel (joystick) on a controller. ",
+      "title": "get_analog",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-get_analog",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_battery_capacity",
+      "argsString": "(void)",
+      "brief": "Gets the battery capacity of the controller. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t get_battery_capacity",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::get_battery_capacity",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 81
+      },
+      "name": "get_battery_capacity",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a45fb617eafe5e07c279b0b4d2158503d",
+      "returns": [
+        "The controller's battery capacity "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the battery capacity of the controller. ",
+      "title": "get_battery_capacity",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-get_battery_capacity",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_battery_level",
+      "argsString": "(void)",
+      "brief": "Gets the battery level of the controller. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t get_battery_level",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::get_battery_level",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 93
+      },
+      "name": "get_battery_level",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1aea0f0813bb505219cd0e6a8d87922fca",
+      "returns": [
+        "The controller's battery level "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the battery level of the controller. ",
+      "title": "get_battery_level",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-get_battery_level",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_digital",
+      "argsString": "(controller_digital_e_t button)",
+      "brief": "Checks if a digital channel (button) on the controller is currently pressed. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t get_digital",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::get_digital",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 111
+      },
+      "name": "get_digital",
+      "override": false,
+      "paramList": [
+        {
+          "name": "button",
+          "text": "The button to read. Must be one of DIGITAL_{RIGHT,DOWN,LEFT,UP,A,B,Y,X,R1,R2,L1,L2}"
+        }
+      ],
+      "params": [
+        {
+          "name": "button",
+          "type": "[controller_digital_e_t](namespacepros.md#enum-controller_digital_e_t)",
+          "typePlain": "controller_digital_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a360ac95a3f2da903f29d38e212aaf005",
+      "returns": [
+        "1 if the button on the controller is pressed. If the controller was not connected, then 0 is returned "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks if a digital channel (button) on the controller is currently pressed. ",
+      "title": "get_digital",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-get_digital",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_digital_new_press",
+      "argsString": "(controller_digital_e_t button)",
+      "brief": "Returns a rising-edge case for a controller button press. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t get_digital_new_press",
+      "deleted": false,
+      "details": "This function is not thread-safe. Multiple tasks polling a single button may return different results under the same circumstances, so only one task should call this function for any given button. E.g., [Task](classpros_1_1Task.md) A calls this function for buttons 1 and 2. [Task](classpros_1_1Task.md) B may call this function for button 3, but should not for buttons 1 or 2. A typical use-case for this function is to call inside opcontrol to detect new button presses, and not in any other tasks.\n\nThis function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::get_digital_new_press",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 136
+      },
+      "name": "get_digital_new_press",
+      "override": false,
+      "paramList": [
+        {
+          "name": "button",
+          "text": "The button to read. Must be one of DIGITAL_{RIGHT,DOWN,LEFT,UP,A,B,Y,X,R1,R2,L1,L2}"
+        }
+      ],
+      "params": [
+        {
+          "name": "button",
+          "type": "[controller_digital_e_t](namespacepros.md#enum-controller_digital_e_t)",
+          "typePlain": "controller_digital_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1aae8fa80cfb5153c0b30221914742ee49",
+      "returns": [
+        "1 if the button on the controller is pressed and had not been pressed the last time this function was called, 0 otherwise. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Returns a rising-edge case for a controller button press. ",
+      "title": "get_digital_new_press",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-get_digital_new_press",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-convert_args",
+      "argsString": "(T arg)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "T convert_args",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Controller::convert_args",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 143,
+        "bodyFile": "pros/misc.hpp",
+        "bodyStart": 141,
+        "column": 3,
+        "file": "pros/misc.hpp",
+        "line": 141
+      },
+      "name": "convert_args",
+      "override": false,
+      "params": [
+        {
+          "name": "arg",
+          "type": "T",
+          "typePlain": "T"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a28aa7fefb62dcdf98555066756a6fbd5",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "convert_args",
+      "type": "T",
+      "typePlain": "T",
+      "url": "classpros_1_1Controller.md#function-convert_args",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-convert_args",
+      "argsString": "(const std::string &arg)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "const char* convert_args",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Controller::convert_args",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 146,
+        "bodyFile": "pros/misc.hpp",
+        "bodyStart": 144,
+        "column": 12,
+        "file": "pros/misc.hpp",
+        "line": 144
+      },
+      "name": "convert_args",
+      "override": false,
+      "params": [
+        {
+          "name": "arg",
+          "type": "const std::string &",
+          "typePlain": "const std::string &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a157a634f89e6ec862d929edeaa529cff",
+      "static": false,
+      "strong": false,
+      "title": "convert_args",
+      "type": "const char *",
+      "typePlain": "const char *",
+      "url": "classpros_1_1Controller.md#function-convert_args",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-print",
+      "argsString": "(std::uint8_t line, std::uint8_t col, const char *fmt, Params... args)",
+      "brief": "Sets text to the controller LCD screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t print",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::print",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 175,
+        "bodyFile": "pros/misc.hpp",
+        "bodyStart": 173,
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 173
+      },
+      "name": "print",
+      "note": [
+        "[Controller](classpros_1_1Controller.md) text setting is currently in beta, so continuous, fast updates will not work well."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "line",
+          "text": "The line number at which the text will be displayed [0-2] "
+        },
+        {
+          "name": "col",
+          "text": "The column number at which the text will be displayed [0-14] "
+        },
+        {
+          "name": "fmt",
+          "text": "The format string to print to the controller "
+        },
+        {
+          "name": "...",
+          "text": "The argument list for the format string"
+        }
+      ],
+      "params": [
+        {
+          "name": "line",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "name": "col",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "name": "fmt",
+          "type": "const char *",
+          "typePlain": "const char *"
+        },
+        {
+          "name": "args",
+          "type": "Params...",
+          "typePlain": "Params..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1affd382a2e5b4b50fbbc7b9799637b0a1",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets text to the controller LCD screen. ",
+      "templateParams": [
+        {
+          "name": "Params",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "print",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-print",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_text",
+      "argsString": "(std::uint8_t line, std::uint8_t col, const char *str)",
+      "brief": "Sets text to the controller LCD screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t set_text",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::set_text",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 198
+      },
+      "name": "set_text",
+      "note": [
+        "[Controller](classpros_1_1Controller.md) text setting is currently in beta, so continuous, fast updates will not work well."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "line",
+          "text": "The line number at which the text will be displayed [0-2] "
+        },
+        {
+          "name": "col",
+          "text": "The column number at which the text will be displayed [0-14] "
+        },
+        {
+          "name": "str",
+          "text": "The pre-formatted string to print to the controller"
+        }
+      ],
+      "params": [
+        {
+          "name": "line",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "name": "col",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "name": "str",
+          "type": "const char *",
+          "typePlain": "const char *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a3cd136d81be409f77263bf0c983058a8",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets text to the controller LCD screen. ",
+      "title": "set_text",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-set_text",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_text",
+      "argsString": "(std::uint8_t line, std::uint8_t col, const std::string &str)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t set_text",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Controller::set_text",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 199
+      },
+      "name": "set_text",
+      "override": false,
+      "params": [
+        {
+          "name": "line",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "name": "col",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "name": "str",
+          "type": "const std::string &",
+          "typePlain": "const std::string &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a792642d2e8721a3ba27e0ba6b8f0755f",
+      "static": false,
+      "strong": false,
+      "title": "set_text",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-set_text",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clear_line",
+      "argsString": "(std::uint8_t line)",
+      "brief": "Clears an individual line of the controller screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t clear_line",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::clear_line",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 218
+      },
+      "name": "clear_line",
+      "note": [
+        "[Controller](classpros_1_1Controller.md) text setting is currently in beta, so continuous, fast updates will not work well."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "line",
+          "text": "The line number to clear [0-2]"
+        }
+      ],
+      "params": [
+        {
+          "name": "line",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1a65549b3a6f5f7af9d68684a2813b5d2c",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Clears an individual line of the controller screen. ",
+      "title": "clear_line",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-clear_line",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-rumble",
+      "argsString": "(const char *rumble_pattern)",
+      "brief": "Rumble the controller. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t rumble",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::rumble",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 239
+      },
+      "name": "rumble",
+      "note": [
+        "[Controller](classpros_1_1Controller.md) rumble activation is currently in beta, so continuous, fast updates will not work well."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "rumble_pattern",
+          "text": "A string consisting of the characters '.', '-', and ' ', where dots are short rumbles, dashes are long rumbles, and spaces are pauses. Maximum supported length is 8 characters."
+        }
+      ],
+      "params": [
+        {
+          "name": "rumble_pattern",
+          "type": "const char *",
+          "typePlain": "const char *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1aa76da9849eb5dfde35588f2d08ac6f19",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Rumble the controller. ",
+      "title": "rumble",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-rumble",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clear",
+      "argsString": "(void)",
+      "brief": "Clears all of the lines on the controller screen. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::int32_t clear",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EACCES - Another resource is currently trying to access the controller port.",
+      "explicit": false,
+      "fullname": "pros::Controller::clear",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 256
+      },
+      "name": "clear",
+      "note": [
+        "[Controller](classpros_1_1Controller.md) text setting is currently in beta, so continuous, fast updates will not work well. On vexOS version 1.0.0 this function will block for 110ms."
+      ],
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Controller_1acb5f1e6485a4af89f3fce3ff66895b56",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Clears all of the lines on the controller screen. ",
+      "title": "clear",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Controller.md#function-clear",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classpros_1_1Controller",
+  "static": false,
+  "strong": false,
+  "title": "pros::Controller",
+  "url": "classpros_1_1Controller.md",
+  "visibility": "public"
+}

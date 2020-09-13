@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-tutorials",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "Learning a new coding platform is often a rather daunting task. For this reason we prepared some small tutorials with examples on how to interact with core components of PROS on your VEX V5 system.\n\nThe PROS tutorials are split into three sections:\n\n\n# General Tutorials\n\n[General Tutorials](general-tutorials.md#page-general-tutorials)\n\nIf you're still new to writing software or PROS, and looking for additional information beyond our [Getting Started](getting-started.md#page-getting-started) guides, the **General Tutorials** are a great resource for topics like debugging and the PROS project structure.\n\n\n\n* [Combining C and C++](combining-c-cpp.md#page-combining-c-cpp)\n* [Debugging](debugging.md#page-debugging)\n* [Project Structure](project-structure.md#page-project-structure)\n* [PROS Troubleshooting and Common Problems](troubleshooting.md#page-troubleshooting)\n\n# Walkthrough Tutorials\n\n[Walkthrough Tutorials](walkthrough-tutorials.md#page-walkthrough-tutorials)\n\nIf you want to write full sample programs to learn to use PROS through practical applications, or teach students to use PROS in a classroom environment, the **Walkthrough Tutorials** are a great resource to go step by step through the process of writing a PROS program.\n\n\n\n* [Programming the Clawbot](clawbot.md#page-clawbot)\n* [Creating a C Project](creating-c-project.md#page-creating-c-project)\n\n# Topical Tutorials\n\n[Topical Tutorials](topical-tutorials.md#page-topical-tutorials)\n\nIf you want more information about using a particular part of the [API Home](api.md#page-api), the **Topical Tutorials** offer longer examples and more detail about using the PROS API.\n\n\n\n* [ADI (3 Wire Ports)](adi.md#page-adi)\n* [Controller](controller.md#page-controller)\n* [V5 Brain Display (LVGL)](display.md#page-display)\n* [Filesystem](filesystem.md#page-filesystem)\n* [JINX Graphical Debugger](jinx.md#page-jinx)\n* [LLEMU (Legacy LCD Emulator)](llemu.md#page-llemu)\n* [Motors](motors.md#page-motors)\n* [Multitasking](multitasking.md#page-multitasking)\n* [Task Notifications](notifications.md#page-notifications)\n* [Vision Sensor](vision.md#page-vision)\n* [Wireless Upload and Hot/Cold Linking](wireless-upload.md#page-wireless-upload)",
+  "explicit": false,
+  "fullname": "::tutorials",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "tutorials",
+  "override": false,
+  "parent": null,
+  "refid": "tutorials",
+  "static": false,
+  "strong": false,
+  "title": "Tutorials",
+  "url": "tutorials.md#page-tutorials",
+  "visibility": "public"
+}

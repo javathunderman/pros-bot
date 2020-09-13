@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-llemu.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "llemu.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/topical/llemu.md",
+    "line": 0
+  },
+  "name": "llemu.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page llemu LLEMU (Legacy LCD Emulator)\n\n\\note\nFor a full list of functions for interacting with the LLEMU, see its [C API](@ref c-llemu) and [C++ API](@ref cpp-llemu).\n\n## Initialization\n\nInitialization of the LLEMU is very simple, it's just a call to its\ninitialization function at whatever point in the program you would like\nthe LLEMU to start displaying (this will most likely be in\n`initialize()`).\n\nInitialization is done as such:\n\n## Writing to the LLEMU\n\nWriting to the LLEMU is nearly identical to writing to the LCD with\n[PROS 2](../../cortex/tutorials/lcd.html). Most writing should be done\nwith the print function, which is analogous to\n[printf](http://www.cplusplus.com/reference/cstdio/printf/).\n\n## Using the Buttons\n\nUsing the buttons can be done in a similar method to [PROS\n2](../../../cortex/tutorials/lcd.html) with the\n[pros::lcd::read_buttons](../../api/cpp/llemu.html#read-buttons)\nfunction. See the above example for printing the button readings.\n\nWhile this is sufficient for most applications, some tasks are easier to\nperform using the\n[pros::lcd::register_btn\\#\\_cb](../../api/cpp/llemu.html#register-btn0-cb)\nfunctions (where \\# is replaced with 0, 1, or 2 for the left, center,\nand right buttons respectively). With these function you can assign a\nfunction to be called each time that the button is pressed.\n\n\\note\nCustom LVGL code cannot be displayed at the same time as LLEMU.",
+  "refid": "llemu_8md",
+  "static": false,
+  "strong": false,
+  "title": "llemu.md",
+  "url": "llemu_8md.md#file-llemu.md",
+  "visibility": "public"
+}

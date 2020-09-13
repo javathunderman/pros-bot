@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-index.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "index.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/general/index.md",
+    "line": 0
+  },
+  "name": "index.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page general-tutorials General Tutorials\n\nIf you're still new to writing software or PROS, and looking for\nadditional information beyond our \\ref getting-started guides, the **General\nTutorials** are a great resource for topics like debugging and the PROS\nproject structure.\n\n- \\subpage combining-c-cpp\n- \\subpage debugging\n- \\subpage project-structure\n- \\subpage troubleshooting",
+  "refid": "tutorials_2general_2index_8md",
+  "static": false,
+  "strong": false,
+  "title": "index.md",
+  "url": "tutorials_2general_2index_8md.md#file-index.md",
+  "visibility": "public"
+}

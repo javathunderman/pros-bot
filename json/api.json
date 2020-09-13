@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-api",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "This document covers the main PROS API.\n\n\n## C API Headers\n\n\n\n* c-adi\n* c-imu\n* c-llemu\n* c-misc\n* c-motors\n* c-rtos\n* c-vision\n\n## C++ API Headers\n\n\n\n* cpp-adi\n* cpp-imu\n* cpp-llemu\n* cpp-misc\n* cpp-motors\n* cpp-rtos\n* cpp-vision\nFor additional RTOS-related features, check out the extended-api. Be warned, these features are intended for advanced users only and may be very complex to use. ",
+  "explicit": false,
+  "fullname": "::api",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "api",
+  "override": false,
+  "parent": null,
+  "refid": "api",
+  "static": false,
+  "strong": false,
+  "title": "API Home",
+  "url": "api.md#page-api",
+  "visibility": "public"
+}

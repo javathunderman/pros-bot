@@ -1,0 +1,1843 @@
+{
+  "abstract": false,
+  "anchor": "#file-vision.h",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-vision_object_err_sig",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "VISION_OBJECT_ERR_SIG",
+      "hasDetails": false,
+      "initializer": "255",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 23,
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 23
+      },
+      "name": "VISION_OBJECT_ERR_SIG",
+      "override": false,
+      "refid": "vision_8h_1abe53b5e2ba20b09f7f5c7173021d02f0",
+      "static": false,
+      "strong": false,
+      "title": "VISION_OBJECT_ERR_SIG",
+      "url": "vision_8h.md#define-vision_object_err_sig",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-vision_fov_width",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "VISION_FOV_WIDTH",
+      "hasDetails": false,
+      "initializer": "316",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 25,
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 25
+      },
+      "name": "VISION_FOV_WIDTH",
+      "override": false,
+      "refid": "vision_8h_1a7dd7d66361f62ce2ca94e21bb4779962",
+      "static": false,
+      "strong": false,
+      "title": "VISION_FOV_WIDTH",
+      "url": "vision_8h.md#define-vision_fov_width",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-vision_fov_height",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "VISION_FOV_HEIGHT",
+      "hasDetails": false,
+      "initializer": "212",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 26,
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 26
+      },
+      "name": "VISION_FOV_HEIGHT",
+      "override": false,
+      "refid": "vision_8h_1a8e72354ed1150786745094bbd1c0ae00",
+      "static": false,
+      "strong": false,
+      "title": "VISION_FOV_HEIGHT",
+      "url": "vision_8h.md#define-vision_fov_height",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "details": "Contains prototypes for the VEX Vision Sensor-related functions.\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html](https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots. All rights reserved.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/vision.h",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<stdint.h>",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/vision.h",
+    "line": 0
+  },
+  "name": "pros/vision.h",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::c",
+      "kind": "namespace",
+      "name": "pros::c",
+      "refid": "namespacepros_1_1c",
+      "title": "pros::c",
+      "url": "namespacepros_1_1c.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/vision.h\n *\n * Contains prototypes for the VEX Vision Sensor-related functions.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html to learn\n * more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n * All rights reserved.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_VISION_H_\n#define _PROS_VISION_H_\n\n#define VISION_OBJECT_ERR_SIG 255\n// Parameters given by VEX\n#define VISION_FOV_WIDTH 316\n#define VISION_FOV_HEIGHT 212\n\n#include <stdint.h>\n\n#ifdef __cplusplus\nextern \"C\" {\nnamespace pros {\n#endif\n/**\n * This enumeration defines the different types of objects\n * that can be detected by the Vision Sensor\n */\ntypedef enum vision_object_type {\n    E_VISION_OBJECT_NORMAL = 0,\n    E_VISION_OBJECT_COLOR_CODE = 1,\n    E_VISION_OBJECT_LINE = 2\n} vision_object_type_e_t;\n\n/**\n * This structure contains the parameters used by the Vision Sensor\n * to detect objects.\n */\ntypedef struct __attribute__((__packed__)) vision_signature {\n    uint8_t id;\n    uint8_t _pad[3];\n    float range;\n    int32_t u_min;\n    int32_t u_max;\n    int32_t u_mean;\n    int32_t v_min;\n    int32_t v_max;\n    int32_t v_mean;\n    uint32_t rgb;\n    uint32_t type;\n} vision_signature_s_t;\n\n/**\n * Color codes are just signatures with multiple IDs and a different type.\n */\ntypedef uint16_t vision_color_code_t;\n\n/**\n * This structure contains a descriptor of an object detected\n * by the Vision Sensor\n */\ntypedef struct __attribute__((__packed__)) vision_object {\n    // Object signature\n    uint16_t signature;\n    // Object type, e.g. normal, color code, or line detection\n    vision_object_type_e_t type;\n    // left boundary coordinate of the object\n    int16_t left_coord;\n    // top boundary coordinate of the object\n    int16_t top_coord;\n    // width of the object\n    int16_t width;\n    // height of the object\n    int16_t height;\n    // Angle of a color code object in 0.1 degree units (e.g. 10 -> 1 degree, 155\n    // -> 15.5 degrees)\n    uint16_t angle;\n\n    // coordinates of the middle of the object (computed from the values above)\n    int16_t x_middle_coord;\n    int16_t y_middle_coord;\n} vision_object_s_t;\n\ntypedef enum vision_zero {\n    E_VISION_ZERO_TOPLEFT = 0,  // (0,0) coordinate is the top left of the FOV\n    E_VISION_ZERO_CENTER = 1    // (0,0) coordinate is the center of the FOV\n} vision_zero_e_t;\n\n#ifdef PROS_USE_SIMPLE_NAMES\n#ifdef __cplusplus\n#define VISION_OBJECT_NORMAL pros::E_VISION_OBJECT_NORMAL\n#define VISION_OBJECT_COLOR_CODE pros::E_VISION_OBJECT_COLOR_CODE\n#define VISION_OBJECT_LINE pros::E_VISION_OBJECT_LINE\n#define VISION_ZERO_TOPLEFT pros::E_VISION_ZERO_TOPLEFT\n#define VISION_ZERO_CENTER pros::E_VISION_ZERO_CENTER\n#else\n#define VISION_OBJECT_NORMAL E_VISION_OBJECT_NORMAL\n#define VISION_OBJECT_COLOR_CODE E_VISION_OBJECT_COLOR_CODE\n#define VISION_OBJECT_LINE E_VISION_OBJECT_LINE\n#define VISION_ZERO_TOPLEFT E_VISION_ZERO_TOPLEFT\n#define VISION_ZERO_CENTER E_VISION_ZERO_CENTER\n#endif\n#endif\n\n#ifdef __cplusplus\nnamespace c {\n#endif\n\n/**\n * Clears the vision sensor LED color, reseting it back to its default behavior,\n * displaying the most prominent object signature color.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t vision_clear_led(uint8_t port);\n\n/**\n * Creates a signature from the vision sensor utility\n *\n * \\param id\n *        The signature ID\n * \\param u_min\n *        Minimum value on U axis\n * \\param u_max\n *        Maximum value on U axis\n * \\param u_mean\n *        Mean value on U axis\n * \\param v_min\n *        Minimum value on V axis\n * \\param v_max\n *        Maximum value on V axis\n * \\param v_mean\n *        Mean value on V axis\n * \\param range\n *        Scale factor\n * \\param type\n *        Signature type\n *\n * \\return A vision_signature_s_t that can be set using vision_set_signature\n */\nvision_signature_s_t vision_signature_from_utility(const int32_t id, const int32_t u_min, const int32_t u_max,\n                                                   const int32_t u_mean, const int32_t v_min, const int32_t v_max,\n                                                   const int32_t v_mean, const float range, const int32_t type);\n\n/**\n * Creates a color code that represents a combination of the given signature\n * IDs. If fewer than 5 signatures are to be a part of the color code, pass 0\n * for the additional function parameters.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * EINVAL - Fewer than two signatures have been provided or one of the\n *          signatures is out of its [1-7] range (or 0 when omitted).\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param sig_id1\n *        The first signature id [1-7] to add to the color code\n * \\param sig_id2\n *        The second signature id [1-7] to add to the color code\n * \\param sig_id3\n *        The third signature id [1-7] to add to the color code\n * \\param sig_id4\n *        The fourth signature id [1-7] to add to the color code\n * \\param sig_id5\n *        The fifth signature id [1-7] to add to the color code\n *\n * \\return A vision_color_code_t object containing the color code information.\n */\nvision_color_code_t vision_create_color_code(uint8_t port, const uint32_t sig_id1, const uint32_t sig_id2,\n                                             const uint32_t sig_id3, const uint32_t sig_id4, const uint32_t sig_id5);\n\n/**\n * Gets the nth largest object according to size_id.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n * EDOM - size_id is greater than the number of available objects.\n * EHOSTDOWN - Reading the vision sensor failed for an unknown reason.\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param size_id\n *        The object to read from a list roughly ordered by object size\n *        (0 is the largest item, 1 is the second largest, etc.)\n *\n * \\return The vision_object_s_t object corresponding to the given size id, or\n * PROS_ERR if an error occurred.\n */\nvision_object_s_t vision_get_by_size(uint8_t port, const uint32_t size_id);\n\n/**\n * Gets the nth largest object of the given signature according to size_id.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n * EINVAL - sig_id is outside the range [1-8]\n * EDOM - size_id is greater than the number of available objects.\n * EAGAIN - Reading the vision sensor failed for an unknown reason.\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param size_id\n *        The object to read from a list roughly ordered by object size\n *        (0 is the largest item, 1 is the second largest, etc.)\n * \\param signature\n *        The signature ID [1-7] for which an object will be returned.\n *\n * \\return The vision_object_s_t object corresponding to the given signature and\n * size_id, or PROS_ERR if an error occurred.\n */\nvision_object_s_t vision_get_by_sig(uint8_t port, const uint32_t size_id, const uint32_t sig_id);\n\n/**\n * Gets the nth largest object of the given color code according to size_id.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n * EAGAIN - Reading the vision sensor failed for an unknown reason.\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param size_id\n *        The object to read from a list roughly ordered by object size\n *        (0 is the largest item, 1 is the second largest, etc.)\n * \\param color_code\n *        The vision_color_code_t for which an object will be returned\n *\n * \\return The vision_object_s_t object corresponding to the given color code\n * and size_id, or PROS_ERR if an error occurred.\n */\nvision_object_s_t vision_get_by_code(uint8_t port, const uint32_t size_id, const vision_color_code_t color_code);\n\n/**\n * Gets the exposure parameter of the Vision Sensor. See\n * https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting\n * for more detials.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The current exposure setting from [0,150], PROS_ERR if an error\n * occurred\n */\nint32_t vision_get_exposure(uint8_t port);\n\n/**\n * Gets the number of objects currently detected by the Vision Sensor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The number of objects detected on the specified vision sensor.\n * Returns PROS_ERR if the port was invalid or an error occurred.\n */\nint32_t vision_get_object_count(uint8_t port);\n\n/**\n * Get the white balance parameter of the Vision Sensor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *          The V5 port number from 1-21\n *\n * \\return The current RGB white balance setting of the sensor\n */\nint32_t vision_get_white_balance(uint8_t port);\n\n/**\n * Prints the contents of the signature as an initializer list to the terminal.\n *\n * \\param sig\n *        The signature for which the contents will be printed\n *\n * \\return 1 if no errors occured, PROS_ERR otherwise\n */\nint32_t vision_print_signature(const vision_signature_s_t sig);\n\n/**\n * Reads up to object_count object descriptors into object_arr.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21), or\n *          fewer than object_count number of objects were found.\n * ENODEV - The port cannot be configured as a vision sensor\n * EDOM - size_id is greater than the number of available objects.\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param size_id\n *        The object to read from a list roughly ordered by object size\n *        (0 is the largest item, 1 is the second largest, etc.)\n * \\param object_count\n *        The number of objects to read\n * \\param[out] object_arr\n *             A pointer to copy the objects into\n *\n * \\return The number of object signatures copied. This number will be less than\n * object_count if there are fewer objects detected by the vision sensor.\n * Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects\n * than size_id were found. All objects in object_arr that were not found are\n * given VISION_OBJECT_ERR_SIG as their signature.\n */\nint32_t vision_read_by_size(uint8_t port, const uint32_t size_id, const uint32_t object_count,\n                            vision_object_s_t* const object_arr);\n\n/**\n * Reads up to object_count object descriptors into object_arr.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21), or\n *          fewer than object_count number of objects were found.\n * ENODEV - The port cannot be configured as a vision sensor\n * EDOM - size_id is greater than the number of available objects.\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param object_count\n *        The number of objects to read\n * \\param size_id\n *        The object to read from a list roughly ordered by object size\n *        (0 is the largest item, 1 is the second largest, etc.)\n * \\param signature\n *        The signature ID [1-7] for which objects will be returned.\n * \\param[out] object_arr\n *             A pointer to copy the objects into\n *\n * \\return The number of object signatures copied. This number will be less than\n * object_count if there are fewer objects detected by the vision sensor.\n * Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects\n * than size_id were found. All objects in object_arr that were not found are\n * given VISION_OBJECT_ERR_SIG as their signature.\n */\nint32_t vision_read_by_sig(uint8_t port, const uint32_t size_id, const uint32_t sig_id, const uint32_t object_count,\n                           vision_object_s_t* const object_arr);\n\n/**\n * Reads up to object_count object descriptors into object_arr.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21), or\n *          fewer than object_count number of objects were found.\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param object_count\n *        The number of objects to read\n * \\param size_id\n *        The object to read from a list roughly ordered by object size\n *        (0 is the largest item, 1 is the second largest, etc.)\n * \\param color_code\n *        The vision_color_code_t for which objects will be returned\n * \\param[out] object_arr\n *             A pointer to copy the objects into\n *\n * \\return The number of object signatures copied. This number will be less than\n * object_count if there are fewer objects detected by the vision sensor.\n * Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects\n * than size_id were found. All objects in object_arr that were not found are\n * given VISION_OBJECT_ERR_SIG as their signature.\n */\nint32_t vision_read_by_code(uint8_t port, const uint32_t size_id, const vision_color_code_t color_code,\n                            const uint32_t object_count, vision_object_s_t* const object_arr);\n\n/**\n * Gets the object detection signature with the given id number.\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param signature_id\n *        The signature id to read\n *\n * \\return A vision_signature_s_t containing information about the signature.\n */\nvision_signature_s_t vision_get_signature(uint8_t port, const uint8_t signature_id);\n\n/**\n * Stores the supplied object detection signature onto the vision sensor.\n *\n * NOTE: This saves the signature in volatile memory, and the signature will be\n * lost as soon as the sensor is powered down.\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param signature_id\n *        The signature id to store into\n * \\param[in] signature_ptr\n *            A pointer to the signature to save\n *\n * \\return 1 if no errors occured, PROS_ERR otherwise\n */\nint32_t vision_set_signature(uint8_t port, const uint8_t signature_id, vision_signature_s_t* const signature_ptr);\n\n/**\n * Enables/disables auto white-balancing on the Vision Sensor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n * EINVAL - enable was not 0 or 1\n *\n * \\param port\n *          The V5 port number from 1-21\n * \\param enabled\n *          Pass 0 to disable, 1 to enable\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t vision_set_auto_white_balance(uint8_t port, const uint8_t enable);\n\n/**\n * Sets the exposure parameter of the Vision Sensor. See\n * https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting\n * for more detials.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param percent\n *        The new exposure setting from [0,150]\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t vision_set_exposure(uint8_t port, const uint8_t exposure);\n\n/**\n * Sets the vision sensor LED color, overriding the automatic behavior.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param rgb\n *        An RGB code to set the LED to\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t vision_set_led(uint8_t port, const int32_t rgb);\n\n/**\n * Sets the white balance parameter of the Vision Sensor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *          The V5 port number from 1-21\n * \\param rgb\n *        The new RGB white balance setting of the sensor\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t vision_set_white_balance(uint8_t port, const int32_t rgb);\n\n/**\n * Sets the (0,0) coordinate for the Field of View.\n *\n * This will affect the coordinates returned for each request for a\n * vision_object_s_t from the sensor, so it is recommended that this function\n * only be used to configure the sensor at the beginning of its use.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a vision sensor\n *\n * \\param port\n *          The V5 port number from 1-21\n * \\param zero_point\n *        One of vision_zero_e_t to set the (0,0) coordinate for the FOV\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t vision_set_zero_point(uint8_t port, vision_zero_e_t zero_point);\n\n/**\n * Sets the Wi-Fi mode of the Vision sensor\n *\n * This functions uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given port is not within the range of V5 ports (1-21)\n * EACCESS - Anothe resources is currently trying to access the port\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param enable\n *        Disable Wi-Fi on the Vision sensor if 0, enable otherwise (e.g. 1)\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t vision_set_wifi_mode(uint8_t port, const uint8_t enable);\n\n#ifdef __cplusplus\n}  // namespace c\n}  // namespace pros\n}\n#endif\n\n#endif  // _PROS_VISION_H_",
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-vision_signature_s_t",
+      "category": "attributes",
+      "const": false,
+      "definition": "vision_signature_s_t",
+      "explicit": false,
+      "fullname": "vision.h::vision_signature_s_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 60,
+        "column": 2,
+        "file": "pros/vision.h",
+        "line": 60
+      },
+      "name": "vision_signature_s_t",
+      "override": false,
+      "refid": "namespacepros_1a135c729c7277f6cc019c2924088a5fd5",
+      "static": false,
+      "strong": false,
+      "title": "vision_signature_s_t",
+      "url": "vision_8h.md#variable-vision_signature_s_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-vision_object_s_t",
+      "category": "attributes",
+      "const": false,
+      "definition": "vision_object_s_t",
+      "explicit": false,
+      "fullname": "vision.h::vision_object_s_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 91,
+        "column": 2,
+        "file": "pros/vision.h",
+        "line": 91
+      },
+      "name": "vision_object_s_t",
+      "override": false,
+      "refid": "namespacepros_1ae619120558539c13e53b5a6f42fb4375",
+      "static": false,
+      "strong": false,
+      "title": "vision_object_s_t",
+      "url": "vision_8h.md#variable-vision_object_s_t",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-__attribute__",
+      "argsString": "((__packed__)) vision_signature",
+      "brief": "This structure contains the parameters used by the [Vision](classpros_1_1Vision.md) Sensor to detect objects. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "struct __attribute__",
+      "deleted": false,
+      "details": "This structure contains a descriptor of an object detected by the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "explicit": false,
+      "fullname": "vision.h::__attribute__",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 60,
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 48,
+        "column": 0,
+        "file": "pros/vision.h",
+        "line": 1
+      },
+      "name": "__attribute__",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "(__packed__)",
+          "typePlain": "(__packed__)"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1ae55a6efc231c3cf6ab009c08ae920a8b",
+      "static": false,
+      "strong": false,
+      "summary": "This structure contains the parameters used by the Vision Sensor to detect objects. ",
+      "title": "__attribute__",
+      "type": "struct",
+      "typePlain": "struct",
+      "url": "vision_8h.md#function-__attribute__",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_clear_led",
+      "argsString": "(uint8_t port)",
+      "brief": "Clears the vision sensor LED color, reseting it back to its default behavior, displaying the most prominent object signature color. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_clear_led",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_clear_led",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 133
+      },
+      "name": "vision_clear_led",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ad824e5dc94e77e8d6e7a62e59a97e560",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Clears the vision sensor LED color, reseting it back to its default behavior, displaying the most prominent object signature color. ",
+      "title": "vision_clear_led",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_clear_led",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_signature_from_utility",
+      "argsString": "(const int32_t id, const int32_t u_min, const int32_t u_max, const int32_t u_mean, const int32_t v_min, const int32_t v_max, const int32_t v_mean, const float range, const int32_t type)",
+      "brief": "Creates a signature from the vision sensor utility. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "vision_signature_s_t pros::c::vision_signature_from_utility",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "vision.h::vision_signature_from_utility",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/vision.h",
+        "line": 159
+      },
+      "name": "vision_signature_from_utility",
+      "override": false,
+      "paramList": [
+        {
+          "name": "id",
+          "text": "The signature ID "
+        },
+        {
+          "name": "u_min",
+          "text": "Minimum value on U axis "
+        },
+        {
+          "name": "u_max",
+          "text": "Maximum value on U axis "
+        },
+        {
+          "name": "u_mean",
+          "text": "Mean value on U axis "
+        },
+        {
+          "name": "v_min",
+          "text": "Minimum value on V axis "
+        },
+        {
+          "name": "v_max",
+          "text": "Maximum value on V axis "
+        },
+        {
+          "name": "v_mean",
+          "text": "Mean value on V axis "
+        },
+        {
+          "name": "range",
+          "text": "Scale factor "
+        },
+        {
+          "name": "type",
+          "text": "Signature type"
+        }
+      ],
+      "params": [
+        {
+          "name": "id",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        },
+        {
+          "name": "u_min",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        },
+        {
+          "name": "u_max",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        },
+        {
+          "name": "u_mean",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        },
+        {
+          "name": "v_min",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        },
+        {
+          "name": "v_max",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        },
+        {
+          "name": "v_mean",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        },
+        {
+          "name": "range",
+          "type": "const float",
+          "typePlain": "const float"
+        },
+        {
+          "name": "type",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a9a4161d557e410fff34c4f158aa229d8",
+      "returns": [
+        "A vision_signature_s_t that can be set using vision_set_signature "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a signature from the vision sensor utility. ",
+      "title": "vision_signature_from_utility",
+      "type": "vision_signature_s_t",
+      "typePlain": "vision_signature_s_t",
+      "url": "vision_8h.md#function-vision_signature_from_utility",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_create_color_code",
+      "argsString": "(uint8_t port, const uint32_t sig_id1, const uint32_t sig_id2, const uint32_t sig_id3, const uint32_t sig_id4, const uint32_t sig_id5)",
+      "brief": "Creates a color code that represents a combination of the given signature IDs. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "vision_color_code_t pros::c::vision_create_color_code",
+      "deleted": false,
+      "details": "If fewer than 5 signatures are to be a part of the color code, pass 0 for the additional function parameters.\n\nThis function uses the following values of errno when an error state is reached: EINVAL - Fewer than two signatures have been provided or one of the signatures is out of its [1-7] range (or 0 when omitted).",
+      "explicit": false,
+      "fullname": "vision.h::vision_create_color_code",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 21,
+        "file": "pros/vision.h",
+        "line": 188
+      },
+      "name": "vision_create_color_code",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "sig_id1",
+          "text": "The first signature id [1-7] to add to the color code "
+        },
+        {
+          "name": "sig_id2",
+          "text": "The second signature id [1-7] to add to the color code "
+        },
+        {
+          "name": "sig_id3",
+          "text": "The third signature id [1-7] to add to the color code "
+        },
+        {
+          "name": "sig_id4",
+          "text": "The fourth signature id [1-7] to add to the color code "
+        },
+        {
+          "name": "sig_id5",
+          "text": "The fifth signature id [1-7] to add to the color code"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "sig_id1",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "sig_id2",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "sig_id3",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "sig_id4",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "sig_id5",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a33a33d487f771f21d08c3159e6763418",
+      "returns": [
+        "A vision_color_code_t object containing the color code information. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a color code that represents a combination of the given signature IDs. ",
+      "title": "vision_create_color_code",
+      "type": "vision_color_code_t",
+      "typePlain": "vision_color_code_t",
+      "url": "vision_8h.md#function-vision_create_color_code",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_get_by_size",
+      "argsString": "(uint8_t port, const uint32_t size_id)",
+      "brief": "Gets the nth largest object according to size_id. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "vision_object_s_t pros::c::vision_get_by_size",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor EDOM - size_id is greater than the number of available objects. EHOSTDOWN - Reading the vision sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "vision.h::vision_get_by_size",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/vision.h",
+        "line": 210
+      },
+      "name": "vision_get_by_size",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.)"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "size_id",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ad0b47d5910ba2a6e5d52629f2b93c3e6",
+      "returns": [
+        "The vision_object_s_t object corresponding to the given size id, or PROS_ERR if an error occurred. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the nth largest object according to size_id. ",
+      "title": "vision_get_by_size",
+      "type": "vision_object_s_t",
+      "typePlain": "vision_object_s_t",
+      "url": "vision_8h.md#function-vision_get_by_size",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_get_by_sig",
+      "argsString": "(uint8_t port, const uint32_t size_id, const uint32_t sig_id)",
+      "brief": "Gets the nth largest object of the given signature according to size_id. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "vision_object_s_t pros::c::vision_get_by_sig",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor EINVAL - sig_id is outside the range [1-8] EDOM - size_id is greater than the number of available objects. EAGAIN - Reading the vision sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "vision.h::vision_get_by_sig",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/vision.h",
+        "line": 234
+      },
+      "name": "vision_get_by_sig",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "signature",
+          "text": "The signature ID [1-7] for which an object will be returned."
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "size_id",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "sig_id",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ae53aedc2122f3b4c53d5874fde408a76",
+      "returns": [
+        "The vision_object_s_t object corresponding to the given signature and size_id, or PROS_ERR if an error occurred. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the nth largest object of the given signature according to size_id. ",
+      "title": "vision_get_by_sig",
+      "type": "vision_object_s_t",
+      "typePlain": "vision_object_s_t",
+      "url": "vision_8h.md#function-vision_get_by_sig",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_get_by_code",
+      "argsString": "(uint8_t port, const uint32_t size_id, const vision_color_code_t color_code)",
+      "brief": "Gets the nth largest object of the given color code according to size_id. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "vision_object_s_t pros::c::vision_get_by_code",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor EAGAIN - Reading the vision sensor failed for an unknown reason.",
+      "explicit": false,
+      "fullname": "vision.h::vision_get_by_code",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/vision.h",
+        "line": 256
+      },
+      "name": "vision_get_by_code",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "color_code",
+          "text": "The vision_color_code_t for which an object will be returned"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "size_id",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "color_code",
+          "type": "const vision_color_code_t",
+          "typePlain": "const vision_color_code_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aaf91323dda2e39bd1ef885f7a0c32b0b",
+      "returns": [
+        "The vision_object_s_t object corresponding to the given color code and size_id, or PROS_ERR if an error occurred. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the nth largest object of the given color code according to size_id. ",
+      "title": "vision_get_by_code",
+      "type": "vision_object_s_t",
+      "typePlain": "vision_object_s_t",
+      "url": "vision_8h.md#function-vision_get_by_code",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_get_exposure",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the exposure parameter of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_get_exposure",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting](https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting) for more detials.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_get_exposure",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 274
+      },
+      "name": "vision_get_exposure",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a6c463892ea46d1cfd4fb7d7e237a4db1",
+      "returns": [
+        "The current exposure setting from [0,150], PROS_ERR if an error occurred "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the exposure parameter of the Vision Sensor. ",
+      "title": "vision_get_exposure",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_get_exposure",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_get_object_count",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the number of objects currently detected by the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_get_object_count",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_get_object_count",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 290
+      },
+      "name": "vision_get_object_count",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a5d6c54c6754717e256a6d59976976e25",
+      "returns": [
+        "The number of objects detected on the specified vision sensor. Returns PROS_ERR if the port was invalid or an error occurred. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the number of objects currently detected by the Vision Sensor. ",
+      "title": "vision_get_object_count",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_get_object_count",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_get_white_balance",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the white balance parameter of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_get_white_balance",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_get_white_balance",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 305
+      },
+      "name": "vision_get_white_balance",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a698db4dbf0a04384a19d1a7496612d81",
+      "returns": [
+        "The current RGB white balance setting of the sensor "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the white balance parameter of the Vision Sensor. ",
+      "title": "vision_get_white_balance",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_get_white_balance",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_print_signature",
+      "argsString": "(const vision_signature_s_t sig)",
+      "brief": "Prints the contents of the signature as an initializer list to the terminal. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_print_signature",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "vision.h::vision_print_signature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 315
+      },
+      "name": "vision_print_signature",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sig",
+          "text": "The signature for which the contents will be printed"
+        }
+      ],
+      "params": [
+        {
+          "name": "sig",
+          "type": "const vision_signature_s_t",
+          "typePlain": "const vision_signature_s_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a2f2007dafb30e5aafeb21d9acba05826",
+      "returns": [
+        "1 if no errors occured, PROS_ERR otherwise "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Prints the contents of the signature as an initializer list to the terminal. ",
+      "title": "vision_print_signature",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_print_signature",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_read_by_size",
+      "argsString": "(uint8_t port, const uint32_t size_id, const uint32_t object_count, vision_object_s_t *const object_arr)",
+      "brief": "Reads up to object_count object descriptors into object_arr. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_read_by_size",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21), or fewer than object_count number of objects were found. ENODEV - The port cannot be configured as a vision sensor EDOM - size_id is greater than the number of available objects.",
+      "explicit": false,
+      "fullname": "vision.h::vision_read_by_size",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 343
+      },
+      "name": "vision_read_by_size",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "object_count",
+          "text": "The number of objects to read "
+        },
+        {
+          "name": "object_arr",
+          "text": "A pointer to copy the objects into"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "size_id",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "object_count",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "object_arr",
+          "type": "vision_object_s_t *const",
+          "typePlain": "vision_object_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a4ec230e74ab6348768a5156c9e5c5a0b",
+      "returns": [
+        "The number of object signatures copied. This number will be less than object_count if there are fewer objects detected by the vision sensor. Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects than size_id were found. All objects in object_arr that were not found are given VISION_OBJECT_ERR_SIG as their signature. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads up to object_count object descriptors into object_arr. ",
+      "title": "vision_read_by_size",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_read_by_size",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_read_by_sig",
+      "argsString": "(uint8_t port, const uint32_t size_id, const uint32_t sig_id, const uint32_t object_count, vision_object_s_t *const object_arr)",
+      "brief": "Reads up to object_count object descriptors into object_arr. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_read_by_sig",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21), or fewer than object_count number of objects were found. ENODEV - The port cannot be configured as a vision sensor EDOM - size_id is greater than the number of available objects.",
+      "explicit": false,
+      "fullname": "vision.h::vision_read_by_sig",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 374
+      },
+      "name": "vision_read_by_sig",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "object_count",
+          "text": "The number of objects to read "
+        },
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "signature",
+          "text": "The signature ID [1-7] for which objects will be returned. "
+        },
+        {
+          "name": "object_arr",
+          "text": "A pointer to copy the objects into"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "size_id",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "sig_id",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "object_count",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "object_arr",
+          "type": "vision_object_s_t *const",
+          "typePlain": "vision_object_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a0f38715b935eae0421d59e5102d98155",
+      "returns": [
+        "The number of object signatures copied. This number will be less than object_count if there are fewer objects detected by the vision sensor. Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects than size_id were found. All objects in object_arr that were not found are given VISION_OBJECT_ERR_SIG as their signature. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads up to object_count object descriptors into object_arr. ",
+      "title": "vision_read_by_sig",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_read_by_sig",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_read_by_code",
+      "argsString": "(uint8_t port, const uint32_t size_id, const vision_color_code_t color_code, const uint32_t object_count, vision_object_s_t *const object_arr)",
+      "brief": "Reads up to object_count object descriptors into object_arr. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_read_by_code",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21), or fewer than object_count number of objects were found. ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_read_by_code",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 404
+      },
+      "name": "vision_read_by_code",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "object_count",
+          "text": "The number of objects to read "
+        },
+        {
+          "name": "size_id",
+          "text": "The object to read from a list roughly ordered by object size (0 is the largest item, 1 is the second largest, etc.) "
+        },
+        {
+          "name": "color_code",
+          "text": "The vision_color_code_t for which objects will be returned "
+        },
+        {
+          "name": "object_arr",
+          "text": "A pointer to copy the objects into"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "size_id",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "color_code",
+          "type": "const vision_color_code_t",
+          "typePlain": "const vision_color_code_t"
+        },
+        {
+          "name": "object_count",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "object_arr",
+          "type": "vision_object_s_t *const",
+          "typePlain": "vision_object_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a0363eec188a23e6d41e98449a323a091",
+      "returns": [
+        "The number of object signatures copied. This number will be less than object_count if there are fewer objects detected by the vision sensor. Returns PROS_ERR if the port was invalid, an error occurred, or fewer objects than size_id were found. All objects in object_arr that were not found are given VISION_OBJECT_ERR_SIG as their signature. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads up to object_count object descriptors into object_arr. ",
+      "title": "vision_read_by_code",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_read_by_code",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_get_signature",
+      "argsString": "(uint8_t port, const uint8_t signature_id)",
+      "brief": "Gets the object detection signature with the given id number. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "vision_signature_s_t pros::c::vision_get_signature",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "vision.h::vision_get_signature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/vision.h",
+        "line": 417
+      },
+      "name": "vision_get_signature",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "signature_id",
+          "text": "The signature id to read"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "signature_id",
+          "type": "const uint8_t",
+          "typePlain": "const uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a42e645bdac1e2eb230fd55205f37dd5f",
+      "returns": [
+        "A vision_signature_s_t containing information about the signature. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the object detection signature with the given id number. ",
+      "title": "vision_get_signature",
+      "type": "vision_signature_s_t",
+      "typePlain": "vision_signature_s_t",
+      "url": "vision_8h.md#function-vision_get_signature",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_set_signature",
+      "argsString": "(uint8_t port, const uint8_t signature_id, vision_signature_s_t *const signature_ptr)",
+      "brief": "Stores the supplied object detection signature onto the vision sensor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_set_signature",
+      "deleted": false,
+      "details": "NOTE: This saves the signature in volatile memory, and the signature will be lost as soon as the sensor is powered down.",
+      "explicit": false,
+      "fullname": "vision.h::vision_set_signature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 434
+      },
+      "name": "vision_set_signature",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "signature_id",
+          "text": "The signature id to store into "
+        },
+        {
+          "name": "signature_ptr",
+          "text": "A pointer to the signature to save"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "signature_id",
+          "type": "const uint8_t",
+          "typePlain": "const uint8_t"
+        },
+        {
+          "name": "signature_ptr",
+          "type": "vision_signature_s_t *const",
+          "typePlain": "vision_signature_s_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a7812fb755e22f147e11ae29911149242",
+      "returns": [
+        "1 if no errors occured, PROS_ERR otherwise "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Stores the supplied object detection signature onto the vision sensor. ",
+      "title": "vision_set_signature",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_set_signature",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_set_auto_white_balance",
+      "argsString": "(uint8_t port, const uint8_t enable)",
+      "brief": "Enables/disables auto white-balancing on the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_set_auto_white_balance",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor EINVAL - enable was not 0 or 1",
+      "explicit": false,
+      "fullname": "vision.h::vision_set_auto_white_balance",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 453
+      },
+      "name": "vision_set_auto_white_balance",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "enabled",
+          "text": "Pass 0 to disable, 1 to enable"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "enable",
+          "type": "const uint8_t",
+          "typePlain": "const uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a146e2f14c5a77f1a20fc64762910112c",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Enables/disables auto white-balancing on the Vision Sensor. ",
+      "title": "vision_set_auto_white_balance",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_set_auto_white_balance",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_set_exposure",
+      "argsString": "(uint8_t port, const uint8_t exposure)",
+      "brief": "Sets the exposure parameter of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_set_exposure",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting](https://pros.cs.purdue.edu/v5/tutorials/topical/vision.html#exposure-setting) for more detials.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_set_exposure",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 473
+      },
+      "name": "vision_set_exposure",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "percent",
+          "text": "The new exposure setting from [0,150]"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "exposure",
+          "type": "const uint8_t",
+          "typePlain": "const uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a133b8ef84216367d5df385c2eb869ef4",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the exposure parameter of the Vision Sensor. ",
+      "title": "vision_set_exposure",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_set_exposure",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_set_led",
+      "argsString": "(uint8_t port, const int32_t rgb)",
+      "brief": "Sets the vision sensor LED color, overriding the automatic behavior. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_set_led",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_set_led",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 491
+      },
+      "name": "vision_set_led",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "rgb",
+          "text": "An RGB code to set the LED to"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "rgb",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a9a01d95432c9dcd138c11ff718b0b264",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the vision sensor LED color, overriding the automatic behavior. ",
+      "title": "vision_set_led",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_set_led",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_set_white_balance",
+      "argsString": "(uint8_t port, const int32_t rgb)",
+      "brief": "Sets the white balance parameter of the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_set_white_balance",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_set_white_balance",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 509
+      },
+      "name": "vision_set_white_balance",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "rgb",
+          "text": "The new RGB white balance setting of the sensor"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "rgb",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ac3be7d132e62ab6b2bd20f564e9a5c85",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the white balance parameter of the Vision Sensor. ",
+      "title": "vision_set_white_balance",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_set_white_balance",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_set_zero_point",
+      "argsString": "(uint8_t port, vision_zero_e_t zero_point)",
+      "brief": "Sets the (0,0) coordinate for the Field of View. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_set_zero_point",
+      "deleted": false,
+      "details": "This will affect the coordinates returned for each request for a vision_object_s_t from the sensor, so it is recommended that this function only be used to configure the sensor at the beginning of its use.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a vision sensor",
+      "explicit": false,
+      "fullname": "vision.h::vision_set_zero_point",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 531
+      },
+      "name": "vision_set_zero_point",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "zero_point",
+          "text": "One of vision_zero_e_t to set the (0,0) coordinate for the FOV"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "zero_point",
+          "type": "vision_zero_e_t",
+          "typePlain": "vision_zero_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a00226eaa06fb4907a90ac188ec16a6c3",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the (0,0) coordinate for the Field of View. ",
+      "title": "vision_set_zero_point",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_set_zero_point",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-vision_set_wifi_mode",
+      "argsString": "(uint8_t port, const uint8_t enable)",
+      "brief": "Sets the Wi-Fi mode of the [Vision](classpros_1_1Vision.md) sensor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::vision_set_wifi_mode",
+      "deleted": false,
+      "details": "This functions uses the following values of errno when an error state is reached: ENXIO - The given port is not within the range of V5 ports (1-21) EACCESS - Anothe resources is currently trying to access the port",
+      "explicit": false,
+      "fullname": "vision.h::vision_set_wifi_mode",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/vision.h",
+        "line": 549
+      },
+      "name": "vision_set_wifi_mode",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "enable",
+          "text": "Disable Wi-Fi on the [Vision](classpros_1_1Vision.md) sensor if 0, enable otherwise (e.g. 1)"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "enable",
+          "type": "const uint8_t",
+          "typePlain": "const uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a86efa93d00dc9646f726eea073068117",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the Wi-Fi mode of the Vision sensor. ",
+      "title": "vision_set_wifi_mode",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "vision_8h.md#function-vision_set_wifi_mode",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#enum-vision_object_type",
+      "brief": "This enumeration defines the different types of objects that can be detected by the [Vision](classpros_1_1Vision.md) Sensor. ",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_vision_object_normal",
+          "category": "types",
+          "definition": "",
+          "fullname": "vision_object_type::E_VISION_OBJECT_NORMAL",
+          "hasDetails": false,
+          "initializer": "= 0",
+          "kind": "enumvalue",
+          "name": "E_VISION_OBJECT_NORMAL",
+          "refid": "namespacepros_1a23584b6ec115e81fd6c715c462683970a8ce71cf51da913d1ea77a4b732890778",
+          "title": "E_VISION_OBJECT_NORMAL",
+          "url": "vision_8h.md#enumvalue-e_vision_object_normal",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_vision_object_color_code",
+          "category": "types",
+          "definition": "",
+          "fullname": "vision_object_type::E_VISION_OBJECT_COLOR_CODE",
+          "hasDetails": false,
+          "initializer": "= 1",
+          "kind": "enumvalue",
+          "name": "E_VISION_OBJECT_COLOR_CODE",
+          "refid": "namespacepros_1a23584b6ec115e81fd6c715c462683970a44bed4e1e753397aae03dc37b8e55983",
+          "title": "E_VISION_OBJECT_COLOR_CODE",
+          "url": "vision_8h.md#enumvalue-e_vision_object_color_code",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_vision_object_line",
+          "category": "types",
+          "definition": "",
+          "fullname": "vision_object_type::E_VISION_OBJECT_LINE",
+          "hasDetails": false,
+          "initializer": "= 2",
+          "kind": "enumvalue",
+          "name": "E_VISION_OBJECT_LINE",
+          "refid": "namespacepros_1a23584b6ec115e81fd6c715c462683970a9502bdf4e794b257cdc86c23374ffcbc",
+          "title": "E_VISION_OBJECT_LINE",
+          "url": "vision_8h.md#enumvalue-e_vision_object_line",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "vision.h::vision_object_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 42,
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 38,
+        "column": 32,
+        "file": "pros/vision.h",
+        "line": 38
+      },
+      "name": "vision_object_type",
+      "override": false,
+      "refid": "namespacepros_1a23584b6ec115e81fd6c715c462683970",
+      "static": false,
+      "strong": false,
+      "summary": "This enumeration defines the different types of objects that can be detected by the Vision Sensor. ",
+      "title": "vision_object_type",
+      "url": "vision_8h.md#enum-vision_object_type",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#enum-vision_zero",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_vision_zero_topleft",
+          "category": "types",
+          "definition": "",
+          "fullname": "vision_zero::E_VISION_ZERO_TOPLEFT",
+          "hasDetails": false,
+          "initializer": "= 0",
+          "kind": "enumvalue",
+          "name": "E_VISION_ZERO_TOPLEFT",
+          "refid": "namespacepros_1aef7c8269b3fb0dfbf4e597b2d8dd7af5a0ff244c5f3e9771f962986e25b00ff3d",
+          "title": "E_VISION_ZERO_TOPLEFT",
+          "url": "vision_8h.md#enumvalue-e_vision_zero_topleft",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_vision_zero_center",
+          "category": "types",
+          "definition": "",
+          "fullname": "vision_zero::E_VISION_ZERO_CENTER",
+          "hasDetails": false,
+          "initializer": "= 1",
+          "kind": "enumvalue",
+          "name": "E_VISION_ZERO_CENTER",
+          "refid": "namespacepros_1aef7c8269b3fb0dfbf4e597b2d8dd7af5ac4bfba95a9c18805da897280e18387c1",
+          "title": "E_VISION_ZERO_CENTER",
+          "url": "vision_8h.md#enumvalue-e_vision_zero_center",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "vision.h::vision_zero",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 96,
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 93,
+        "column": 25,
+        "file": "pros/vision.h",
+        "line": 93
+      },
+      "name": "vision_zero",
+      "override": false,
+      "refid": "namespacepros_1aef7c8269b3fb0dfbf4e597b2d8dd7af5",
+      "static": false,
+      "strong": false,
+      "title": "vision_zero",
+      "url": "vision_8h.md#enum-vision_zero",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#typedef-vision_color_code_t",
+      "brief": "Color codes are just signatures with multiple IDs and a different type. ",
+      "category": "types",
+      "const": false,
+      "definition": "typedef uint16_t vision_color_code_t",
+      "explicit": false,
+      "fullname": "vision.h::vision_color_code_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/vision.h",
+        "bodyStart": 65,
+        "column": 18,
+        "file": "pros/vision.h",
+        "line": 65
+      },
+      "name": "vision_color_code_t",
+      "override": false,
+      "refid": "namespacepros_1a71f2011a47e95558bb534b05c16c7f2b",
+      "static": false,
+      "strong": false,
+      "summary": "Color codes are just signatures with multiple IDs and a different type. ",
+      "title": "vision_color_code_t",
+      "type": "uint16_t",
+      "typePlain": "uint16_t",
+      "url": "vision_8h.md#typedef-vision_color_code_t",
+      "visibility": "public"
+    }
+  ],
+  "refid": "vision_8h",
+  "static": false,
+  "strong": false,
+  "title": "pros/vision.h",
+  "url": "vision_8h.md#file-vision.h",
+  "visibility": "public"
+}

@@ -1,0 +1,1954 @@
+{
+  "abstract": false,
+  "anchor": "#file-apix.h",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-serctl_activate",
+      "brief": "Action macro to pass into serctl or fdctl that activates the stream identifier. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "When used with serctl, the extra argument must be the little endian representation of the stream identifier (e.g. \"sout\" -> 0x74756f73)\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial](https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial) to learn more. ",
+      "explicit": false,
+      "fullname": "SERCTL_ACTIVATE",
+      "hasDetails": true,
+      "initializer": "10",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 468,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 468
+      },
+      "name": "SERCTL_ACTIVATE",
+      "override": false,
+      "refid": "apix_8h_1a597a3aaaad99225156c5940db91ed7e7",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to pass into serctl or fdctl that activates the stream identifier. ",
+      "title": "SERCTL_ACTIVATE",
+      "url": "apix_8h.md#define-serctl_activate",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-serctl_deactivate",
+      "brief": "Action macro to pass into serctl or fdctl that deactivates the stream identifier. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "When used with serctl, the extra argument must be the little endian representation of the stream identifier (e.g. \"sout\" -> 0x74756f73)\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial](https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial) to learn more. ",
+      "explicit": false,
+      "fullname": "SERCTL_DEACTIVATE",
+      "hasDetails": true,
+      "initializer": "11",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 480,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 480
+      },
+      "name": "SERCTL_DEACTIVATE",
+      "override": false,
+      "refid": "apix_8h_1aa07c3d6750babcc306ece8dd1b18ec26",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to pass into serctl or fdctl that deactivates the stream identifier. ",
+      "title": "SERCTL_DEACTIVATE",
+      "url": "apix_8h.md#define-serctl_deactivate",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-serctl_blkwrite",
+      "brief": "Action macro to pass into fdctl that enables blocking writes for the file. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "The extra argument is not used with this action, provide any value (e.g. NULL) instead\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial](https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial) to learn more. ",
+      "explicit": false,
+      "fullname": "SERCTL_BLKWRITE",
+      "hasDetails": true,
+      "initializer": "12",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 491,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 491
+      },
+      "name": "SERCTL_BLKWRITE",
+      "override": false,
+      "refid": "apix_8h_1a487ad68591182ba67ceb987f59f31fab",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to pass into fdctl that enables blocking writes for the file. ",
+      "title": "SERCTL_BLKWRITE",
+      "url": "apix_8h.md#define-serctl_blkwrite",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-serctl_noblkwrite",
+      "brief": "Action macro to pass into fdctl that makes writes non-blocking for the file. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "The extra argument is not used with this action, provide any value (e.g. NULL) instead\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial](https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial) to learn more. ",
+      "explicit": false,
+      "fullname": "SERCTL_NOBLKWRITE",
+      "hasDetails": true,
+      "initializer": "13",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 502,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 502
+      },
+      "name": "SERCTL_NOBLKWRITE",
+      "override": false,
+      "refid": "apix_8h_1a48765184fb0f8084d9cebf9dcbc27da7",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to pass into fdctl that makes writes non-blocking for the file. ",
+      "title": "SERCTL_NOBLKWRITE",
+      "url": "apix_8h.md#define-serctl_noblkwrite",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-serctl_enable_cobs",
+      "brief": "Action macro to pass into serctl that enables advanced stream multiplexing capabilities. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "The extra argument is not used with this action, provide any value (e.g. NULL) instead\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial](https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial) to learn more. ",
+      "explicit": false,
+      "fullname": "SERCTL_ENABLE_COBS",
+      "hasDetails": true,
+      "initializer": "14",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 514,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 514
+      },
+      "name": "SERCTL_ENABLE_COBS",
+      "override": false,
+      "refid": "apix_8h_1a20c46bffd0ef8939413f671a5ac92252",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to pass into serctl that enables advanced stream multiplexing capabilities. ",
+      "title": "SERCTL_ENABLE_COBS",
+      "url": "apix_8h.md#define-serctl_enable_cobs",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-serctl_disable_cobs",
+      "brief": "Action macro to pass into serctl that disables advanced stream multiplexing capabilities. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "The extra argument is not used with this action, provide any value (e.g. NULL) instead\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial](https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial) to learn more. ",
+      "explicit": false,
+      "fullname": "SERCTL_DISABLE_COBS",
+      "hasDetails": true,
+      "initializer": "15",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 526,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 526
+      },
+      "name": "SERCTL_DISABLE_COBS",
+      "override": false,
+      "refid": "apix_8h_1a9a50f0ab303c00138f09df10358b01c4",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to pass into serctl that disables advanced stream multiplexing capabilities. ",
+      "title": "SERCTL_DISABLE_COBS",
+      "url": "apix_8h.md#define-serctl_disable_cobs",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-devctl_fionread",
+      "brief": "Action macro to check if there is data available from the Generic Serial Device. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "The extra argument is not used with this action, provide any value (e.g. NULL) instead ",
+      "explicit": false,
+      "fullname": "DEVCTL_FIONREAD",
+      "hasDetails": true,
+      "initializer": "16",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 535,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 535
+      },
+      "name": "DEVCTL_FIONREAD",
+      "override": false,
+      "refid": "apix_8h_1ad7e4ecbf8e36a784cdf4d245cd3c7d1d",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to check if there is data available from the Generic Serial Device. ",
+      "title": "DEVCTL_FIONREAD",
+      "url": "apix_8h.md#define-devctl_fionread",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-devctl_fionwrite",
+      "brief": "Action macro to check if there is space available in the Generic Serial Device's output buffer. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "The extra argument is not used with this action, provide any value (e.g. NULL) instead ",
+      "explicit": false,
+      "fullname": "DEVCTL_FIONWRITE",
+      "hasDetails": true,
+      "initializer": "18",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 544,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 544
+      },
+      "name": "DEVCTL_FIONWRITE",
+      "override": false,
+      "refid": "apix_8h_1a0089c4b06b9b75f4995256ca740f8ee2",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to check if there is space available in the Generic Serial Device's output buffer. ",
+      "title": "DEVCTL_FIONWRITE",
+      "url": "apix_8h.md#define-devctl_fionwrite",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-devctl_set_baudrate",
+      "brief": "Action macro to set the Generic Serial Device's baudrate. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "The extra argument is the baudrate. ",
+      "explicit": false,
+      "fullname": "DEVCTL_SET_BAUDRATE",
+      "hasDetails": true,
+      "initializer": "17",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 551,
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 551
+      },
+      "name": "DEVCTL_SET_BAUDRATE",
+      "override": false,
+      "refid": "apix_8h_1a5ac3b151b46b5bfce1ec424b5fdc773b",
+      "static": false,
+      "strong": false,
+      "summary": "Action macro to set the Generic Serial Device's baudrate. ",
+      "title": "DEVCTL_SET_BAUDRATE",
+      "url": "apix_8h.md#define-devctl_set_baudrate",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "details": "PROS Extended API header\n\nContains additional declarations for use by advaned users of PROS. These functions do not typically have as much error handling or require deeper knowledge of real time operating systems.\n\nVisit [https://pros.cs.purdue.edu/v5/extended/api.html](https://pros.cs.purdue.edu/v5/extended/api.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots. All rights reserved.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/apix.h",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "\"api.h\"",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/apix.h",
+    "line": 0
+  },
+  "name": "pros/apix.h",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::c",
+      "kind": "namespace",
+      "name": "pros::c",
+      "refid": "namespacepros_1_1c",
+      "title": "pros::c",
+      "url": "namespacepros_1_1c.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/apix.h\n *\n * PROS Extended API header\n *\n * Contains additional declarations for use by advaned users of PROS. These\n * functions do not typically have as much error handling or require deeper\n * knowledge of real time operating systems.\n *\n * Visit https://pros.cs.purdue.edu/v5/extended/api.html to learn more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n * All rights reserved.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_API_EXTENDED_H_\n#define _PROS_API_EXTENDED_H_\n\n#include \"api.h\"\n#pragma GCC diagnostic push\n#pragma GCC diagnostic ignored \"-Wall\"\n#include \"display/lvgl.h\"\n#pragma GCC diagnostic pop\n#include \"pros/serial.h\"\n\n#ifdef __cplusplus\n#include \"pros/serial.hpp\"\nnamespace pros::c {\nextern \"C\" {\n#endif\n\n/******************************************************************************/\n/**                             RTOS FACILITIES                              **/\n/**                                                                          **/\n/**                                                                          **/\n/**See https://pros.cs.purdue.edu/v5/extended/multitasking.html to learn more**/\n/******************************************************************************/\n\ntypedef void* queue_t;\ntypedef void* sem_t;\n\n/**\n * Unblocks a task in the Blocked state (e.g. waiting for a delay, on a\n * semaphore, etc.).\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#abort_delay for\n * details.\n */\nbool task_abort_delay(task_t task);\n\n/**\n * Notify a task when a target task is being deleted.\n *\n * This function will configure the PROS kernel to call\n * task_notify_ext(task_to_notify, value, action, NULL) when target_task is\n * deleted.\n *\n *\n * \\param target_task\n *              The task being watched for deletion\n * \\param task_to_notify\n *        The task to notify when target_task is deleted\n * \\param value\n *              The value to supply to task_notify_ext\n * \\param notify_action\n *              The action to supply to task_notify_ext\n */\nvoid task_notify_when_deleting(task_t target_task, task_t task_to_notify, uint32_t value,\n                               notify_action_e_t notify_action);\n\n/**\n * Creates a recursive mutex which can be locked recursively by the owner.\n *\n * See\n * https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes\n * for details.\n *\n * \\return A newly created recursive mutex.\n */\nmutex_t mutex_recursive_create(void);\n\n/**\n * Takes a recursive mutex.\n *\n * See\n * https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes\n * for details.\n *\n * \\param mutex\n *        A mutex handle created by mutex_recursive_create\n * \\param wait_time\n *        Amount of time to wait before timing out\n *\n * \\return 1 if the mutex was obtained, 0 otherwise\n */\nbool mutex_recursive_take(mutex_t mutex, uint32_t timeout);\n\n/**\n * Gives a recursive mutex.\n *\n * See\n * https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes\n * for details.\n *\n * \\param mutex\n *        A mutex handle created by mutex_recursive_create\n *\n * \\return 1 if the mutex was obtained, 0 otherwise\n */\nbool mutex_recursive_give(mutex_t mutex);\n\n/**\n * Returns a handle to the current owner of a mutex.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#extra for\n * details.\n *\n * \\param mutex\n *        A mutex handle\n *\n * \\return A handle to the current task that owns the mutex, or NULL if the\n * mutex isn't owned.\n */\ntask_t mutex_get_owner(mutex_t mutex);\n\n/**\n * Creates a counting sempahore.\n *\n * See https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores for\n *details.\n *\n * \\param max_count\n *        The maximum count value that can be reached.\n * \\param init_count\n *        The initial count value assigned to the new semaphore.\n *\n * \\return A newly created semaphore. If an error occurred, NULL will be\n * returned and errno can be checked for hints as to why sem_create failed.\n */\nsem_t sem_create(uint32_t max_count, uint32_t init_count);\n\n/**\n * Deletes a semaphore (or binary semaphore)\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#semaphores for\n * details.\n *\n * \\param sem\n *            Semaphore to delete\n */\nvoid sem_delete(sem_t sem);\n\n/**\n * Creates a binary semaphore.\n *\n * See\n * https://pros.cs.purdue.edu/v5/extended/multitasking#.htmlbinary_semaphores\n * for details.\n *\n * \\return A newly created semaphore.\n */\nsem_t sem_binary_create(void);\n\n/**\n * Waits for the semaphore's value to be greater than 0. If the value is already\n * greater than 0, this function immediately returns.\n *\n * See https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores for\n * details.\n *\n * \\param sem\n *        Semaphore to wait on\n * \\param timeout\n *        Time to wait before the semaphore's becomes available. A timeout of 0\n *        can be used to poll the sempahore. TIMEOUT_MAX can be used to block\n *        indefinitely.\n *\n * \\return True if the semaphore was successfully take, false otherwise. If\n * false is returned, then errno is set with a hint about why the sempahore\n * couldn't be taken.\n */\nbool sem_wait(sem_t sem, uint32_t timeout);\n\n/**\n * Increments a semaphore's value.\n *\n * See https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores for\n * details.\n *\n * \\param sem\n *        Semaphore to post\n *\n * \\return True if the value was incremented, false otherwise. If false is\n * returned, then errno is set with a hint about why the semaphore couldn't be\n * taken.\n */\nbool sem_post(sem_t sem);\n\n/**\n * Returns the current value of the semaphore.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#extra for\n * details.\n *\n * \\param sem\n *        A semaphore handle\n *\n * \\return The current value of the semaphore (e.g. the number of resources\n * available)\n */\nuint32_t sem_get_count(sem_t sem);\n\n/**\n * Creates a queue.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues for\n * details.\n *\n * \\param length\n *        The maximum number of items that the queue can contain.\n * \\param item_size\n *        The number of bytes each item in the queue will require.\n *\n * \\return A handle to a newly created queue, or NULL if the queue cannot be\n * created.\n */\nqueue_t queue_create(uint32_t length, uint32_t item_size);\n\n/**\n * Posts an item to the front of a queue. The item is queued by copy, not by\n * reference.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues for\n * details.\n *\n * \\param queue\n *        The queue handle\n * \\param item\n *        A pointer to the item that will be placed on the queue.\n * \\param timeout\n *        Time to wait for space to become available. A timeout of 0 can be used\n *        to attempt to post without blocking. TIMEOUT_MAX can be used to block\n *        indefinitely.\n *\n * \\return True if the item was preprended, false otherwise.\n */\nbool queue_prepend(queue_t queue, const void* item, uint32_t timeout);\n\n/**\n * Posts an item to the end of a queue. The item is queued by copy, not by\n * reference.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues for\n * details.\n *\n * \\param queue\n *        The queue handle\n * \\param item\n *        A pointer to the item that will be placed on the queue.\n * \\param timeout\n *        Time to wait for space to become available. A timeout of 0 can be used\n *        to attempt to post without blocking. TIMEOUT_MAX can be used to block\n *        indefinitely.\n *\n * \\return True if the item was preprended, false otherwise.\n */\nbool queue_append(queue_t queue, const void* item, uint32_t timeout);\n\n/**\n * Receive an item from a queue without removing the item from the queue.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues for\n * details.\n *\n * \\param queue\n *        The queue handle\n * \\param buffer\n *        Pointer to a buffer to which the received item will be copied\n * \\param timeout\n *        The maximum amount of time the task should block waiting for an item to receive should the queue be empty at\n *        the time of the call. TIMEOUT_MAX can be used to block indefinitely.\n *\n * \\return True if an item was copied into the buffer, false otherwise.\n */\nbool queue_peek(queue_t queue, void* const buffer, uint32_t timeout);\n\n/**\n * Receive an item from the queue.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues for\n * details.\n *\n * \\param queue\n *        The queue handle\n * \\param buffer\n *        Pointer to a buffer to which the received item will be copied\n * \\param timeout\n *        The maximum amount of time the task should block\n *        waiting for an item to receive should the queue be empty at the time\n *        of the call. queue_recv() will return immediately if timeout\n *        is zero and the queue is empty.\n *\n * \\return True if an item was copied into the buffer, false otherwise.\n */\nbool queue_recv(queue_t queue, void* const buffer, uint32_t timeout);\n\n/**\n * Return the number of messages stored in a queue.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues for\n * details.\n *\n * \\param queue\n *        The queue handle.\n *\n * \\return The number of messages available in the queue.\n */\nuint32_t queue_get_waiting(const queue_t queue);\n\n/**\n * Return the number of spaces left in a queue.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues for\n * details.\n *\n * \\param queue\n *        The queue handle.\n *\n * \\return The number of spaces available in the queue.\n */\nuint32_t queue_get_available(const queue_t queue);\n\n/**\n * Delete a queue.\n *\n * See https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues for\n * details.\n *\n * \\param queue\n *        Queue handle to delete\n */\nvoid queue_delete(queue_t queue);\n\n/**\n * Resets a queue to an empty state\n *\n * \\param queue\n *        Queue handle to reset\n */\nvoid queue_reset(queue_t queue);\n\n/******************************************************************************/\n/**                           Device Registration                            **/\n/******************************************************************************/\n\n/*\n * List of possible v5 devices\n *\n * This list contains all current V5 Devices, and mirrors V5_DeviceType from the\n * api.\n */\ntypedef enum v5_device_e {\n    E_DEVICE_NONE = 0,\n    E_DEVICE_MOTOR = 2,\n    E_DEVICE_IMU = 6,\n    E_DEVICE_RADIO = 8,\n    E_DEVICE_VISION = 11,\n    E_DEVICE_ADI = 12,\n    E_DEVICE_GENERIC = 129,\n    E_DEVICE_UNDEFINED = 255\n} v5_device_e_t;\n\n/*\n * Registers a device in the given port\n *\n * Registers a device of the given type in the given port into the registry, if\n * that type of device is detected to be plugged in to that port.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21), or a\n * a different device than specified is plugged in.\n * EADDRINUSE - The port is already registered to another device.\n *\n * \\param port\n *        The port number to register the device\n * \\param device\n *        The type of device to register\n *\n * \\return 1 upon success, PROS_ERR upon failure\n */\nint registry_bind_port(uint8_t port, v5_device_e_t device_type);\n\n/*\n * Deregisters a devices from the given port\n *\n * Removes the device registed in the given port, if there is one.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n *\n * \\param port\n *        The port number to deregister\n *\n * \\return 1 upon success, PROS_ERR upon failure\n */\nint registry_unbind_port(uint8_t port);\n\n/******************************************************************************/\n/**                               Filesystem                                 **/\n/******************************************************************************/\n/**\n * Control settings of the serial driver.\n *\n * \\param action\n *          An action to perform on the serial driver. See the SERCTL_* macros for\n *          details on the different actions.\n * \\param extra_arg\n *          An argument to pass in based on the action\n */\nint32_t serctl(const uint32_t action, void* const extra_arg);\n\n/**\n * Control settings of the microSD card driver.\n *\n * \\param action\n *          An action to perform on the microSD card driver. See the USDCTL_* macros\n *      for details on the different actions.\n * \\param extra_arg\n *          An argument to pass in based on the action\n */\n// Not yet implemented\n// int32_t usdctl(const uint32_t action, void* const extra_arg);\n\n/**\n * Control settings of the way the file's driver treats the file\n *\n * \\param file\n *          A valid file descriptor number\n * \\param action\n *          An action to perform on the file's driver. See the *CTL_* macros for\n *          details on the different actions. Note that the action passed in must\n *      match the correct driver (e.g. don't perform a SERCTL_* action on a\n *      microSD card file)\n * \\param extra_arg\n *          An argument to pass in based on the action\n */\nint32_t fdctl(int file, const uint32_t action, void* const extra_arg);\n\n/**\n * Action macro to pass into serctl or fdctl that activates the stream\n * identifier.\n *\n * When used with serctl, the extra argument must be the little endian\n * representation of the stream identifier (e.g. \"sout\" -> 0x74756f73)\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial\n * to learn more.\n */\n#define SERCTL_ACTIVATE 10\n\n/**\n * Action macro to pass into serctl or fdctl that deactivates the stream\n * identifier.\n *\n * When used with serctl, the extra argument must be the little endian\n * representation of the stream identifier (e.g. \"sout\" -> 0x74756f73)\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial\n * to learn more.\n */\n#define SERCTL_DEACTIVATE 11\n\n/**\n * Action macro to pass into fdctl that enables blocking writes for the file\n *\n * The extra argument is not used with this action, provide any value (e.g.\n * NULL) instead\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial\n * to learn more.\n */\n#define SERCTL_BLKWRITE 12\n\n/**\n * Action macro to pass into fdctl that makes writes non-blocking for the file\n *\n * The extra argument is not used with this action, provide any value (e.g.\n * NULL) instead\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial\n * to learn more.\n */\n#define SERCTL_NOBLKWRITE 13\n\n/**\n * Action macro to pass into serctl that enables advanced stream multiplexing\n * capabilities\n *\n * The extra argument is not used with this action, provide any value (e.g.\n * NULL) instead\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial\n * to learn more.\n */\n#define SERCTL_ENABLE_COBS 14\n\n/**\n * Action macro to pass into serctl that disables advanced stream multiplexing\n * capabilities\n *\n * The extra argument is not used with this action, provide any value (e.g.\n * NULL) instead\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/filesystem.html#serial\n * to learn more.\n */\n#define SERCTL_DISABLE_COBS 15\n\n/**\n * Action macro to check if there is data available from the Generic Serial\n * Device\n *\n * The extra argument is not used with this action, provide any value (e.g.\n * NULL) instead\n */\n#define DEVCTL_FIONREAD 16\n\n/**\n * Action macro to check if there is space available in the Generic Serial\n * Device's output buffer\n *\n * The extra argument is not used with this action, provide any value (e.g.\n * NULL) instead\n */\n#define DEVCTL_FIONWRITE 18\n\n/**\n * Action macro to set the Generic Serial Device's baudrate.\n *\n * The extra argument is the baudrate.\n */\n#define DEVCTL_SET_BAUDRATE 17\n\n#ifdef __cplusplus\n}\n}\n#endif\n\n#endif  // _PROS_API_EXTENDED_H_",
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-task_abort_delay",
+      "argsString": "(task_t task)",
+      "brief": "Unblocks a task in the Blocked state (e.g. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::task_abort_delay",
+      "deleted": false,
+      "details": "waiting for a delay, on a semaphore, etc.).\n\nSee [https://pros.cs.purdue.edu/v5/extended/multitasking.html#abort_delay](https://pros.cs.purdue.edu/v5/extended/multitasking.html#abort_delay) for details. ",
+      "explicit": false,
+      "fullname": "apix.h::task_abort_delay",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 56
+      },
+      "name": "task_abort_delay",
+      "override": false,
+      "params": [
+        {
+          "name": "task",
+          "type": "[task_t](kapi_8h.md#define-task_t)",
+          "typePlain": "task_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aeace1284e382f9a8cd7734a34965770a",
+      "static": false,
+      "strong": false,
+      "summary": "Unblocks a task in the Blocked state (e.g. ",
+      "title": "task_abort_delay",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-task_abort_delay",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-task_notify_when_deleting",
+      "argsString": "(task_t target_task, task_t task_to_notify, uint32_t value, notify_action_e_t notify_action)",
+      "brief": "Notify a task when a target task is being deleted. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void pros::c::task_notify_when_deleting",
+      "deleted": false,
+      "details": "This function will configure the PROS kernel to call task_notify_ext(task_to_notify, value, action, NULL) when target_task is deleted.",
+      "explicit": false,
+      "fullname": "apix.h::task_notify_when_deleting",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 75
+      },
+      "name": "task_notify_when_deleting",
+      "override": false,
+      "paramList": [
+        {
+          "name": "target_task",
+          "text": "The task being watched for deletion "
+        },
+        {
+          "name": "task_to_notify",
+          "text": "The task to notify when target_task is deleted "
+        },
+        {
+          "name": "value",
+          "text": "The value to supply to task_notify_ext "
+        },
+        {
+          "name": "notify_action",
+          "text": "The action to supply to task_notify_ext "
+        }
+      ],
+      "params": [
+        {
+          "name": "target_task",
+          "type": "[task_t](kapi_8h.md#define-task_t)",
+          "typePlain": "task_t"
+        },
+        {
+          "name": "task_to_notify",
+          "type": "[task_t](kapi_8h.md#define-task_t)",
+          "typePlain": "task_t"
+        },
+        {
+          "name": "value",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        },
+        {
+          "name": "notify_action",
+          "type": "notify_action_e_t",
+          "typePlain": "notify_action_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a8e451f518ac641b2aba0dad90ba12a28",
+      "static": false,
+      "strong": false,
+      "summary": "Notify a task when a target task is being deleted. ",
+      "title": "task_notify_when_deleting",
+      "type": "void",
+      "typePlain": "void",
+      "url": "apix_8h.md#function-task_notify_when_deleting",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-mutex_recursive_create",
+      "argsString": "(void)",
+      "brief": "Creates a recursive mutex which can be locked recursively by the owner. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "mutex_t pros::c::mutex_recursive_create",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes](https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes) for details.",
+      "explicit": false,
+      "fullname": "apix.h::mutex_recursive_create",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 87
+      },
+      "name": "mutex_recursive_create",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a4eef1a2598a22cbf8000fe03633d0b13",
+      "returns": [
+        "A newly created recursive mutex. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a recursive mutex which can be locked recursively by the owner. ",
+      "title": "mutex_recursive_create",
+      "type": "[mutex_t](kapi_8h.md#define-mutex_t)",
+      "typePlain": "mutex_t",
+      "url": "apix_8h.md#function-mutex_recursive_create",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-mutex_recursive_take",
+      "argsString": "(mutex_t mutex, uint32_t timeout)",
+      "brief": "Takes a recursive mutex. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::mutex_recursive_take",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes](https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes) for details.",
+      "explicit": false,
+      "fullname": "apix.h::mutex_recursive_take",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 103
+      },
+      "name": "mutex_recursive_take",
+      "override": false,
+      "paramList": [
+        {
+          "name": "mutex",
+          "text": "A mutex handle created by mutex_recursive_create "
+        },
+        {
+          "name": "wait_time",
+          "text": "Amount of time to wait before timing out"
+        }
+      ],
+      "params": [
+        {
+          "name": "mutex",
+          "type": "[mutex_t](kapi_8h.md#define-mutex_t)",
+          "typePlain": "mutex_t"
+        },
+        {
+          "name": "timeout",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a960dac0c60f0f13331f14325d56d7506",
+      "returns": [
+        "1 if the mutex was obtained, 0 otherwise "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Takes a recursive mutex. ",
+      "title": "mutex_recursive_take",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-mutex_recursive_take",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-mutex_recursive_give",
+      "argsString": "(mutex_t mutex)",
+      "brief": "Gives a recursive mutex. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::mutex_recursive_give",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes](https://pros.cs.purdue.edu/v5/extended/multitasking.html#recursive_mutexes) for details.",
+      "explicit": false,
+      "fullname": "apix.h::mutex_recursive_give",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 117
+      },
+      "name": "mutex_recursive_give",
+      "override": false,
+      "paramList": [
+        {
+          "name": "mutex",
+          "text": "A mutex handle created by mutex_recursive_create"
+        }
+      ],
+      "params": [
+        {
+          "name": "mutex",
+          "type": "[mutex_t](kapi_8h.md#define-mutex_t)",
+          "typePlain": "mutex_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a0366fbae5b45a13bb3d76ba963fde37b",
+      "returns": [
+        "1 if the mutex was obtained, 0 otherwise "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gives a recursive mutex. ",
+      "title": "mutex_recursive_give",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-mutex_recursive_give",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-mutex_get_owner",
+      "argsString": "(mutex_t mutex)",
+      "brief": "Returns a handle to the current owner of a mutex. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "task_t pros::c::mutex_get_owner",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#extra](https://pros.cs.purdue.edu/v5/extended/multitasking.html#extra) for details.",
+      "explicit": false,
+      "fullname": "apix.h::mutex_get_owner",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/apix.h",
+        "line": 131
+      },
+      "name": "mutex_get_owner",
+      "override": false,
+      "paramList": [
+        {
+          "name": "mutex",
+          "text": "A mutex handle"
+        }
+      ],
+      "params": [
+        {
+          "name": "mutex",
+          "type": "[mutex_t](kapi_8h.md#define-mutex_t)",
+          "typePlain": "mutex_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a35e2514c392ad052f702c7c6a3ed5ae2",
+      "returns": [
+        "A handle to the current task that owns the mutex, or NULL if the mutex isn't owned. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Returns a handle to the current owner of a mutex. ",
+      "title": "mutex_get_owner",
+      "type": "[task_t](kapi_8h.md#define-task_t)",
+      "typePlain": "task_t",
+      "url": "apix_8h.md#function-mutex_get_owner",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-sem_create",
+      "argsString": "(uint32_t max_count, uint32_t init_count)",
+      "brief": "Creates a counting sempahore. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "sem_t pros::c::sem_create",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores](https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores) for details.",
+      "explicit": false,
+      "fullname": "apix.h::sem_create",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 7,
+        "file": "pros/apix.h",
+        "line": 147
+      },
+      "name": "sem_create",
+      "override": false,
+      "paramList": [
+        {
+          "name": "max_count",
+          "text": "The maximum count value that can be reached. "
+        },
+        {
+          "name": "init_count",
+          "text": "The initial count value assigned to the new semaphore."
+        }
+      ],
+      "params": [
+        {
+          "name": "max_count",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        },
+        {
+          "name": "init_count",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a5a6c741414670ea06a33a740e00a6fb6",
+      "returns": [
+        "A newly created semaphore. If an error occurred, NULL will be returned and errno can be checked for hints as to why sem_create failed. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a counting sempahore. ",
+      "title": "sem_create",
+      "type": "[sem_t](kapi_8h.md#define-sem_t)",
+      "typePlain": "sem_t",
+      "url": "apix_8h.md#function-sem_create",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-sem_delete",
+      "argsString": "(sem_t sem)",
+      "brief": "Deletes a semaphore (or binary semaphore) ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void pros::c::sem_delete",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#semaphores](https://pros.cs.purdue.edu/v5/extended/multitasking.html#semaphores) for details.",
+      "explicit": false,
+      "fullname": "apix.h::sem_delete",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 158
+      },
+      "name": "sem_delete",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sem",
+          "text": "Semaphore to delete "
+        }
+      ],
+      "params": [
+        {
+          "name": "sem",
+          "type": "[sem_t](kapi_8h.md#define-sem_t)",
+          "typePlain": "sem_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ab5d0d18da11c1a8787a22def530943ae",
+      "static": false,
+      "strong": false,
+      "summary": "Deletes a semaphore (or binary semaphore) ",
+      "title": "sem_delete",
+      "type": "void",
+      "typePlain": "void",
+      "url": "apix_8h.md#function-sem_delete",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-sem_binary_create",
+      "argsString": "(void)",
+      "brief": "Creates a binary semaphore. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "sem_t pros::c::sem_binary_create",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking#.htmlbinary_semaphores](https://pros.cs.purdue.edu/v5/extended/multitasking#.htmlbinary_semaphores) for details.",
+      "explicit": false,
+      "fullname": "apix.h::sem_binary_create",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 7,
+        "file": "pros/apix.h",
+        "line": 169
+      },
+      "name": "sem_binary_create",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ab60398e0ab4ac65a8556dbf67907ad64",
+      "returns": [
+        "A newly created semaphore. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a binary semaphore. ",
+      "title": "sem_binary_create",
+      "type": "[sem_t](kapi_8h.md#define-sem_t)",
+      "typePlain": "sem_t",
+      "url": "apix_8h.md#function-sem_binary_create",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-sem_wait",
+      "argsString": "(sem_t sem, uint32_t timeout)",
+      "brief": "Waits for the semaphore's value to be greater than 0. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::sem_wait",
+      "deleted": false,
+      "details": "If the value is already greater than 0, this function immediately returns.\n\nSee [https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores](https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores) for details.",
+      "explicit": false,
+      "fullname": "apix.h::sem_wait",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 189
+      },
+      "name": "sem_wait",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sem",
+          "text": "Semaphore to wait on "
+        },
+        {
+          "name": "timeout",
+          "text": "Time to wait before the semaphore's becomes available. A timeout of 0 can be used to poll the sempahore. TIMEOUT_MAX can be used to block indefinitely."
+        }
+      ],
+      "params": [
+        {
+          "name": "sem",
+          "type": "[sem_t](kapi_8h.md#define-sem_t)",
+          "typePlain": "sem_t"
+        },
+        {
+          "name": "timeout",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a29a092d6f1b15aed15a76a79b027ab89",
+      "returns": [
+        "True if the semaphore was successfully take, false otherwise. If false is returned, then errno is set with a hint about why the sempahore couldn't be taken. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Waits for the semaphore's value to be greater than 0. ",
+      "title": "sem_wait",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-sem_wait",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-sem_post",
+      "argsString": "(sem_t sem)",
+      "brief": "Increments a semaphore's value. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::sem_post",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores](https://pros.cs.purdue.edu/v5/tutorials/multitasking.html#semaphores) for details.",
+      "explicit": false,
+      "fullname": "apix.h::sem_post",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 204
+      },
+      "name": "sem_post",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sem",
+          "text": "Semaphore to post"
+        }
+      ],
+      "params": [
+        {
+          "name": "sem",
+          "type": "[sem_t](kapi_8h.md#define-sem_t)",
+          "typePlain": "sem_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a1224c0d9b29e68b15971b90d2fdb6f98",
+      "returns": [
+        "True if the value was incremented, false otherwise. If false is returned, then errno is set with a hint about why the semaphore couldn't be taken. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Increments a semaphore's value. ",
+      "title": "sem_post",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-sem_post",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-sem_get_count",
+      "argsString": "(sem_t sem)",
+      "brief": "Returns the current value of the semaphore. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "uint32_t pros::c::sem_get_count",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#extra](https://pros.cs.purdue.edu/v5/extended/multitasking.html#extra) for details.",
+      "explicit": false,
+      "fullname": "apix.h::sem_get_count",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/apix.h",
+        "line": 218
+      },
+      "name": "sem_get_count",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sem",
+          "text": "A semaphore handle"
+        }
+      ],
+      "params": [
+        {
+          "name": "sem",
+          "type": "[sem_t](kapi_8h.md#define-sem_t)",
+          "typePlain": "sem_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ae41c284e8d4047254e20c4d5f41a6d5a",
+      "returns": [
+        "The current value of the semaphore (e.g. the number of resources available) "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Returns the current value of the semaphore. ",
+      "title": "sem_get_count",
+      "type": "uint32_t",
+      "typePlain": "uint32_t",
+      "url": "apix_8h.md#function-sem_get_count",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_create",
+      "argsString": "(uint32_t length, uint32_t item_size)",
+      "brief": "Creates a queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "queue_t pros::c::queue_create",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues](https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues) for details.",
+      "explicit": false,
+      "fullname": "apix.h::queue_create",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 234
+      },
+      "name": "queue_create",
+      "override": false,
+      "paramList": [
+        {
+          "name": "length",
+          "text": "The maximum number of items that the queue can contain. "
+        },
+        {
+          "name": "item_size",
+          "text": "The number of bytes each item in the queue will require."
+        }
+      ],
+      "params": [
+        {
+          "name": "length",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        },
+        {
+          "name": "item_size",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ae60412052d83e6c9b62ff02398547518",
+      "returns": [
+        "A handle to a newly created queue, or NULL if the queue cannot be created. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Creates a queue. ",
+      "title": "queue_create",
+      "type": "[queue_t](kapi_8h.md#define-queue_t)",
+      "typePlain": "queue_t",
+      "url": "apix_8h.md#function-queue_create",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_prepend",
+      "argsString": "(queue_t queue, const void *item, uint32_t timeout)",
+      "brief": "Posts an item to the front of a queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::queue_prepend",
+      "deleted": false,
+      "details": "The item is queued by copy, not by reference.\n\nSee [https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues](https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues) for details.",
+      "explicit": false,
+      "fullname": "apix.h::queue_prepend",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 254
+      },
+      "name": "queue_prepend",
+      "override": false,
+      "paramList": [
+        {
+          "name": "queue",
+          "text": "The queue handle "
+        },
+        {
+          "name": "item",
+          "text": "A pointer to the item that will be placed on the queue. "
+        },
+        {
+          "name": "timeout",
+          "text": "Time to wait for space to become available. A timeout of 0 can be used to attempt to post without blocking. TIMEOUT_MAX can be used to block indefinitely."
+        }
+      ],
+      "params": [
+        {
+          "name": "queue",
+          "type": "[queue_t](kapi_8h.md#define-queue_t)",
+          "typePlain": "queue_t"
+        },
+        {
+          "name": "item",
+          "type": "const void *",
+          "typePlain": "const void *"
+        },
+        {
+          "name": "timeout",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1af9cc8a3a8c3ce36dcd31ead2a0c3f4cf",
+      "returns": [
+        "True if the item was preprended, false otherwise. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Posts an item to the front of a queue. ",
+      "title": "queue_prepend",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-queue_prepend",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_append",
+      "argsString": "(queue_t queue, const void *item, uint32_t timeout)",
+      "brief": "Posts an item to the end of a queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::queue_append",
+      "deleted": false,
+      "details": "The item is queued by copy, not by reference.\n\nSee [https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues](https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues) for details.",
+      "explicit": false,
+      "fullname": "apix.h::queue_append",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 274
+      },
+      "name": "queue_append",
+      "override": false,
+      "paramList": [
+        {
+          "name": "queue",
+          "text": "The queue handle "
+        },
+        {
+          "name": "item",
+          "text": "A pointer to the item that will be placed on the queue. "
+        },
+        {
+          "name": "timeout",
+          "text": "Time to wait for space to become available. A timeout of 0 can be used to attempt to post without blocking. TIMEOUT_MAX can be used to block indefinitely."
+        }
+      ],
+      "params": [
+        {
+          "name": "queue",
+          "type": "[queue_t](kapi_8h.md#define-queue_t)",
+          "typePlain": "queue_t"
+        },
+        {
+          "name": "item",
+          "type": "const void *",
+          "typePlain": "const void *"
+        },
+        {
+          "name": "timeout",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aa42af929135978ccfd393931ec464980",
+      "returns": [
+        "True if the item was preprended, false otherwise. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Posts an item to the end of a queue. ",
+      "title": "queue_append",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-queue_append",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_peek",
+      "argsString": "(queue_t queue, void *const buffer, uint32_t timeout)",
+      "brief": "Receive an item from a queue without removing the item from the queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::queue_peek",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues](https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues) for details.",
+      "explicit": false,
+      "fullname": "apix.h::queue_peek",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 292
+      },
+      "name": "queue_peek",
+      "override": false,
+      "paramList": [
+        {
+          "name": "queue",
+          "text": "The queue handle "
+        },
+        {
+          "name": "buffer",
+          "text": "Pointer to a buffer to which the received item will be copied "
+        },
+        {
+          "name": "timeout",
+          "text": "The maximum amount of time the task should block waiting for an item to receive should the queue be empty at the time of the call. TIMEOUT_MAX can be used to block indefinitely."
+        }
+      ],
+      "params": [
+        {
+          "name": "queue",
+          "type": "[queue_t](kapi_8h.md#define-queue_t)",
+          "typePlain": "queue_t"
+        },
+        {
+          "name": "buffer",
+          "type": "void *const",
+          "typePlain": "void *const"
+        },
+        {
+          "name": "timeout",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1af9b0095a2b8ba4e68b45cebb7105af34",
+      "returns": [
+        "True if an item was copied into the buffer, false otherwise. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Receive an item from a queue without removing the item from the queue. ",
+      "title": "queue_peek",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-queue_peek",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_recv",
+      "argsString": "(queue_t queue, void *const buffer, uint32_t timeout)",
+      "brief": "Receive an item from the queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool pros::c::queue_recv",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues](https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues) for details.",
+      "explicit": false,
+      "fullname": "apix.h::queue_recv",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 312
+      },
+      "name": "queue_recv",
+      "override": false,
+      "paramList": [
+        {
+          "name": "queue",
+          "text": "The queue handle "
+        },
+        {
+          "name": "buffer",
+          "text": "Pointer to a buffer to which the received item will be copied "
+        },
+        {
+          "name": "timeout",
+          "text": "The maximum amount of time the task should block waiting for an item to receive should the queue be empty at the time of the call. [queue_recv()](namespacepros_1_1c.md#function-queue_recv) will return immediately if timeout is zero and the queue is empty."
+        }
+      ],
+      "params": [
+        {
+          "name": "queue",
+          "type": "[queue_t](kapi_8h.md#define-queue_t)",
+          "typePlain": "queue_t"
+        },
+        {
+          "name": "buffer",
+          "type": "void *const",
+          "typePlain": "void *const"
+        },
+        {
+          "name": "timeout",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a8f80179b408b88dcc17e472816fa89d6",
+      "returns": [
+        "True if an item was copied into the buffer, false otherwise. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Receive an item from the queue. ",
+      "title": "queue_recv",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "apix_8h.md#function-queue_recv",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_get_waiting",
+      "argsString": "(const queue_t queue)",
+      "brief": "Return the number of messages stored in a queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "uint32_t pros::c::queue_get_waiting",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues](https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues) for details.",
+      "explicit": false,
+      "fullname": "apix.h::queue_get_waiting",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/apix.h",
+        "line": 325
+      },
+      "name": "queue_get_waiting",
+      "override": false,
+      "paramList": [
+        {
+          "name": "queue",
+          "text": "The queue handle."
+        }
+      ],
+      "params": [
+        {
+          "name": "queue",
+          "type": "const [queue_t](kapi_8h.md#define-queue_t)",
+          "typePlain": "const queue_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a96ad85640c15b62c066ed406be70970b",
+      "returns": [
+        "The number of messages available in the queue. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Return the number of messages stored in a queue. ",
+      "title": "queue_get_waiting",
+      "type": "uint32_t",
+      "typePlain": "uint32_t",
+      "url": "apix_8h.md#function-queue_get_waiting",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_get_available",
+      "argsString": "(const queue_t queue)",
+      "brief": "Return the number of spaces left in a queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "uint32_t pros::c::queue_get_available",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues](https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues) for details.",
+      "explicit": false,
+      "fullname": "apix.h::queue_get_available",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/apix.h",
+        "line": 338
+      },
+      "name": "queue_get_available",
+      "override": false,
+      "paramList": [
+        {
+          "name": "queue",
+          "text": "The queue handle."
+        }
+      ],
+      "params": [
+        {
+          "name": "queue",
+          "type": "const [queue_t](kapi_8h.md#define-queue_t)",
+          "typePlain": "const queue_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a1b26a8014aaedc3b376c0a2ec3cfc42a",
+      "returns": [
+        "The number of spaces available in the queue. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Return the number of spaces left in a queue. ",
+      "title": "queue_get_available",
+      "type": "uint32_t",
+      "typePlain": "uint32_t",
+      "url": "apix_8h.md#function-queue_get_available",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_delete",
+      "argsString": "(queue_t queue)",
+      "brief": "Delete a queue. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void pros::c::queue_delete",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues](https://pros.cs.purdue.edu/v5/extended/multitasking.html#queues) for details.",
+      "explicit": false,
+      "fullname": "apix.h::queue_delete",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 349
+      },
+      "name": "queue_delete",
+      "override": false,
+      "paramList": [
+        {
+          "name": "queue",
+          "text": "Queue handle to delete "
+        }
+      ],
+      "params": [
+        {
+          "name": "queue",
+          "type": "[queue_t](kapi_8h.md#define-queue_t)",
+          "typePlain": "queue_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a9d976079962026303ca54ec5b6b56ee8",
+      "static": false,
+      "strong": false,
+      "summary": "Delete a queue. ",
+      "title": "queue_delete",
+      "type": "void",
+      "typePlain": "void",
+      "url": "apix_8h.md#function-queue_delete",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-queue_reset",
+      "argsString": "(queue_t queue)",
+      "brief": "Resets a queue to an empty state. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void pros::c::queue_reset",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "apix.h::queue_reset",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/apix.h",
+        "line": 357
+      },
+      "name": "queue_reset",
+      "override": false,
+      "paramList": [
+        {
+          "name": "queue",
+          "text": "Queue handle to reset "
+        }
+      ],
+      "params": [
+        {
+          "name": "queue",
+          "type": "[queue_t](kapi_8h.md#define-queue_t)",
+          "typePlain": "queue_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a65b42a22f90764318ef6ed0f13eeda42",
+      "static": false,
+      "strong": false,
+      "summary": "Resets a queue to an empty state. ",
+      "title": "queue_reset",
+      "type": "void",
+      "typePlain": "void",
+      "url": "apix_8h.md#function-queue_reset",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-registry_bind_port",
+      "argsString": "(uint8_t port, v5_device_e_t device_type)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int pros::c::registry_bind_port",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "apix.h::registry_bind_port",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 5,
+        "file": "pros/apix.h",
+        "line": 399
+      },
+      "name": "registry_bind_port",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "device_type",
+          "type": "v5_device_e_t",
+          "typePlain": "v5_device_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a553905fad6df994d7e2ede7cf53b9f83",
+      "static": false,
+      "strong": false,
+      "title": "registry_bind_port",
+      "type": "int",
+      "typePlain": "int",
+      "url": "apix_8h.md#function-registry_bind_port",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-registry_unbind_port",
+      "argsString": "(uint8_t port)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int pros::c::registry_unbind_port",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "apix.h::registry_unbind_port",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 5,
+        "file": "pros/apix.h",
+        "line": 415
+      },
+      "name": "registry_unbind_port",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aac4da3ecf327e9d3b68283735650274f",
+      "static": false,
+      "strong": false,
+      "title": "registry_unbind_port",
+      "type": "int",
+      "typePlain": "int",
+      "url": "apix_8h.md#function-registry_unbind_port",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-serctl",
+      "argsString": "(const uint32_t action, void *const extra_arg)",
+      "brief": "Filesystem ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::serctl",
+      "deleted": false,
+      "details": "Control settings of the serial driver.",
+      "explicit": false,
+      "fullname": "apix.h::serctl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 429
+      },
+      "name": "serctl",
+      "override": false,
+      "paramList": [
+        {
+          "name": "action",
+          "text": "An action to perform on the serial driver. See the SERCTL_* macros for details on the different actions. "
+        },
+        {
+          "name": "extra_arg",
+          "text": "An argument to pass in based on the action "
+        }
+      ],
+      "params": [
+        {
+          "name": "action",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "extra_arg",
+          "type": "void *const",
+          "typePlain": "void *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a16d6c8a8a74f8445db83bedbcb2f35bd",
+      "static": false,
+      "strong": false,
+      "summary": "Filesystem ",
+      "title": "serctl",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "apix_8h.md#function-serctl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-fdctl",
+      "argsString": "(int file, const uint32_t action, void *const extra_arg)",
+      "brief": "Control settings of the microSD card driver. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::fdctl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "apix.h::fdctl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/apix.h",
+        "line": 456
+      },
+      "name": "fdctl",
+      "override": false,
+      "paramList": [
+        {
+          "name": "action",
+          "text": "An action to perform on the microSD card driver. See the USDCTL_* macros for details on the different actions. "
+        },
+        {
+          "name": "extra_arg",
+          "text": "An argument to pass in based on the action Control settings of the way the file's driver treats the file"
+        },
+        {
+          "name": "file",
+          "text": "A valid file descriptor number "
+        },
+        {
+          "name": "action",
+          "text": "An action to perform on the file's driver. See the _CTL__ macros for details on the different actions. Note that the action passed in must match the correct driver (e.g. don't perform a SERCTL_* action on a microSD card file) "
+        },
+        {
+          "name": "extra_arg",
+          "text": "An argument to pass in based on the action "
+        }
+      ],
+      "params": [
+        {
+          "name": "file",
+          "type": "int",
+          "typePlain": "int"
+        },
+        {
+          "name": "action",
+          "type": "const uint32_t",
+          "typePlain": "const uint32_t"
+        },
+        {
+          "name": "extra_arg",
+          "type": "void *const",
+          "typePlain": "void *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a01b62747fbed77dcd50879d4d557adfd",
+      "static": false,
+      "strong": false,
+      "summary": "Control settings of the microSD card driver. ",
+      "title": "fdctl",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "apix_8h.md#function-fdctl",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#enum-v5_device_e",
+      "brief": "Device Registration ",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_device_none",
+          "category": "types",
+          "definition": "",
+          "fullname": "v5_device_e::E_DEVICE_NONE",
+          "hasDetails": false,
+          "initializer": "= 0",
+          "kind": "enumvalue",
+          "name": "E_DEVICE_NONE",
+          "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45a929153c5f75689b1d957d06074b5fae8",
+          "title": "E_DEVICE_NONE",
+          "url": "apix_8h.md#enumvalue-e_device_none",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_device_motor",
+          "category": "types",
+          "definition": "",
+          "fullname": "v5_device_e::E_DEVICE_MOTOR",
+          "hasDetails": false,
+          "initializer": "= 2",
+          "kind": "enumvalue",
+          "name": "E_DEVICE_MOTOR",
+          "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45a467b42f234e0a690ffe8cb36136afd8a",
+          "title": "E_DEVICE_MOTOR",
+          "url": "apix_8h.md#enumvalue-e_device_motor",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_device_imu",
+          "category": "types",
+          "definition": "",
+          "fullname": "v5_device_e::E_DEVICE_IMU",
+          "hasDetails": false,
+          "initializer": "= 6",
+          "kind": "enumvalue",
+          "name": "E_DEVICE_IMU",
+          "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45a3eb6fb1ce8dc100664a443aab43a8a45",
+          "title": "E_DEVICE_IMU",
+          "url": "apix_8h.md#enumvalue-e_device_imu",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_device_radio",
+          "category": "types",
+          "definition": "",
+          "fullname": "v5_device_e::E_DEVICE_RADIO",
+          "hasDetails": false,
+          "initializer": "= 8",
+          "kind": "enumvalue",
+          "name": "E_DEVICE_RADIO",
+          "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45a42aa9d24679cd762cb25dea691bac391",
+          "title": "E_DEVICE_RADIO",
+          "url": "apix_8h.md#enumvalue-e_device_radio",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_device_vision",
+          "category": "types",
+          "definition": "",
+          "fullname": "v5_device_e::E_DEVICE_VISION",
+          "hasDetails": false,
+          "initializer": "= 11",
+          "kind": "enumvalue",
+          "name": "E_DEVICE_VISION",
+          "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45a32cb9f019c5d7a71a891efd00382f223",
+          "title": "E_DEVICE_VISION",
+          "url": "apix_8h.md#enumvalue-e_device_vision",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_device_adi",
+          "category": "types",
+          "definition": "",
+          "fullname": "v5_device_e::E_DEVICE_ADI",
+          "hasDetails": false,
+          "initializer": "= 12",
+          "kind": "enumvalue",
+          "name": "E_DEVICE_ADI",
+          "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45aaf0a34b25623b86363823c284133b1e1",
+          "title": "E_DEVICE_ADI",
+          "url": "apix_8h.md#enumvalue-e_device_adi",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_device_generic",
+          "category": "types",
+          "definition": "",
+          "fullname": "v5_device_e::E_DEVICE_GENERIC",
+          "hasDetails": false,
+          "initializer": "= 129",
+          "kind": "enumvalue",
+          "name": "E_DEVICE_GENERIC",
+          "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45ae9028479515ca4bf8d2eb125d2bdeacc",
+          "title": "E_DEVICE_GENERIC",
+          "url": "apix_8h.md#enumvalue-e_device_generic",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_device_undefined",
+          "category": "types",
+          "definition": "",
+          "fullname": "v5_device_e::E_DEVICE_UNDEFINED",
+          "hasDetails": false,
+          "initializer": "= 255",
+          "kind": "enumvalue",
+          "name": "E_DEVICE_UNDEFINED",
+          "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45a4a089975a8d1abaaf4c4bf0c35512cd3",
+          "title": "E_DEVICE_UNDEFINED",
+          "url": "apix_8h.md#enumvalue-e_device_undefined",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "apix.h::v5_device_e",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 378,
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 369,
+        "column": 25,
+        "file": "pros/apix.h",
+        "line": 369
+      },
+      "name": "v5_device_e",
+      "override": false,
+      "refid": "namespacepros_1_1c_1aaba853cd2f7eed658c07dafd7cc41a45",
+      "static": false,
+      "strong": false,
+      "summary": "Device Registration ",
+      "title": "v5_device_e",
+      "url": "apix_8h.md#enum-v5_device_e",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#typedef-queue_t",
+      "brief": "RTOS FACILITIES ",
+      "category": "types",
+      "const": false,
+      "definition": "typedef void* queue_t",
+      "details": "See [https://pros.cs.purdue.edu/v5/extended/multitasking.html](https://pros.cs.purdue.edu/v5/extended/multitasking.html) to learn more ",
+      "explicit": false,
+      "fullname": "apix.h::queue_t",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 46,
+        "column": 14,
+        "file": "pros/apix.h",
+        "line": 46
+      },
+      "name": "queue_t",
+      "override": false,
+      "refid": "namespacepros_1_1c_1a2d363eefb03348f96e985eadcfb184ab",
+      "static": false,
+      "strong": false,
+      "summary": "RTOS FACILITIES ",
+      "title": "queue_t",
+      "type": "void *",
+      "typePlain": "void *",
+      "url": "apix_8h.md#typedef-queue_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#typedef-sem_t",
+      "category": "types",
+      "const": false,
+      "definition": "typedef void* sem_t",
+      "explicit": false,
+      "fullname": "apix.h::sem_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/apix.h",
+        "bodyStart": 47,
+        "column": 14,
+        "file": "pros/apix.h",
+        "line": 47
+      },
+      "name": "sem_t",
+      "override": false,
+      "refid": "namespacepros_1_1c_1abc53a59ab4c3c8f2d7660e63990be7a7",
+      "static": false,
+      "strong": false,
+      "title": "sem_t",
+      "type": "void *",
+      "typePlain": "void *",
+      "url": "apix_8h.md#typedef-sem_t",
+      "visibility": "public"
+    }
+  ],
+  "refid": "apix_8h",
+  "static": false,
+  "strong": false,
+  "title": "pros/apix.h",
+  "url": "apix_8h.md#file-apix.h",
+  "visibility": "public"
+}

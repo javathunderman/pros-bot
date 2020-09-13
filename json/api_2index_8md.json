@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-index.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "index.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/api/index.md",
+    "line": 0
+  },
+  "name": "index.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page api API Home\n\nThis document covers the main PROS API.\n\n## C API Headers\n\n- \\subpage c-adi\n- \\subpage c-imu\n- \\subpage c-llemu\n- \\subpage c-misc\n- \\subpage c-motors\n- \\subpage c-rtos\n- \\subpage c-vision\n\n## C++ API Headers\n\n- \\subpage cpp-adi\n- \\subpage cpp-imu\n- \\subpage cpp-llemu\n- \\subpage cpp-misc\n- \\subpage cpp-motors\n- \\subpage cpp-rtos\n- \\subpage cpp-vision\n\nFor additional RTOS-related features, check out the @ref extended-api. Be warned, these features\nare intended for advanced users only and may be very complex to use.",
+  "refid": "api_2index_8md",
+  "static": false,
+  "strong": false,
+  "title": "index.md",
+  "url": "api_2index_8md.md#file-index.md",
+  "visibility": "public"
+}

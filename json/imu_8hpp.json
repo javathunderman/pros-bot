@@ -1,0 +1,81 @@
+{
+  "abstract": false,
+  "anchor": "#file-imu.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "details": "Contains prototypes for functions related to the VEX Inertial sensor.\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/imu.html](https://pros.cs.purdue.edu/v5/tutorials/topical/imu.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/imu.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<cstdint>",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/imu.hpp",
+    "line": 0
+  },
+  "name": "pros/imu.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/imu.hpp\n *\n * Contains prototypes for functions related to the VEX Inertial sensor.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/imu.html to learn\n * more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n#ifndef _PROS_IMU_HPP_\n#define _PROS_IMU_HPP_\n\n#include <cstdint>\n#include \"pros/imu.h\"\n\nnamespace pros {\nclass Imu {\n    const std::uint8_t _port;\n\n    public:\n    Imu(const std::uint8_t port) : _port(port){};\n\n    /**\n     * Calibrate IMU\n     *\n     * This takes approximately 2 seconds, and is a non-blocking operation.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is already calibrating\n     *\n     * \\return 1 if the operation was successful or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    virtual std::int32_t reset() const;\n    /**\n    * Set the Inertial Sensor's refresh interval in milliseconds.\n    *\n    * The rate may be specified in increments of 5ms, and will be rounded down to\n    * the nearest increment. The minimum allowable refresh rate is 5ms. The default\n    * rate is 10ms.\n    *\n    * As values are copied into the shared memory buffer only at 10ms intervals,\n    * setting this value to less than 10ms does not mean that you can poll the\n    * sensor's values any faster. However, it will guarantee that the data is as\n    * recent as possible.\n    *\n    * This function uses the following values of errno when an error state is\n    * reached:\n    * ENXIO - The given value is not within the range of V5 ports (1-21).\n    * ENODEV - The port cannot be configured as an Inertial Sensor\n    * EAGAIN - The sensor is still calibrating\n    *\n    * \\param rate The data refresh interval in milliseconds\n    * \\return 1 if the operation was successful or PROS_ERR if the operation\n    * failed, setting errno.\n    */\n    virtual std::int32_t set_data_rate(std::uint32_t rate) const;\n    /**\n     * Get the total number of degrees the Inertial Sensor has spun about the z-axis\n     *\n     * This value is theoretically unbounded. Clockwise rotations are represented\n     * with positive degree values, while counterclockwise rotations are represented\n     * with negative ones.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The degree value or PROS_ERR_F if the operation failed, setting\n     * errno.\n     */\n    virtual double get_rotation() const;\n    /**\n     * Get the Inertial Sensor's heading relative to the initial direction of its\n     * x-axis\n     *\n     * This value is bounded by (-360,360). Clockwise rotations are represented with\n     * positive degree values, while counterclockwise rotations are represented with\n     * negative ones.\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The degree value or PROS_ERR_F if the operation failed, setting\n     * errno.\n     */\n    virtual double get_heading() const;\n    /**\n     * Get a quaternion representing the Inertial Sensor's orientation\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The quaternion representing the sensor's orientation. If the\n     * operation failed, all the quaternion's members are filled with PROS_ERR_F and\n     * errno is set.\n     */\n    virtual pros::c::quaternion_s_t get_quaternion() const;\n    /**\n     * Get the Euler angles representing the Inertial Sensor's orientation\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The Euler angles representing the sensor's orientation. If the\n     * operation failed, all the structure's members are filled with PROS_ERR_F and\n     * errno is set.\n     */\n    virtual pros::c::euler_s_t get_euler() const;\n    /**\n     * Get the Inertial Sensor's pitch angle\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The pitch angle, or PROS_ERR_F if the operation failed, setting\n     * errno.\n     */\n    virtual double get_pitch() const;\n    /**\n     * Get the Inertial Sensor's roll angle\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The roll angle, or PROS_ERR_F if the operation failed, setting errno.\n     */\n    virtual double get_roll() const;\n    /**\n     * Get the Inertial Sensor's yaw angle\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The yaw angle, or PROS_ERR_F if the operation failed, setting errno.\n     */\n    virtual double get_yaw() const;\n    /**\n     * Get the Inertial Sensor's raw gyroscope values\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The raw gyroscope values. If the operation failed, all the\n     * structure's members are filled with PROS_ERR_F and errno is set.\n     */\n    virtual pros::c::imu_gyro_s_t get_gyro_rate() const;\n    /**\n     * Get the Inertial Sensor's raw acceleroneter values\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The raw accelerometer values. If the operation failed, all the\n     * structure's members are filled with PROS_ERR_F and errno is set.\n     */\n    virtual pros::c::imu_accel_s_t get_accel() const;\n    /**\n     * Get the Inertial Sensor's status\n     *\n     * This function uses the following values of errno when an error state is\n     * reached:\n     * ENXIO - The given value is not within the range of V5 ports (1-21).\n     * ENODEV - The port cannot be configured as an Inertial Sensor\n     * EAGAIN - The sensor is still calibrating\n     *\n     * \\param  port\n     *               The V5 Inertial Sensor port number from 1-21\n     * \\return The Inertial Sensor's status code, or PROS_ERR if the operation\n     * failed, setting errno.\n     */\n    virtual pros::c::imu_status_e_t get_status() const;\n    /**\n     * Check whether the IMU is calibrating\n     *\n     * \\return true if the V5 Inertial Sensor is calibrating or false\n     * false if it is not.\n     */\n    virtual bool is_calibrating() const;\n};\n}  // namespace pros\n\n#endif",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pros::Imu",
+      "kind": "class",
+      "name": "pros::Imu",
+      "refid": "classpros_1_1Imu",
+      "title": "pros::Imu",
+      "url": "classpros_1_1Imu.md",
+      "visibility": "public"
+    }
+  ],
+  "refid": "imu_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "pros/imu.hpp",
+  "url": "imu_8hpp.md#file-imu.hpp",
+  "visibility": "public"
+}

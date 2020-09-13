@@ -1,0 +1,217 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "namespaces",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::competition",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "namespace",
+  "location": {
+    "column": 21,
+    "file": "pros/misc.hpp",
+    "line": 308
+  },
+  "name": "pros::competition",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-get_status",
+      "argsString": "(void)",
+      "brief": "Get the current status of the competition control. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::competition::get_status",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::competition::get_status",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 315
+      },
+      "name": "get_status",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1competition_1ad75e0e06e0817959c08798358eaa8ab0",
+      "returns": [
+        "The competition control status as a mask of bits with COMPETITION_{ENABLED,AUTONOMOUS,CONNECTED}. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the current status of the competition control. ",
+      "title": "get_status",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "namespacepros_1_1competition.md#function-get_status",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is_autonomous",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::competition::is_autonomous",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::competition::is_autonomous",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 316
+      },
+      "name": "is_autonomous",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1competition_1a88353a4f8e5e283558ee6504c54283af",
+      "static": false,
+      "strong": false,
+      "title": "is_autonomous",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "namespacepros_1_1competition.md#function-is_autonomous",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is_connected",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::competition::is_connected",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::competition::is_connected",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 317
+      },
+      "name": "is_connected",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1competition_1aaf36367a2369390657f6bc4285f68c64",
+      "static": false,
+      "strong": false,
+      "title": "is_connected",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "namespacepros_1_1competition.md#function-is_connected",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is_disabled",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::uint8_t pros::competition::is_disabled",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::competition::is_disabled",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/misc.hpp",
+        "line": 318
+      },
+      "name": "is_disabled",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1competition_1a2d4f4555af4c45f7f82ea75e1223899b",
+      "static": false,
+      "strong": false,
+      "title": "is_disabled",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "namespacepros_1_1competition.md#function-is_disabled",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "namespacepros_1_1competition",
+  "static": false,
+  "strong": false,
+  "title": "pros::competition",
+  "url": "namespacepros_1_1competition.md",
+  "visibility": "public"
+}

@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-linux.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "linux.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/getting-started/linux.md",
+    "line": 0
+  },
+  "name": "linux.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page install-linux Installing on Linux\n\n## Installing the toolchain\n\nThe steps for installing the toolchain can differ greatly per\ndistribution. The first step is to check whether your package manager\noffers the arm-none-eabi toolchain. If so, make sure that the version\navailable is greater than or equal to 7.2 before installing.\n\nIf you're not sure whether your distribution's package manager has the\ntoolchain available, or if you prefer to install things manually, follow\nthe instructions below.\n\n\\note\nFor users of Debian-based distributions, be aware that the toolchain\navailable through Apt is out of date and likely will not work for PROS\nprojects. For Ubuntu users, you may see references online to a PPA by\nteam-gcc-arm-embedded, but that PPA does not seem to be updated any\nmore. Therefore, if you are using a Debian-based distribution or\nUbuntu, please follow the instructions below.\n\n1.  Download the latest version of the toolchain from [the Arm developer\n    site](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads).\n    We recommend the \"Linux 64-bit\" release. If you can't use this for\n    some reason (e.g. you have a 32-bit system), you may need to\n    download the \"Source Invariant\" release and build manually,\n    following the instructions in the archive.\n2.  Move the file to your home directory and untar it using the command\n    `tar -xjvf gcc-arm-none-eabi-X-20XX-qX-update-linux.tar.bz2`. The Xs\n    should be replaced with those present in the name of the file you\n    downloaded.\n3.  Add this line to your `.bashrc` file (if using bash), replacing\n    `<your user>` with your username:\n    `export PATH=$PATH:/home/<your user>/gcc-arm-none-eabi-8-2019-q3-update/bin/`.\n    If you are using a shell other than bash, refer to that shell's\n    documentation for how and where to add entries to your PATH when\n    logging in.\n4.  Close and re-open your terminal, or run `source ~/.bashrc` (if\n    running bash).\n5.  Test by running `arm-none-eabi-gcc --version`. The output should\n    confirm that the version is greater than or equal to 7.2. If it is\n    not, make sure you don't have conflicting versions installed through\n    a package manager.\n\n\\note\nAfter installing the toolchain using the instructions listed above,\nupgrading to a newer version is as simple as removing the previous\ninstall and following the instructions again with the newer version.\n\n## Installing the CLI\n\n1.  If you do not already have one installed, install a version of\n    Python greater than or equal to 3.6\n2.  Check the latest version of the PROS CLI on [our releases\n    page](https://github.com/purduesigbots/pros-cli3/releases/latest),\n    and run\n    `python3.6 -m pip install --user https://github.com/purduesigbots/pros-cli/releases/download/3.X.X/pros\\_cli\\_v5-3.X.X-py3-none-any.whl`,\n    replacing the number after 'python' with the version you installed\n    and the Xs with the numbers you found before. If you wish to install\n    for all users, run the command with `sudo` and remove the `--user` flag.\n3.  Run `prosv5 --version` to verify the CLI was installed correctly. If\n    the command doesn't work, try restarting your machine.\n\n## Installing the Editor\n\n\\note\nThe following instructions are for installing Atom and cquery. If you\nintend to use an editor other than Atom, this section is optional.\n\n1.  Follow the instructions\n    [here](https://github.com/cquery-project/cquery/wiki/Building-cquery)\n    to build and install cquery.\n2.  [Install Atom](https://atom.io).\n3.  Run `apm install pros-bootstrapper@0.0.12`.\n4.  Open Atom and wait for any plugins to finish installing.\n5.  Happy coding!\n\n\\note\nIf Atom seems to get stuck during step 4, restart Atom every few\nminutes.",
+  "refid": "linux_8md",
+  "static": false,
+  "strong": false,
+  "title": "linux.md",
+  "url": "linux_8md.md#file-linux.md",
+  "visibility": "public"
+}

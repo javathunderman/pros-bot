@@ -1,0 +1,656 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::Serial",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "\"serial.hpp\"",
+  "inline": false,
+  "kind": "class",
+  "location": {
+    "bodyEnd": 222,
+    "bodyFile": "pros/serial.hpp",
+    "bodyStart": 26,
+    "column": 13,
+    "file": "pros/serial.hpp",
+    "line": 26
+  },
+  "name": "pros::Serial",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-_port",
+      "category": "attributes",
+      "const": false,
+      "definition": "const std::uint8_t _port",
+      "explicit": false,
+      "fullname": "pros::Serial::_port",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/serial.hpp",
+        "bodyStart": 221,
+        "column": 20,
+        "file": "pros/serial.hpp",
+        "line": 221
+      },
+      "name": "_port",
+      "override": false,
+      "refid": "classpros_1_1Serial_1a16b806c98fffb4fd7235419ef22ac101",
+      "static": false,
+      "strong": false,
+      "title": "_port",
+      "type": "const std::uint8_t",
+      "typePlain": "const std::uint8_t",
+      "url": "classpros_1_1Serial.md#variable-_port",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-serial",
+      "argsString": "(std::uint8_t port, std::int32_t baudrate)",
+      "brief": "Creates a [Serial](classpros_1_1Serial.md) object for the given port and specifications. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Serial",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port.",
+      "explicit": true,
+      "fullname": "pros::Serial::Serial",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/serial.hpp",
+        "line": 41
+      },
+      "name": "Serial",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "baudrate",
+          "text": "The baudrate to run the port at "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        },
+        {
+          "name": "baudrate",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1aaaa8797c93e7c2cc67cab525db7500e1",
+      "static": false,
+      "strong": false,
+      "summary": "Creates a Serial object for the given port and specifications. ",
+      "title": "Serial",
+      "url": "classpros_1_1Serial.md#function-serial",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-serial",
+      "argsString": "(std::uint8_t port)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Serial",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "pros::Serial::Serial",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/serial.hpp",
+        "line": 43
+      },
+      "name": "Serial",
+      "override": false,
+      "params": [
+        {
+          "name": "port",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1ae3a4d83e68ba8d52ee5b6325b7ebdc8c",
+      "static": false,
+      "strong": false,
+      "title": "Serial",
+      "url": "classpros_1_1Serial.md#function-serial",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set_baudrate",
+      "argsString": "(std::int32_t baudrate) const",
+      "brief": "[Serial](classpros_1_1Serial.md) communication functions ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t set_baudrate",
+      "deleted": false,
+      "details": "These functions allow programmers to communicate using UART over RS485 \n\n Sets the baudrate for the serial port to operate at.\n\nThis function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port.",
+      "explicit": false,
+      "fullname": "pros::Serial::set_baudrate",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 65
+      },
+      "name": "set_baudrate",
+      "override": false,
+      "paramList": [
+        {
+          "name": "baudrate",
+          "text": "The baudrate to operate at"
+        }
+      ],
+      "params": [
+        {
+          "name": "baudrate",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1ab1abb2da4d95668bc4676f3bfe6d9823",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Serial communication functions ",
+      "title": "set_baudrate",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-set_baudrate",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-flush",
+      "argsString": "() const",
+      "brief": "Clears the internal input and output FIFO buffers. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t flush",
+      "deleted": false,
+      "details": "This can be useful to reset state and remove old, potentially unneeded data from the input FIFO buffer or to cancel sending any data in the output FIFO buffer.\n\n\nThis function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port.",
+      "explicit": false,
+      "fullname": "pros::Serial::flush",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 87
+      },
+      "name": "flush",
+      "note": [
+        "This function does not cause the data in the output buffer to be written, it simply clears the internal buffers. Unlike stdout, generic serial does not use buffered IO (the FIFO buffers are written as soon as possible)."
+      ],
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1ac9bc8885aae50a580b81c4aa7ba4d0c3",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Clears the internal input and output FIFO buffers. ",
+      "title": "flush",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-flush",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_read_avail",
+      "argsString": "() const",
+      "brief": "Returns the number of bytes available to be read in the the port's FIFO input buffer. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t get_read_avail",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port.",
+      "explicit": false,
+      "fullname": "pros::Serial::get_read_avail",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 104
+      },
+      "name": "get_read_avail",
+      "note": [
+        "This function does not actually read any bytes, is simply returns the number of bytes available to be read."
+      ],
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1a7c8834e366baf9d952e02acc6207d30a",
+      "returns": [
+        "The number of bytes avaliable to be read or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Returns the number of bytes available to be read in the the port's FIFO input buffer. ",
+      "title": "get_read_avail",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-get_read_avail",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_write_free",
+      "argsString": "() const",
+      "brief": "Returns the number of bytes free in the port's FIFO output buffer. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t get_write_free",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port.",
+      "explicit": false,
+      "fullname": "pros::Serial::get_write_free",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 120
+      },
+      "name": "get_write_free",
+      "note": [
+        "This function does not actually write any bytes, is simply returns the number of bytes free in the port's buffer."
+      ],
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1a0e5d59953d04d311664fcf1350ce811a",
+      "returns": [
+        "The number of bytes free or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Returns the number of bytes free in the port's FIFO output buffer. ",
+      "title": "get_write_free",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-get_write_free",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get_port",
+      "argsString": "() const",
+      "brief": "Gets the port number of the serial port. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::uint8_t get_port",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Serial::get_port",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/serial.hpp",
+        "line": 127
+      },
+      "name": "get_port",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1a4b1f34f89e0f448750a682c1fd957556",
+      "returns": [
+        "The serial port's port number. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the port number of the serial port. ",
+      "title": "get_port",
+      "type": "std::uint8_t",
+      "typePlain": "std::uint8_t",
+      "url": "classpros_1_1Serial.md#function-get_port",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-peek_byte",
+      "argsString": "() const",
+      "brief": "Reads the next byte avaliable in the port's input buffer without removing it. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t peek_byte",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port.",
+      "explicit": false,
+      "fullname": "pros::Serial::peek_byte",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 140
+      },
+      "name": "peek_byte",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1a381db98d8d974e958591b4372db01def",
+      "returns": [
+        "The next byte avaliable to be read, -1 if none are available, or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads the next byte avaliable in the port's input buffer without removing it. ",
+      "title": "peek_byte",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-peek_byte",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-read_byte",
+      "argsString": "() const",
+      "brief": "Reads the next byte avaliable in the port's input buffer. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t read_byte",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port.",
+      "explicit": false,
+      "fullname": "pros::Serial::read_byte",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 153
+      },
+      "name": "read_byte",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1aa1aab0fd9f25fdad8cd00b298ff2d696",
+      "returns": [
+        "The next byte avaliable to be read, -1 if none are available, or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads the next byte avaliable in the port's input buffer. ",
+      "title": "read_byte",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-read_byte",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-read",
+      "argsString": "(std::uint8_t *buffer, std::int32_t length) const",
+      "brief": "Reads up to the next length bytes from the port's input buffer and places them in the user supplied buffer. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t read",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port.",
+      "explicit": false,
+      "fullname": "pros::Serial::read",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 175
+      },
+      "name": "read",
+      "note": [
+        "This function will only return bytes that are currently avaliable to be read and will not block waiting for any to arrive."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "buffer",
+          "text": "The location to place the data read "
+        },
+        {
+          "name": "length",
+          "text": "The maximum number of bytes to read"
+        }
+      ],
+      "params": [
+        {
+          "name": "buffer",
+          "type": "std::uint8_t *",
+          "typePlain": "std::uint8_t *"
+        },
+        {
+          "name": "length",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1ac445067dd822a3e075ed904782334e89",
+      "returns": [
+        "The number of bytes read or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Reads up to the next length bytes from the port's input buffer and places them in the user supplied buffer. ",
+      "title": "read",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-read",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-write_byte",
+      "argsString": "(std::uint8_t buffer) const",
+      "brief": "Write the given byte to the port's output buffer. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t write_byte",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port. EIO - Serious internal write error.",
+      "explicit": false,
+      "fullname": "pros::Serial::write_byte",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 195
+      },
+      "name": "write_byte",
+      "note": [
+        "Data in the port's output buffer is written to the serial port as soon as possible on a FIFO basis and can not be done manually by the user."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "buffer",
+          "text": "The byte to write"
+        }
+      ],
+      "params": [
+        {
+          "name": "buffer",
+          "type": "std::uint8_t",
+          "typePlain": "std::uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1a39d1bd8d3f51282397ecd816c6ef11d9",
+      "returns": [
+        "The number of bytes written or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Write the given byte to the port's output buffer. ",
+      "title": "write_byte",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-write_byte",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-write",
+      "argsString": "(std::uint8_t *buffer, std::int32_t length) const",
+      "brief": "Writes up to length bytes from the user supplied buffer to the port's output buffer. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "virtual std::int32_t write",
+      "deleted": false,
+      "details": "\nThis function uses the following values of errno when an error state is reached: EINVAL - The given value is not within the range of V5 ports (1-21). EACCES - Another resource is currently trying to access the port. EIO - Serious internal write error.",
+      "explicit": false,
+      "fullname": "pros::Serial::write",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/serial.hpp",
+        "line": 218
+      },
+      "name": "write",
+      "note": [
+        "Data in the port's output buffer is written to the serial port as soon as possible on a FIFO basis and can not be done manually by the user."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "buffer",
+          "text": "The data to write "
+        },
+        {
+          "name": "length",
+          "text": "The maximum number of bytes to write"
+        }
+      ],
+      "params": [
+        {
+          "name": "buffer",
+          "type": "std::uint8_t *",
+          "typePlain": "std::uint8_t *"
+        },
+        {
+          "name": "length",
+          "type": "std::int32_t",
+          "typePlain": "std::int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Serial_1ad2230964ecffe14e7a57aa3078be9cce",
+      "returns": [
+        "The number of bytes written or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Writes up to length bytes from the user supplied buffer to the port's output buffer. ",
+      "title": "write",
+      "type": "std::int32_t",
+      "typePlain": "std::int32_t",
+      "url": "classpros_1_1Serial.md#function-write",
+      "virtual": true,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classpros_1_1Serial",
+  "static": false,
+  "strong": false,
+  "title": "pros::Serial",
+  "url": "classpros_1_1Serial.md",
+  "visibility": "public"
+}

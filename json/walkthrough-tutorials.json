@@ -1,0 +1,23 @@
+{
+  "abstract": false,
+  "anchor": "#page-walkthrough-tutorials",
+  "category": "pages",
+  "const": false,
+  "definition": "",
+  "details": "If you want to write full sample programs to learn to use PROS through practical applications, or teach students to use PROS in a classroom environment, the **Walkthrough Tutorials** are a great resource to go step by step through the process of writing a PROS program.\n\n\n\n* [Programming the Clawbot](clawbot.md#page-clawbot)\n* [Creating a C Project](creating-c-project.md#page-creating-c-project)",
+  "explicit": false,
+  "fullname": "::walkthrough-tutorials",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "page",
+  "name": "walkthrough-tutorials",
+  "override": false,
+  "parent": null,
+  "refid": "walkthrough-tutorials",
+  "static": false,
+  "strong": false,
+  "title": "Walkthrough Tutorials",
+  "url": "walkthrough-tutorials.md#page-walkthrough-tutorials",
+  "visibility": "public"
+}

@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-faq.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "faq.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/getting-started/faq.md",
+    "line": 0
+  },
+  "name": "faq.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "# PROS FAQ\n\n\\note\nThis document exists to answer questions about what PROS is and its\ngeneral use. For more coding-specific help, visit\n[Coding FAQ](docs/tutorials/general/coding-faq.md)\n\n\\warning\nThis document is in progress, we will be adding content as we're\nasked pertinent questions.\n\n## Does PROS have a graphics library for the Brain's Screen?\n\nYes, we have ported [LVGL](https://littlevgl.com/) for use with the V5\nBrain. You can find documentation for it on the LVGL site.",
+  "refid": "faq_8md",
+  "static": false,
+  "strong": false,
+  "title": "faq.md",
+  "url": "faq_8md.md#file-faq.md",
+  "visibility": "public"
+}

@@ -1,0 +1,61 @@
+{
+  "abstract": false,
+  "anchor": "#dir-docs/tutorials/topical",
+  "category": "dirs",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "docs/tutorials/topical",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "dir",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/topical/",
+    "line": 0
+  },
+  "name": "docs/tutorials/topical",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-docs/tutorials",
+    "category": "dirs",
+    "fullname": "docs/tutorials",
+    "kind": "dir",
+    "name": "docs/tutorials",
+    "refid": "dir_46a94b941189781fed1708d31080e470",
+    "title": "docs/tutorials",
+    "url": "dir_46a94b941189781fed1708d31080e470.md#dir-docs/tutorials",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-docs",
+      "category": "dirs",
+      "fullname": "docs",
+      "kind": "dir",
+      "name": "docs",
+      "refid": "dir_49e56c817e5e54854c35e136979f97ca",
+      "title": "docs",
+      "url": "dir_49e56c817e5e54854c35e136979f97ca.md#dir-docs",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-docs/tutorials",
+      "category": "dirs",
+      "fullname": "docs/tutorials",
+      "kind": "dir",
+      "name": "docs/tutorials",
+      "refid": "dir_46a94b941189781fed1708d31080e470",
+      "title": "docs/tutorials",
+      "url": "dir_46a94b941189781fed1708d31080e470.md#dir-docs/tutorials",
+      "visibility": "public"
+    }
+  ],
+  "refid": "dir_44c0e447d0fee3da757fdb3f677773d0",
+  "static": false,
+  "strong": false,
+  "title": "docs/tutorials/topical",
+  "url": "dir_44c0e447d0fee3da757fdb3f677773d0.md#dir-docs/tutorials/topical",
+  "visibility": "public"
+}

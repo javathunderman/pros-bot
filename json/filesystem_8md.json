@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-filesystem.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "filesystem.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/topical/filesystem.md",
+    "line": 0
+  },
+  "name": "filesystem.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page filesystem Filesystem\n\nYou can interact with files on the microSD card (you can **not**\ninteract with files on the V5 brain's flash) through standard C/C++ file\nI/O methods. For the most part, you can follow along with any standard C\ntutorial for file I/O and it will work with PROS. Here are a couple of\nrecommended tutorials:\n\n- <https://www.cprogramming.com/tutorial/cfileio.html>\n- <https://www.tutorialspoint.com/cprogramming/c_file_io.htm>\n\nThe only additional detail needed for interacting with the filesystem in\nPROS is that any files on the microSD card **must** be prefaced with\n`/usd/`. A file on the microSD card can be written to in the following\nmanner:\n\n```{.cpp}\nFILE* usd_file_write = fopen(\"/usd/example.txt\", \"w\");\nfputs(\"Example text\", usd_file_write);\nfclose(usd_file_write);\n\nFILE* usd_file_read = fopen(\"/usd/example.txt\", \"r\");\nchar buf[50]; // This just needs to be larger than the contents of the file\nfread(buf, 1, 50, usd_file_read); // passing 1 because a `char` is 1 byte, and 50 b/c it's the length of buf\nprintf(\"%s\\n\", buf); // print the string read from the file\n// Should print \"Example text\" to the terminal\nfclose(usd_file_read); // always close files when you're done with them\n```\n\n## Remarks\n\nThe microSD card must be fat32 in order to work.\n\n### Serial\n\nIt's also possible to interact with the serial communications (`stdin`,\n`stdout`, etc.) through the filesystem drivers. You can write and read\nfrom these streams in the same manner as a file, but using the four\ncharacter stream identifiers.\n\nFor instance, you can write to `stderr` in the following manner:\n\n```{.cpp}\nFILE* stderr = fopen(\"serr\", \"w\");\nfputs(\"Example text\", stderr);\nfclose(usd_file_write);\n```\n\nThere are also a number of methods for controlling serial communication\nbehavior exposed in [apix.h](../../extended/apix.html). These methods\ncan be accessed through the `serctl()` function. At the moment two\nactions are supported -activating/deactivating the streams, and\nenabling/disabling\n[COBS](https://en.wikipedia.org/wiki/Consistent_Overhead_Byte_Stuffing)\n. If you want to read the serial comms yourself (without using\n`pros terminal`), then you'll want to disable COBS.",
+  "refid": "filesystem_8md",
+  "static": false,
+  "strong": false,
+  "title": "filesystem.md",
+  "url": "filesystem_8md.md#file-filesystem.md",
+  "visibility": "public"
+}

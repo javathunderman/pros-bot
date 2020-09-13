@@ -1,0 +1,948 @@
+{
+  "abstract": false,
+  "anchor": "#file-imu.h",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-imu_minimum_data_rate",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "IMU_MINIMUM_DATA_RATE",
+      "hasDetails": false,
+      "initializer": "5",
+      "inline": false,
+      "kind": "define",
+      "location": {
+        "bodyFile": "pros/imu.h",
+        "bodyStart": 59,
+        "column": 9,
+        "file": "pros/imu.h",
+        "line": 59
+      },
+      "name": "IMU_MINIMUM_DATA_RATE",
+      "override": false,
+      "refid": "imu_8h_1a25e3767f95baf952241c93391c939702",
+      "static": false,
+      "strong": false,
+      "title": "IMU_MINIMUM_DATA_RATE",
+      "url": "imu_8h.md#define-imu_minimum_data_rate",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "details": "Contains prototypes for functions related to the VEX Inertial sensor.\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/imu.html](https://pros.cs.purdue.edu/v5/tutorials/topical/imu.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/imu.h",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<stdbool.h>",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/imu.h",
+    "line": 0
+  },
+  "name": "pros/imu.h",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::c",
+      "kind": "namespace",
+      "name": "pros::c",
+      "refid": "namespacepros_1_1c",
+      "title": "pros::c",
+      "url": "namespacepros_1_1c.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/imu.h\n *\n * Contains prototypes for functions related to the VEX Inertial sensor.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/imu.html to learn\n * more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_IMU_H_\n#define _PROS_IMU_H_\n\n#include <stdbool.h>\n#include <stdint.h>\n\n#ifdef __cplusplus\nextern \"C\" {\nnamespace pros {\nnamespace c {\n#endif\n\ntypedef enum imu_status_e {\n    E_IMU_STATUS_CALIBRATING = 0x01,\n    E_IMU_STATUS_ERROR = 0xFF,  // NOTE: used for returning an error from the get_status function, not that the IMU is\n                                // necessarily in an error state\n} imu_status_e_t;\n\ntypedef struct __attribute__((__packed__)) quaternion_s {\n    double x;\n    double y;\n    double z;\n    double w;\n} quaternion_s_t;\n\nstruct imu_raw_s {\n    double x;\n    double y;\n    double z;\n};\n\ntypedef struct imu_raw_s imu_gyro_s_t;\ntypedef struct imu_raw_s imu_accel_s_t;\n\ntypedef struct __attribute__((__packed__)) euler_s {\n    double pitch;\n    double roll;\n    double yaw;\n} euler_s_t;\n\n#define IMU_MINIMUM_DATA_RATE 5\n\n/**\n * Calibrate IMU\n *\n * This takes approximately 2 seconds, and is a non-blocking operation.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is already calibrating\n *\n * \\param port\n *        The V5 Inertial Sensor port number from 1-21\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t imu_reset(uint8_t port);\n\n\n/**\n * Set the Inertial Sensor's refresh interval in milliseconds.\n *\n * The rate may be specified in increments of 5ms, and will be rounded down to\n * the nearest increment. The minimum allowable refresh rate is 5ms. The default\n * rate is 10ms.\n *\n * As values are copied into the shared memory buffer only at 10ms intervals,\n * setting this value to less than 10ms does not mean that you can poll the\n * sensor's values any faster. However, it will guarantee that the data is as\n * recent as possible.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param port\n *        The V5 Inertial Sensor port number from 1-21\n * \\param rate The data refresh interval in milliseconds\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t imu_set_data_rate(uint8_t port, uint32_t rate);\n\n/**\n * Get the total number of degrees the Inertial Sensor has spun about the z-axis\n *\n * This value is theoretically unbounded. Clockwise rotations are represented\n * with positive degree values, while counterclockwise rotations are represented\n * with negative ones.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The degree value or PROS_ERR_F if the operation failed, setting\n * errno.\n */\ndouble imu_get_rotation(uint8_t port);\n\n/**\n * Get the Inertial Sensor's heading relative to the initial direction of its\n * x-axis\n *\n * This value is bounded by (-360,360). Clockwise rotations are represented with\n * positive degree values, while counterclockwise rotations are represented with\n * negative ones.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The degree value or PROS_ERR_F if the operation failed, setting\n * errno.\n */\ndouble imu_get_heading(uint8_t port);\n\n/**\n * Get a quaternion representing the Inertial Sensor's orientation\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The quaternion representing the sensor's orientation. If the\n * operation failed, all the quaternion's members are filled with PROS_ERR_F and\n * errno is set.\n */\nquaternion_s_t imu_get_quaternion(uint8_t port);\n\n/**\n * Get the Euler angles representing the Inertial Sensor's orientation\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The Euler angles representing the sensor's orientation. If the\n * operation failed, all the structure's members are filled with PROS_ERR_F and\n * errno is set.\n */\neuler_s_t imu_get_euler(uint8_t port);\n\n/**\n * Get the Inertial Sensor's pitch angle\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The pitch angle, or PROS_ERR_F if the operation failed, setting\n * errno.\n */\ndouble imu_get_pitch(uint8_t port);\n\n/**\n * Get the Inertial Sensor's roll angle\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The roll angle, or PROS_ERR_F if the operation failed, setting errno.\n */\ndouble imu_get_roll(uint8_t port);\n\n/**\n * Get the Inertial Sensor's yaw angle\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The yaw angle, or PROS_ERR_F if the operation failed, setting errno.\n */\ndouble imu_get_yaw(uint8_t port);\n\n/**\n * Get the Inertial Sensor's raw gyroscope values\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The raw gyroscope values. If the operation failed, all the\n * structure's members are filled with PROS_ERR_F and errno is set.\n */\nimu_gyro_s_t imu_get_gyro_rate(uint8_t port);\n\n/**\n * Get the Inertial Sensor's raw acceleroneter values\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The raw accelerometer values. If the operation failed, all the\n * structure's members are filled with PROS_ERR_F and errno is set.\n */\nimu_accel_s_t imu_get_accel(uint8_t port);\n\n/**\n * Get the Inertial Sensor's status\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as an Inertial Sensor\n * EAGAIN - The sensor is still calibrating\n *\n * \\param  port\n *               The V5 Inertial Sensor port number from 1-21\n * \\return The Inertial Sensor's status code, or PROS_ERR if the operation\n * failed, setting errno.\n */\nimu_status_e_t imu_get_status(uint8_t port);\n\n// NOTE: not used\n// void imu_set_mode(uint8_t port, uint32_t mode);\n// uint32_t imu_get_mode(uint8_t port);\n\n#ifdef __cplusplus\n}\n}\n}\n#endif\n\n#endif",
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-quaternion_s_t",
+      "category": "attributes",
+      "const": false,
+      "definition": "quaternion_s_t",
+      "explicit": false,
+      "fullname": "imu.h::quaternion_s_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/imu.h",
+        "bodyStart": 42,
+        "column": 2,
+        "file": "pros/imu.h",
+        "line": 42
+      },
+      "name": "quaternion_s_t",
+      "override": false,
+      "refid": "namespacepros_1_1c_1a1f3d4bf4251e6ce7cb374297de6390a1",
+      "static": false,
+      "strong": false,
+      "title": "quaternion_s_t",
+      "url": "imu_8h.md#variable-quaternion_s_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-euler_s_t",
+      "category": "attributes",
+      "const": false,
+      "definition": "euler_s_t",
+      "explicit": false,
+      "fullname": "imu.h::euler_s_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/imu.h",
+        "bodyStart": 57,
+        "column": 2,
+        "file": "pros/imu.h",
+        "line": 57
+      },
+      "name": "euler_s_t",
+      "override": false,
+      "refid": "namespacepros_1_1c_1a93e80020ec907b7e11ac7166e5d01c55",
+      "static": false,
+      "strong": false,
+      "title": "euler_s_t",
+      "url": "imu_8h.md#variable-euler_s_t",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-__attribute__",
+      "argsString": "((__packed__)) quaternion_s",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "struct __attribute__",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "imu.h::__attribute__",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "bodyEnd": 42,
+        "bodyFile": "pros/imu.h",
+        "bodyStart": 37,
+        "column": 0,
+        "file": "pros/imu.h",
+        "line": 1
+      },
+      "name": "__attribute__",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "(__packed__)",
+          "typePlain": "(__packed__)"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a1befded5164e4754bf64b55078704b43",
+      "static": false,
+      "strong": false,
+      "title": "__attribute__",
+      "type": "struct",
+      "typePlain": "struct",
+      "url": "imu_8h.md#function-__attribute__",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_reset",
+      "argsString": "(uint8_t port)",
+      "brief": "Calibrate IMU. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::imu_reset",
+      "deleted": false,
+      "details": "This takes approximately 2 seconds, and is a non-blocking operation.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is already calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_reset",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/imu.h",
+        "line": 77
+      },
+      "name": "imu_reset",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a0ea1e99bb730db27d613f31a11e933c2",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Calibrate IMU. ",
+      "title": "imu_reset",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "imu_8h.md#function-imu_reset",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_set_data_rate",
+      "argsString": "(uint8_t port, uint32_t rate)",
+      "brief": "Set the Inertial Sensor's refresh interval in milliseconds. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::imu_set_data_rate",
+      "deleted": false,
+      "details": "The rate may be specified in increments of 5ms, and will be rounded down to the nearest increment. The minimum allowable refresh rate is 5ms. The default rate is 10ms.\n\nAs values are copied into the shared memory buffer only at 10ms intervals, setting this value to less than 10ms does not mean that you can poll the sensor's values any faster. However, it will guarantee that the data is as recent as possible.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_set_data_rate",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/imu.h",
+        "line": 104
+      },
+      "name": "imu_set_data_rate",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        },
+        {
+          "name": "rate",
+          "text": "The data refresh interval in milliseconds "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "rate",
+          "type": "uint32_t",
+          "typePlain": "uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a73029aa0aa910f9b740ffe6def05e830",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Set the Inertial Sensor's refresh interval in milliseconds. ",
+      "title": "imu_set_data_rate",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "imu_8h.md#function-imu_set_data_rate",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_rotation",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the total number of degrees the Inertial Sensor has spun about the z-axis. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::imu_get_rotation",
+      "deleted": false,
+      "details": "This value is theoretically unbounded. Clockwise rotations are represented with positive degree values, while counterclockwise rotations are represented with negative ones.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_rotation",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/imu.h",
+        "line": 124
+      },
+      "name": "imu_get_rotation",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aa44bc46059f8aca47f3317320f1cd5bc",
+      "returns": [
+        "The degree value or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the total number of degrees the Inertial Sensor has spun about the z-axis. ",
+      "title": "imu_get_rotation",
+      "type": "double",
+      "typePlain": "double",
+      "url": "imu_8h.md#function-imu_get_rotation",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_heading",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the Inertial Sensor's heading relative to the initial direction of its x-axis. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::imu_get_heading",
+      "deleted": false,
+      "details": "This value is bounded by (-360,360). Clockwise rotations are represented with positive degree values, while counterclockwise rotations are represented with negative ones.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_heading",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/imu.h",
+        "line": 145
+      },
+      "name": "imu_get_heading",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1acca94d74756713e9ca0bd36490c6acc4",
+      "returns": [
+        "The degree value or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the Inertial Sensor's heading relative to the initial direction of its x-axis. ",
+      "title": "imu_get_heading",
+      "type": "double",
+      "typePlain": "double",
+      "url": "imu_8h.md#function-imu_get_heading",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_quaternion",
+      "argsString": "(uint8_t port)",
+      "brief": "Get a quaternion representing the Inertial Sensor's orientation. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "quaternion_s_t pros::c::imu_get_quaternion",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_quaternion",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 16,
+        "file": "pros/imu.h",
+        "line": 162
+      },
+      "name": "imu_get_quaternion",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1afdacdac1c6beeed1cce3829b67ebe473",
+      "returns": [
+        "The quaternion representing the sensor's orientation. If the operation failed, all the quaternion's members are filled with PROS_ERR_F and errno is set. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get a quaternion representing the Inertial Sensor's orientation. ",
+      "title": "imu_get_quaternion",
+      "type": "quaternion_s_t",
+      "typePlain": "quaternion_s_t",
+      "url": "imu_8h.md#function-imu_get_quaternion",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_euler",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the Euler angles representing the Inertial Sensor's orientation. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "euler_s_t pros::c::imu_get_euler",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_euler",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 11,
+        "file": "pros/imu.h",
+        "line": 179
+      },
+      "name": "imu_get_euler",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a8d16738ae5c652c2c72479e793f4f09b",
+      "returns": [
+        "The Euler angles representing the sensor's orientation. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the Euler angles representing the Inertial Sensor's orientation. ",
+      "title": "imu_get_euler",
+      "type": "euler_s_t",
+      "typePlain": "euler_s_t",
+      "url": "imu_8h.md#function-imu_get_euler",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_pitch",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the Inertial Sensor's pitch angle. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::imu_get_pitch",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_pitch",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/imu.h",
+        "line": 195
+      },
+      "name": "imu_get_pitch",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a44a4f2d6c27854606ca35247b97dc68d",
+      "returns": [
+        "The pitch angle, or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the Inertial Sensor's pitch angle. ",
+      "title": "imu_get_pitch",
+      "type": "double",
+      "typePlain": "double",
+      "url": "imu_8h.md#function-imu_get_pitch",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_roll",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the Inertial Sensor's roll angle. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::imu_get_roll",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_roll",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/imu.h",
+        "line": 210
+      },
+      "name": "imu_get_roll",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aa913785ee0bf907fafd049145f735e65",
+      "returns": [
+        "The roll angle, or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the Inertial Sensor's roll angle. ",
+      "title": "imu_get_roll",
+      "type": "double",
+      "typePlain": "double",
+      "url": "imu_8h.md#function-imu_get_roll",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_yaw",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the Inertial Sensor's yaw angle. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::imu_get_yaw",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_yaw",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/imu.h",
+        "line": 225
+      },
+      "name": "imu_get_yaw",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aa1b43b44cf94a724d4917bf363db2299",
+      "returns": [
+        "The yaw angle, or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the Inertial Sensor's yaw angle. ",
+      "title": "imu_get_yaw",
+      "type": "double",
+      "typePlain": "double",
+      "url": "imu_8h.md#function-imu_get_yaw",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_gyro_rate",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the Inertial Sensor's raw gyroscope values. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "imu_gyro_s_t pros::c::imu_get_gyro_rate",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_gyro_rate",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 14,
+        "file": "pros/imu.h",
+        "line": 241
+      },
+      "name": "imu_get_gyro_rate",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1afe88178fca4b6dd69cae69469bb58e8e",
+      "returns": [
+        "The raw gyroscope values. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the Inertial Sensor's raw gyroscope values. ",
+      "title": "imu_get_gyro_rate",
+      "type": "imu_gyro_s_t",
+      "typePlain": "imu_gyro_s_t",
+      "url": "imu_8h.md#function-imu_get_gyro_rate",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_accel",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the Inertial Sensor's raw acceleroneter values. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "imu_accel_s_t pros::c::imu_get_accel",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_accel",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 15,
+        "file": "pros/imu.h",
+        "line": 257
+      },
+      "name": "imu_get_accel",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aae2df998074e80a7531de57c1161f47d",
+      "returns": [
+        "The raw accelerometer values. If the operation failed, all the structure's members are filled with PROS_ERR_F and errno is set. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the Inertial Sensor's raw acceleroneter values. ",
+      "title": "imu_get_accel",
+      "type": "imu_accel_s_t",
+      "typePlain": "imu_accel_s_t",
+      "url": "imu_8h.md#function-imu_get_accel",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-imu_get_status",
+      "argsString": "(uint8_t port)",
+      "brief": "Get the Inertial Sensor's status. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "imu_status_e_t pros::c::imu_get_status",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as an Inertial Sensor EAGAIN - The sensor is still calibrating",
+      "explicit": false,
+      "fullname": "imu.h::imu_get_status",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 16,
+        "file": "pros/imu.h",
+        "line": 273
+      },
+      "name": "imu_get_status",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 Inertial Sensor port number from 1-21 "
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a1ccf1cf41bf15e416c89d64093d63764",
+      "returns": [
+        "The Inertial Sensor's status code, or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Get the Inertial Sensor's status. ",
+      "title": "imu_get_status",
+      "type": "imu_status_e_t",
+      "typePlain": "imu_status_e_t",
+      "url": "imu_8h.md#function-imu_get_status",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#enum-imu_status_e",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_imu_status_calibrating",
+          "category": "types",
+          "definition": "",
+          "fullname": "imu_status_e::E_IMU_STATUS_CALIBRATING",
+          "hasDetails": false,
+          "initializer": "= 0x01",
+          "kind": "enumvalue",
+          "name": "E_IMU_STATUS_CALIBRATING",
+          "refid": "namespacepros_1_1c_1a74af1f93aaa6112117b4436b4b1f230da67fb53f117f53122424f7862cd150a60",
+          "title": "E_IMU_STATUS_CALIBRATING",
+          "url": "imu_8h.md#enumvalue-e_imu_status_calibrating",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_imu_status_error",
+          "category": "types",
+          "definition": "",
+          "fullname": "imu_status_e::E_IMU_STATUS_ERROR",
+          "hasDetails": false,
+          "initializer": "= 0xFF",
+          "kind": "enumvalue",
+          "name": "E_IMU_STATUS_ERROR",
+          "refid": "namespacepros_1_1c_1a74af1f93aaa6112117b4436b4b1f230da00266d26728436035f878ec88e6aba88",
+          "title": "E_IMU_STATUS_ERROR",
+          "url": "imu_8h.md#enumvalue-e_imu_status_error",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "imu.h::imu_status_e",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 35,
+        "bodyFile": "pros/imu.h",
+        "bodyStart": 31,
+        "column": 26,
+        "file": "pros/imu.h",
+        "line": 31
+      },
+      "name": "imu_status_e",
+      "override": false,
+      "refid": "namespacepros_1_1c_1a74af1f93aaa6112117b4436b4b1f230d",
+      "static": false,
+      "strong": false,
+      "title": "imu_status_e",
+      "url": "imu_8h.md#enum-imu_status_e",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#typedef-imu_gyro_s_t",
+      "category": "types",
+      "const": false,
+      "definition": "typedef struct imu_raw_s imu_gyro_s_t",
+      "explicit": false,
+      "fullname": "imu.h::imu_gyro_s_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/imu.h",
+        "bodyStart": 50,
+        "column": 2,
+        "file": "pros/imu.h",
+        "line": 42
+      },
+      "name": "imu_gyro_s_t",
+      "override": false,
+      "refid": "namespacepros_1_1c_1a5b9e240cfb181cce3c741e29efbbbf23",
+      "static": false,
+      "strong": false,
+      "title": "imu_gyro_s_t",
+      "type": "struct imu_raw_s",
+      "typePlain": "struct imu_raw_s",
+      "url": "imu_8h.md#typedef-imu_gyro_s_t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#typedef-imu_accel_s_t",
+      "category": "types",
+      "const": false,
+      "definition": "typedef struct imu_raw_s imu_accel_s_t",
+      "explicit": false,
+      "fullname": "imu.h::imu_accel_s_t",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "typedef",
+      "location": {
+        "bodyFile": "pros/imu.h",
+        "bodyStart": 51,
+        "column": 2,
+        "file": "pros/imu.h",
+        "line": 42
+      },
+      "name": "imu_accel_s_t",
+      "override": false,
+      "refid": "namespacepros_1_1c_1a70eb3173193f4f46266eade4c243f662",
+      "static": false,
+      "strong": false,
+      "title": "imu_accel_s_t",
+      "type": "struct imu_raw_s",
+      "typePlain": "struct imu_raw_s",
+      "url": "imu_8h.md#typedef-imu_accel_s_t",
+      "visibility": "public"
+    }
+  ],
+  "refid": "imu_8h",
+  "static": false,
+  "strong": false,
+  "title": "pros/imu.h",
+  "url": "imu_8h.md#file-imu.h",
+  "visibility": "public"
+}

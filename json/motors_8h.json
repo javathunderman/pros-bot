@@ -1,0 +1,3171 @@
+{
+  "abstract": false,
+  "anchor": "#file-motors.h",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "details": "Contains prototypes for the V5 Motor-related functions.\n\nVisit [https://pros.cs.purdue.edu/v5/tutorials/topical/motors.html](https://pros.cs.purdue.edu/v5/tutorials/topical/motors.html) to learn more.\n\nThis file should not be modified by users, since it gets replaced whenever a kernel upgrade occurs.\n\nCopyright (c) 2017-2020, Purdue University ACM SIGBots.\n\nThis Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at [http://mozilla.org/MPL/2.0/](http://mozilla.org/MPL/2.0/). ",
+  "explicit": false,
+  "fullname": "pros/motors.h",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<stdbool.h>",
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "pros/motors.h",
+    "line": 0
+  },
+  "name": "pros/motors.h",
+  "namespaces": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pros::c",
+      "kind": "namespace",
+      "name": "pros::c",
+      "refid": "namespacepros_1_1c",
+      "title": "pros::c",
+      "url": "namespacepros_1_1c.md",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-pros",
+    "category": "dirs",
+    "fullname": "pros",
+    "kind": "dir",
+    "name": "pros",
+    "refid": "dir_214b722ca0199f3055230149c608b806",
+    "title": "pros",
+    "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-pros",
+      "category": "dirs",
+      "fullname": "pros",
+      "kind": "dir",
+      "name": "pros",
+      "refid": "dir_214b722ca0199f3055230149c608b806",
+      "title": "pros",
+      "url": "dir_214b722ca0199f3055230149c608b806.md#dir-pros",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/**\n * \\file pros/motors.h\n *\n * Contains prototypes for the V5 Motor-related functions.\n *\n * Visit https://pros.cs.purdue.edu/v5/tutorials/topical/motors.html to learn\n * more.\n *\n * This file should not be modified by users, since it gets replaced whenever\n * a kernel upgrade occurs.\n *\n * Copyright (c) 2017-2020, Purdue University ACM SIGBots.\n *\n * This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/.\n */\n\n#ifndef _PROS_MOTORS_H_\n#define _PROS_MOTORS_H_\n\n#include <stdbool.h>\n#include <stdint.h>\n\n#ifdef __cplusplus\nextern \"C\" {\nnamespace pros {\nnamespace c {\n#endif\n\n/******************************************************************************/\n/**                         Motor movement functions                         **/\n/**                                                                          **/\n/**          These functions allow programmers to make motors move           **/\n/******************************************************************************/\n\n/**\n * Sets the voltage for the motor from -127 to 127.\n *\n * This is designed to map easily to the input from the controller's analog\n * stick for simple opcontrol use. The actual behavior of the motor is analogous\n * to use of motor_move_voltage(), or motorSet() from the PROS 2 API.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param voltage\n *        The new motor voltage from -127 to 127\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_move(uint8_t port, int32_t voltage);\n\n/**\n * Sets the target absolute position for the motor to move to.\n *\n * This movement is relative to the position of the motor when initialized or\n * the position when it was most recently reset with motor_set_zero_position().\n *\n * \\note This function simply sets the target for the motor, it does not block\n * program execution until the movement finishes.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param position\n *        The absolute position to move to in the motor's encoder units\n * \\param velocity\n *        The maximum allowable velocity for the movement in RPM\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_move_absolute(uint8_t port, const double position, const int32_t velocity);\n\n/**\n * Sets the relative target position for the motor to move to.\n *\n * This movement is relative to the current position of the motor as given in\n * motor_get_position(). Providing 10.0 as the position parameter would result\n * in the motor moving clockwise 10 units, no matter what the current position\n * is.\n *\n * \\note This function simply sets the target for the motor, it does not block\n * program execution until the movement finishes.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param position\n *        The relative position to move to in the motor's encoder units\n * \\param velocity\n *        The maximum allowable velocity for the movement in RPM\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_move_relative(uint8_t port, const double position, const int32_t velocity);\n\n/**\n * Sets the velocity for the motor.\n *\n * This velocity corresponds to different actual speeds depending on the gearset\n * used for the motor. This results in a range of +-100 for E_MOTOR_GEARSET_36,\n * +-200 for E_MOTOR_GEARSET_18, and +-600 for E_MOTOR_GEARSET_6. The velocity\n * is held with PID to ensure consistent speed, as opposed to setting the\n * motor's voltage.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param velocity\n *        The new motor velocity from +-100, +-200, or +-600 depending on the\n *        motor's gearset\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_move_velocity(uint8_t port, const int32_t velocity);\n\n/**\n * Sets the output voltage for the motor from -12000 to 12000 in millivolts\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param voltage\n *        The new voltage value from -12000 to 12000\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_move_voltage(uint8_t port, const int32_t voltage);\n\n/**\n * Changes the output velocity for a profiled movement (motor_move_absolute or\n * motor_move_relative). This will have no effect if the motor is not following\n * a profiled movement.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param velocity\n *        The new motor velocity from +-100, +-200, or +-600 depending on the\n *        motor's gearset\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_modify_profiled_velocity(uint8_t port, const int32_t velocity);\n\n/**\n * Gets the target position set for the motor by the user.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The target position in its encoder units or PROS_ERR_F if the\n * operation failed, setting errno.\n */\ndouble motor_get_target_position(uint8_t port);\n\n/**\n * Gets the velocity commanded to the motor by the user.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The commanded motor velocity from +-100, +-200, or +-600, or PROS_ERR\n * if the operation failed, setting errno.\n */\nint32_t motor_get_target_velocity(uint8_t port);\n\n/******************************************************************************/\n/**                        Motor telemetry functions                         **/\n/**                                                                          **/\n/**    These functions allow programmers to collect telemetry from motors    **/\n/******************************************************************************/\n\n/**\n * Gets the actual velocity of the motor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's actual velocity in RPM or PROS_ERR_F if the operation\n * failed, setting errno.\n */\ndouble motor_get_actual_velocity(uint8_t port);\n\n/**\n * Gets the current drawn by the motor in mA.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's current in mA or PROS_ERR if the operation failed,\n * setting errno.\n */\nint32_t motor_get_current_draw(uint8_t port);\n\n/**\n * Gets the direction of movement for the motor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return 1 for moving in the positive direction, -1 for moving in the\n * negative direction, or PROS_ERR if the operation failed, setting errno.\n */\nint32_t motor_get_direction(uint8_t port);\n\n/**\n * Gets the efficiency of the motor in percent.\n *\n * An efficiency of 100% means that the motor is moving electrically while\n * drawing no electrical power, and an efficiency of 0% means that the motor\n * is drawing power but not moving.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's efficiency in percent or PROS_ERR_F if the operation\n * failed, setting errno.\n */\ndouble motor_get_efficiency(uint8_t port);\n\n/**\n * Checks if the motor is drawing over its current limit.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return 1 if the motor's current limit is being exceeded and 0 if the current\n * limit is not exceeded, or PROS_ERR if the operation failed, setting errno.\n */\nint32_t motor_is_over_current(uint8_t port);\n\n/**\n * Checks if the motor's temperature is above its limit.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return 1 if the temperature limit is exceeded and 0 if the the temperature\n * is below the limit, or PROS_ERR if the operation failed, setting errno.\n */\nint32_t motor_is_over_temp(uint8_t port);\n\n/**\n * Checks if the motor is stopped.\n *\n * \\note Although this function forwards data from the motor, the motor\n * presently does not provide any value. This function returns PROS_ERR with\n * errno set to ENOSYS.\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return 1 if the motor is not moving, 0 if the motor is moving, or PROS_ERR\n * if the operation failed, setting errno\n */\nint32_t motor_is_stopped(uint8_t port);\n\n/**\n * Checks if the motor is at its zero position.\n *\n * \\note Although this function forwards data from the motor, the motor\n * presently does not provide any value. This function returns PROS_ERR with\n * errno set to ENOSYS.\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return 1 if the motor is at zero absolute position, 0 if the motor has\n * moved from its absolute zero, or PROS_ERR if the operation failed,\n * setting errno\n */\nint32_t motor_get_zero_position_flag(uint8_t port);\n\n#ifdef __cplusplus\n}  // namespace c\n#endif\n\ntypedef enum motor_fault_e {\n    E_MOTOR_FAULT_NO_FAULTS = 0x00,\n    E_MOTOR_FAULT_MOTOR_OVER_TEMP = 0x01,  // Analogous to motor_is_over_temp()\n    E_MOTOR_FAULT_DRIVER_FAULT = 0x02,     // Indicates a motor h-bridge fault\n    E_MOTOR_FAULT_OVER_CURRENT = 0x04,     // Analogous to motor_is_over_current()\n    E_MOTOR_FAULT_DRV_OVER_CURRENT = 0x08  // Indicates an h-bridge over current\n} motor_fault_e_t;\n\n#ifdef PROS_USE_SIMPLE_NAMES\n#ifdef __cplusplus\n#define MOTOR_FAULT_NO_FAULTS pros::E_MOTOR_FAULT_NO_FAULTS\n#define MOTOR_FAULT_MOTOR_OVER_TEMP pros::E_MOTOR_FAULT_MOTOR_OVER_TEMP\n#define MOTOR_FAULT_DRIVER_FAULT pros::E_MOTOR_FAULT_DRIVER_FAULT\n#define MOTOR_FAULT_OVER_CURRENT pros::E_MOTOR_FAULT_DRV_OVER_CURRENT\n#define MOTOR_FAULT_DRV_OVER_CURRENT pros::E_MOTOR_FAULT_DRV_OVER_CURRENT\n#else\n#define MOTOR_FAULT_NO_FAULTS E_MOTOR_FAULT_NO_FAULTS\n#define MOTOR_FAULT_MOTOR_OVER_TEMP E_MOTOR_FAULT_MOTOR_OVER_TEMP\n#define MOTOR_FAULT_DRIVER_FAULT E_MOTOR_FAULT_DRIVER_FAULT\n#define MOTOR_FAULT_OVER_CURRENT E_MOTOR_FAULT_DRV_OVER_CURRENT\n#define MOTOR_FAULT_DRV_OVER_CURRENT E_MOTOR_FAULT_DRV_OVER_CURRENT\n#endif\n#endif\n\n#ifdef __cplusplus\nnamespace c {\n#endif\n\n/**\n * Gets the faults experienced by the motor.\n *\n * Compare this bitfield to the bitmasks in motor_fault_e_t.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return A bitfield containing the motor's faults.\n */\nuint32_t motor_get_faults(uint8_t port);\n\n#ifdef __cplusplus\n}  // namespace c\n#endif\n\ntypedef enum motor_flag_e {\n    E_MOTOR_FLAGS_NONE = 0x00,\n    E_MOTOR_FLAGS_BUSY = 0x01,           // Cannot currently communicate to the motor\n    E_MOTOR_FLAGS_ZERO_VELOCITY = 0x02,  // Analogous to motor_is_stopped()\n    E_MOTOR_FLAGS_ZERO_POSITION = 0x04   // Analogous to motor_get_zero_position_flag()\n} motor_flag_e_t;\n\n#ifdef PROS_USE_SIMPLE_NAMES\n#ifdef __cplusplus\n#define MOTOR_FLAGS_NONE pros::E_MOTOR_FLAGS_NONE\n#define MOTOR_FLAGS_BUSY pros::E_MOTOR_FLAGS_BUSY\n#define MOTOR_FLAGS_ZERO_VELOCITY pros::E_MOTOR_FLAGS_ZERO_VELOCITY\n#define MOTOR_FLAGS_ZERO_POSITION pros::E_MOTOR_FLAGS_ZERO_POSITION\n#else\n#define MOTOR_FLAGS_NONE E_MOTOR_FLAGS_NONE\n#define MOTOR_FLAGS_BUSY E_MOTOR_FLAGS_BUSY\n#define MOTOR_FLAGS_ZERO_VELOCITY E_MOTOR_FLAGS_ZERO_VELOCITY\n#define MOTOR_FLAGS_ZERO_POSITION E_MOTOR_FLAGS_ZERO_POSITION\n#endif\n#endif\n\n#ifdef __cplusplus\nnamespace c {\n#endif\n\n/**\n * Gets the flags set by the motor's operation.\n *\n * Compare this bitfield to the bitmasks in motor_flag_e_t.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return A bitfield containing the motor's flags.\n */\nuint32_t motor_get_flags(uint8_t port);\n\n/**\n * Gets the raw encoder count of the motor at a given timestamp.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param[in] timestamp\n *            A pointer to a time in milliseconds for which the encoder count\n *            will be returned. If NULL, the timestamp at which the encoder\n *            count was read will not be supplied\n *\n * \\return The raw encoder count at the given timestamp or PROS_ERR if the\n * operation failed.\n */\nint32_t motor_get_raw_position(uint8_t port, uint32_t* const timestamp);\n\n/**\n * Gets the absolute position of the motor in its encoder units.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's absolute position in its encoder units or PROS_ERR_F\n * if the operation failed, setting errno.\n */\ndouble motor_get_position(uint8_t port);\n\n/**\n * Gets the power drawn by the motor in Watts.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's power draw in Watts or PROS_ERR_F if the operation\n * failed, setting errno.\n */\ndouble motor_get_power(uint8_t port);\n\n/**\n * Gets the temperature of the motor in degrees Celsius.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's temperature in degrees Celsius or PROS_ERR_F if the\n * operation failed, setting errno.\n */\ndouble motor_get_temperature(uint8_t port);\n\n/**\n * Gets the torque generated by the motor in Newton Meters (Nm).\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's torque in Nm or PROS_ERR_F if the operation failed,\n * setting errno.\n */\ndouble motor_get_torque(uint8_t port);\n\n/**\n * Gets the voltage delivered to the motor in millivolts.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's voltage in mV or PROS_ERR_F if the operation failed,\n * setting errno.\n */\nint32_t motor_get_voltage(uint8_t port);\n\n/******************************************************************************/\n/**                      Motor configuration functions                       **/\n/**                                                                          **/\n/**  These functions allow programmers to configure the behavior of motors   **/\n/******************************************************************************/\n\n#ifdef __cplusplus\n}  // namespace c\n#endif\n\n/**\n * Indicates the current 'brake mode' of a motor.\n */\ntypedef enum motor_brake_mode_e {\n    E_MOTOR_BRAKE_COAST = 0,  // Motor coasts when stopped, traditional behavior\n    E_MOTOR_BRAKE_BRAKE = 1,  // Motor brakes when stopped\n    E_MOTOR_BRAKE_HOLD = 2,   // Motor actively holds position when stopped\n    E_MOTOR_BRAKE_INVALID = INT32_MAX\n} motor_brake_mode_e_t;\n\n/**\n * Indicates the units used by the motor encoders.\n */\ntypedef enum motor_encoder_units_e {\n    E_MOTOR_ENCODER_DEGREES = 0,    // Position is recorded as angle in degrees\n                                    // as a floating point number\n    E_MOTOR_ENCODER_ROTATIONS = 1,  // Position is recorded as angle in rotations\n                                    // as a floating point number\n    E_MOTOR_ENCODER_COUNTS = 2,     // Position is recorded as raw encoder ticks\n                                    // as a whole number\n    E_MOTOR_ENCODER_INVALID = INT32_MAX\n} motor_encoder_units_e_t;\n\n/**\n * Indicates the current internal gear ratio of a motor.\n */\ntypedef enum motor_gearset_e {\n    E_MOTOR_GEARSET_36 = 0,  // 36:1, 100 RPM, Red gear set\n    E_MOTOR_GEARSET_18 = 1,  // 18:1, 200 RPM, Green gear set\n    E_MOTOR_GEARSET_06 = 2,  // 6:1, 600 RPM, Blue gear set\n    E_MOTOR_GEARSET_INVALID = INT32_MAX\n} motor_gearset_e_t;\n\n#ifdef PROS_USE_SIMPLE_NAMES\n#ifdef __cplusplus\n#define MOTOR_BRAKE_COAST pros::E_MOTOR_BRAKE_COAST\n#define MOTOR_BRAKE_BRAKE pros::E_MOTOR_BRAKE_BRAKE\n#define MOTOR_BRAKE_HOLD pros::E_MOTOR_BRAKE_HOLD\n#define MOTOR_BRAKE_INVALID pros::E_MOTOR_BRAKE_INVALID\n#define MOTOR_ENCODER_DEGREES pros::E_MOTOR_ENCODER_DEGREES\n#define MOTOR_ENCODER_ROTATIONS pros::E_MOTOR_ENCODER_ROTATIONS\n#define MOTOR_ENCODER_COUNTS pros::E_MOTOR_ENCODER_COUNTS\n#define MOTOR_ENCODER_INVALID pros::E_MOTOR_ENCODER_INVALID\n#define MOTOR_GEARSET_36 pros::E_MOTOR_GEARSET_36\n#define MOTOR_GEARSET_18 pros::E_MOTOR_GEARSET_18\n#define MOTOR_GEARSET_06 pros::E_MOTOR_GEARSET_06\n#define MOTOR_GEARSET_6 pros::E_MOTOR_GEARSET_06\n#define MOTOR_GEARSET_INVALID pros::E_MOTOR_GEARSET_INVALID\n#else\n#define MOTOR_BRAKE_COAST E_MOTOR_BRAKE_COAST\n#define MOTOR_BRAKE_BRAKE E_MOTOR_BRAKE_BRAKE\n#define MOTOR_BRAKE_HOLD E_MOTOR_BRAKE_HOLD\n#define MOTOR_BRAKE_INVALID E_MOTOR_BRAKE_INVALID\n#define MOTOR_ENCODER_DEGREES E_MOTOR_ENCODER_DEGREES\n#define MOTOR_ENCODER_ROTATIONS E_MOTOR_ENCODER_ROTATIONS\n#define MOTOR_ENCODER_COUNTS E_MOTOR_ENCODER_COUNTS\n#define MOTOR_ENCODER_INVALID E_MOTOR_ENCODER_INVALID\n#define MOTOR_GEARSET_36 E_MOTOR_GEARSET_36\n#define MOTOR_GEARSET_18 E_MOTOR_GEARSET_18\n#define MOTOR_GEARSET_06 E_MOTOR_GEARSET_06\n#define MOTOR_GEARSET_6 E_MOTOR_GEARSET_06\n#define MOTOR_GEARSET_INVALID E_MOTOR_GEARSET_INVALID\n#endif\n#endif\n\n/**\n * Holds the information about a Motor's position or velocity PID controls.\n *\n * These values are in 4.4 format, meaning that a value of 0x20 represents 2.0,\n * 0x21 represents 2.0625, 0x22 represents 2.125, etc.\n */\ntypedef struct motor_pid_full_s {\n    uint8_t kf;         // The feedforward constant\n    uint8_t kp;         // The proportional constant\n    uint8_t ki;         // The integral constants\n    uint8_t kd;         // The derivative constant\n    uint8_t filter;     // A constant used for filtering the profile acceleration\n    uint16_t limit;     // The integral limit\n    uint8_t threshold;  // The threshold for determining if a position movement has\n                        // reached its goal. This has no effect for velocity PID\n                        // calculations.\n    uint8_t loopspeed;  // The rate at which the PID computation is run in ms\n} motor_pid_full_s_t;\n\n/**\n * Holds just the constants for a Motor's position or velocity PID controls.\n *\n * These values are in 4.4 format, meaning that a value of 0x20 represents 2.0,\n * 0x21 represents 2.0625, 0x22 represents 2.125, etc.\n */\ntypedef struct motor_pid_s {\n    uint8_t kf;  // The feedforward constant\n    uint8_t kp;  // The proportional constant\n    uint8_t ki;  // The integral constants\n    uint8_t kd;  // The derivative constant\n} motor_pid_s_t;\n\n#ifdef __cplusplus\nnamespace c {\n#endif\n\n/**\n * Sets the position for the motor in its encoder units.\n *\n * This will be the future reference point for the motor's \"absolute\" position.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param position\n *        The new reference position in its encoder units\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_zero_position(uint8_t port, const double position);\n\n/**\n * Sets the \"absolute\" zero position of the motor to its current position.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_tare_position(uint8_t port);\n\n/**\n * Sets one of motor_brake_mode_e_t to the motor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param mode\n *        The motor_brake_mode_e_t to set for the motor\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_brake_mode(uint8_t port, const motor_brake_mode_e_t mode);\n\n/**\n * Sets the current limit for the motor in mA.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param limit\n *        The new current limit in mA\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_current_limit(uint8_t port, const int32_t limit);\n\n/**\n * Sets one of motor_encoder_units_e_t for the motor encoder.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param units\n *        The new motor encoder units\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_encoder_units(uint8_t port, const motor_encoder_units_e_t units);\n\n/**\n * Sets one of motor_gearset_e_t for the motor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param gearset\n *        The new motor gearset\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_gearing(uint8_t port, const motor_gearset_e_t gearset);\n\n/**\n * Takes in floating point values and returns a properly formatted pid struct.\n * The motor_pid_s_t struct is in 4.4 format, i.e. 0x20 is 2.0, 0x21 is 2.0625,\n * etc.\n * This function will convert the floating point values to the nearest 4.4\n * value.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param kf\n *        The feedforward constant\n * \\param kp\n *        The proportional constant\n * \\param ki\n *        The integral constant\n * \\param kd\n *        The derivative constant\n *\n * \\return A motor_pid_s_t struct formatted properly in 4.4.\n */\nmotor_pid_s_t motor_convert_pid(double kf, double kp, double ki, double kd);\n\n/**\n * Takes in floating point values and returns a properly formatted pid struct.\n * The motor_pid_s_t struct is in 4.4 format, i.e. 0x20 is 2.0, 0x21 is 2.0625,\n * etc.\n * This function will convert the floating point values to the nearest 4.4\n * value.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param kf\n *        The feedforward constant\n * \\param kp\n *        The proportional constant\n * \\param ki\n *        The integral constant\n * \\param kd\n *        The derivative constant\n * \\param filter\n *        A constant used for filtering the profile acceleration\n * \\param limit\n *        The integral limit\n * \\param threshold\n *        The threshold for determining if a position movement has reached its\n *        goal. This has no effect for velocity PID calculations.\n * \\param loopspeed\n *        The rate at which the PID computation is run in ms\n *\n * \\return A motor_pid_s_t struct formatted properly in 4.4.\n */\nmotor_pid_full_s_t motor_convert_pid_full(double kf, double kp, double ki, double kd, double filter, double limit,\n                                          double threshold, double loopspeed);\n\n/**\n * Sets one of motor_pid_s_t for the motor. This intended to just modify the\n * main PID constants.\n *\n * Only non-zero values of the struct will change the existing motor constants.\n *\n * \\note This feature is in beta, it is advised to use caution when modifying\n * the PID values. The motor could be damaged by particularly large constants.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param pid\n *        The new motor PID constants\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_pos_pid(uint8_t port, const motor_pid_s_t pid);\n\n/**\n * Sets one of motor_pid_full_s_t for the motor.\n *\n * Only non-zero values of the struct will change the existing motor constants.\n *\n * \\note This feature is in beta, it is advised to use caution when modifying\n * the PID values. The motor could be damaged by particularly large constants.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param pid\n *        The new motor PID constants\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_pos_pid_full(uint8_t port, const motor_pid_full_s_t pid);\n\n/**\n * Sets one of motor_pid_s_t for the motor. This intended to just modify the\n * main PID constants.\n *\n * Only non-zero values of the struct will change the existing motor constants.\n *\n * \\note This feature is in beta, it is advised to use caution when modifying\n * the PID values. The motor could be damaged by particularly large constants.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param pid\n *        The new motor PID constants\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_vel_pid(uint8_t port, const motor_pid_s_t pid);\n\n/**\n * Sets one of motor_pid_full_s_t for the motor.\n *\n * Only non-zero values of the struct will change the existing motor constants.\n *\n * \\note This feature is in beta, it is advised to use caution when modifying\n * the PID values. The motor could be damaged by particularly large constants.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param pid\n *        The new motor PID constants\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_vel_pid_full(uint8_t port, const motor_pid_full_s_t pid);\n\n/**\n * Sets the reverse flag for the motor.\n *\n * This will invert its movements and the values returned for its position.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param reverse\n *        True reverses the motor, false is default\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_reversed(uint8_t port, const bool reverse);\n\n/**\n * Sets the voltage limit for the motor in Volts.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n * \\param limit\n *        The new voltage limit in Volts\n *\n * \\return 1 if the operation was successful or PROS_ERR if the operation\n * failed, setting errno.\n */\nint32_t motor_set_voltage_limit(uint8_t port, const int32_t limit);\n\n/**\n * Gets the brake mode that was set for the motor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return One of motor_brake_mode_e_t, according to what was set for the motor,\n * or E_MOTOR_BRAKE_INVALID if the operation failed, setting errno.\n */\nmotor_brake_mode_e_t motor_get_brake_mode(uint8_t port);\n\n/**\n * Gets the current limit for the motor in mA.\n *\n * The default value is 2500 mA.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's current limit in mA or PROS_ERR if the operation failed,\n * setting errno.\n */\nint32_t motor_get_current_limit(uint8_t port);\n\n/**\n * Gets the encoder units that were set for the motor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return One of motor_encoder_units_e_t according to what is set for the motor\n * or E_MOTOR_ENCODER_INVALID if the operation failed.\n */\nmotor_encoder_units_e_t motor_get_encoder_units(uint8_t port);\n\n/**\n * Gets the gearset that was set for the motor.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return One of motor_gearset_e_t according to what is set for the motor,\n * or E_GEARSET_INVALID if the operation failed.\n */\nmotor_gearset_e_t motor_get_gearing(uint8_t port);\n\n/**\n * Gets the position PID that was set for the motor. This function will return\n * zero for all of the parameters if the motor_set_pos_pid() or\n * motor_set_pos_pid_full() functions have not been used.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * Additionally, in an error state all values of the returned struct are set\n * to their negative maximum values.\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return A motor_pid_full_s_t containing the position PID constants last set\n * to the given motor\n */\nmotor_pid_full_s_t motor_get_pos_pid(uint8_t port);\n\n/**\n * Gets the velocity PID that was set for the motor. This function will return\n * zero for all of the parameters if the motor_set_vel_pid() or\n * motor_set_vel_pid_full() functions have not been used.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * Additionally, in an error state all values of the returned struct are set\n * to their negative maximum values.\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return A motor_pid_full_s_t containing the velocity PID constants last set\n * to the given motor\n */\nmotor_pid_full_s_t motor_get_vel_pid(uint8_t port);\n\n/**\n * Gets the operation direction of the motor as set by the user.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return 1 if the motor has been reversed and 0 if the motor was not reversed,\n * or PROS_ERR if the operation failed, setting errno.\n */\nint32_t motor_is_reversed(uint8_t port);\n\n/**\n * Gets the voltage limit set by the user.\n *\n * Default value is 0V, which means that there is no software limitation imposed\n * on the voltage.\n *\n * This function uses the following values of errno when an error state is\n * reached:\n * ENXIO - The given value is not within the range of V5 ports (1-21).\n * ENODEV - The port cannot be configured as a motor\n *\n * \\param port\n *        The V5 port number from 1-21\n *\n * \\return The motor's voltage limit in V or PROS_ERR if the operation failed,\n * setting errno.\n */\nint32_t motor_get_voltage_limit(uint8_t port);\n\n#ifdef __cplusplus\n}  // namespace c\n}  // namespace pros\n}\n#endif\n\n#endif  // _PROS_MOTORS_H_",
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-motor_move",
+      "argsString": "(uint8_t port, int32_t voltage)",
+      "brief": "[Motor](classpros_1_1Motor.md) movement functions ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_move",
+      "deleted": false,
+      "details": "These functions allow programmers to make motors move \n\n Sets the voltage for the motor from -127 to 127.\n\nThis is designed to map easily to the input from the controller's analog stick for simple opcontrol use. The actual behavior of the motor is analogous to use of [motor_move_voltage()](namespacepros_1_1c.md#function-motor_move_voltage), or [motorSet()](api__legacy_8h.md#define-motorset) from the PROS 2 API.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_move",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 57
+      },
+      "name": "motor_move",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "voltage",
+          "text": "The new motor voltage from -127 to 127"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "voltage",
+          "type": "int32_t",
+          "typePlain": "int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ac14bccd595a812fff8c30d2d050844a9",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Motor movement functions ",
+      "title": "motor_move",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_move",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_move_absolute",
+      "argsString": "(uint8_t port, const double position, const int32_t velocity)",
+      "brief": "Sets the target absolute position for the motor to move to. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_move_absolute",
+      "deleted": false,
+      "details": "This movement is relative to the position of the motor when initialized or the position when it was most recently reset with [motor_set_zero_position()](namespacepros_1_1c.md#function-motor_set_zero_position).\n\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_move_absolute",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 83
+      },
+      "name": "motor_move_absolute",
+      "note": [
+        "This function simply sets the target for the motor, it does not block program execution until the movement finishes."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "position",
+          "text": "The absolute position to move to in the motor's encoder units "
+        },
+        {
+          "name": "velocity",
+          "text": "The maximum allowable velocity for the movement in RPM"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "position",
+          "type": "const double",
+          "typePlain": "const double"
+        },
+        {
+          "name": "velocity",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a490a367ce2fea03acaa1e817c0648916",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the target absolute position for the motor to move to. ",
+      "title": "motor_move_absolute",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_move_absolute",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_move_relative",
+      "argsString": "(uint8_t port, const double position, const int32_t velocity)",
+      "brief": "Sets the relative target position for the motor to move to. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_move_relative",
+      "deleted": false,
+      "details": "This movement is relative to the current position of the motor as given in [motor_get_position()](namespacepros_1_1c.md#function-motor_get_position). Providing 10.0 as the position parameter would result in the motor moving clockwise 10 units, no matter what the current position is.\n\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_move_relative",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 111
+      },
+      "name": "motor_move_relative",
+      "note": [
+        "This function simply sets the target for the motor, it does not block program execution until the movement finishes."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "position",
+          "text": "The relative position to move to in the motor's encoder units "
+        },
+        {
+          "name": "velocity",
+          "text": "The maximum allowable velocity for the movement in RPM"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "position",
+          "type": "const double",
+          "typePlain": "const double"
+        },
+        {
+          "name": "velocity",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a003028bf3f30c48559f442d7c0d74a9a",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the relative target position for the motor to move to. ",
+      "title": "motor_move_relative",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_move_relative",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_move_velocity",
+      "argsString": "(uint8_t port, const int32_t velocity)",
+      "brief": "Sets the velocity for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_move_velocity",
+      "deleted": false,
+      "details": "This velocity corresponds to different actual speeds depending on the gearset used for the motor. This results in a range of +-100 for E_MOTOR_GEARSET_36, +-200 for E_MOTOR_GEARSET_18, and +-600 for E_MOTOR_GEARSET_6. The velocity is held with PID to ensure consistent speed, as opposed to setting the motor's voltage.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_move_velocity",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 136
+      },
+      "name": "motor_move_velocity",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "velocity",
+          "text": "The new motor velocity from +-100, +-200, or +-600 depending on the motor's gearset"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "velocity",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a2f3f7e0a243e9432b3d60e4b6147f177",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the velocity for the motor. ",
+      "title": "motor_move_velocity",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_move_velocity",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_move_voltage",
+      "argsString": "(uint8_t port, const int32_t voltage)",
+      "brief": "Sets the output voltage for the motor from -12000 to 12000 in millivolts. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_move_voltage",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_move_voltage",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 154
+      },
+      "name": "motor_move_voltage",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "voltage",
+          "text": "The new voltage value from -12000 to 12000"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "voltage",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aa8793ceb0f0255af915ae188d5fb04ee",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the output voltage for the motor from -12000 to 12000 in millivolts. ",
+      "title": "motor_move_voltage",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_move_voltage",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_modify_profiled_velocity",
+      "argsString": "(uint8_t port, const int32_t velocity)",
+      "brief": "Changes the output velocity for a profiled movement (motor_move_absolute or motor_move_relative). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_modify_profiled_velocity",
+      "deleted": false,
+      "details": "This will have no effect if the motor is not following a profiled movement.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_modify_profiled_velocity",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 175
+      },
+      "name": "motor_modify_profiled_velocity",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "velocity",
+          "text": "The new motor velocity from +-100, +-200, or +-600 depending on the motor's gearset"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "velocity",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a703f1778bee3c934a8ebb3544b59c991",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Changes the output velocity for a profiled movement (motor_move_absolute or motor_move_relative). ",
+      "title": "motor_modify_profiled_velocity",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_modify_profiled_velocity",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_target_position",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the target position set for the motor by the user. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::motor_get_target_position",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_target_position",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/motors.h",
+        "line": 191
+      },
+      "name": "motor_get_target_position",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a43583f8ab98cf01f28b0be76b7195a65",
+      "returns": [
+        "The target position in its encoder units or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the target position set for the motor by the user. ",
+      "title": "motor_get_target_position",
+      "type": "double",
+      "typePlain": "double",
+      "url": "motors_8h.md#function-motor_get_target_position",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_target_velocity",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the velocity commanded to the motor by the user. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_get_target_velocity",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_target_velocity",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 207
+      },
+      "name": "motor_get_target_velocity",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a1eced718381a9b2dcea8c87f7c911823",
+      "returns": [
+        "The commanded motor velocity from +-100, +-200, or +-600, or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the velocity commanded to the motor by the user. ",
+      "title": "motor_get_target_velocity",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_get_target_velocity",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_actual_velocity",
+      "argsString": "(uint8_t port)",
+      "brief": "[Motor](classpros_1_1Motor.md) telemetry functions ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::motor_get_actual_velocity",
+      "deleted": false,
+      "details": "These functions allow programmers to collect telemetry from motors \n\n Gets the actual velocity of the motor.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_actual_velocity",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/motors.h",
+        "line": 229
+      },
+      "name": "motor_get_actual_velocity",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1af6df8e89f7178dfd0617ad19bbee64f0",
+      "returns": [
+        "The motor's actual velocity in RPM or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Motor telemetry functions ",
+      "title": "motor_get_actual_velocity",
+      "type": "double",
+      "typePlain": "double",
+      "url": "motors_8h.md#function-motor_get_actual_velocity",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_current_draw",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the current drawn by the motor in mA. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_get_current_draw",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_current_draw",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 245
+      },
+      "name": "motor_get_current_draw",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a8b479dd7b771dbcc73f31586af58f0b7",
+      "returns": [
+        "The motor's current in mA or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current drawn by the motor in mA. ",
+      "title": "motor_get_current_draw",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_get_current_draw",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_direction",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the direction of movement for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_get_direction",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_direction",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 261
+      },
+      "name": "motor_get_direction",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a20534e746af9bf8840f5f9f23709b7b6",
+      "returns": [
+        "1 for moving in the positive direction, -1 for moving in the negative direction, or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the direction of movement for the motor. ",
+      "title": "motor_get_direction",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_get_direction",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_efficiency",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the efficiency of the motor in percent. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::motor_get_efficiency",
+      "deleted": false,
+      "details": "An efficiency of 100% means that the motor is moving electrically while drawing no electrical power, and an efficiency of 0% means that the motor is drawing power but not moving.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_efficiency",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/motors.h",
+        "line": 281
+      },
+      "name": "motor_get_efficiency",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a55d36864628b9b95bff9fdc7feaf2812",
+      "returns": [
+        "The motor's efficiency in percent or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the efficiency of the motor in percent. ",
+      "title": "motor_get_efficiency",
+      "type": "double",
+      "typePlain": "double",
+      "url": "motors_8h.md#function-motor_get_efficiency",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_is_over_current",
+      "argsString": "(uint8_t port)",
+      "brief": "Checks if the motor is drawing over its current limit. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_is_over_current",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_is_over_current",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 297
+      },
+      "name": "motor_is_over_current",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a4b1c83c3dc32a0d982f3bf8683d5b501",
+      "returns": [
+        "1 if the motor's current limit is being exceeded and 0 if the current limit is not exceeded, or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks if the motor is drawing over its current limit. ",
+      "title": "motor_is_over_current",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_is_over_current",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_is_over_temp",
+      "argsString": "(uint8_t port)",
+      "brief": "Checks if the motor's temperature is above its limit. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_is_over_temp",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_is_over_temp",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 313
+      },
+      "name": "motor_is_over_temp",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a2dd9459b8f60c62bee8736fdfbc0913e",
+      "returns": [
+        "1 if the temperature limit is exceeded and 0 if the the temperature is below the limit, or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks if the motor's temperature is above its limit. ",
+      "title": "motor_is_over_temp",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_is_over_temp",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_is_stopped",
+      "argsString": "(uint8_t port)",
+      "brief": "Checks if the motor is stopped. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_is_stopped",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "motors.h::motor_is_stopped",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 328
+      },
+      "name": "motor_is_stopped",
+      "note": [
+        "Although this function forwards data from the motor, the motor presently does not provide any value. This function returns PROS_ERR with errno set to ENOSYS."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a45a429ee4463cce0c1ed82aeb64682e0",
+      "returns": [
+        "1 if the motor is not moving, 0 if the motor is moving, or PROS_ERR if the operation failed, setting errno "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks if the motor is stopped. ",
+      "title": "motor_is_stopped",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_is_stopped",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_zero_position_flag",
+      "argsString": "(uint8_t port)",
+      "brief": "Checks if the motor is at its zero position. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_get_zero_position_flag",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "motors.h::motor_get_zero_position_flag",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 344
+      },
+      "name": "motor_get_zero_position_flag",
+      "note": [
+        "Although this function forwards data from the motor, the motor presently does not provide any value. This function returns PROS_ERR with errno set to ENOSYS."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aebf9256842edc1b710bd01cc381b9cc9",
+      "returns": [
+        "1 if the motor is at zero absolute position, 0 if the motor has moved from its absolute zero, or PROS_ERR if the operation failed, setting errno "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Checks if the motor is at its zero position. ",
+      "title": "motor_get_zero_position_flag",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_get_zero_position_flag",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_faults",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the faults experienced by the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "uint32_t pros::c::motor_get_faults",
+      "deleted": false,
+      "details": "Compare this bitfield to the bitmasks in motor_fault_e_t.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_faults",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/motors.h",
+        "line": 393
+      },
+      "name": "motor_get_faults",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aa979ae75e8ec2aa5d2781fd44d0740b3",
+      "returns": [
+        "A bitfield containing the motor's faults. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the faults experienced by the motor. ",
+      "title": "motor_get_faults",
+      "type": "uint32_t",
+      "typePlain": "uint32_t",
+      "url": "motors_8h.md#function-motor_get_faults",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_flags",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the flags set by the motor's operation. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "uint32_t pros::c::motor_get_flags",
+      "deleted": false,
+      "details": "Compare this bitfield to the bitmasks in motor_flag_e_t.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_flags",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 10,
+        "file": "pros/motors.h",
+        "line": 439
+      },
+      "name": "motor_get_flags",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a8f79c82be6571e653baf1ec30cea333e",
+      "returns": [
+        "A bitfield containing the motor's flags. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the flags set by the motor's operation. ",
+      "title": "motor_get_flags",
+      "type": "uint32_t",
+      "typePlain": "uint32_t",
+      "url": "motors_8h.md#function-motor_get_flags",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_raw_position",
+      "argsString": "(uint8_t port, uint32_t *const timestamp)",
+      "brief": "Gets the raw encoder count of the motor at a given timestamp. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_get_raw_position",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_raw_position",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 459
+      },
+      "name": "motor_get_raw_position",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "timestamp",
+          "text": "A pointer to a time in milliseconds for which the encoder count will be returned. If NULL, the timestamp at which the encoder count was read will not be supplied"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "timestamp",
+          "type": "uint32_t *const",
+          "typePlain": "uint32_t *const"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1afb4370b4ecb9de65323499aa3ed86a3b",
+      "returns": [
+        "The raw encoder count at the given timestamp or PROS_ERR if the operation failed. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the raw encoder count of the motor at a given timestamp. ",
+      "title": "motor_get_raw_position",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_get_raw_position",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_position",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the absolute position of the motor in its encoder units. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::motor_get_position",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_position",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/motors.h",
+        "line": 475
+      },
+      "name": "motor_get_position",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ac58430bb6174017c2d9d6d73f5239bc7",
+      "returns": [
+        "The motor's absolute position in its encoder units or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the absolute position of the motor in its encoder units. ",
+      "title": "motor_get_position",
+      "type": "double",
+      "typePlain": "double",
+      "url": "motors_8h.md#function-motor_get_position",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_power",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the power drawn by the motor in Watts. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::motor_get_power",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_power",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/motors.h",
+        "line": 491
+      },
+      "name": "motor_get_power",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1adf348d43e1996a9f0fe34810a7106a40",
+      "returns": [
+        "The motor's power draw in Watts or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the power drawn by the motor in Watts. ",
+      "title": "motor_get_power",
+      "type": "double",
+      "typePlain": "double",
+      "url": "motors_8h.md#function-motor_get_power",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_temperature",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the temperature of the motor in degrees Celsius. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::motor_get_temperature",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_temperature",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/motors.h",
+        "line": 507
+      },
+      "name": "motor_get_temperature",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1af2dd1acfb47af29b6a39219324726f4e",
+      "returns": [
+        "The motor's temperature in degrees Celsius or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the temperature of the motor in degrees Celsius. ",
+      "title": "motor_get_temperature",
+      "type": "double",
+      "typePlain": "double",
+      "url": "motors_8h.md#function-motor_get_temperature",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_torque",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the torque generated by the motor in Newton Meters (Nm). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "double pros::c::motor_get_torque",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_torque",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 8,
+        "file": "pros/motors.h",
+        "line": 523
+      },
+      "name": "motor_get_torque",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ac66a8ddb9c51d2620cccf1a60742df63",
+      "returns": [
+        "The motor's torque in Nm or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the torque generated by the motor in Newton Meters (Nm). ",
+      "title": "motor_get_torque",
+      "type": "double",
+      "typePlain": "double",
+      "url": "motors_8h.md#function-motor_get_torque",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_voltage",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the voltage delivered to the motor in millivolts. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_get_voltage",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_voltage",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 539
+      },
+      "name": "motor_get_voltage",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a07b5ab6ea79cb1acd1198a737a302e36",
+      "returns": [
+        "The motor's voltage in mV or PROS_ERR_F if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the voltage delivered to the motor in millivolts. ",
+      "title": "motor_get_voltage",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_get_voltage",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_zero_position",
+      "argsString": "(uint8_t port, const double position)",
+      "brief": "Sets the position for the motor in its encoder units. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_zero_position",
+      "deleted": false,
+      "details": "This will be the future reference point for the motor's \"absolute\" position.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_zero_position",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 670
+      },
+      "name": "motor_set_zero_position",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "position",
+          "text": "The new reference position in its encoder units"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "position",
+          "type": "const double",
+          "typePlain": "const double"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a6f42e8dcf4590a6fc74c84a70cd1b1b1",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the position for the motor in its encoder units. ",
+      "title": "motor_set_zero_position",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_zero_position",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_tare_position",
+      "argsString": "(uint8_t port)",
+      "brief": "Sets the \"absolute\" zero position of the motor to its current position. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_tare_position",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_tare_position",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 686
+      },
+      "name": "motor_tare_position",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a19639a621005bd73085fcf876adc40a6",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the \"absolute\" zero position of the motor to its current position. ",
+      "title": "motor_tare_position",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_tare_position",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_brake_mode",
+      "argsString": "(uint8_t port, const motor_brake_mode_e_t mode)",
+      "brief": "Sets one of motor_brake_mode_e_t to the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_brake_mode",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_brake_mode",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 704
+      },
+      "name": "motor_set_brake_mode",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "mode",
+          "text": "The motor_brake_mode_e_t to set for the motor"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "mode",
+          "type": "const motor_brake_mode_e_t",
+          "typePlain": "const motor_brake_mode_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a0ff7ffe606163837a16f9824a1e144cc",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets one of motor_brake_mode_e_t to the motor. ",
+      "title": "motor_set_brake_mode",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_brake_mode",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_current_limit",
+      "argsString": "(uint8_t port, const int32_t limit)",
+      "brief": "Sets the current limit for the motor in mA. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_current_limit",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_current_limit",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 722
+      },
+      "name": "motor_set_current_limit",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "limit",
+          "text": "The new current limit in mA"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "limit",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a183e8b3347d77778651e474b710efb14",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the current limit for the motor in mA. ",
+      "title": "motor_set_current_limit",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_current_limit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_encoder_units",
+      "argsString": "(uint8_t port, const motor_encoder_units_e_t units)",
+      "brief": "Sets one of motor_encoder_units_e_t for the motor encoder. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_encoder_units",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_encoder_units",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 740
+      },
+      "name": "motor_set_encoder_units",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "units",
+          "text": "The new motor encoder units"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "units",
+          "type": "const motor_encoder_units_e_t",
+          "typePlain": "const motor_encoder_units_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a41fd144931ec4dd1ec0bec7418c16edf",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets one of motor_encoder_units_e_t for the motor encoder. ",
+      "title": "motor_set_encoder_units",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_encoder_units",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_gearing",
+      "argsString": "(uint8_t port, const motor_gearset_e_t gearset)",
+      "brief": "Sets one of motor_gearset_e_t for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_gearing",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_gearing",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 758
+      },
+      "name": "motor_set_gearing",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "gearset",
+          "text": "The new motor gearset"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "gearset",
+          "type": "const motor_gearset_e_t",
+          "typePlain": "const motor_gearset_e_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a1cc937fd10150c02f4f0460a34ff1be6",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets one of motor_gearset_e_t for the motor. ",
+      "title": "motor_set_gearing",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_gearing",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_convert_pid",
+      "argsString": "(double kf, double kp, double ki, double kd)",
+      "brief": "Takes in floating point values and returns a properly formatted pid struct. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "motor_pid_s_t pros::c::motor_convert_pid",
+      "deleted": false,
+      "details": "The motor_pid_s_t struct is in 4.4 format, i.e. 0x20 is 2.0, 0x21 is 2.0625, etc. This function will convert the floating point values to the nearest 4.4 value.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_convert_pid",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 15,
+        "file": "pros/motors.h",
+        "line": 783
+      },
+      "name": "motor_convert_pid",
+      "override": false,
+      "paramList": [
+        {
+          "name": "kf",
+          "text": "The feedforward constant "
+        },
+        {
+          "name": "kp",
+          "text": "The proportional constant "
+        },
+        {
+          "name": "ki",
+          "text": "The integral constant "
+        },
+        {
+          "name": "kd",
+          "text": "The derivative constant"
+        }
+      ],
+      "params": [
+        {
+          "name": "kf",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "kp",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "ki",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "kd",
+          "type": "double",
+          "typePlain": "double"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a9e3b5d0def5ba504928178abf23c80d8",
+      "returns": [
+        "A motor_pid_s_t struct formatted properly in 4.4. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Takes in floating point values and returns a properly formatted pid struct. ",
+      "title": "motor_convert_pid",
+      "type": "motor_pid_s_t",
+      "typePlain": "motor_pid_s_t",
+      "url": "motors_8h.md#function-motor_convert_pid",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_convert_pid_full",
+      "argsString": "(double kf, double kp, double ki, double kd, double filter, double limit, double threshold, double loopspeed)",
+      "brief": "Takes in floating point values and returns a properly formatted pid struct. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "motor_pid_full_s_t pros::c::motor_convert_pid_full",
+      "deleted": false,
+      "details": "The motor_pid_s_t struct is in 4.4 format, i.e. 0x20 is 2.0, 0x21 is 2.0625, etc. This function will convert the floating point values to the nearest 4.4 value.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_convert_pid_full",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 20,
+        "file": "pros/motors.h",
+        "line": 817
+      },
+      "name": "motor_convert_pid_full",
+      "override": false,
+      "paramList": [
+        {
+          "name": "kf",
+          "text": "The feedforward constant "
+        },
+        {
+          "name": "kp",
+          "text": "The proportional constant "
+        },
+        {
+          "name": "ki",
+          "text": "The integral constant "
+        },
+        {
+          "name": "kd",
+          "text": "The derivative constant "
+        },
+        {
+          "name": "filter",
+          "text": "A constant used for filtering the profile acceleration "
+        },
+        {
+          "name": "limit",
+          "text": "The integral limit "
+        },
+        {
+          "name": "threshold",
+          "text": "The threshold for determining if a position movement has reached its goal. This has no effect for velocity PID calculations. "
+        },
+        {
+          "name": "loopspeed",
+          "text": "The rate at which the PID computation is run in ms"
+        }
+      ],
+      "params": [
+        {
+          "name": "kf",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "kp",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "ki",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "kd",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "filter",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "limit",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "threshold",
+          "type": "double",
+          "typePlain": "double"
+        },
+        {
+          "name": "loopspeed",
+          "type": "double",
+          "typePlain": "double"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aa7eaca1359653a86fe25ac31d9fea9e1",
+      "returns": [
+        "A motor_pid_s_t struct formatted properly in 4.4. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Takes in floating point values and returns a properly formatted pid struct. ",
+      "title": "motor_convert_pid_full",
+      "type": "motor_pid_full_s_t",
+      "typePlain": "motor_pid_full_s_t",
+      "url": "motors_8h.md#function-motor_convert_pid_full",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_pos_pid",
+      "argsString": "(uint8_t port, const motor_pid_s_t pid)",
+      "brief": "Sets one of motor_pid_s_t for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_pos_pid",
+      "deleted": false,
+      "details": "This intended to just modify the main PID constants.\n\nOnly non-zero values of the struct will change the existing motor constants.\n\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_pos_pid",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 842
+      },
+      "name": "motor_set_pos_pid",
+      "note": [
+        "This feature is in beta, it is advised to use caution when modifying the PID values. The motor could be damaged by particularly large constants."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "pid",
+          "text": "The new motor PID constants"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "pid",
+          "type": "const motor_pid_s_t",
+          "typePlain": "const motor_pid_s_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ab0b4f1bc39192d62df335064eb1bce8d",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets one of motor_pid_s_t for the motor. ",
+      "title": "motor_set_pos_pid",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_pos_pid",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_pos_pid_full",
+      "argsString": "(uint8_t port, const motor_pid_full_s_t pid)",
+      "brief": "Sets one of motor_pid_full_s_t for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_pos_pid_full",
+      "deleted": false,
+      "details": "Only non-zero values of the struct will change the existing motor constants.\n\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_pos_pid_full",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 865
+      },
+      "name": "motor_set_pos_pid_full",
+      "note": [
+        "This feature is in beta, it is advised to use caution when modifying the PID values. The motor could be damaged by particularly large constants."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "pid",
+          "text": "The new motor PID constants"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "pid",
+          "type": "const motor_pid_full_s_t",
+          "typePlain": "const motor_pid_full_s_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a687b54bd7ab9f44648d429738218bbdd",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets one of motor_pid_full_s_t for the motor. ",
+      "title": "motor_set_pos_pid_full",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_pos_pid_full",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_vel_pid",
+      "argsString": "(uint8_t port, const motor_pid_s_t pid)",
+      "brief": "Sets one of motor_pid_s_t for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_vel_pid",
+      "deleted": false,
+      "details": "This intended to just modify the main PID constants.\n\nOnly non-zero values of the struct will change the existing motor constants.\n\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_vel_pid",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 889
+      },
+      "name": "motor_set_vel_pid",
+      "note": [
+        "This feature is in beta, it is advised to use caution when modifying the PID values. The motor could be damaged by particularly large constants."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "pid",
+          "text": "The new motor PID constants"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "pid",
+          "type": "const motor_pid_s_t",
+          "typePlain": "const motor_pid_s_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1aa9610f71331eb8d508a284af4de011bc",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets one of motor_pid_s_t for the motor. ",
+      "title": "motor_set_vel_pid",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_vel_pid",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_vel_pid_full",
+      "argsString": "(uint8_t port, const motor_pid_full_s_t pid)",
+      "brief": "Sets one of motor_pid_full_s_t for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_vel_pid_full",
+      "deleted": false,
+      "details": "Only non-zero values of the struct will change the existing motor constants.\n\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_vel_pid_full",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 912
+      },
+      "name": "motor_set_vel_pid_full",
+      "note": [
+        "This feature is in beta, it is advised to use caution when modifying the PID values. The motor could be damaged by particularly large constants."
+      ],
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "pid",
+          "text": "The new motor PID constants"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "pid",
+          "type": "const motor_pid_full_s_t",
+          "typePlain": "const motor_pid_full_s_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a8ecb787c318f55ff9fabc3f6e74c5cfc",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets one of motor_pid_full_s_t for the motor. ",
+      "title": "motor_set_vel_pid_full",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_vel_pid_full",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_reversed",
+      "argsString": "(uint8_t port, const bool reverse)",
+      "brief": "Sets the reverse flag for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_reversed",
+      "deleted": false,
+      "details": "This will invert its movements and the values returned for its position.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_reversed",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 932
+      },
+      "name": "motor_set_reversed",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "reverse",
+          "text": "True reverses the motor, false is default"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "reverse",
+          "type": "const bool",
+          "typePlain": "const bool"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a5864df7dd39cdf2f3372dfc9ae1b08ea",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the reverse flag for the motor. ",
+      "title": "motor_set_reversed",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_reversed",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_set_voltage_limit",
+      "argsString": "(uint8_t port, const int32_t limit)",
+      "brief": "Sets the voltage limit for the motor in Volts. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_set_voltage_limit",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_set_voltage_limit",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 950
+      },
+      "name": "motor_set_voltage_limit",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21 "
+        },
+        {
+          "name": "limit",
+          "text": "The new voltage limit in Volts"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        },
+        {
+          "name": "limit",
+          "type": "const int32_t",
+          "typePlain": "const int32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ab59cffbc3a50db8eb5687c1e522fb6a7",
+      "returns": [
+        "1 if the operation was successful or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Sets the voltage limit for the motor in Volts. ",
+      "title": "motor_set_voltage_limit",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_set_voltage_limit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_brake_mode",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the brake mode that was set for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "motor_brake_mode_e_t pros::c::motor_get_brake_mode",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_brake_mode",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 22,
+        "file": "pros/motors.h",
+        "line": 966
+      },
+      "name": "motor_get_brake_mode",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1af0c50aa23a8f9f6c6620676a7e0afcd8",
+      "returns": [
+        "One of motor_brake_mode_e_t, according to what was set for the motor, or E_MOTOR_BRAKE_INVALID if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the brake mode that was set for the motor. ",
+      "title": "motor_get_brake_mode",
+      "type": "motor_brake_mode_e_t",
+      "typePlain": "motor_brake_mode_e_t",
+      "url": "motors_8h.md#function-motor_get_brake_mode",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_current_limit",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the current limit for the motor in mA. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_get_current_limit",
+      "deleted": false,
+      "details": "The default value is 2500 mA.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_current_limit",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 984
+      },
+      "name": "motor_get_current_limit",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a46246323d1c5be7ed83af170c2bd1c89",
+      "returns": [
+        "The motor's current limit in mA or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the current limit for the motor in mA. ",
+      "title": "motor_get_current_limit",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_get_current_limit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_encoder_units",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the encoder units that were set for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "motor_encoder_units_e_t pros::c::motor_get_encoder_units",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_encoder_units",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 25,
+        "file": "pros/motors.h",
+        "line": 1000
+      },
+      "name": "motor_get_encoder_units",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a649a71c554225928cd9f8e2ed0bd3d6c",
+      "returns": [
+        "One of motor_encoder_units_e_t according to what is set for the motor or E_MOTOR_ENCODER_INVALID if the operation failed. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the encoder units that were set for the motor. ",
+      "title": "motor_get_encoder_units",
+      "type": "motor_encoder_units_e_t",
+      "typePlain": "motor_encoder_units_e_t",
+      "url": "motors_8h.md#function-motor_get_encoder_units",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_gearing",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the gearset that was set for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "motor_gearset_e_t pros::c::motor_get_gearing",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_gearing",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 19,
+        "file": "pros/motors.h",
+        "line": 1016
+      },
+      "name": "motor_get_gearing",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a568fdf3db5acd5a58a289222fa13788a",
+      "returns": [
+        "One of motor_gearset_e_t according to what is set for the motor, or E_GEARSET_INVALID if the operation failed. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the gearset that was set for the motor. ",
+      "title": "motor_get_gearing",
+      "type": "motor_gearset_e_t",
+      "typePlain": "motor_gearset_e_t",
+      "url": "motors_8h.md#function-motor_get_gearing",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_pos_pid",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the position PID that was set for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "motor_pid_full_s_t pros::c::motor_get_pos_pid",
+      "deleted": false,
+      "details": "This function will return zero for all of the parameters if the [motor_set_pos_pid()](namespacepros_1_1c.md#function-motor_set_pos_pid) or [motor_set_pos_pid_full()](namespacepros_1_1c.md#function-motor_set_pos_pid_full) functions have not been used.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor\n\nAdditionally, in an error state all values of the returned struct are set to their negative maximum values.",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_pos_pid",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 20,
+        "file": "pros/motors.h",
+        "line": 1037
+      },
+      "name": "motor_get_pos_pid",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ab9be127a6e437c8ea169ac351dee587e",
+      "returns": [
+        "A motor_pid_full_s_t containing the position PID constants last set to the given motor "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the position PID that was set for the motor. ",
+      "title": "motor_get_pos_pid",
+      "type": "motor_pid_full_s_t",
+      "typePlain": "motor_pid_full_s_t",
+      "url": "motors_8h.md#function-motor_get_pos_pid",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_vel_pid",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the velocity PID that was set for the motor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "motor_pid_full_s_t pros::c::motor_get_vel_pid",
+      "deleted": false,
+      "details": "This function will return zero for all of the parameters if the [motor_set_vel_pid()](namespacepros_1_1c.md#function-motor_set_vel_pid) or [motor_set_vel_pid_full()](namespacepros_1_1c.md#function-motor_set_vel_pid_full) functions have not been used.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor\n\nAdditionally, in an error state all values of the returned struct are set to their negative maximum values.",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_vel_pid",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 20,
+        "file": "pros/motors.h",
+        "line": 1058
+      },
+      "name": "motor_get_vel_pid",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1ab810fbea55d47dc839d4ae1152e39149",
+      "returns": [
+        "A motor_pid_full_s_t containing the velocity PID constants last set to the given motor "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the velocity PID that was set for the motor. ",
+      "title": "motor_get_vel_pid",
+      "type": "motor_pid_full_s_t",
+      "typePlain": "motor_pid_full_s_t",
+      "url": "motors_8h.md#function-motor_get_vel_pid",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_is_reversed",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the operation direction of the motor as set by the user. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_is_reversed",
+      "deleted": false,
+      "details": "This function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_is_reversed",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 1074
+      },
+      "name": "motor_is_reversed",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a6597ffea77e9e7e9c3bb3c3d5427c68c",
+      "returns": [
+        "1 if the motor has been reversed and 0 if the motor was not reversed, or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the operation direction of the motor as set by the user. ",
+      "title": "motor_is_reversed",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_is_reversed",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-motor_get_voltage_limit",
+      "argsString": "(uint8_t port)",
+      "brief": "Gets the voltage limit set by the user. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int32_t pros::c::motor_get_voltage_limit",
+      "deleted": false,
+      "details": "Default value is 0V, which means that there is no software limitation imposed on the voltage.\n\nThis function uses the following values of errno when an error state is reached: ENXIO - The given value is not within the range of V5 ports (1-21). ENODEV - The port cannot be configured as a motor",
+      "explicit": false,
+      "fullname": "motors.h::motor_get_voltage_limit",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 9,
+        "file": "pros/motors.h",
+        "line": 1093
+      },
+      "name": "motor_get_voltage_limit",
+      "override": false,
+      "paramList": [
+        {
+          "name": "port",
+          "text": "The V5 port number from 1-21"
+        }
+      ],
+      "params": [
+        {
+          "name": "port",
+          "type": "uint8_t",
+          "typePlain": "uint8_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "namespacepros_1_1c_1a13462c28c1a64cbcb5da656b60ee3f96",
+      "returns": [
+        "The motor's voltage limit in V or PROS_ERR if the operation failed, setting errno. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets the voltage limit set by the user. ",
+      "title": "motor_get_voltage_limit",
+      "type": "int32_t",
+      "typePlain": "int32_t",
+      "url": "motors_8h.md#function-motor_get_voltage_limit",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#enum-motor_fault_e",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_motor_fault_no_faults",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_fault_e::E_MOTOR_FAULT_NO_FAULTS",
+          "hasDetails": false,
+          "initializer": "= 0x00",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FAULT_NO_FAULTS",
+          "refid": "namespacepros_1a6a794029fb7c8da16ee9c883b3c5f1d1aa1763132e678a09c2a2299dcb8ca91f2",
+          "title": "E_MOTOR_FAULT_NO_FAULTS",
+          "url": "motors_8h.md#enumvalue-e_motor_fault_no_faults",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_fault_motor_over_temp",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_fault_e::E_MOTOR_FAULT_MOTOR_OVER_TEMP",
+          "hasDetails": false,
+          "initializer": "= 0x01",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FAULT_MOTOR_OVER_TEMP",
+          "refid": "namespacepros_1a6a794029fb7c8da16ee9c883b3c5f1d1a19697fdb3bda40d671908094d19bb816",
+          "title": "E_MOTOR_FAULT_MOTOR_OVER_TEMP",
+          "url": "motors_8h.md#enumvalue-e_motor_fault_motor_over_temp",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_fault_driver_fault",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_fault_e::E_MOTOR_FAULT_DRIVER_FAULT",
+          "hasDetails": false,
+          "initializer": "= 0x02",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FAULT_DRIVER_FAULT",
+          "refid": "namespacepros_1a6a794029fb7c8da16ee9c883b3c5f1d1a129793cdd6c08a6df63a4ce690a563e9",
+          "title": "E_MOTOR_FAULT_DRIVER_FAULT",
+          "url": "motors_8h.md#enumvalue-e_motor_fault_driver_fault",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_fault_over_current",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_fault_e::E_MOTOR_FAULT_OVER_CURRENT",
+          "hasDetails": false,
+          "initializer": "= 0x04",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FAULT_OVER_CURRENT",
+          "refid": "namespacepros_1a6a794029fb7c8da16ee9c883b3c5f1d1ad58554131e6fe018bca28e8447e9da19",
+          "title": "E_MOTOR_FAULT_OVER_CURRENT",
+          "url": "motors_8h.md#enumvalue-e_motor_fault_over_current",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_fault_drv_over_current",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_fault_e::E_MOTOR_FAULT_DRV_OVER_CURRENT",
+          "hasDetails": false,
+          "initializer": "= 0x08",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FAULT_DRV_OVER_CURRENT",
+          "refid": "namespacepros_1a6a794029fb7c8da16ee9c883b3c5f1d1a4261f9f8989960a7aed89cbc8821007c",
+          "title": "E_MOTOR_FAULT_DRV_OVER_CURRENT",
+          "url": "motors_8h.md#enumvalue-e_motor_fault_drv_over_current",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "motors.h::motor_fault_e",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 356,
+        "bodyFile": "pros/motors.h",
+        "bodyStart": 350,
+        "column": 27,
+        "file": "pros/motors.h",
+        "line": 350
+      },
+      "name": "motor_fault_e",
+      "override": false,
+      "refid": "namespacepros_1a6a794029fb7c8da16ee9c883b3c5f1d1",
+      "static": false,
+      "strong": false,
+      "title": "motor_fault_e",
+      "url": "motors_8h.md#enum-motor_fault_e",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#enum-motor_flag_e",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_motor_flags_none",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_flag_e::E_MOTOR_FLAGS_NONE",
+          "hasDetails": false,
+          "initializer": "= 0x00",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FLAGS_NONE",
+          "refid": "namespacepros_1aefb84700279103f329387cdf6cba0d2bae402dfe134784f10ef577661e751cf25",
+          "title": "E_MOTOR_FLAGS_NONE",
+          "url": "motors_8h.md#enumvalue-e_motor_flags_none",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_flags_busy",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_flag_e::E_MOTOR_FLAGS_BUSY",
+          "hasDetails": false,
+          "initializer": "= 0x01",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FLAGS_BUSY",
+          "refid": "namespacepros_1aefb84700279103f329387cdf6cba0d2bacb8e657551c89b6678660318961f8b6b",
+          "title": "E_MOTOR_FLAGS_BUSY",
+          "url": "motors_8h.md#enumvalue-e_motor_flags_busy",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_flags_zero_velocity",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_flag_e::E_MOTOR_FLAGS_ZERO_VELOCITY",
+          "hasDetails": false,
+          "initializer": "= 0x02",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FLAGS_ZERO_VELOCITY",
+          "refid": "namespacepros_1aefb84700279103f329387cdf6cba0d2ba897fee9d51039554c0cda9e061c2a3e0",
+          "title": "E_MOTOR_FLAGS_ZERO_VELOCITY",
+          "url": "motors_8h.md#enumvalue-e_motor_flags_zero_velocity",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_flags_zero_position",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_flag_e::E_MOTOR_FLAGS_ZERO_POSITION",
+          "hasDetails": false,
+          "initializer": "= 0x04",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_FLAGS_ZERO_POSITION",
+          "refid": "namespacepros_1aefb84700279103f329387cdf6cba0d2bab9db9483c159e4bb272015e6507de0ac",
+          "title": "E_MOTOR_FLAGS_ZERO_POSITION",
+          "url": "motors_8h.md#enumvalue-e_motor_flags_zero_position",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "motors.h::motor_flag_e",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 404,
+        "bodyFile": "pros/motors.h",
+        "bodyStart": 399,
+        "column": 26,
+        "file": "pros/motors.h",
+        "line": 399
+      },
+      "name": "motor_flag_e",
+      "override": false,
+      "refid": "namespacepros_1aefb84700279103f329387cdf6cba0d2b",
+      "static": false,
+      "strong": false,
+      "title": "motor_flag_e",
+      "url": "motors_8h.md#enum-motor_flag_e",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#enum-motor_brake_mode_e",
+      "brief": "Indicates the current 'brake mode' of a motor. ",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_motor_brake_coast",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_brake_mode_e::E_MOTOR_BRAKE_COAST",
+          "hasDetails": false,
+          "initializer": "= 0",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_BRAKE_COAST",
+          "refid": "namespacepros_1abe00508f1ecabf2dad6bf6d8d323fec7aa2cc502049ad45801c2ce0a4b3d2069e",
+          "title": "E_MOTOR_BRAKE_COAST",
+          "url": "motors_8h.md#enumvalue-e_motor_brake_coast",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_brake_brake",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_brake_mode_e::E_MOTOR_BRAKE_BRAKE",
+          "hasDetails": false,
+          "initializer": "= 1",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_BRAKE_BRAKE",
+          "refid": "namespacepros_1abe00508f1ecabf2dad6bf6d8d323fec7a0ea7e0574d40f6db40525bb6b7aeeba0",
+          "title": "E_MOTOR_BRAKE_BRAKE",
+          "url": "motors_8h.md#enumvalue-e_motor_brake_brake",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_brake_hold",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_brake_mode_e::E_MOTOR_BRAKE_HOLD",
+          "hasDetails": false,
+          "initializer": "= 2",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_BRAKE_HOLD",
+          "refid": "namespacepros_1abe00508f1ecabf2dad6bf6d8d323fec7aaa23ffec0b250ce72e7159b8de3d4b8d",
+          "title": "E_MOTOR_BRAKE_HOLD",
+          "url": "motors_8h.md#enumvalue-e_motor_brake_hold",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_brake_invalid",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_brake_mode_e::E_MOTOR_BRAKE_INVALID",
+          "hasDetails": false,
+          "initializer": "= INT32_MAX",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_BRAKE_INVALID",
+          "refid": "namespacepros_1abe00508f1ecabf2dad6bf6d8d323fec7a23e68282557596c84cfecf5e6ec4a023",
+          "title": "E_MOTOR_BRAKE_INVALID",
+          "url": "motors_8h.md#enumvalue-e_motor_brake_invalid",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "motors.h::motor_brake_mode_e",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 559,
+        "bodyFile": "pros/motors.h",
+        "bodyStart": 554,
+        "column": 32,
+        "file": "pros/motors.h",
+        "line": 554
+      },
+      "name": "motor_brake_mode_e",
+      "override": false,
+      "refid": "namespacepros_1abe00508f1ecabf2dad6bf6d8d323fec7",
+      "static": false,
+      "strong": false,
+      "summary": "Indicates the current 'brake mode' of a motor. ",
+      "title": "motor_brake_mode_e",
+      "url": "motors_8h.md#enum-motor_brake_mode_e",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#enum-motor_encoder_units_e",
+      "brief": "Indicates the units used by the motor encoders. ",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_motor_encoder_degrees",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_encoder_units_e::E_MOTOR_ENCODER_DEGREES",
+          "hasDetails": false,
+          "initializer": "= 0",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_ENCODER_DEGREES",
+          "refid": "namespacepros_1a6d94b540f7c22cc42ba611576350193ca3f8b78d1687e80752406e90ca3bd9caf",
+          "title": "E_MOTOR_ENCODER_DEGREES",
+          "url": "motors_8h.md#enumvalue-e_motor_encoder_degrees",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_encoder_rotations",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_encoder_units_e::E_MOTOR_ENCODER_ROTATIONS",
+          "hasDetails": false,
+          "initializer": "= 1",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_ENCODER_ROTATIONS",
+          "refid": "namespacepros_1a6d94b540f7c22cc42ba611576350193ca5ba6e5cdf81faac8a776a8ce3f735285",
+          "title": "E_MOTOR_ENCODER_ROTATIONS",
+          "url": "motors_8h.md#enumvalue-e_motor_encoder_rotations",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_encoder_counts",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_encoder_units_e::E_MOTOR_ENCODER_COUNTS",
+          "hasDetails": false,
+          "initializer": "= 2",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_ENCODER_COUNTS",
+          "refid": "namespacepros_1a6d94b540f7c22cc42ba611576350193cad1911b04d55f80e665634a2863386e86",
+          "title": "E_MOTOR_ENCODER_COUNTS",
+          "url": "motors_8h.md#enumvalue-e_motor_encoder_counts",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_encoder_invalid",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_encoder_units_e::E_MOTOR_ENCODER_INVALID",
+          "hasDetails": false,
+          "initializer": "= INT32_MAX",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_ENCODER_INVALID",
+          "refid": "namespacepros_1a6d94b540f7c22cc42ba611576350193ca4ab7c8effccd17c995a4abaf1fa4663f",
+          "title": "E_MOTOR_ENCODER_INVALID",
+          "url": "motors_8h.md#enumvalue-e_motor_encoder_invalid",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "motors.h::motor_encoder_units_e",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 572,
+        "bodyFile": "pros/motors.h",
+        "bodyStart": 564,
+        "column": 35,
+        "file": "pros/motors.h",
+        "line": 564
+      },
+      "name": "motor_encoder_units_e",
+      "override": false,
+      "refid": "namespacepros_1a6d94b540f7c22cc42ba611576350193c",
+      "static": false,
+      "strong": false,
+      "summary": "Indicates the units used by the motor encoders. ",
+      "title": "motor_encoder_units_e",
+      "url": "motors_8h.md#enum-motor_encoder_units_e",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#enum-motor_gearset_e",
+      "brief": "Indicates the current internal gear ratio of a motor. ",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-e_motor_gearset_36",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_gearset_e::E_MOTOR_GEARSET_36",
+          "hasDetails": false,
+          "initializer": "= 0",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_GEARSET_36",
+          "refid": "namespacepros_1a20a5d12701ec52a5c6bde1c3fe14ab92ad1b0135f1d6fde4ee29590836eb1b856",
+          "title": "E_MOTOR_GEARSET_36",
+          "url": "motors_8h.md#enumvalue-e_motor_gearset_36",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_gearset_18",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_gearset_e::E_MOTOR_GEARSET_18",
+          "hasDetails": false,
+          "initializer": "= 1",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_GEARSET_18",
+          "refid": "namespacepros_1a20a5d12701ec52a5c6bde1c3fe14ab92a95444ef9bee438d4bcfebb0c0a399443",
+          "title": "E_MOTOR_GEARSET_18",
+          "url": "motors_8h.md#enumvalue-e_motor_gearset_18",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_gearset_06",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_gearset_e::E_MOTOR_GEARSET_06",
+          "hasDetails": false,
+          "initializer": "= 2",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_GEARSET_06",
+          "refid": "namespacepros_1a20a5d12701ec52a5c6bde1c3fe14ab92a33f143e34739e15a553885015455db37",
+          "title": "E_MOTOR_GEARSET_06",
+          "url": "motors_8h.md#enumvalue-e_motor_gearset_06",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-e_motor_gearset_invalid",
+          "category": "types",
+          "definition": "",
+          "fullname": "motor_gearset_e::E_MOTOR_GEARSET_INVALID",
+          "hasDetails": false,
+          "initializer": "= INT32_MAX",
+          "kind": "enumvalue",
+          "name": "E_MOTOR_GEARSET_INVALID",
+          "refid": "namespacepros_1a20a5d12701ec52a5c6bde1c3fe14ab92a934f089388ca6bd6b92df6321dfbe45d",
+          "title": "E_MOTOR_GEARSET_INVALID",
+          "url": "motors_8h.md#enumvalue-e_motor_gearset_invalid",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "motors.h::motor_gearset_e",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "location": {
+        "bodyEnd": 582,
+        "bodyFile": "pros/motors.h",
+        "bodyStart": 577,
+        "column": 29,
+        "file": "pros/motors.h",
+        "line": 577
+      },
+      "name": "motor_gearset_e",
+      "override": false,
+      "refid": "namespacepros_1a20a5d12701ec52a5c6bde1c3fe14ab92",
+      "static": false,
+      "strong": false,
+      "summary": "Indicates the current internal gear ratio of a motor. ",
+      "title": "motor_gearset_e",
+      "url": "motors_8h.md#enum-motor_gearset_e",
+      "visibility": "public"
+    }
+  ],
+  "refid": "motors_8h",
+  "static": false,
+  "strong": false,
+  "title": "pros/motors.h",
+  "url": "motors_8h.md#file-motors.h",
+  "visibility": "public"
+}

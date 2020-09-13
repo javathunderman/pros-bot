@@ -1,0 +1,224 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "pros::Mutex",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "\"rtos.hpp\"",
+  "inline": false,
+  "kind": "class",
+  "location": {
+    "bodyEnd": 361,
+    "bodyFile": "pros/rtos.hpp",
+    "bodyStart": 323,
+    "column": 12,
+    "file": "pros/rtos.hpp",
+    "line": 323
+  },
+  "name": "pros::Mutex",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Get the current status of the competition control. ",
+    "category": "namespaces",
+    "fullname": "pros",
+    "kind": "namespace",
+    "name": "pros",
+    "refid": "namespacepros",
+    "summary": "Get the current status of the competition control. ",
+    "title": "pros",
+    "url": "namespacepros.md",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "brief": "Get the current status of the competition control. ",
+      "category": "namespaces",
+      "fullname": "pros",
+      "kind": "namespace",
+      "name": "pros",
+      "refid": "namespacepros",
+      "summary": "Get the current status of the competition control. ",
+      "title": "pros",
+      "url": "namespacepros.md",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-mutex",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::shared_ptr<std::remove_pointer_t<mutex_t> > mutex",
+      "explicit": false,
+      "fullname": "pros::Mutex::mutex",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "location": {
+        "bodyFile": "pros/rtos.hpp",
+        "bodyStart": 360,
+        "column": 17,
+        "file": "pros/rtos.hpp",
+        "line": 360
+      },
+      "name": "mutex",
+      "override": false,
+      "refid": "classpros_1_1Mutex_1abbacf876372ff9592f15777f84cb2663",
+      "static": false,
+      "strong": false,
+      "title": "mutex",
+      "type": "std::shared_ptr< std::remove_pointer_t< [mutex_t](namespacepros.md#typedef-mutex_t) > >",
+      "typePlain": "std::shared_ptr< std::remove_pointer_t< mutex_t > >",
+      "url": "classpros_1_1Mutex.md#variable-mutex",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-mutex",
+      "argsString": "(void)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Mutex",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pros::Mutex::Mutex",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 1,
+        "file": "pros/rtos.hpp",
+        "line": 325
+      },
+      "name": "Mutex",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Mutex_1a4d82f606394d888113e4e0f4b4212761",
+      "static": false,
+      "strong": false,
+      "title": "Mutex",
+      "url": "classpros_1_1Mutex.md#function-mutex",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-take",
+      "argsString": "(std::uint32_t timeout)",
+      "brief": "Takes and locks a mutex, waiting for up to a certain number of milliseconds before timing out. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool take",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes](https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes) for details.",
+      "explicit": false,
+      "fullname": "pros::Mutex::take",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/rtos.hpp",
+        "line": 344
+      },
+      "name": "take",
+      "override": false,
+      "paramList": [
+        {
+          "name": "timeout",
+          "text": "Time to wait before the mutex becomes available. A timeout of 0 can be used to poll the mutex. TIMEOUT_MAX can be used to block indefinitely."
+        }
+      ],
+      "params": [
+        {
+          "name": "timeout",
+          "type": "std::uint32_t",
+          "typePlain": "std::uint32_t"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Mutex_1a4ed04a4dfdab9c125ecd5b87e1d31ac7",
+      "returns": [
+        "True if the mutex was successfully taken, false otherwise. If false is returned, then errno is set with a hint about why the the mutex couldn't be taken. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Takes and locks a mutex, waiting for up to a certain number of milliseconds before timing out. ",
+      "title": "take",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "classpros_1_1Mutex.md#function-take",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-give",
+      "argsString": "(void)",
+      "brief": "Unlocks a mutex. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool give",
+      "deleted": false,
+      "details": "See [https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes](https://pros.cs.purdue.edu/v5/tutorials/topical/multitasking.html#mutexes) for details.",
+      "explicit": false,
+      "fullname": "pros::Mutex::give",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "location": {
+        "column": 6,
+        "file": "pros/rtos.hpp",
+        "line": 357
+      },
+      "name": "give",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void",
+          "typePlain": "void"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classpros_1_1Mutex_1ac486bd42d8f62af10f74de06c893c6a4",
+      "returns": [
+        "True if the mutex was successfully returned, false otherwise. If false is returned, then errno is set with a hint about why the mutex couldn't be returned. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Unlocks a mutex. ",
+      "title": "give",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "classpros_1_1Mutex.md#function-give",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classpros_1_1Mutex",
+  "static": false,
+  "strong": false,
+  "title": "pros::Mutex",
+  "url": "classpros_1_1Mutex.md",
+  "visibility": "public"
+}

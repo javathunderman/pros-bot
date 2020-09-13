@@ -1,0 +1,28 @@
+{
+  "abstract": false,
+  "anchor": "#file-index.md",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "index.md",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "location": {
+    "column": 0,
+    "file": "docs/tutorials/index.md",
+    "line": 0
+  },
+  "name": "index.md",
+  "override": false,
+  "parent": null,
+  "programlisting": "\\page tutorials Tutorials\n\nLearning a new coding platform is often a rather daunting task. For this\nreason we prepared some small tutorials with examples on how to interact\nwith core components of PROS on your VEX V5 system.\n\nThe PROS tutorials are split into three sections:\n\n# General Tutorials\n\n\\subpage general-tutorials\n\n\\copydoc general-tutorials\n\n# Walkthrough Tutorials\n\n\\subpage walkthrough-tutorials\n\n\\copydoc walkthrough-tutorials\n\n# Topical Tutorials\n\n\\subpage topical-tutorials\n\n\\copydoc topical-tutorials",
+  "refid": "tutorials_2index_8md",
+  "static": false,
+  "strong": false,
+  "title": "index.md",
+  "url": "tutorials_2index_8md.md#file-index.md",
+  "visibility": "public"
+}
